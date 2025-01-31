@@ -39,10 +39,14 @@ public class Player_Controller : MonoBehaviour
         //move check
         TurnCheck(moveX);
 
-        Vector2 targetVelocity = Vector2.zero;
-        targetVelocity = new Vector2(moveX, moveY) * (isRunning ? RunSpeed : WalkSpeed);
-        moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, Time.fixedDeltaTime);
-        rb.velocity = moveVelocity;
+        if(moveX !=0 || moveY !=0)
+        {
+           Vector2 targetVelocity = new Vector2(moveX, moveY) * (isRunning ? RunSpeed : WalkSpeed);
+            moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, Time.fixedDeltaTime);
+            rb.velocity = moveVelocity;
+        }
+        else
+            rb.velocity = Vector2.zero;
 
     }
 
