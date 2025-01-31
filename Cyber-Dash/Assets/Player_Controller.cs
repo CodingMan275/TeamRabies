@@ -32,9 +32,12 @@ public class Player_Controller : MonoBehaviour
 
     public void Move(float moveX, float moveY)
     {
-        // This is an if statement
+        // This is an if/else statement
+        // var = (condition) ? True : false ;
         moveX = (moveX > .1f || moveX < -.1f) ? moveX : 0f;
         moveY = (moveY > .1f || moveY < -.1f) ? moveY : 0f;
+
+        
 
         //move check
         TurnCheck(moveX);
