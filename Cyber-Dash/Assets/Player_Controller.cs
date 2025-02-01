@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour
 {
+
+    public int HP = 10;
+
+    public Slider HealthBar;
 
     public float WalkSpeed = 5f;
     public float RunSpeed = 8f;
@@ -27,6 +32,7 @@ public class Player_Controller : MonoBehaviour
     {
         isRunning = Input.GetButton("Run");
         Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        HealthBar.value = HP;
     }
 
 
@@ -37,7 +43,6 @@ public class Player_Controller : MonoBehaviour
         moveX = (moveX > .1f || moveX < -.1f) ? moveX : 0f;
         moveY = (moveY > .1f || moveY < -.1f) ? moveY : 0f;
 
-        
 
         //move check
         TurnCheck(moveX);
