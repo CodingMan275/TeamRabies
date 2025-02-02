@@ -9,7 +9,11 @@ public class Weapon_Controller : MonoBehaviour
 
     public Transform player_transform;
 
-    public Player_Controller player;
+    public GameObject BulletPrefab;
+
+    public Transform FirePoint;
+
+    public float BulletSpeed;
 
     Vector2 Mouse_Pos;
 
@@ -25,20 +29,24 @@ public class Weapon_Controller : MonoBehaviour
     void Update()
     {
         Mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = player_transform.transform.position;
+        if (Input.GetMouseButtonDown(0))
+        {
+            Fire();
+        }
     }
 
     private void FixedUpdate()
     {
         Vector2 aimDirection = Mouse_Pos - rb.position;
-        if (player.isRight)
-        {
-            aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg + 90f;
-        }
-        else
-        {
-            aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-        }
+        aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg + 90f;
         rb.rotation = aimAngle;
-        transform.position = player_transform.transform.position;
+        
+    }
+
+    public void Fire()
+    {
+        GameObject Bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
+        Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.up * BulletSpeed, ForceMode2D.Impulse);
     }
 }
