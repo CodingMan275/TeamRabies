@@ -15,6 +15,10 @@ public class Weapon_Controller : MonoBehaviour
 
     public float BulletSpeed;
 
+    public float BulletDelay;
+
+    float LastTimeBulletFired;
+
     Vector2 Mouse_Pos;
 
     float aimAngle;
@@ -30,9 +34,15 @@ public class Weapon_Controller : MonoBehaviour
     {
         Mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = player_transform.transform.position;
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
-            Fire();
+            float timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
+            if (timeSinceLastFiredBullet >= BulletDelay)
+            {
+                Fire();
+
+                LastTimeBulletFired = Time.time;
+            }
         }
     }
 

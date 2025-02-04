@@ -852,9 +852,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 884711904}
   player_transform: {fileID: 1699543378}
-  BulletPrefab: {fileID: 1321562750918708523, guid: 44463113b159399439196d21e88870e6, type: 3}
+  BulletPrefab: {fileID: 843936082987813954, guid: 3719308b35c94d84eabe3ddc0a9d81be, type: 3}
   FirePoint: {fileID: 359379292}
-  BulletSpeed: 4
+  BulletSpeed: 10
+  BulletDelay: 0.2
 --- !u!50 &884711904
 Rigidbody2D:
   serializedVersion: 4
