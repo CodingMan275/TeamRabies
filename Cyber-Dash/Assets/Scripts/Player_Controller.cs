@@ -14,6 +14,13 @@ public class Player_Controller : MonoBehaviour
     public float WalkSpeed = 5f;
     public float RunSpeed = 8f;
 
+    public float DashSpeed = 10f;
+    public float DashDuration = .5f;
+    public float DashCooldown = 2f;
+
+    private float ActiveDashDuration = 0f;
+    private float DashCountdownCounter = 0f;
+
     public bool isRight;
     public bool isRunning;
 
@@ -30,9 +37,28 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isRunning = Input.GetButton("Run");
+       
+        //Dashcool down
+        if (ActiveDashDuration > 0)
+        {
+            ActiveDashDuration -= Time.deltaTime;
+            if (ActiveDashDuration <= 0)
+            { 
+            DashCountdownCounter = DashCooldown;
+            }
+        }
+        else 
+        {
+         isRunning = Input.GetButton("Run");
         Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         HealthBar.value = HP;
+          
+        }
+
+        if (DashCountdownCounter > 0)
+        {
+            DashCountdownCounter -= Time.deltaTime;
+        }
     }
 
 
@@ -52,6 +78,18 @@ public class Player_Controller : MonoBehaviour
            Vector2 targetVelocity = new Vector2(moveX, moveY) * (isRunning ? RunSpeed : WalkSpeed);
             moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, Time.fixedDeltaTime);
             rb.velocity = moveVelocity;
+
+            //Dash Code
+            if (Input.GetKey(KeyCode.Space))
+            {
+                if (DashCountdownCounter <= 0 && ActiveDashDuration <= 0)
+                {
+                    rb.velocity = new Vector2(moveX, moveY) * DashSpeed;
+                    //To countodwn how long the dash is going
+                    ActiveDashDuration = DashDuration;
+                }
+            }
+
         }
         else
             rb.velocity = Vector2.zero;
@@ -73,5 +111,10 @@ public class Player_Controller : MonoBehaviour
     {
         isRight = turn;
         transform.Rotate(0f, 180f * (turn ? 1f : -1f), 0f);
+    }
+
+    private void Dash()
+    { 
+    
     }
 }
