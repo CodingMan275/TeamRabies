@@ -14,12 +14,16 @@ public class Player_Controller : MonoBehaviour
     public float WalkSpeed = 5f;
     public float RunSpeed = 8f;
 
+    //Move these variables to dash function in another script
     public float DashSpeed = 10f;
     public float DashDuration = .5f;
     public float DashCooldown = 2f;
 
-    private float ActiveDashDuration = 0f;
-    private float DashCountdownCounter = 0f;
+    private float ActiveAbilityDuration = 0f;
+    private float AbilityCountdownCounter = 0f;
+
+    //Bool for if ability locks out movement
+    private bool AbilityMovementLock = false;
 
     public bool isRight;
     public bool isRunning;
@@ -40,26 +44,44 @@ public class Player_Controller : MonoBehaviour
     void Update()
     {
        
-        //Dashcool down
-        if (ActiveDashDuration > 0)
+        //Ability that locks out movement duration
+        if (ActiveAbilityDuration > 0)
         {
-            ActiveDashDuration -= Time.deltaTime;
-            if (ActiveDashDuration <= 0)
+            ActiveAbilityDuration -= Time.deltaTime;
+            if (ActiveAbilityDuration <= 0)
             { 
-            DashCountdownCounter = DashCooldown;
+             //Countdown = Script.Ability.Cooldown;
+            AbilityCountdownCounter = DashCooldown;
             }
         }
         else 
         {
-         isRunning = Input.GetButton("Run");
-        Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        HealthBar.value = HP;
+            //Either nothing changes or movement gets unlocked
+            AbilityMovementLock = false;
+
+            //Ability code
+            //This will be chaked every frame so there is a very small window to miss the input
+              if (Input.GetKeyDown(KeyCode.Space))
+                 {
+                Dash();
+                 }
           
         }
 
-        if (DashCountdownCounter > 0)
+        //Ability cooldown decrmenent
+        if (AbilityCountdownCounter > 0)
         {
-            DashCountdownCounter -= Time.deltaTime;
+            AbilityCountdownCounter -= Time.deltaTime;
+        }
+
+       
+
+            //If not locked
+         if (!AbilityMovementLock)
+        { 
+         isRunning = Input.GetButton("Run");
+        Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        HealthBar.value = HP;
         }
     }
 
@@ -88,16 +110,6 @@ public class Player_Controller : MonoBehaviour
             rb.velocity = moveVelocity;
         }
 
-            //Dash Code
-            if (Input.GetKey(KeyCode.Space))
-            {
-                if (DashCountdownCounter <= 0 && ActiveDashDuration <= 0)
-                {
-                    rb.velocity = new Vector2(moveX, moveY) * DashSpeed;
-                    //To countodwn how long the dash is going
-                    ActiveDashDuration = DashDuration;
-                }
-            }
 
     }
 
@@ -119,7 +131,18 @@ public class Player_Controller : MonoBehaviour
     }
 
     private void Dash()
-    { 
-    
+    {
+        AbilityMovementLock = true;
+
+        //Dash Code
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (AbilityCountdownCounter <= 0 && ActiveAbilityDuration <= 0)
+            {
+                rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * DashSpeed;
+                //To countodwn how long the dash is going
+                ActiveAbilityDuration = DashDuration;
+            }
+        }
     }
 }
