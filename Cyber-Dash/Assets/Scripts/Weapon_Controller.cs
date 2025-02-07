@@ -23,17 +23,19 @@ public class Weapon_Controller : MonoBehaviour
 
     float aimAngle;
 
+    Vector3 Offset;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Offset = transform.position - player_transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         Mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = player_transform.transform.position;
+        transform.position = player_transform.transform.position + Offset;
         if (Input.GetMouseButton(0))
         {
             float timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
