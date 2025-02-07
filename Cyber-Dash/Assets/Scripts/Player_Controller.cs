@@ -25,7 +25,9 @@ public class Player_Controller : MonoBehaviour
     public bool isRunning;
 
     private Rigidbody2D rb;
-    private Vector2 moveVelocity;
+    public Vector2 moveVelocity;
+    private Vector2 targetVelocity;
+
 
     // Start is called before the first frame update
     void Start()
@@ -73,11 +75,18 @@ public class Player_Controller : MonoBehaviour
         //move check
         TurnCheck(moveX);
 
-        if(moveX !=0 || moveY !=0)
+        if (moveX == 0 && moveY == 0)
         {
-           Vector2 targetVelocity = new Vector2(moveX, moveY) * (isRunning ? RunSpeed : WalkSpeed);
+            moveVelocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
+        }
+        else
+        {
+            targetVelocity = Vector2.zero;
+            targetVelocity = new Vector2(moveX, moveY) * (isRunning ? RunSpeed : WalkSpeed);
             moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, Time.fixedDeltaTime);
             rb.velocity = moveVelocity;
+        }
 
             //Dash Code
             if (Input.GetKey(KeyCode.Space))
@@ -89,10 +98,6 @@ public class Player_Controller : MonoBehaviour
                     ActiveDashDuration = DashDuration;
                 }
             }
-
-        }
-        else
-            rb.velocity = Vector2.zero;
 
     }
 
