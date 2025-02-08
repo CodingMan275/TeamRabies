@@ -1323,7 +1323,7 @@ MonoBehaviour:
   HealthBar: {fileID: 2015161860}
   WalkSpeed: 12
   RunSpeed: 18
-  DashSpeed: 10
+  DashSpeed: 20
   DashDuration: 0.5
   DashCooldown: 2
   isRight: 0

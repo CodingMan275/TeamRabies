@@ -14,16 +14,10 @@ public class Player_Controller : MonoBehaviour
     public float WalkSpeed = 5f;
     public float RunSpeed = 8f;
 
-    //Move these variables to dash function in another script
-    public float DashSpeed = 10f;
-    public float DashDuration = .5f;
-    public float DashCooldown = 2f;
-
-    private float ActiveAbilityDuration = 0f;
-    private float AbilityCountdownCounter = 0f;
-
     //Bool for if ability locks out movement
-    private bool AbilityMovementLock = false;
+    //Making it public so it can be changable but hidden in inspector so it reduces clutter
+    [HideInInspector]
+    public bool AbilityMovementLock = false;
 
     public bool isRight;
     public bool isRunning;
@@ -38,45 +32,13 @@ public class Player_Controller : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         isRight = true;
+        GetComponent<Ability_Dash>().enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-        //Ability that locks out movement duration
-        if (ActiveAbilityDuration > 0)
-        {
-            ActiveAbilityDuration -= Time.deltaTime;
-            if (ActiveAbilityDuration <= 0)
-            { 
-             //Countdown = Script.Ability.Cooldown;
-            AbilityCountdownCounter = DashCooldown;
-            }
-        }
-        else 
-        {
-            //Either nothing changes or movement gets unlocked
-            AbilityMovementLock = false;
-
-            //Ability code
-            //This will be chaked every frame so there is a very small window to miss the input
-              if (Input.GetKeyDown(KeyCode.Space))
-                 {
-                Dash();
-                 }
-          
-        }
-
-        //Ability cooldown decrmenent
-        if (AbilityCountdownCounter > 0)
-        {
-            AbilityCountdownCounter -= Time.deltaTime;
-        }
-
-       
-
-            //If not locked
+         //If not locked
          if (!AbilityMovementLock)
         { 
          isRunning = Input.GetButton("Run");
@@ -128,21 +90,5 @@ public class Player_Controller : MonoBehaviour
     {
         isRight = turn;
         transform.Rotate(0f, 180f * (turn ? 1f : -1f), 0f);
-    }
-
-    private void Dash()
-    {
-        AbilityMovementLock = true;
-
-        //Dash Code
-        if (Input.GetKey(KeyCode.Space))
-        {
-            if (AbilityCountdownCounter <= 0 && ActiveAbilityDuration <= 0)
-            {
-                rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * DashSpeed;
-                //To countodwn how long the dash is going
-                ActiveAbilityDuration = DashDuration;
-            }
-        }
     }
 }
