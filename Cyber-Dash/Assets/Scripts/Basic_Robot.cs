@@ -19,6 +19,11 @@ public class Basic_Robot : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
     }
 
+    void Start()
+    {
+        EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>(); 
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -32,18 +37,19 @@ public class Basic_Robot : MonoBehaviour
         if (col.CompareTag("Bullet"))
         {
             if(!WasHurt)
-            StartCoroutine(FlashRed());
-            Health -= Health - 1 <= 0 ? Death() : 1;    //Replace 1 with bull damage
+            StartCoroutine(TakeDamage(1));
         }
     }
 
-    public IEnumerator FlashRed()
+    public IEnumerator TakeDamage(float dmg)
     {
         WasHurt = true;
+        Health -= Health - dmg <= 0 ? Death() : dmg;    //Replace 1 with bull damage
         render.color = new Color(255f, 0f, 0f, 255f);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.15f);
         render.color = new Color(255f, 255f, 255f, 255f);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.15f);
+        if(Health > 0)
         WasHurt = false;
     }
 
