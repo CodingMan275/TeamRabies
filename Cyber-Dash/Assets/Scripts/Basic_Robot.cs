@@ -8,7 +8,7 @@ public class Basic_Robot : MonoBehaviour
     [SerializeField] private Enemy_Counter EC;
     private SpriteRenderer render;
 
-    public float Health;
+    private float Health;
     public float MaxHealth;
     private bool WasHurt = false;
 
