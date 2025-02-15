@@ -523,6 +523,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1699543378}
   Camera_Offset: {x: 0, y: 1, z: -5}
+--- !u!1 &679708724 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3989396908741054877, guid: bcae7db5c2eade440b9f47a34032fa21, type: 3}
+  m_PrefabInstance: {fileID: 3989396910330852990}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &679708725
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679708724}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f7dab53aa920144abe16016207b94db, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &784538927
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,6 +700,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903952816}
   m_CullTransparentMesh: 1
+--- !u!1 &931210780 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3989396908664901422, guid: bcae7db5c2eade440b9f47a34032fa21, type: 3}
+  m_PrefabInstance: {fileID: 3989396910330852990}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &937756466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,6 +1059,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3989396908664901420, guid: bcae7db5c2eade440b9f47a34032fa21, type: 3}
   m_PrefabInstance: {fileID: 3989396910330852990}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1699543379
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 931210780}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f20a7eabaa7e40e47aa3daae7084c0d0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1761435847
 GameObject:
   m_ObjectHideFlags: 0
