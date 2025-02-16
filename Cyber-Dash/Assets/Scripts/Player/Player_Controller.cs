@@ -6,11 +6,6 @@ using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour
 {
-
-    public int HP = 10;
-
-    public Slider HealthBar;
-
     public float WalkSpeed = 5f;
     public float RunSpeed = 8f;
 
@@ -43,11 +38,10 @@ public class Player_Controller : MonoBehaviour
         { 
          isRunning = Input.GetButton("Run");
         Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        HealthBar.value = HP;
         }
     }
 
-
+    #region movement
     public void Move(float moveX, float moveY)
     {
         // This is an if/else statement
@@ -91,4 +85,7 @@ public class Player_Controller : MonoBehaviour
         isRight = turn;
         transform.Rotate(0f, 180f * (turn ? 1f : -1f), 0f);
     }
+
+    #endregion
+
 }

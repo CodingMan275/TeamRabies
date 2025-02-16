@@ -20,5 +20,10 @@ public class SceneController : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
-         
+
+    public void Defeat()
+    {
+        SceneManager.LoadScene(3);
+    }
+
 }
