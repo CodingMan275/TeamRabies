@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 488394523}
   - component: {fileID: 488394522}
   - component: {fileID: 488394521}
+  - component: {fileID: 7142852947036001386}
   m_Layer: 5
   m_Name: Player UI
   m_TagString: Untagged
@@ -34,7 +35,7 @@ RectTransform:
   - {fileID: 630220398}
   - {fileID: 1748632002}
   m_Father: {fileID: 3989396908741054874}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -102,6 +103,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7142852947036001386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488394519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de2fc3786f0fd3a4c9616ab46575a678, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &630220397
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +302,6 @@ GameObject:
   - component: {fileID: 1748632006}
   - component: {fileID: 1748632005}
   - component: {fileID: 1748632004}
-  - component: {fileID: 1748632003}
   m_Layer: 5
   m_Name: Enemy Count
   m_TagString: Untagged
@@ -426,22 +438,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2491f5311169c44914cf3dc1bd96e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SC: {fileID: 1748632003}
   MaxWave: 4
   Remaining: 0
   WaitTimer: 2
---- !u!114 &1748632003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1748632001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2fc3786f0fd3a4c9616ab46575a678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2056688219
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +631,6 @@ GameObject:
   - component: {fileID: 3989396908664901421}
   - component: {fileID: 3989396908664901416}
   - component: {fileID: 2875520552848931775}
-  - component: {fileID: 2416260654708526518}
   - component: {fileID: 2936199539255088796}
   m_Layer: 0
   m_Name: Player
@@ -654,7 +652,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3989396908741054874}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3989396908664901423
 SpriteRenderer:
@@ -762,7 +760,9 @@ MonoBehaviour:
   AbilityMovementLock: 0
   isRight: 0
   isRunning: 0
+  isMoving: 0
   moveVelocity: {x: 0, y: 0}
+  anim: {fileID: 0}
 --- !u!114 &3989396908664901416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,22 +791,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e284a6a77cb6942b36d2fffb7bd0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SC: {fileID: 2416260654708526518}
   MaxHP: 10
   HP: 0
   HealthBar: {fileID: 630220399}
---- !u!114 &2416260654708526518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3989396908664901422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2fc3786f0fd3a4c9616ab46575a678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &2936199539255088796
 Animator:
   serializedVersion: 4
@@ -855,9 +842,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 488394520}
   - {fileID: 3989396908664901420}
   - {fileID: 3989396910006081443}
-  - {fileID: 488394520}
   - {fileID: 4220473011518169846}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -889,13 +876,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3989396910006081442}
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 1.25, y: -0.6, z: 0}
+  m_LocalPosition: {x: 1, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3989396910546093858}
   m_Father: {fileID: 3989396908741054874}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &3989396910006081440
 SpriteRenderer:

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Enemy_Counter : MonoBehaviour
 {
-    public SceneController SC;
+    SceneController SC;
     TextMeshProUGUI Text;
     [SerializeField] private int MaxWave;
     [SerializeField] private int Remaining;
@@ -17,6 +17,7 @@ public class Enemy_Counter : MonoBehaviour
     {
         Text = GetComponent<TextMeshProUGUI>();
         Remaining = MaxWave;
+        SC = transform.GetComponent<SceneController>();
     }
 
     void Update()

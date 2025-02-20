@@ -11,20 +11,25 @@ public class Player_Controller : MonoBehaviour
 
     //Bool for if ability locks out movement
     //Making it public so it can be changable but hidden in inspector so it reduces clutter
-    [HideInInspector]
+    //[HideInInspector]
     public bool AbilityMovementLock = false;
 
     public bool isRight;
-    public bool isRunning;
+    
+    private bool isRunning;
+    private bool isMoving;
 
     private Rigidbody2D rb;
     public Vector2 moveVelocity;
     private Vector2 targetVelocity;
 
+    Animator anim;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         isRight = true;
         GetComponent<Ability_Dash>().enabled = true;
@@ -33,12 +38,15 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         //If not locked
+        anim.SetBool("Dash", AbilityMovementLock);
+
+        //If not locked
          if (!AbilityMovementLock)
-        { 
-         isRunning = Input.GetButton("Run");
-        Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        }
+         { 
+          isRunning = Input.GetButton("Run");
+          Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+         }
+
     }
 
     #region movement
@@ -48,6 +56,10 @@ public class Player_Controller : MonoBehaviour
         // var = (condition) ? True : False (else) ;
         moveX = (moveX > .1f || moveX < -.1f) ? moveX : 0f;
         moveY = (moveY > .1f || moveY < -.1f) ? moveY : 0f;
+
+        isMoving = (moveX !=0 || moveY !=0)? true : false;
+        anim.SetBool("Run", isMoving);
+
 
 
         //move check

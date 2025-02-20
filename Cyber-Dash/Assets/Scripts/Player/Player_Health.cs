@@ -1,22 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player_Health : MonoBehaviour
 {
-    public SceneController SC;
-
     public float MaxHP = 10;
     public float HP;
     private bool WasHurt = false;
     public Slider HealthBar;
     SpriteRenderer render;
+    SceneController SC;
 
     // Start is called before the first frame update
     void Start()
     {
+        SC = transform.parent.GetChild(0).GetComponent<SceneController>();
         HP = MaxHP;
         render = GetComponent<SpriteRenderer>();
     }
@@ -25,16 +26,6 @@ public class Player_Health : MonoBehaviour
     void Update()
     {
         HealthBar.value = HP;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        GameObject col = collision.gameObject;
-        if (col.CompareTag("Enemy"))
-        {
-           // if (!WasHurt)
-            //    StartCoroutine(TakeDamage(col.GetComponent<Basic_Robot>().AttackDmg));
-        }
     }
 
     public IEnumerator TakeDamage(float dmg)
