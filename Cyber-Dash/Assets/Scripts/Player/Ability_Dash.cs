@@ -53,7 +53,7 @@ public class Ability_Dash : MonoBehaviour
         }
 
         //Ability cooldown decrmenent
-        if (AbilityCountdownCounter > 0)
+        if (AbilityCountdownCounter >= 0)
         {
             AbilityCountdownCounter -= Time.deltaTime;
         }
@@ -61,17 +61,24 @@ public class Ability_Dash : MonoBehaviour
 
     private void Dash()
     {
-        player.AbilityMovementLock = true;
+        
 
         //Dash Code
-        if (Input.GetKey(KeyCode.Space))
-        {
+
             if (AbilityCountdownCounter <= 0 && ActiveAbilityDuration <= 0)
             {
+                player.AbilityMovementLock = true;
+            if (new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) == Vector2.zero)
+            {
+                rb.velocity = Vector2.right * DashSpeed * (player.isRight?1:-1);
+            }
+            else
+            {
                 rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) * DashSpeed;
+            }
                 //To countodwn how long the dash is going
                 ActiveAbilityDuration = DashDuration;
             }
-        }
+        
     }
 }

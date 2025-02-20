@@ -38,7 +38,7 @@ public class Player_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("Dash", AbilityMovementLock);
+        
 
         //If not locked
          if (!AbilityMovementLock)
@@ -47,6 +47,12 @@ public class Player_Controller : MonoBehaviour
           Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
          }
 
+
+    }
+
+    private void FixedUpdate()
+    {
+        anim.SetBool("Dash", AbilityMovementLock);
     }
 
     #region movement

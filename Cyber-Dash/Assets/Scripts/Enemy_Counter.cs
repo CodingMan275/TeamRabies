@@ -17,7 +17,7 @@ public class Enemy_Counter : MonoBehaviour
     {
         Text = GetComponent<TextMeshProUGUI>();
         Remaining = MaxWave;
-        SC = transform.GetComponent<SceneController>();
+        SC = transform.parent.GetComponent<SceneController>();
     }
 
     void Update()
