@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EC: {fileID: 0}
   MaxHealth: 5
+  Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
   target: {fileID: 3989396908741054874, guid: bcae7db5c2eade440b9f47a34032fa21, type: 3}
 --- !u!114 &5337829400149670089
 MonoBehaviour:

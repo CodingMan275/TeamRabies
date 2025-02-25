@@ -13,6 +13,8 @@ public class Basic_Robot : MonoBehaviour
     public float MaxHealth;
     private bool WasHurt = false;
 
+    public SaveData Player;
+
     [SerializeField] Transform target;
 
     NavMeshAgent agent;
@@ -64,6 +66,7 @@ public class Basic_Robot : MonoBehaviour
 
     public float Death()
     {
+        Player.killCount++;
         EC.UpdateCounter();
         Destroy(this.gameObject);
         return 0;
