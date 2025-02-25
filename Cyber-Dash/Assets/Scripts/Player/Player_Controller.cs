@@ -20,8 +20,6 @@ public class Player_Controller : MonoBehaviour
     private bool isMoving;
 
     private Rigidbody2D rb;
-    public Vector2 moveVelocity;
-    private Vector2 targetVelocity;
 
     Animator anim;
 
@@ -71,19 +69,8 @@ public class Player_Controller : MonoBehaviour
         //move check
         TurnCheck(moveX);
 
-        if (moveX == 0 && moveY == 0)
-        {
-            moveVelocity = Vector2.zero;
-            rb.velocity = Vector2.zero;
-        }
-        else
-        {
-            targetVelocity = Vector2.zero;
-            targetVelocity = new Vector2(moveX, moveY) * (isRunning ? RunSpeed : WalkSpeed);
-            moveVelocity = Vector2.Lerp(moveVelocity, targetVelocity, Time.fixedDeltaTime);
-            rb.velocity = moveVelocity;
-        }
-
+        Vector2 movement = new Vector2(moveX, moveY).normalized;
+        rb.velocity = movement * (isRunning ? RunSpeed : WalkSpeed);
 
     }
 

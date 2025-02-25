@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Basic_Robot : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class Basic_Robot : MonoBehaviour
     public float MaxHealth;
     private bool WasHurt = false;
 
+    [SerializeField] Transform target;
+
+    NavMeshAgent agent;
+
     // Called First frame when object spawns
     void Awake()
     {
@@ -22,13 +27,17 @@ public class Basic_Robot : MonoBehaviour
     void Start()
     {
         EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>(); 
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        target = GameObject.Find("Player").GetComponent<Transform>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+        agent.SetDestination(target.position);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
