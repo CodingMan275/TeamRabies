@@ -12,7 +12,9 @@ public class Player_Controller : MonoBehaviour
     //Bool for if ability locks out movement
     //Making it public so it can be changable but hidden in inspector so it reduces clutter
     //[HideInInspector]
-    public bool AbilityMovementLock = false;
+    public bool MovementLock = false;
+
+    public bool AbilityLock = false;
 
     public bool isRight;
     
@@ -39,7 +41,7 @@ public class Player_Controller : MonoBehaviour
         
 
         //If not locked
-         if (!AbilityMovementLock)
+         if (!MovementLock)
          { 
           isRunning = Input.GetButton("Run");
           Move(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -50,7 +52,7 @@ public class Player_Controller : MonoBehaviour
 
     private void FixedUpdate()
     {
-        anim.SetBool("Dash", AbilityMovementLock);
+        anim.SetBool("Dash", MovementLock);
     }
 
     #region movement

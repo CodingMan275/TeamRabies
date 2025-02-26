@@ -9,11 +9,14 @@ public class Basic_Robot : MonoBehaviour
     [SerializeField] private Enemy_Counter EC;
     private SpriteRenderer render;
 
+    public GameObject DropScrap;
     private float Health;
     public float MaxHealth;
     private bool WasHurt = false;
 
     public SaveData Player;
+
+    
 
     [SerializeField] Transform target;
 
@@ -68,6 +71,7 @@ public class Basic_Robot : MonoBehaviour
     {
         Player.killCount++;
         EC.UpdateCounter();
+        Instantiate(DropScrap, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
         return 0;
     }

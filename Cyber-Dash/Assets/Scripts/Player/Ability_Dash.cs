@@ -44,9 +44,9 @@ public class Ability_Dash : MonoBehaviour
         else
         {
             //Either nothing changes or movement gets unlocked
-            player.AbilityMovementLock = false;
+            player.MovementLock = false;
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && !player.AbilityLock)
             {
                 Dash();
             }
@@ -67,7 +67,7 @@ public class Ability_Dash : MonoBehaviour
 
             if (AbilityCountdownCounter <= 0 && ActiveAbilityDuration <= 0)
             {
-                player.AbilityMovementLock = true;
+                player.MovementLock = true;
             if (new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")) == Vector2.zero)
             {
                 rb.velocity = Vector2.right * DashSpeed * (player.isRight?1:-1);
