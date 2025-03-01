@@ -26,4 +26,9 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    public void Shop()
+    {
+        SceneManager.LoadScene(4);
+    }
+
 }
