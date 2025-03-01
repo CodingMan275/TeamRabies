@@ -17,7 +17,7 @@ public class Player_Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SC = transform.parent.GetChild(0).GetComponent<SceneController>();
+        SC = transform.GetChild(0).GetComponent<SceneController>();
         HP = MaxHP;
         render = GetComponent<SpriteRenderer>();
     }

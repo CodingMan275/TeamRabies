@@ -1,43 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Weapon_Controller : MonoBehaviour
 {
 
-    public Rigidbody2D rb;
+    Rigidbody2D rb;
+    CapsuleCollider2D col;
+    InputController IC;
+    SpriteRenderer sr;
 
-    public Transform player_transform;
+    Vector3 player;
+    public Vector2 Mouse_Pos;
+    Vector3 Spawnloc;
 
     public GameObject BulletPrefab;
 
-    public Transform FirePoint;
-
     public float BulletSpeed;
-
     public float BulletDelay;
-
     float LastTimeBulletFired;
 
-    Vector2 Mouse_Pos;
+    public float Gun_Radius;
+
 
     float aimAngle;
-
-    Vector3 Offset;
 
     // Start is called before the first frame update
     void Start()
     {
-        Offset = transform.position - player_transform.position;
+        col = GetComponent<CapsuleCollider2D>();
+        rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
+        IC = transform.parent.GetComponent<InputController>();
+        IC.OnShootPressed += Fire;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Mouse_Pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = player_transform.transform.position + Offset;
+        sr.flipY = (-90 < aimAngle && aimAngle < 90) ? false : true;
+
+        /*
         if (Input.GetMouseButton(0))
-        {
+      {
             float timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
             if (timeSinceLastFiredBullet >= BulletDelay)
             {
@@ -45,20 +51,25 @@ public class Weapon_Controller : MonoBehaviour
 
                 LastTimeBulletFired = Time.time;
             }
-        }
+      }
+        */
+      
+       player = transform.parent.position;
+       transform.position = player + new Vector3(Mathf.Cos(aimAngle * Mathf.Deg2Rad) * Gun_Radius, Mathf.Sin(aimAngle * Mathf.Deg2Rad) * Gun_Radius, 0f);
+       Spawnloc = player + new Vector3(Mathf.Cos(aimAngle * Mathf.Deg2Rad) * (Gun_Radius + col.size.x/2), Mathf.Sin(aimAngle * Mathf.Deg2Rad) * (Gun_Radius + col.size.y), 0f);
+
     }
 
     private void FixedUpdate()
     {
-        Vector2 aimDirection = Mouse_Pos - rb.position;
-        aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg + 90f;
-        rb.rotation = aimAngle;
-        
+       aimAngle = IC.AimAngle;
+       rb.rotation = aimAngle;
+ 
     }
 
     public void Fire()
     {
-        GameObject Bullet = Instantiate(BulletPrefab, FirePoint.position, FirePoint.rotation);
-        Bullet.GetComponent<Rigidbody2D>().AddForce(FirePoint.up * BulletSpeed, ForceMode2D.Impulse);
+        GameObject Bullet = Instantiate(BulletPrefab, Spawnloc, transform.rotation);
+        Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);
     }
 }
