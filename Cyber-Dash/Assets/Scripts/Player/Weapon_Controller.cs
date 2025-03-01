@@ -18,13 +18,15 @@ public class Weapon_Controller : MonoBehaviour
     public GameObject BulletPrefab;
 
     public float BulletSpeed;
-    public float BulletDelay;
+    public double BulletDelay;
     float LastTimeBulletFired;
 
     public float Gun_Radius;
 
 
     float aimAngle;
+
+    public SaveData stats;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +47,7 @@ public class Weapon_Controller : MonoBehaviour
         if (Input.GetMouseButton(0))
       {
             float timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
-            if (timeSinceLastFiredBullet >= BulletDelay)
+            if (timeSinceLastFiredBullet >= BulletDelay * stats.FireRateMod)
             {
                 Fire();
 
