@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Shop_Interactiob : MonoBehaviour
 {
-    public GameObject shop;
+    public Weapon_Controller WPC;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +22,8 @@ public class Shop_Interactiob : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
-            shop.GetComponentInChildren<Canvas>().enabled = true;
-           // shop.GetComponent<SpriteRenderer>().color = new Color(255f,255f,255f,255f);
+            collision.GetComponentInChildren<Canvas>().enabled = true;
+            WPC.CanFire = false;
         }
     }
 
@@ -30,7 +31,8 @@ public class Shop_Interactiob : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
-            shop.GetComponentInChildren<Canvas>().enabled = false;
+            collision.GetComponentInChildren<Canvas>().enabled = false;
+           WPC.CanFire = true;
         }
     }
 }

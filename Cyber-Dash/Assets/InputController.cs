@@ -25,6 +25,7 @@ public class InputController : MonoBehaviour
     private InputAction Shoot;
 
 
+
     // This is to rotate our gun to where we want to aim
     public float RotateSpeed = 200; // Speed of roataion
     public float AngleSnap = 3f;
@@ -40,12 +41,14 @@ public class InputController : MonoBehaviour
         run = pc.PlayerInput.Running;
         Dash = pc.PlayerInput.Dash;
         Shoot = pc.PlayerInput.Shoot;
+
         move.Enable();
         Maim.Enable();
         Gaim.Enable();
         run.Enable();
         Dash.Enable();
         Shoot.Enable();
+
 
     }
 
@@ -57,6 +60,7 @@ public class InputController : MonoBehaviour
         run.Disable();
         Dash.Disable();
         Shoot.Disable();
+
     }
 
     private void Awake()
@@ -82,7 +86,7 @@ public class InputController : MonoBehaviour
             OnDashPressed?.Invoke();
         }
 
-        if (Shoot.triggered)
+        if (Shoot.IsInProgress()) //Previously .triggered
         {
             OnShootPressed?.Invoke();
         }

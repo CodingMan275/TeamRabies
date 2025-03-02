@@ -9,7 +9,7 @@ public class Player_Health : MonoBehaviour
 {
     public float MaxHP = 10;
     public float HP;
-    private bool WasHurt = false;
+   // private bool WasHurt = false;
     public Slider HealthBar;
     SpriteRenderer render;
     SceneController SC;

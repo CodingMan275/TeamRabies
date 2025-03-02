@@ -5,32 +5,6 @@ using UnityEngine.UI;
 
 public class Shop_Logic : MonoBehaviour
 {
-    /*
-    public static int RapidFireCircuitCost = 1;
-    public enum Upgrades
-    { 
-    RapidFireCiruit
-    }
-
-    public static int GetCost(Upgrades upgrade)
-    {
-        switch (upgrade)
-        {
-            case Upgrades.RapidFireCiruit: return RapidFireCircuitCost;
-        }
-        return 0;
-    }
-
-
-    public static string GetName(Upgrades upgrade)
-    {
-        switch (upgrade)
-        {
-            case Upgrades.RapidFireCiruit: return "Rapid Fire Circuit";
-        }
-        return "";
-    }
-    */
 
     // Start is called before the first frame update
 
@@ -39,13 +13,36 @@ public class Shop_Logic : MonoBehaviour
     public SaveData player;
     public Transform shopUiTransform;
     public GameObject UpgradePrefab;
+    public Weapon_Controller WPC;
 
-    public Upgrade[] Upgrades;
+    public List<Upgrade> UpgradesList;
+
+
 
     void Start()
     {
-        foreach (Upgrade upgrade in Upgrades)
+        int CurrentPurchaseableNum = 1;
+
+        //Randomly get which Upgrades in show here
+
+        //Shuffle
+
+        //Pick 2?
+
+        List<Upgrade> CopyList = UpgradesList;
+
+
+        //Iterate through each random perk
+        //foreach (Upgrade upgrade in UpgradesList)
+        for(int i = 0; i < CurrentPurchaseableNum ;i++)
         {
+            int randnumpicked =  Random.Range(0, CopyList.Count);
+
+            Upgrade upgrade = CopyList[randnumpicked];
+
+            CopyList.RemoveAt(randnumpicked);
+
+            //Actually create it
             GameObject item = Instantiate(UpgradePrefab, shopUiTransform);
 
             upgrade.itemRef = item;
@@ -73,6 +70,8 @@ public class Shop_Logic : MonoBehaviour
         }
     }
 
+    
+
     public void BuyUpgrade(Upgrade upgrade)
     {
         if (player.Scrap >= upgrade.Cost)
@@ -92,6 +91,9 @@ public class Shop_Logic : MonoBehaviour
             case "Rapid Fire Circuit": player.FireRateMod *= .85;
                 break;
             case "Dodge Booster": player.DodgeCooldownMod *= .75;
+                break;
+            case "Bolt Launcher": 
+                WPC.AssignWeapon("Bolt Launcher");
                 break;
             default:
                 Debug.Log("What did you just do");

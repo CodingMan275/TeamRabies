@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Scrap
   - Shop
+  - Wall
   layers:
   - Default
   - TransparentFX

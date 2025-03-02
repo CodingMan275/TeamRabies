@@ -13,20 +13,15 @@ public class Weapon_Controller : MonoBehaviour
 
     Vector3 player;
     public Vector2 Mouse_Pos;
-    Vector3 Spawnloc;
-
-    public GameObject BulletPrefab;
-
-    public float BulletSpeed;
-    public double BulletDelay;
-    float LastTimeBulletFired;
+    [HideInInspector]
+    public Vector3 Spawnloc;
 
     public float Gun_Radius;
 
+    public bool CanFire = true;
+
 
     float aimAngle;
-
-    public SaveData stats;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +30,7 @@ public class Weapon_Controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         IC = transform.parent.GetComponent<InputController>();
-        IC.OnShootPressed += Fire;
+      //  IC.OnShootPressed += Fire;
     }
 
     // Update is called once per frame
@@ -43,18 +38,6 @@ public class Weapon_Controller : MonoBehaviour
     {
         sr.flipY = (-90 < aimAngle && aimAngle < 90) ? false : true;
 
-        /*
-        if (Input.GetMouseButton(0))
-      {
-            float timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
-            if (timeSinceLastFiredBullet >= BulletDelay * stats.FireRateMod)
-            {
-                Fire();
-
-                LastTimeBulletFired = Time.time;
-            }
-      }
-        */
       
        player = transform.parent.position;
        transform.position = player + new Vector3(Mathf.Cos(aimAngle * Mathf.Deg2Rad) * Gun_Radius, Mathf.Sin(aimAngle * Mathf.Deg2Rad) * Gun_Radius, 0f);
@@ -69,9 +52,25 @@ public class Weapon_Controller : MonoBehaviour
  
     }
 
-    public void Fire()
+    public void AssignWeapon(string Weapon)
     {
-        GameObject Bullet = Instantiate(BulletPrefab, Spawnloc, transform.rotation);
-        Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);
+        switch (Weapon)
+        {
+            case "Bolt Launcher": OnDisable();
+                GetComponent<Bolt_Launcher_Logic>().enabled = true;
+                break;
+            case "Pistol":
+                OnDisable();
+                GetComponent<Pistol_Logic>().enabled = true;
+                break;
+            default:
+                
+                break;
+        }
+    }
+    private void OnDisable()
+    {
+        GetComponent<Pistol_Logic>().enabled = false;
+        GetComponent<Bolt_Launcher_Logic>().enabled = false;
     }
 }
