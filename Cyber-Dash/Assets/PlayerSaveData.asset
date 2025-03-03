@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d06dd458699adf4f80fd5ae7e2f1c88, type: 3}
   m_Name: PlayerSaveData
   m_EditorClassIdentifier: 
-  killCount: 8
-  Scrap: 6
+  killCount: 34
+  Scrap: 14
   FireRateMod: 1
   DodgeCooldownMod: 1
+  ScrapDropMod: 1
+  explodingBullets: 1
+  UpgradePoolRound1: []
+  Round: 0

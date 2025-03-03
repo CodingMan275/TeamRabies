@@ -9,6 +9,7 @@ TagManager:
   - Scrap
   - Shop
   - Wall
+  - Explode
   layers:
   - Default
   - TransparentFX

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public SaveData bulletEffects;
+    public GameObject Explosion;
     void Start()
     {
         
@@ -18,8 +21,12 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Bullet" || collision.gameObject.tag == "Scrap"))
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy")
         {
+            if (bulletEffects.explodingBullets)
+            {
+                Instantiate(Explosion, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
     }

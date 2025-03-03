@@ -22,7 +22,7 @@ public class Enemy_Drop : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             player.Scrap++;
-            //player.Scrap += rand(minBound, maxBound);
+            //player.Scrap += rand(minBound, maxBound) * player.ScrapDropMod;
             Destroy(gameObject);
         }
     }

@@ -95,6 +95,9 @@ public class Shop_Logic : MonoBehaviour
             case "Bolt Launcher": 
                 WPC.AssignWeapon("Bolt Launcher");
                 break;
+            case "Explosive Rounds":
+                player.explodingBullets = true;
+                break;
             default:
                 Debug.Log("What did you just do");
                 break;

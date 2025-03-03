@@ -85,6 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835208eb9f09a0c43938ad188d06acca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletEffects: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+  Explosion: {fileID: 8805245656895418581, guid: 1b7144826ec3d58439ca59a2cc8d3078, type: 3}
 --- !u!212 &8833217239412164668
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -49,9 +49,9 @@ public class Ability_Dash : MonoBehaviour
             ActiveAbilityDuration -= Time.deltaTime;
             if (ActiveAbilityDuration <= 0)
             {
-                //Countdown = Script.Ability.Cooldown;
+ 
                 AbilityCountdownCounter = DashCooldown * playerUpgrades.DodgeCooldownMod;
-                //CooldownBar.value = (float)AbilityCountdownCounter;
+
             }
         }
         else
@@ -59,10 +59,6 @@ public class Ability_Dash : MonoBehaviour
             //Either nothing changes or movement gets unlocked
             player.MovementLock = false;
 
-          //  if (Input.GetKeyDown(KeyCode.Space) && !player.AbilityLock)
-        //    {
-          //      Dash();  
-            //}
         }
 
         //Ability cooldown decrmenent

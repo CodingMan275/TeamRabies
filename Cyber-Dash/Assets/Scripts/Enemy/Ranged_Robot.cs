@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Basic_Robot : MonoBehaviour
+public class Ranged_Robot : MonoBehaviour
 {
     // private variable that can be seen and edited in Unity
     [SerializeField] private Enemy_Counter EC;
@@ -43,6 +43,8 @@ public class Basic_Robot : MonoBehaviour
     void Update()
     {
         agent.SetDestination(target.position);
+        Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
+        transform.up = Direction;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
