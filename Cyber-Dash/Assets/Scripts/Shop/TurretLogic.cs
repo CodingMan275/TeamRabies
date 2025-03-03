@@ -82,6 +82,7 @@ public class TurretLogic : MonoBehaviour
     { 
     if ((timeSinceLastFiredBullet >= BulletDelay))
         {
+            print("FIRE");
             GameObject Bullet = Instantiate(BulletPrefab, Offset.transform.position, transform.rotation);
             Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BulletSpeed, ForceMode2D.Impulse);
             LastTimeBulletFired = Time.time;

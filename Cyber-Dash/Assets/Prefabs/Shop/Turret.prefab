@@ -220,6 +220,7 @@ MonoBehaviour:
   Offset: {fileID: 4682877463201841572}
   BulletSpeed: 20
   BulletDelay: 0.5
+  DeployTime: 10
   EnemyList: []
 --- !u!58 &130380547698200404
 CircleCollider2D:
@@ -236,7 +237,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 10
 --- !u!1 &7271741726968336032
 GameObject:
   m_ObjectHideFlags: 0

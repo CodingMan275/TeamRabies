@@ -6,10 +6,11 @@ using UnityEngine.AI;
 public class Basic_Robot : MonoBehaviour
 {
     // private variable that can be seen and edited in Unity
-    [SerializeField] private Enemy_Counter EC;
+    private Enemy_Counter EC;
     private SpriteRenderer render;
 
     public GameObject DropScrap;
+    [SerializeField]
     private float Health;
     public float MaxHealth;
     private bool WasHurt = false;
@@ -50,23 +51,27 @@ public class Basic_Robot : MonoBehaviour
         GameObject col = collision.gameObject;
         if (col.CompareTag("Bullet"))
         {
-            if(!WasHurt)
+            print("Bullet hit");
             StartCoroutine(TakeDamage(1));
         }
         if (col.CompareTag("Explode"))
         {
+            print("explo hit");
             StartCoroutine(TakeDamage(1));
         }
     }
 
     public IEnumerator TakeDamage(float dmg)
     {
-        WasHurt = true;
         Health -= Health - dmg <= 0 ? Death() : dmg;    //Replace 1 with bull damage
-        render.color = new Color(255f, 0f, 0f, 255f);
-        yield return new WaitForSeconds(.15f);
-        render.color = new Color(255f, 255f, 255f, 255f);
-        yield return new WaitForSeconds(.15f);
+        if (!WasHurt)
+        {
+            WasHurt = true;
+            render.color = new Color(255f, 0f, 0f, 255f);
+            yield return new WaitForSeconds(.15f);
+            render.color = new Color(255f, 255f, 255f, 255f);
+            yield return new WaitForSeconds(.15f);
+        }
         if(Health > 0)
         WasHurt = false;
     }

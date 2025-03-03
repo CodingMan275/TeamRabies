@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour
         {
             if (bulletEffects.explodingBullets)
             {
+                print("Create Explo-sion");
                 Instantiate(Explosion, transform.position, Quaternion.identity);
             }
             Destroy(gameObject);
