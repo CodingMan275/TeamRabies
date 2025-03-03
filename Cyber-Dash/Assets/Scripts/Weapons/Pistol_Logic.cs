@@ -33,7 +33,7 @@ public class Pistol_Logic : MonoBehaviour
 
     public void Fire()
     { 
-        if ((timeSinceLastFiredBullet >= BulletDelay * stats.FireRateMod) && WPC.CanFire)
+        if ((timeSinceLastFiredBullet > BulletDelay * stats.FireRateMod) && WPC.CanFire)
         {
             GameObject Bullet = Instantiate(BulletPrefab, WPC.Spawnloc, transform.rotation);
             Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);

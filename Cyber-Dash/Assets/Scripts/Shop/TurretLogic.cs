@@ -34,7 +34,7 @@ public class TurretLogic : MonoBehaviour
     void Update()
     {
 
-        timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
+       timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
        DeployTime -= Time.deltaTime;
         if (DeployTime <= 0)
         {
@@ -80,7 +80,7 @@ public class TurretLogic : MonoBehaviour
 
     public void Fire()
     { 
-    if ((timeSinceLastFiredBullet >= BulletDelay))
+    if ((timeSinceLastFiredBullet > BulletDelay))
         {
             print("FIRE");
             GameObject Bullet = Instantiate(BulletPrefab, Offset.transform.position, transform.rotation);
