@@ -528,6 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f507a93c05f4064ab96c2cbc8a67000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HowManyItemsInShop: 4
   scrapDisplay: {fileID: 843436811}
   player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
   shopUiTransform: {fileID: 781633197}
@@ -538,18 +539,22 @@ MonoBehaviour:
     Cost: 1
     Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
     itemRef: {fileID: 0}
+    Purchased: 0
   - Name: Dodge Booster
     Cost: 1
     Sprite: {fileID: -2099613956, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
     itemRef: {fileID: 0}
+    Purchased: 0
   - Name: Bolt Launcher
     Cost: 3
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     itemRef: {fileID: 0}
+    Purchased: 0
   - Name: Explosive Rounds
     Cost: 3
     Sprite: {fileID: 21300000, guid: e76bc39dceb8b72439432f8679056c92, type: 3}
     itemRef: {fileID: 0}
+    Purchased: 0
 --- !u!1 &653178531
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23400001}
   m_AnchorMax: {x: 1, y: 0.7627274}
-  m_AnchoredPosition: {x: -95855.555, y: 0}
+  m_AnchoredPosition: {x: -395762.72, y: 0}
   m_SizeDelta: {x: 0, y: -3}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &781633198

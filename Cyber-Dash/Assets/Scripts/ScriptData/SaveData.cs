@@ -20,7 +20,11 @@ public class SaveData : ScriptableObject
     //Dash
 
     public List<Upgrade> UpgradePoolRound1;
+    public List<Upgrade> UpgradePoolRound2;
+    public List<Upgrade> UpgradePoolRound3;
+    public List<Upgrade> UpgradePoolRound4;
+    public List<Upgrade> UpgradePoolRound5;
 
-    public int Round;
+    public int Round = 1;
 
 }
