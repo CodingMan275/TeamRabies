@@ -8,6 +8,7 @@ public class Shop_Logic : MonoBehaviour
 
     // Start is called before the first frame update
 
+    public int HowManyItemsInShop = 4;
 
     public GameObject scrapDisplay;
     public SaveData player;
@@ -15,32 +16,33 @@ public class Shop_Logic : MonoBehaviour
     public GameObject UpgradePrefab;
     public Weapon_Controller WPC;
 
+    //Master list of all perks
     public List<Upgrade> UpgradesList;
+
+    //Current pool of upgrades
+    List<Upgrade> pool;
+
+
 
 
 
     void Start()
     {
-        int CurrentPurchaseableNum = 1;
 
-        //Randomly get which Upgrades in show here
-
-        //Shuffle
-
-        //Pick 2?
-
-        List<Upgrade> CopyList = UpgradesList;
-
+        //The list of which items are currently in the pool
+        List<Upgrade> CopyList = new List<Upgrade>(FindPool(player.Round));
 
         //Iterate through each random perk
         //foreach (Upgrade upgrade in UpgradesList)
-        for(int i = 0; i < CurrentPurchaseableNum ;i++)
+        for(int i = 0; i < HowManyItemsInShop ;i++)
         {
+
             int randnumpicked =  Random.Range(0, CopyList.Count);
 
             Upgrade upgrade = CopyList[randnumpicked];
 
             CopyList.RemoveAt(randnumpicked);
+            //player.UpgradePoolRound1.RemoveAt(randnumpicked);
 
             //Actually create it
             GameObject item = Instantiate(UpgradePrefab, shopUiTransform);
@@ -65,19 +67,23 @@ public class Shop_Logic : MonoBehaviour
 
             item.GetComponent<Button>().onClick.AddListener(() =>
             {
-                BuyUpgrade(upgrade);
+                BuyUpgrade(upgrade, randnumpicked);
             });
         }
     }
 
     
 
-    public void BuyUpgrade(Upgrade upgrade)
+    public void BuyUpgrade(Upgrade upgrade, int randnum)
     {
         if (player.Scrap >= upgrade.Cost)
         {
             player.Scrap -= upgrade.Cost;
             scrapDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "Scrap " + player.Scrap;
+
+            //These are for 1 time purchases
+            FindPool(player.Round)[randnum].Purchased = true;
+            upgrade.itemRef.SetActive(false);
 
             ApplyUpgrade(upgrade);
         }
@@ -100,6 +106,10 @@ public class Shop_Logic : MonoBehaviour
                 break;
             default:
                 Debug.Log("What did you just do");
+                //Example code
+                //List<Upgrade> ListRef = FindPool
+                //List.Ref.Add(new Upgrade(SwagPerk, 5, SwagIcon.png))
+
                 break;
         }
     }
@@ -115,7 +125,39 @@ public class Shop_Logic : MonoBehaviour
        scrapDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "Scrap " + player.Scrap;
     }
 
+    List<Upgrade> FindPool(int round)
+    {
+        switch (round)
+        {
+            case 1:
+                return player.UpgradePoolRound1;
+            case 2:
+                return player.UpgradePoolRound2;
+            case 3:
+                return player.UpgradePoolRound3;
+            case 4:
+                return player.UpgradePoolRound4;
+            case 5:
+                return player.UpgradePoolRound5;
 
+        }
+        return UpgradesList;
+    }
+
+    void EndShopUpdate()
+    {
+        List<Upgrade> currentPool = FindPool(player.Round);
+        List<Upgrade> nextPool = FindPool(player.Round + 1);
+
+        for (int i = 0; i < currentPool.Count; i++)
+        {
+            if (!currentPool[i].Purchased)
+            {
+                nextPool.Add(currentPool[i]);
+            }
+        }
+
+    }
 }
 
 [System.Serializable]
@@ -125,4 +167,5 @@ public class Upgrade
     public int Cost;
     public Sprite Sprite;
     [HideInInspector] public GameObject itemRef;
+    [HideInInspector] public bool Purchased;
 }

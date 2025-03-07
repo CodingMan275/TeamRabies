@@ -13,10 +13,39 @@ MonoBehaviour:
   m_Name: PlayerSaveData
   m_EditorClassIdentifier: 
   killCount: 34
-  Scrap: 14
+  Scrap: 45
   FireRateMod: 1
   DodgeCooldownMod: 1
   ScrapDropMod: 1
   explodingBullets: 1
-  UpgradePoolRound1: []
-  Round: 0
+  UpgradePoolRound1:
+  - Name: Dodge Booster
+    Cost: 1
+    Sprite: {fileID: -2099613956, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    itemRef: {fileID: 0}
+    Purchased: 1
+  - Name: Explosive Rounds
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: e76bc39dceb8b72439432f8679056c92, type: 3}
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Rapid Fire Circuit
+    Cost: 1
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Bolt Launcher
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    itemRef: {fileID: 0}
+    Purchased: 0
+  UpgradePoolRound2:
+  - Name: Round2Perk
+    Cost: 2
+    Sprite: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
+    itemRef: {fileID: 0}
+    Purchased: 0
+  UpgradePoolRound3: []
+  UpgradePoolRound4: []
+  UpgradePoolRound5: []
+  Round: 1
