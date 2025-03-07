@@ -8,30 +8,49 @@ public class Enemy_Counter : MonoBehaviour
 {
     SceneController SC;
     TextMeshProUGUI Text;
-    [SerializeField] private int MaxWave;
-    [SerializeField] private int Remaining;
+    private int Enemies;
+    [SerializeField] private int Remaining = 100;
     [SerializeField] private float WaitTimer;
+    public EnemySpawner[] Spawner;
+    public GameObject[] E;
+    public bool Activate = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        Text = GetComponent<TextMeshProUGUI>();
-        Remaining = MaxWave;
+        Spawner = FindObjectsOfType<EnemySpawner>();
+        E = GameObject.FindGameObjectsWithTag("Enemy"); 
         SC = transform.parent.GetComponent<SceneController>();
+        Text = GetComponent<TextMeshProUGUI>();
+        StartCoroutine(GetRemaining());
     }
 
     void Update()
     {
-        Text.text= "Remaining: "+Remaining+" / "+MaxWave; 
+        if(Activate)
+        {
+        Text.text= "Remaining: "+Remaining+" / "+Enemies; 
         if(Remaining == 0)
             WaitTimer = WaitTimer <= 0 ? 0 : WaitTimer - Time.deltaTime;
         if (WaitTimer == 0)
-            //  SC.Victory();
             SC.Shop();
+        }
     }
 
     public void UpdateCounter()
     {
         Remaining = Remaining <= 0 ? 0 : Remaining - 1;
+    }
+
+    IEnumerator GetRemaining()
+    {
+        yield return new WaitForSeconds(.5f);
+        foreach(EnemySpawner e in Spawner)
+            Remaining += e.TotalEnemy;
+        Remaining += E.Length;
+        Enemies = Remaining;
+        print("Create Remaining");
+        Activate = true;
+
     }
 }

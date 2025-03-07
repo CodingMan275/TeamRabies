@@ -12,6 +12,7 @@ public class Bolt_Launcher_Logic : MonoBehaviour
     float timeSinceLastFiredBullet;
     public Weapon_Controller WPC;
     InputController IC;
+    public AudioSource Shoot;
 
     public SaveData stats;
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class Bolt_Launcher_Logic : MonoBehaviour
     {
         if ((timeSinceLastFiredBullet > BulletDelay * stats.FireRateMod) && WPC.CanFire)
         {
+            Shoot.Play();
             GameObject Bullet = Instantiate(BoltPrefab, WPC.Spawnloc, transform.rotation);
             Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);
             LastTimeBulletFired = Time.time;

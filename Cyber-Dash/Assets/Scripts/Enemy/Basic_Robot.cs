@@ -10,23 +10,24 @@ public class Basic_Robot : MonoBehaviour
     private SpriteRenderer render;
 
     public GameObject DropScrap;
-    [SerializeField]
     private float Health;
     public float MaxHealth;
     private bool WasHurt = false;
 
     public SaveData Player;
 
-    
-
-    [SerializeField] Transform target;
-
+    Transform target;
     NavMeshAgent agent;
+
+    [SerializeField] private float MoveDelay;
+    private float DelayTimer;
+    private bool StartDelay = false;
 
     // Called First frame when object spawns
     void Awake()
     {
         Health = MaxHealth;
+        DelayTimer = MoveDelay;
         render = GetComponent<SpriteRenderer>();
     }
 
@@ -43,7 +44,27 @@ public class Basic_Robot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(target.position);
+        if(agent.isActiveAndEnabled)
+            agent.SetDestination(target.position);
+        DelayTimer = StartDelay ? DelayTimer - Time.deltaTime : MoveDelay;
+        if(DelayTimer <=0)
+        {
+            StartDelay = false;
+            agent.enabled = true;
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+            agent.enabled = false;
+        
+    }
+
+    public void OnCollisionExit2D(Collision2D collision)
+    {
+        if (!agent.isActiveAndEnabled)
+            StartDelay = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

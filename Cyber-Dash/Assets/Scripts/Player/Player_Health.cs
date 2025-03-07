@@ -13,6 +13,7 @@ public class Player_Health : MonoBehaviour
     public Slider HealthBar;
     SpriteRenderer render;
     SceneController SC;
+    public AudioSource Hurt;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,8 @@ public class Player_Health : MonoBehaviour
 
     public IEnumerator TakeDamage(float dmg)
     {
-        HP -= HP - dmg <= 0 ? Death() : dmg;    //Replace 1 with bull damage
+        Hurt.Play();
+        HP -= HP - dmg <= 0 ? Death() : dmg;
         render.color = new Color(255f, 0f, 0f, 255f);
         yield return new WaitForSeconds(.15f);
         render.color = new Color(255f, 255f, 255f, 255f);
