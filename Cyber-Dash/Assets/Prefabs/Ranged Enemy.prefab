@@ -185,7 +185,7 @@ MonoBehaviour:
   target: {fileID: 8056955563528944122, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
   enemy_bullet: {fileID: 843936082987813954, guid: 2019ab92b6b981348b0d06607d9c6d59, type: 3}
   BulletSpeed: 10
-  BulletDelay: 0.2
+  BulletDelay: 2
 --- !u!1 &7360717835239363194
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +199,6 @@ GameObject:
   - component: {fileID: 6027743592634603009}
   - component: {fileID: 7360717835239363077}
   - component: {fileID: 648178562}
-  - component: {fileID: 5337829400149670089}
   - component: {fileID: 6943058257212433888}
   - component: {fileID: 4984484033451977960}
   - component: {fileID: 5594205021862337206}
@@ -331,21 +330,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 7
---- !u!114 &5337829400149670089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7360717835239363194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d74cb55f3bb6e041bb9266ae40b070c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackDmg: 2
-  AttackCoolDown: 3
-  CoolDownTimer: 0
 --- !u!195 &6943058257212433888
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -385,7 +369,7 @@ MonoBehaviour:
   MaxHealth: 5
   Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
   ShootRange: 16
-  RunRange: 10
+  RunRange: 13
   CanShoot: 0
   target: {fileID: 8056955563528944122, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
 --- !u!58 &5594205021862337206

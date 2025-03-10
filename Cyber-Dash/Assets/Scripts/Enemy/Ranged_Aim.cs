@@ -24,7 +24,7 @@ public class Ranged_Aim : MonoBehaviour
         timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
         Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
         transform.up = Direction;
-        if (parent.CanShoot && timeSinceLastFiredBullet > BulletDelay)
+        if (parent.CanShoot && (timeSinceLastFiredBullet > BulletDelay))
         {
             Fire();
         }

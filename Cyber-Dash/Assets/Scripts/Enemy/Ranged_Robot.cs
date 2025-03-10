@@ -20,7 +20,7 @@ public class Ranged_Robot : MonoBehaviour
 
     public int RunRange = 10;
 
-    bool running_away = false;
+    public bool running_away = false;
 
     public bool CanShoot = false;
 
@@ -61,8 +61,8 @@ public class Ranged_Robot : MonoBehaviour
             if ((Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= RunRange) && hit.collider.gameObject.tag != "Wall")
         {
             running_away = true;
-            agent.SetDestination(-Direction * 10);
-            agent.speed = 10;
+            agent.SetDestination(-Direction * 5);
+            agent.speed = 4;
             CanShoot = false;
         }
        else if ((Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= ShootRange) && hit.collider.gameObject.tag != "Wall")
