@@ -1,11 +1,10 @@
 fileFormatVersion: 2
-guid: 867fbb238d9fa2d4d8981d3e61131685
+guid: aeaa09dd267c10746b46118b5fd52379
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - DropScrap: {instanceID: 0}
-  - Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+  - player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

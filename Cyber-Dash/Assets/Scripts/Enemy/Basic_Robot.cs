@@ -10,6 +10,7 @@ public class Basic_Robot : MonoBehaviour
     private SpriteRenderer render;
 
     public GameObject DropScrap;
+    public GameObject DropEnergy;
     private float Health;
     public float MaxHealth;
     private bool WasHurt = false;
@@ -101,7 +102,11 @@ public class Basic_Robot : MonoBehaviour
     {
         Player.killCount++;
         EC.UpdateCounter();
+        int temp = Random.Range(0,1);
+        if(temp == 0)
         Instantiate(DropScrap, transform.position, Quaternion.identity);
+        else
+        Instantiate(DropEnergy, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
         return 0;
     }

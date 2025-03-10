@@ -11,6 +11,8 @@ public class Weapon_Controller : MonoBehaviour
     InputController IC;
     SpriteRenderer sr;
 
+    public SaveData SD;
+
     Vector3 player;
     public Vector2 Mouse_Pos;
     [HideInInspector]
@@ -30,6 +32,7 @@ public class Weapon_Controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         IC = transform.parent.GetComponent<InputController>();
+        AssignWeapon();
       //  IC.OnShootPressed += Fire;
     }
 
@@ -52,21 +55,20 @@ public class Weapon_Controller : MonoBehaviour
  
     }
 
-    public void AssignWeapon(string Weapon)
+    public void AssignWeapon()
     {
-        switch (Weapon)
+        OnDisable();
+
+        if (SD.Pistol)
         {
-            case "Bolt Launcher": OnDisable();
-                GetComponent<Bolt_Launcher_Logic>().enabled = true;
-                break;
-            case "Pistol":
-                OnDisable();
-                GetComponent<Pistol_Logic>().enabled = true;
-                break;
-            default:
-                
-                break;
+        GetComponent<Pistol_Logic>().enabled = true;
         }
+        else if (SD.Bolt_Launcher)
+        { 
+        GetComponent<Bolt_Launcher_Logic>().enabled = true;
+        }
+
+       
     }
     private void OnDisable()
     {

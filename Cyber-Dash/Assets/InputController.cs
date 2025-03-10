@@ -29,8 +29,8 @@ public class InputController : MonoBehaviour
     // This is to rotate our gun to where we want to aim
     public float RotateSpeed = 200; // Speed of roataion
     public float AngleSnap = 3f;
-    public float TAngle; // Where we want to aim
-    public float CAngle = 0; // where we currently are aiming
+    private float TAngle; // Where we want to aim
+    private float CAngle = 0; // where we currently are aiming
 
 
     private void OnEnable()

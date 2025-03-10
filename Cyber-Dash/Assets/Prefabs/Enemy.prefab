@@ -138,7 +138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867fbb238d9fa2d4d8981d3e61131685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropScrap: {fileID: 2143827383965784735, guid: 6f2e931c0f5a8954eaa857b58cd79f37, type: 3}
+  DropScrap: {fileID: 2143827383965784735, guid: b3a9e5a3933da7246b0f256b74bd8120, type: 3}
+  DropEnergy: {fileID: 2143827383965784735, guid: 6f2e931c0f5a8954eaa857b58cd79f37, type: 3}
   MaxHealth: 5
   Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
   MoveDelay: 1
@@ -166,7 +167,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7360717835239363194}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1.47
   m_Speed: 8
   m_Acceleration: 120
   avoidancePriority: 99
@@ -175,7 +176,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
+  m_Height: 5.63
+  m_BaseOffset: 2.76
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 1

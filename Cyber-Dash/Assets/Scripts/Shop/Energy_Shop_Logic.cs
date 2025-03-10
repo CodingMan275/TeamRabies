@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Shop_Logic : MonoBehaviour
+public class Energy_Shop_Logic : MonoBehaviour
 {
 
     // Start is called before the first frame update
@@ -29,8 +29,19 @@ public class Shop_Logic : MonoBehaviour
     void Start()
     {
 
+        //Reset perk pool
+        if(player.Round == 1)
+        {
+            player.EnergyPoolRound1 = new List<Upgrade>(player.StaticEnergyPoolRound1);
+            player.EnergyPoolRound2 = new List<Upgrade>(player.StaticEnergyPoolRound2);
+            player.EnergyPoolRound3 = new List<Upgrade>(player.StaticEnergyPoolRound3);
+            player.EnergyPoolRound4 = new List<Upgrade>(player.StaticEnergyPoolRound4);
+            player.EnergyPoolRound5 = new List<Upgrade>(player.StaticEnergyPoolRound5);
+        }
+
         //The list of which items are currently in the pool
         List<Upgrade> CopyList = new List<Upgrade>(FindPool(player.Round));
+
 
         //Iterate through each random perk
         //foreach (Upgrade upgrade in UpgradesList)
@@ -51,9 +62,10 @@ public class Shop_Logic : MonoBehaviour
 
             foreach (Transform child in item.transform)
             {
+                upgrade.Purchased = false;
                 if (child.gameObject.name == "Cost")
                 {
-                    child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Scrap Cost: " + upgrade.Cost;
+                    child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Energy Cost: " + upgrade.Cost;
                 }
                 else if (child.gameObject.name == "Name")
                 {
@@ -63,7 +75,13 @@ public class Shop_Logic : MonoBehaviour
                 {
                     child.gameObject.GetComponent<Image>().sprite = upgrade.Sprite;
                 }
+                else if (child.gameObject.name == "Description")
+                {
+                    child.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = upgrade.Description;
+                }
             }
+
+
 
             item.GetComponent<Button>().onClick.AddListener(() =>
             {
@@ -72,14 +90,25 @@ public class Shop_Logic : MonoBehaviour
         }
     }
 
+    void ShowDescription()
+    { 
+
+    }
+
+    void HideDescription()
+    { 
+    
+    }
+
+    
     
 
     public void BuyUpgrade(Upgrade upgrade, int randnum)
     {
-        if (player.Scrap >= upgrade.Cost)
+        if (player.Energy >= upgrade.Cost)
         {
-            player.Scrap -= upgrade.Cost;
-            scrapDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "Scrap " + player.Scrap;
+            player.Energy -= upgrade.Cost;
+            scrapDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "Energy " + player.Energy;
 
             //These are for 1 time purchases
             FindPool(player.Round)[randnum].Purchased = true;
@@ -97,9 +126,6 @@ public class Shop_Logic : MonoBehaviour
             case "Rapid Fire Circuit": player.FireRateMod *= .85;
                 break;
             case "Dodge Booster": player.DodgeCooldownMod *= .75;
-                break;
-            case "Bolt Launcher": 
-                WPC.AssignWeapon("Bolt Launcher");
                 break;
             case "Explosive Rounds":
                 player.explodingBullets = true;
@@ -122,29 +148,50 @@ public class Shop_Logic : MonoBehaviour
 
     private void OnGUI()
     {
-       scrapDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "Scrap " + player.Scrap;
+       scrapDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "Energy " + player.Scrap;
     }
 
-    List<Upgrade> FindPool(int round)
+  List<Upgrade> FindPool(int round)
     {
         switch (round)
         {
             case 1:
-                return player.UpgradePoolRound1;
+                return player.EnergyPoolRound1;
             case 2:
-                return player.UpgradePoolRound2;
+                return player.EnergyPoolRound2;
             case 3:
-                return player.UpgradePoolRound3;
+                return player.EnergyPoolRound3;
             case 4:
-                return player.UpgradePoolRound4;
+                return player.EnergyPoolRound4;
             case 5:
-                return player.UpgradePoolRound5;
+                return player.EnergyPoolRound5;
 
         }
         return UpgradesList;
     }
+    
+    List<Upgrade> FindStaticPool(int round)
+    {
+        switch (round)
+        {
+            case 1:
+                return player.StaticEnergyPoolRound1;
+            case 2:
+                return player.StaticEnergyPoolRound2;
+            case 3:
+                return player.StaticEnergyPoolRound3;
+            case 4:
+                return player.StaticEnergyPoolRound4;
+            case 5:
+                return player.StaticEnergyPoolRound5;
 
-    void EndShopUpdate()
+        }
+        return UpgradesList;
+    }
+    
+
+    //Only call once shopping is over
+  public void EndShopUpdate()
     {
         List<Upgrade> currentPool = FindPool(player.Round);
         List<Upgrade> nextPool = FindPool(player.Round + 1);
@@ -155,8 +202,13 @@ public class Shop_Logic : MonoBehaviour
             {
                 nextPool.Add(currentPool[i]);
             }
+
         }
 
+        //if round == 3
+        //nextPool.removeAll(WeakPerk);
+        //ect, ect.
+ 
     }
 }
 
@@ -166,6 +218,7 @@ public class Upgrade
     public string Name;
     public int Cost;
     public Sprite Sprite;
+    public string Description;
     [HideInInspector] public GameObject itemRef;
     [HideInInspector] public bool Purchased;
 }

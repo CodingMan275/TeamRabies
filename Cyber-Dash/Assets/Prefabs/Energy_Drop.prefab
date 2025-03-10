@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 834045006832744939}
   - component: {fileID: 6383733585520863152}
   - component: {fileID: 1652555937323570176}
-  - component: {fileID: -2770827557583064979}
+  - component: {fileID: -2676374710766375103}
   m_Layer: 0
-  m_Name: Enemy Drop
+  m_Name: Energy_Drop
   m_TagString: Scrap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.9716981, g: 0.957699, b: 0.050418302, a: 1}
+  m_Color: {r: 0.0509804, g: 0.972549, b: 0.8121317, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.21133333}
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-2770827557583064979
+--- !u!114 &-2676374710766375103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2143827383965784735}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a2952af97fd93046a330abbbc5a99e0, type: 3}
+  m_Script: {fileID: 11500000, guid: aeaa09dd267c10746b46118b5fd52379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
