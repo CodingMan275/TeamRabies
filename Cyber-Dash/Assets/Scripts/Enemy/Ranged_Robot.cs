@@ -32,7 +32,7 @@ public class Ranged_Robot : MonoBehaviour
     void Start()
     {
         EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>(); 
-        agent = GetComponent<NavMeshAgent>();
+        agent = GetComponentInParent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         target = GameObject.Find("Player").GetComponent<Transform>();
@@ -43,8 +43,15 @@ public class Ranged_Robot : MonoBehaviour
     void Update()
     {
         agent.SetDestination(target.position);
-        Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
-        transform.up = Direction;
+        //  Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
+        //transform.up = Direction;
+        if (Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= 13)
+        {
+            agent.speed = 0; ;
+        }
+        else {
+            agent.speed = 3.5f;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

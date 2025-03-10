@@ -51,20 +51,20 @@ public class Basic_Robot : MonoBehaviour
         if(DelayTimer <=0)
         {
             StartDelay = false;
-            agent.enabled = true;
+            agent.speed = 8f;
         }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Player"))
-            agent.enabled = false;
+            agent.speed = 0;
         
     }
 
     public void OnCollisionExit2D(Collision2D collision)
     {
-        if (!agent.isActiveAndEnabled)
+        if (agent.speed == 0)
             StartDelay = true;
     }
 
