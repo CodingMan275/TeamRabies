@@ -16,6 +16,14 @@ public class Ranged_Robot : MonoBehaviour
 
     public SaveData Player;
 
+    public int ShootRange = 16;
+
+    public int RunRange = 10;
+
+    bool running_away = false;
+
+    public bool CanShoot = false;
+
     
 
     [SerializeField] Transform target;
@@ -42,17 +50,33 @@ public class Ranged_Robot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(target.position);
-        //  Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
-        //transform.up = Direction;
-        if (Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= 13)
+        if (!running_away)
+        {
+            agent.SetDestination(target.position);
+        }
+           Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
+           Ray ray = new Ray(transform.position, (target.position - transform.position).normalized * 10);
+           RaycastHit2D hit = Physics2D.Raycast(transform.position, Direction);
+                //transform.up = Direction;
+            if ((Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= RunRange) && hit.collider.gameObject.tag != "Wall")
+        {
+            running_away = true;
+            agent.SetDestination(-Direction * 10);
+            agent.speed = 10;
+            CanShoot = false;
+        }
+       else if ((Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= ShootRange) && hit.collider.gameObject.tag != "Wall")
         {
             agent.speed = 0; ;
+            CanShoot = true;
         }
         else {
+            running_away = false;
             agent.speed = 3.5f;
+            CanShoot = false;   
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

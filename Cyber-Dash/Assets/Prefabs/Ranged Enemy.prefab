@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1030124874402416542}
   - component: {fileID: 993936465600583666}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0, g: 0.5407865, b: 1, a: 1}
   m_FlipX: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3160069108066964546}
   - component: {fileID: 4765044433139743774}
   - component: {fileID: 8144778918350787252}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2729583168063078327}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.37, y: 2.67, z: 0}
+  m_LocalPosition: {x: -0.01, y: 2.67, z: 0}
   m_LocalScale: {x: 0.5097818, y: 1.2550882, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -158,7 +158,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.9339623, g: 0.057271298, b: 0.057271298, a: 1}
   m_FlipX: 0
@@ -183,6 +183,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 8056955563528944122, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+  enemy_bullet: {fileID: 843936082987813954, guid: 2019ab92b6b981348b0d06607d9c6d59, type: 3}
+  BulletSpeed: 10
+  BulletDelay: 0.2
 --- !u!1 &7360717835239363194
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +203,7 @@ GameObject:
   - component: {fileID: 6943058257212433888}
   - component: {fileID: 4984484033451977960}
   - component: {fileID: 5594205021862337206}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ranged Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -355,7 +358,7 @@ NavMeshAgent:
   m_Radius: 3.5
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 99
   m_AngularSpeed: 120
   m_StoppingDistance: 2.2
   m_AutoTraverseOffMeshLink: 1
@@ -364,7 +367,7 @@ NavMeshAgent:
   m_Height: 5.42
   m_BaseOffset: 2.07
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &4984484033451977960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +384,9 @@ MonoBehaviour:
   DropScrap: {fileID: 2143827383965784735, guid: 6f2e931c0f5a8954eaa857b58cd79f37, type: 3}
   MaxHealth: 5
   Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+  ShootRange: 16
+  RunRange: 10
+  CanShoot: 0
   target: {fileID: 8056955563528944122, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
 --- !u!58 &5594205021862337206
 CircleCollider2D:

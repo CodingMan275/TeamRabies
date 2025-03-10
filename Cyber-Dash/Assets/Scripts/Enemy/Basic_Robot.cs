@@ -45,7 +45,7 @@ public class Basic_Robot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(agent.isActiveAndEnabled)
+        if(agent.speed != 0)
             agent.SetDestination(target.position);
         DelayTimer = StartDelay ? DelayTimer - Time.deltaTime : MoveDelay;
         if(DelayTimer <=0)

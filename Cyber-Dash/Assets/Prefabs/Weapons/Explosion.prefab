@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8294809610150333405}
   - component: {fileID: 7589902065532868074}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Triangle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7857325310301844403}
   - component: {fileID: 1944104737016513779}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Triangle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1791729588357228791}
   - component: {fileID: 8448501539914429281}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 4381161873600053478}
   - component: {fileID: 1518877878906200781}
   - component: {fileID: 8782835045873235866}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Explosion
   m_TagString: Explode
   m_Icon: {fileID: 0}
