@@ -10,6 +10,7 @@ TagManager:
   - Shop
   - Wall
   - Explode
+  - Enemy Bullet
   layers:
   - Default
   - TransparentFX

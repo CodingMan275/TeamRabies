@@ -17,8 +17,11 @@ public class Basic_Robot : MonoBehaviour
 
     public SaveData Player;
 
+    Rigidbody2D rb;
+
     Transform target;
     NavMeshAgent agent;
+
 
     [SerializeField] private float MoveDelay;
     private float DelayTimer;
@@ -34,6 +37,7 @@ public class Basic_Robot : MonoBehaviour
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>(); 
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
@@ -45,20 +49,26 @@ public class Basic_Robot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(agent.speed != 0)
-            agent.SetDestination(target.position);
+       if(agent.speed != 0)
+        agent.SetDestination(target.position);
+            
         DelayTimer = StartDelay ? DelayTimer - Time.deltaTime : MoveDelay;
         if(DelayTimer <=0)
         {
             StartDelay = false;
             agent.speed = 8f;
+           
         }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
+        {
             agent.speed = 0;
+            agent.SetDestination(-target.position);
+
+        }
         
     }
 
@@ -81,6 +91,7 @@ public class Basic_Robot : MonoBehaviour
             print("explo hit");
             StartCoroutine(TakeDamage(1));
         }
+
     }
 
     public IEnumerator TakeDamage(float dmg)
