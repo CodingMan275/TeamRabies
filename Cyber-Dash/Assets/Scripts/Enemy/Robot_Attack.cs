@@ -35,7 +35,7 @@ public class Robot_Attack : MonoBehaviour
         if(col.CompareTag("Player"))
         {
                 Player = col;
-                StartCoroutine(col.GetComponent<Player_Health>().TakeDamage(AttackDmg));
+                col.GetComponent<Player_Health>().TakeDamage(AttackDmg);
                 CanAttack = Timer = true;
             
         }
@@ -49,7 +49,7 @@ public class Robot_Attack : MonoBehaviour
 
     IEnumerator Attack()
     {
-       StartCoroutine(Player.GetComponent<Player_Health>().TakeDamage(AttackDmg));
+       Player.GetComponent<Player_Health>().TakeDamage(AttackDmg);
        yield return new WaitForSeconds(.15f);
         Timer = true;
 

@@ -12,7 +12,12 @@ public class Bolt_Launcher_Logic : MonoBehaviour
     float timeSinceLastFiredBullet;
     public Weapon_Controller WPC;
     InputController IC;
+
+    [Range(1, 5)] public int ALFEVocal = 1;
     public AudioSource Shoot;
+    public AudioSource Voice;
+    public AudioClip[] PistolSound;
+    private bool CanScream = true;
 
     public SaveData stats;
     // Start is called before the first frame update
@@ -21,7 +26,6 @@ public class Bolt_Launcher_Logic : MonoBehaviour
         IC = transform.parent.GetComponent<InputController>();
         WPC = GetComponent<Weapon_Controller>();
         IC.OnShootPressed += Fire;
-        //stats = 
     }
 
     // Update is called once per frame
@@ -34,15 +38,33 @@ public class Bolt_Launcher_Logic : MonoBehaviour
     {
         if ((timeSinceLastFiredBullet > BulletDelay * stats.FireRateMod) && WPC.CanFire)
         {
-            Shoot.Play();
             GameObject Bullet = Instantiate(BoltPrefab, WPC.Spawnloc, transform.rotation);
             Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);
             LastTimeBulletFired = Time.time;
+            StartCoroutine(Bang());
         }
     }
 
     private void OnDisable()
     {
         IC.OnShootPressed -= Fire;
+    }
+
+    private IEnumerator Bang()
+    {
+        Shoot.clip = PistolSound[0];
+        Shoot.Play();
+        yield return new WaitForSeconds(PistolSound[0].length);
+        if (Random.Range(0, ALFEVocal) == 0 && CanScream)
+        {
+            CanScream = false;
+            int voice = Random.Range(1, 3);
+            Voice.clip = PistolSound[voice];
+            Voice.Play();
+            yield return new WaitForSeconds(PistolSound[voice].length);
+            CanScream = true;
+        }
+        yield return new WaitForSeconds(0.5f);
+
     }
 }

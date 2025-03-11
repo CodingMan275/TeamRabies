@@ -122,4 +122,12 @@ public class InputController : MonoBehaviour
 
         AimAngle = CAngle;
     }
+
+    public void CanShoot(bool canFire)
+    {
+        if (canFire)
+            Shoot.Enable();
+        else
+            Shoot.Disable();
+    }
 }
