@@ -26,7 +26,7 @@ public class Enemy_Bullet : MonoBehaviour
             if (collision.gameObject.tag == "Player")
             {
                 Player = col;
-                StartCoroutine(col.GetComponent<Player_Health>().TakeDamage(AttackDmg));
+               col.GetComponent<Player_Health>().TakeDamage(AttackDmg);
             }
             Destroy(gameObject);
         }

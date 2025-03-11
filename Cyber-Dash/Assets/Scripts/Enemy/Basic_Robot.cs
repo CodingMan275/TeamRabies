@@ -17,7 +17,7 @@ public class Basic_Robot : MonoBehaviour
 
     public SaveData Player;
 
-    Rigidbody2D rb;
+   // public bool playerInRange;
 
     Transform target;
     NavMeshAgent agent;
@@ -37,7 +37,7 @@ public class Basic_Robot : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+     //   rb = GetComponent<Rigidbody2D>();
         EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>(); 
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
@@ -56,7 +56,11 @@ public class Basic_Robot : MonoBehaviour
         if(DelayTimer <=0)
         {
             StartDelay = false;
-            agent.speed = 8f;
+           float dist = Mathf.Abs(Vector3.Distance(target.position, transform.position));
+            if(dist > 5.5)
+            {
+                agent.speed = 8f;
+            }
            
         }
     }
@@ -66,7 +70,8 @@ public class Basic_Robot : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             agent.speed = 0;
-            agent.SetDestination(-target.position);
+           // playerInRange = true;
+          //  agent.SetDestination(-target.position);
 
         }
         
@@ -75,7 +80,10 @@ public class Basic_Robot : MonoBehaviour
     public void OnCollisionExit2D(Collision2D collision)
     {
         if (agent.speed == 0)
+        {
             StartDelay = true;
+           // playerInRange = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
