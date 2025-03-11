@@ -25,6 +25,8 @@ public class Player_Controller : MonoBehaviour
 
     Animator anim;
 
+    public AudioSource Walk;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,7 @@ public class Player_Controller : MonoBehaviour
     void Update()
     {
         anim.SetFloat("RunSpeed" , IC.isRunning?(RunSpeed/WalkSpeed):1f);
+        Walk.volume = isMoving ? 1: 0;
     }
 
     private void FixedUpdate()
