@@ -30,7 +30,11 @@ public class ExitShop : MonoBehaviour
             SSL.EndShopUpdate();
             print("Entered");
             SD.Round++;
-            SC.StartGame();
+            if (SD.Round == 2)
+            {
+                SC.Arena2();
+            }
+           // SC.StartGame();
         }
     }
 }

@@ -121,7 +121,7 @@ public class Basic_Robot : MonoBehaviour
     {
         Player.killCount++;
         EC.UpdateCounter();
-        int temp = Random.Range(0,1);
+        int temp = Random.Range(0,2);
         if(temp == 0)
         Instantiate(DropScrap, transform.position, Quaternion.identity);
         else
