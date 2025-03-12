@@ -339,7 +339,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7360717835239363194}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 3.5
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 99
@@ -348,10 +348,10 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 5.42
-  m_BaseOffset: 2.07
+  m_Height: 6
+  m_BaseOffset: 2.32
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &4984484033451977960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,7 +370,9 @@ MonoBehaviour:
   Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
   ShootRange: 16
   RunRange: 13
+  running_away: 0
   CanShoot: 0
+  gunTransform: {fileID: 3160069108066964546}
   target: {fileID: 8056955563528944122, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
 --- !u!58 &5594205021862337206
 CircleCollider2D:

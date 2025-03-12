@@ -24,6 +24,8 @@ public class Ranged_Robot : MonoBehaviour
 
     public bool CanShoot = false;
 
+   [SerializeField ]private Transform gunTransform;
+
     
 
     [SerializeField] Transform target;
@@ -54,21 +56,16 @@ public class Ranged_Robot : MonoBehaviour
         {
             agent.SetDestination(target.position);
         }
-           Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
-           Ray ray = new Ray(transform.position, (target.position - transform.position).normalized * 10);
-           RaycastHit2D hit = Physics2D.Raycast(transform.position, Direction);
+           Vector3 Direction = new Vector3(target.position.x - gunTransform.position.x, target.position.y - gunTransform.position.y);
+           Ray ray = new Ray(gunTransform.position, (target.position - gunTransform.position).normalized * 10);
+           RaycastHit2D hit = Physics2D.Raycast(gunTransform.position, Direction);
+           Debug.DrawRay(gunTransform.position,Direction, Color.green);
                 //transform.up = Direction;
-            if ((Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= RunRange) && hit.collider.gameObject.tag != "Wall")
-        {
-            running_away = true;
-            agent.SetDestination(-Direction * 5);
-            agent.speed = 4;
-            CanShoot = false;
-        }
-       else if ((Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= ShootRange) && hit.collider.gameObject.tag != "Wall")
+       if ((Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= ShootRange) && hit.collider.gameObject.tag != "Wall")
         {
             agent.speed = 0; ;
             CanShoot = true;
+            running_away = false;
         }
         else {
             running_away = false;

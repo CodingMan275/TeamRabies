@@ -10,7 +10,7 @@ public class Ranged_Aim : MonoBehaviour
     public float BulletSpeed;
     public double BulletDelay;
     float LastTimeBulletFired;
-    float timeSinceLastFiredBullet;
+    double timeSinceLastFiredBullet;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,14 @@ public class Ranged_Aim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
+        if (parent.CanShoot)
+        {
+            timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
+        }
+        else
+        {
+            timeSinceLastFiredBullet = BulletDelay;
+        }
         Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
         transform.up = Direction;
         if (parent.CanShoot && (timeSinceLastFiredBullet > BulletDelay))
