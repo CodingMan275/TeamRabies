@@ -555,6 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2fc3786f0fd3a4c9616ab46575a678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SD: {fileID: 0}
 --- !u!1 &3377310738198941434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,8 +2091,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86bd12cf6dfb26641bdcd989158f79eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 1000
-  AngleSnap: 90
+  RotateSpeed: 800
+  AngleSnap: 30
 --- !u!114 &2018835110423734426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2117,7 +2118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e284a6a77cb6942b36d2fffb7bd0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHP: 20
+  MaxHP: 40
   HP: 0
   HealthBar: {fileID: 3251567427882774435}
   ALFEVocal: 1
