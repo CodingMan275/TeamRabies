@@ -45,7 +45,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
 
         //Iterate through each random perk
         //foreach (Upgrade upgrade in UpgradesList)
-        for(int i = 0; i < HowManyItemsInShop ;i++)
+        for(int i = 0; i < 1 ;i++)
         {
 
             int randnumpicked =  Random.Range(0, CopyList.Count);
