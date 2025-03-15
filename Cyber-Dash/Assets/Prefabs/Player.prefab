@@ -649,9 +649,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 40
   m_WholeNumbers: 1
-  m_Value: 10
+  m_Value: 40
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1882,7 +1882,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8056955563528944122}
   - component: {fileID: 8056955563528944125}
-  - component: {fileID: 8056955563528944124}
   - component: {fileID: 8056955563528944127}
   - component: {fileID: 8056955563528944123}
   - component: {fileID: 8056955563528944067}
@@ -1970,22 +1969,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &8056955563528944124
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8056955563528944069}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.6, y: 0.97}
-  m_Direction: 0
 --- !u!50 &8056955563528944127
 Rigidbody2D:
   serializedVersion: 4
@@ -2106,6 +2089,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WPC: {fileID: 8056955563487024750}
+  E:
+  - {fileID: 0}
+  - {fileID: 0}
+  EV: {fileID: 0}
+  IC: {fileID: 8056955563528944120}
+  shopPos: 0
+  size: 0
 --- !u!114 &8056955563528944064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2435,7 +2425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5672786075041879811
 RectTransform:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class Energy_Shop_Logic : MonoBehaviour
     public Transform shopUiTransform;
     public GameObject UpgradePrefab;
     public Weapon_Controller WPC;
+    public Shop_Interactiob SB;
 
     //Master list of all perks
     public List<Upgrade> UpgradesList;
@@ -115,6 +116,7 @@ public class Energy_Shop_Logic : MonoBehaviour
             upgrade.itemRef.SetActive(false);
 
             ApplyUpgrade(upgrade);
+            SB.Buy();
         }
     }
 

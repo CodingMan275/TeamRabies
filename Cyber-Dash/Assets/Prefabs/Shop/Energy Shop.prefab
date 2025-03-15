@@ -477,7 +477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23400001}
   m_AnchorMax: {x: 1, y: 0.7627274}
-  m_AnchoredPosition: {x: -1725450.4, y: 0}
+  m_AnchoredPosition: {x: -140510.42, y: 0}
   m_SizeDelta: {x: 0, y: -3}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &9203750604469100010
@@ -656,6 +656,7 @@ MonoBehaviour:
   shopUiTransform: {fileID: 9203750604469100008}
   UpgradePrefab: {fileID: 6965850824913105004, guid: 9bb64b870671f2047bd5a6b599725f5c, type: 3}
   WPC: {fileID: 0}
+  SB: {fileID: 0}
   UpgradesList:
   - Name: Rapid Fire Circuit
     Cost: 1

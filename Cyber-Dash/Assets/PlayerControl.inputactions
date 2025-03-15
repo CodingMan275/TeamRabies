@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "Hold(duration=0.02)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ShopSwitch",
+                    "type": "Value",
+                    "id": "a392a8c2-1127-473e-8082-ec8d6dfa2679",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -269,6 +278,39 @@
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "212dab96-a21e-497d-bc1a-0ad60d812651",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShopSwitch",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "7466fbce-1988-4cf8-b624-4e8512449251",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShopSwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "44cff45c-b1e2-43c2-a979-f03ce755fe80",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShopSwitch",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

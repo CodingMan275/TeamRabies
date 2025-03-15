@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d06dd458699adf4f80fd5ae7e2f1c88, type: 3}
   m_Name: PlayerSaveData
   m_EditorClassIdentifier: 
-  killCount: 307
+  killCount: 391
   Scrap: 132
-  Energy: 13
-  FireRateMod: 1
+  Energy: 78
+  FireRateMod: 0.5
   DodgeCooldownMod: 1
   ScrapDropMod: 1
-  explodingBullets: 0
+  explodingBullets: 1
   Pistol: 1
   Bolt_Launcher: 0
   Shotgun: 0
@@ -67,7 +67,181 @@ MonoBehaviour:
     Description: Create a small explosion when bullets hit their end
     itemRef: {fileID: 0}
     Purchased: 0
-  EnergyPoolRound3: []
+  - Name: Rapid Fire Circuit
+    Cost: 1
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: Increase Fire Rate by 15%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 1
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: Decrease Dash cooldown by 25%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: Create a small explosion when bullets hit their end
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Rapid Fire Circuit
+    Cost: 1
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: Increase Fire Rate by 15%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 1
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: Decrease Dash cooldown by 25%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: Create a small explosion when bullets hit their end
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Rapid Fire Circuit
+    Cost: 1
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: Increase Fire Rate by 15%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 1
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: Decrease Dash cooldown by 25%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: Create a small explosion when bullets hit their end
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Rapid Fire Circuit
+    Cost: 1
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: Increase Fire Rate by 15%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 1
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: Decrease Dash cooldown by 25%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: Create a small explosion when bullets hit their end
+    itemRef: {fileID: 0}
+    Purchased: 0
+  EnergyPoolRound3:
+  - Name: Energy Perk 2
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
+    Description: test
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Rapid Fire Circuit
+    Cost: 1
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: Increase Fire Rate by 15%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 1
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: Decrease Dash cooldown by 25%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: Create a small explosion when bullets hit their end
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Energy Perk 2
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
+    Description: test
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Rapid Fire Circuit
+    Cost: 1
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: Increase Fire Rate by 15%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 1
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: Decrease Dash cooldown by 25%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: Create a small explosion when bullets hit their end
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Rapid Fire Circuit
+    Cost: 1
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: Increase Fire Rate by 15%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 1
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: Decrease Dash cooldown by 25%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: Create a small explosion when bullets hit their end
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Rapid Fire Circuit
+    Cost: 1
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: Increase Fire Rate by 15%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 1
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: Decrease Dash cooldown by 25%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: Create a small explosion when bullets hit their end
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Rapid Fire Circuit
+    Cost: 1
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: Increase Fire Rate by 15%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 1
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: Decrease Dash cooldown by 25%
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: Create a small explosion when bullets hit their end
+    itemRef: {fileID: 0}
+    Purchased: 0
   EnergyPoolRound4: []
   EnergyPoolRound5: []
   StaticEnergyPoolRound1:
@@ -125,7 +299,115 @@ MonoBehaviour:
     Description: Not yet!
     itemRef: {fileID: 0}
     Purchased: 0
-  ScrapPoolRound3: []
+  - Name: Bolt Launcher
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: A slow firing, high damage gun that shoots piercing bolts
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Shotgun
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: Not yet!
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Bolt Launcher
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: A slow firing, high damage gun that shoots piercing bolts
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Shotgun
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: Not yet!
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Bolt Launcher
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: A slow firing, high damage gun that shoots piercing bolts
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Shotgun
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: Not yet!
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Bolt Launcher
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: A slow firing, high damage gun that shoots piercing bolts
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Shotgun
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: Not yet!
+    itemRef: {fileID: 0}
+    Purchased: 0
+  ScrapPoolRound3:
+  - Name: Bolt Launcher
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: A slow firing, high damage gun that shoots piercing bolts
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Shotgun
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: Not yet!
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Bolt Launcher
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: A slow firing, high damage gun that shoots piercing bolts
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Shotgun
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: Not yet!
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Bolt Launcher
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: A slow firing, high damage gun that shoots piercing bolts
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Shotgun
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: Not yet!
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Bolt Launcher
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: A slow firing, high damage gun that shoots piercing bolts
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Shotgun
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: Not yet!
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Bolt Launcher
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: A slow firing, high damage gun that shoots piercing bolts
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Shotgun
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: Not yet!
+    itemRef: {fileID: 0}
+    Purchased: 0
   ScrapPoolRound4: []
   ScrapPoolRound5: []
   StaticScrapPoolRound1:
@@ -145,4 +427,4 @@ MonoBehaviour:
   StaticScrapPoolRound3: []
   StaticScrapPoolRound4: []
   StaticScrapPoolRound5: []
-  Round: 1
+  Round: 2

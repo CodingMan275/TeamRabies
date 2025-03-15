@@ -80,6 +80,15 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=0.02)"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShopSwitch"",
+                    ""type"": ""Value"",
+                    ""id"": ""a392a8c2-1127-473e-8082-ec8d6dfa2679"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -291,6 +300,39 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""212dab96-a21e-497d-bc1a-0ad60d812651"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShopSwitch"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""7466fbce-1988-4cf8-b624-4e8512449251"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShopSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""44cff45c-b1e2-43c2-a979-f03ce755fe80"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShopSwitch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -305,6 +347,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         m_PlayerInput_MouseAim = m_PlayerInput.FindAction("MouseAim", throwIfNotFound: true);
         m_PlayerInput_GamepadAim = m_PlayerInput.FindAction("GamepadAim", throwIfNotFound: true);
         m_PlayerInput_Shoot = m_PlayerInput.FindAction("Shoot", throwIfNotFound: true);
+        m_PlayerInput_ShopSwitch = m_PlayerInput.FindAction("ShopSwitch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -370,6 +413,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInput_MouseAim;
     private readonly InputAction m_PlayerInput_GamepadAim;
     private readonly InputAction m_PlayerInput_Shoot;
+    private readonly InputAction m_PlayerInput_ShopSwitch;
     public struct PlayerInputActions
     {
         private @PlayerControl m_Wrapper;
@@ -380,6 +424,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         public InputAction @MouseAim => m_Wrapper.m_PlayerInput_MouseAim;
         public InputAction @GamepadAim => m_Wrapper.m_PlayerInput_GamepadAim;
         public InputAction @Shoot => m_Wrapper.m_PlayerInput_Shoot;
+        public InputAction @ShopSwitch => m_Wrapper.m_PlayerInput_ShopSwitch;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -407,6 +452,9 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShoot;
+                @ShopSwitch.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShopSwitch;
+                @ShopSwitch.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShopSwitch;
+                @ShopSwitch.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShopSwitch;
             }
             m_Wrapper.m_PlayerInputActionsCallbackInterface = instance;
             if (instance != null)
@@ -429,6 +477,9 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @ShopSwitch.started += instance.OnShopSwitch;
+                @ShopSwitch.performed += instance.OnShopSwitch;
+                @ShopSwitch.canceled += instance.OnShopSwitch;
             }
         }
     }
@@ -441,5 +492,6 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         void OnMouseAim(InputAction.CallbackContext context);
         void OnGamepadAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
+        void OnShopSwitch(InputAction.CallbackContext context);
     }
 }

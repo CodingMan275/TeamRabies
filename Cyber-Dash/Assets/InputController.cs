@@ -15,6 +15,7 @@ public class InputController : MonoBehaviour
 
     public event Action OnDashPressed;
     public event Action OnShootPressed;
+    public event Action<float> OnShopRotate;
 
     public PlayerControl pc;
     private InputAction move;
@@ -23,6 +24,7 @@ public class InputController : MonoBehaviour
     private InputAction run;
     private InputAction Dash;
     private InputAction Shoot;
+    private InputAction Shop;
 
 
 
@@ -41,6 +43,7 @@ public class InputController : MonoBehaviour
         run = pc.PlayerInput.Running;
         Dash = pc.PlayerInput.Dash;
         Shoot = pc.PlayerInput.Shoot;
+        Shop = pc.PlayerInput.ShopSwitch;
 
         move.Enable();
         Maim.Enable();
@@ -48,6 +51,7 @@ public class InputController : MonoBehaviour
         run.Enable();
         Dash.Enable();
         Shoot.Enable();
+        Shop.Enable();
 
 
     }
@@ -60,6 +64,7 @@ public class InputController : MonoBehaviour
         run.Disable();
         Dash.Disable();
         Shoot.Disable();
+        Shop.Disable();
 
     }
 
@@ -84,6 +89,11 @@ public class InputController : MonoBehaviour
         if (Dash.triggered)
         {
             OnDashPressed?.Invoke();
+        }
+
+        if(Shop.triggered)
+        {
+            OnShopRotate?.Invoke(Shop.ReadValue<float>());
         }
 
         if (Shoot.IsInProgress()) //Previously .triggered
