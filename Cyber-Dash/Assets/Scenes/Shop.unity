@@ -219,6 +219,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1234869530, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093508765974328303, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1093508765974328303, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2018835110423734426, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: EV
       value: 
@@ -231,6 +243,14 @@ PrefabInstance:
       propertyPath: E.Array.data[1]
       value: 
       objectReference: {fileID: 1306066652}
+    - target: {fileID: 2220394687684800020, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220394687684800020, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8056955563528944069, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -292,6 +312,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8779e40b85c4b46abe61e234eaaf79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1141201566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8056955563528944069, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+  m_PrefabInstance: {fileID: 740343680}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1181740113 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2994663109680197977, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
@@ -308,7 +333,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2018835110423734426, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
   m_PrefabInstance: {fileID: 740343680}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1141201566}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bc34124b91d8cf4598e9b34ff8dd9bf, type: 3}
@@ -440,7 +465,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1306066652
 GameObject:
@@ -610,7 +635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4624597290884954769, guid: 05a3d4046d2b74c4e8bcb2a87e8c50d0, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4624597290884954769, guid: 05a3d4046d2b74c4e8bcb2a87e8c50d0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -694,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4624597291017849429, guid: 05a3d4046d2b74c4e8bcb2a87e8c50d0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -121620.16
+      value: -948641.9
       objectReference: {fileID: 0}
     - target: {fileID: 4624597291045997832, guid: 05a3d4046d2b74c4e8bcb2a87e8c50d0, type: 3}
       propertyPath: m_AnchorMax.x
@@ -754,7 +779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9203750604469100008, guid: a15e60669e090284aa2708db382218aa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -121620.16
+      value: -686338.9
       objectReference: {fileID: 0}
     - target: {fileID: 9203750604531697409, guid: a15e60669e090284aa2708db382218aa, type: 3}
       propertyPath: SB
@@ -764,6 +789,10 @@ PrefabInstance:
       propertyPath: WPC
       value: 
       objectReference: {fileID: 1045932907}
+    - target: {fileID: 9203750604531697409, guid: a15e60669e090284aa2708db382218aa, type: 3}
+      propertyPath: playerInScene
+      value: 
+      objectReference: {fileID: 1141201566}
     - target: {fileID: 9203750604531697413, guid: a15e60669e090284aa2708db382218aa, type: 3}
       propertyPath: m_Name
       value: Energy Shop

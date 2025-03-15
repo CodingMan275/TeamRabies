@@ -10,6 +10,8 @@ public class Energy_Shop_Logic : MonoBehaviour
 
     public int HowManyItemsInShop = 4;
 
+    public GameObject playerInScene;
+
     public GameObject scrapDisplay;
     public SaveData player;
     public Transform shopUiTransform;
@@ -131,6 +133,10 @@ public class Energy_Shop_Logic : MonoBehaviour
                 break;
             case "Explosive Rounds":
                 player.explodingBullets = true;
+                break;
+            case "Turret":
+                player.Turret = true;
+                playerInScene.GetComponent<Ability_Turret>().enabled = true;
                 break;
             default:
                 Debug.Log("What did you just do");

@@ -18,7 +18,7 @@ public class SaveData : ScriptableObject
 
     //Player abilities
     //Player adds the abilities that are marked true on enter
-    //Dash
+    public bool Turret = false;
 
     //Weapons
     public bool Pistol = true;

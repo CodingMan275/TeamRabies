@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDmg: 2
-  AttackCoolDown: 3
+  AttackCoolDown: 0.5
   AttackRange: 5.5
   CoolDownTimer: 0
   inRange: 0

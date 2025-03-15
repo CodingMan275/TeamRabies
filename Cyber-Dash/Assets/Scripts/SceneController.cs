@@ -38,6 +38,7 @@ public class SceneController : MonoBehaviour
         SD.Energy = 0;
         SD.Round = 1;
         SD.killCount = 0;
+        SD.Turret = false;
         SD.explodingBullets = false;
         SD.Pistol = true;
         SD.FireRateMod = 1;

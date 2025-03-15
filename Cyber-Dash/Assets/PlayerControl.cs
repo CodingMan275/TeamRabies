@@ -89,6 +89,15 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Ability"",
+                    ""type"": ""Button"",
+                    ""id"": ""a86bafc4-b5aa-4380-8381-18504169e518"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -333,6 +342,17 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""action"": ""ShopSwitch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b354662-1c7a-434c-b5b7-4e8285e0930f"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -348,6 +368,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         m_PlayerInput_GamepadAim = m_PlayerInput.FindAction("GamepadAim", throwIfNotFound: true);
         m_PlayerInput_Shoot = m_PlayerInput.FindAction("Shoot", throwIfNotFound: true);
         m_PlayerInput_ShopSwitch = m_PlayerInput.FindAction("ShopSwitch", throwIfNotFound: true);
+        m_PlayerInput_Ability = m_PlayerInput.FindAction("Ability", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -414,6 +435,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInput_GamepadAim;
     private readonly InputAction m_PlayerInput_Shoot;
     private readonly InputAction m_PlayerInput_ShopSwitch;
+    private readonly InputAction m_PlayerInput_Ability;
     public struct PlayerInputActions
     {
         private @PlayerControl m_Wrapper;
@@ -425,6 +447,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         public InputAction @GamepadAim => m_Wrapper.m_PlayerInput_GamepadAim;
         public InputAction @Shoot => m_Wrapper.m_PlayerInput_Shoot;
         public InputAction @ShopSwitch => m_Wrapper.m_PlayerInput_ShopSwitch;
+        public InputAction @Ability => m_Wrapper.m_PlayerInput_Ability;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -455,6 +478,9 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                 @ShopSwitch.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShopSwitch;
                 @ShopSwitch.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShopSwitch;
                 @ShopSwitch.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnShopSwitch;
+                @Ability.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAbility;
+                @Ability.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAbility;
+                @Ability.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAbility;
             }
             m_Wrapper.m_PlayerInputActionsCallbackInterface = instance;
             if (instance != null)
@@ -480,6 +506,9 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                 @ShopSwitch.started += instance.OnShopSwitch;
                 @ShopSwitch.performed += instance.OnShopSwitch;
                 @ShopSwitch.canceled += instance.OnShopSwitch;
+                @Ability.started += instance.OnAbility;
+                @Ability.performed += instance.OnAbility;
+                @Ability.canceled += instance.OnAbility;
             }
         }
     }
@@ -493,5 +522,6 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         void OnGamepadAim(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnShopSwitch(InputAction.CallbackContext context);
+        void OnAbility(InputAction.CallbackContext context);
     }
 }
