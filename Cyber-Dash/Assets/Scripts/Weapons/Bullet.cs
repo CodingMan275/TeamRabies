@@ -8,9 +8,11 @@ public class Bullet : MonoBehaviour
 
     public SaveData bulletEffects;
     public GameObject Explosion;
+
+    public int BulletSpeed;
     void Start()
     {
-        
+        GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);
     }
 
     // Update is called once per frame

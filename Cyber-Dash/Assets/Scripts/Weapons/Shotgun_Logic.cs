@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol_Logic : MonoBehaviour
+public class Shotgun_Logic : MonoBehaviour
 {
+
     public GameObject BulletPrefab;
+    public GameObject KnockbackPrefab;
+
 
     public float BulletSpeed;
     public double BulletDelay;
@@ -21,7 +24,8 @@ public class Pistol_Logic : MonoBehaviour
 
     public SaveData stats;
 
-    void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
         IC = transform.parent.GetComponent<InputController>();
         WPC = GetComponent<Weapon_Controller>();
@@ -31,16 +35,27 @@ public class Pistol_Logic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
+        timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
     }
 
     public void Fire()
-    { 
+
+        //So close
+    {
         if ((timeSinceLastFiredBullet > BulletDelay * stats.FireRateMod) && WPC.CanFire)
         {
             GameObject Bullet = Instantiate(BulletPrefab, WPC.Spawnloc, transform.rotation);
+            GameObject Bullet1 = Instantiate(BulletPrefab, WPC.Spawnloc, transform.rotation * Quaternion.Euler(new Vector3(0, 0, -15f)));
+            GameObject Bullet2 = Instantiate(BulletPrefab, WPC.Spawnloc, transform.rotation * Quaternion.Euler(new Vector3(0, 0, +15f)));
+            GameObject Bullet3 = Instantiate(BulletPrefab, WPC.Spawnloc, transform.rotation * Quaternion.Euler(new Vector3(0, 0, -30f)));
+            GameObject Bullet4 = Instantiate(BulletPrefab, WPC.Spawnloc, transform.rotation * Quaternion.Euler(new Vector3(0, 0, +30f)));
             Bullet.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
-          //  Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);
+            Bullet1.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
+            Bullet2.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
+            Bullet3.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
+            Bullet4.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
+
+            GameObject KnockBack = Instantiate(KnockbackPrefab, WPC.Spawnloc, transform.rotation);
             LastTimeBulletFired = Time.time;
             StartCoroutine(Bang());
         }
@@ -49,6 +64,7 @@ public class Pistol_Logic : MonoBehaviour
     {
         IC.OnShootPressed -= Fire;
     }
+
 
     private IEnumerator Bang()
     {

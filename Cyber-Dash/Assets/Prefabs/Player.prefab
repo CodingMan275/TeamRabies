@@ -1502,6 +1502,7 @@ GameObject:
   - component: {fileID: 8056955563487024750}
   - component: {fileID: 8494322631593978731}
   - component: {fileID: 5700944580274404566}
+  - component: {fileID: 5176548624018863902}
   - component: {fileID: 5014291607093857698}
   - component: {fileID: 8390004952299454072}
   m_Layer: 0
@@ -1679,6 +1680,31 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f61d29cf5dd61134c8cc51c0f71fdf83, type: 3}
   - {fileID: 8300000, guid: 4dc7e51771a9627489e991127561dfac, type: 3}
   - {fileID: 8300000, guid: eca14505da0da8945b99d235246a93f2, type: 3}
+  stats: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+--- !u!114 &5176548624018863902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8056955563487024752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee687f90f1d40c04bace8e3b9ac226ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 843936082987813954, guid: 3719308b35c94d84eabe3ddc0a9d81be, type: 3}
+  KnockbackPrefab: {fileID: 912157597495188468, guid: ff5e18a885f17f64696ff6639dc22336, type: 3}
+  BulletSpeed: 10
+  BulletDelay: 0.5
+  WPC: {fileID: 8056955563487024750}
+  ALFEVocal: 1
+  Shoot: {fileID: 5014291607093857698}
+  Voice: {fileID: 5014291607093857698}
+  PistolSound:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   stats: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
 --- !u!82 &5014291607093857698
 AudioSource:
@@ -2316,7 +2342,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8056955563528944069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e23040e085b2fc4588d70d4ca536d6a, type: 3}
   m_Name: 

@@ -9,6 +9,8 @@ public class Basic_Robot : MonoBehaviour
     private Enemy_Counter EC;
     private SpriteRenderer render;
 
+    public bool KnockBackStun = false;
+
     public GameObject DropScrap;
     public GameObject DropEnergy;
     private float Health;
@@ -37,7 +39,6 @@ public class Basic_Robot : MonoBehaviour
 
     void Start()
     {
-     //   rb = GetComponent<Rigidbody2D>();
         EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>(); 
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
@@ -49,6 +50,7 @@ public class Basic_Robot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
        if(agent.speed != 0)
         agent.SetDestination(target.position);
             
@@ -92,6 +94,10 @@ public class Basic_Robot : MonoBehaviour
         if (col.CompareTag("Bullet"))
         {
             print("Bullet hit");
+            
+            // agent.speed = 0;
+
+          
             StartCoroutine(TakeDamage(1));
         }
         if (col.CompareTag("Explode"))
@@ -100,6 +106,20 @@ public class Basic_Robot : MonoBehaviour
             StartCoroutine(TakeDamage(1));
         }
 
+        if (col.CompareTag("Knockback"))
+        {
+            agent.avoidancePriority = 40;
+          //Knock back
+            Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
+            agent.velocity = -(Direction * 4);
+        }
+    }
+
+    public IEnumerator StunDelay()
+    {
+        yield return new WaitForSeconds(.5f);
+       // agent.avoidancePriority = 50;
+        agent.speed = 8;
     }
 
     public IEnumerator TakeDamage(float dmg)
