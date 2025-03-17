@@ -55,7 +55,7 @@ public class Shotgun_Logic : MonoBehaviour
             Bullet3.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
             Bullet4.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
 
-            GameObject KnockBack = Instantiate(KnockbackPrefab, WPC.Spawnloc, transform.rotation);
+            GameObject KnockBack = Instantiate(KnockbackPrefab, WPC.Spawnloc, transform.rotation * Quaternion.Euler(new Vector3(0, 0, 90f)));
             LastTimeBulletFired = Time.time;
             StartCoroutine(Bang());
         }

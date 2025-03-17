@@ -6,6 +6,7 @@ public class Knockback_Logic : MonoBehaviour
 {
 
     public float KnockbackDuration = .2f;
+    public int KnockbackDist = 4;
 
     // Start is called before the first frame update
     void Start()

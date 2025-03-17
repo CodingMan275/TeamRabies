@@ -67,12 +67,17 @@ public class Weapon_Controller : MonoBehaviour
         { 
         GetComponent<Bolt_Launcher_Logic>().enabled = true;
         }
+        else if (SD.Shotgun)
+        {
+            GetComponent<Shotgun_Logic>().enabled = true;
+        }
 
-       
+
     }
     private void OnDisable()
     {
         GetComponent<Pistol_Logic>().enabled = false;
         GetComponent<Bolt_Launcher_Logic>().enabled = false;
+        GetComponent<Shotgun_Logic>().enabled = false;
     }
 }

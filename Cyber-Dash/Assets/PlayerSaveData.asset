@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d06dd458699adf4f80fd5ae7e2f1c88, type: 3}
   m_Name: PlayerSaveData
   m_EditorClassIdentifier: 
-  killCount: 3
-  Scrap: 0
-  Energy: 62
+  killCount: 44
+  Scrap: 3
+  Energy: 69
   FireRateMod: 1
   DodgeCooldownMod: 1
   ScrapDropMod: 1
@@ -73,7 +73,7 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: Deploy a turret that lasts for 10 seconds that shoots at enemies
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   EnergyPoolRound3: []
   EnergyPoolRound4: []
   EnergyPoolRound5: []
@@ -122,7 +122,7 @@ MonoBehaviour:
   - Name: Shotgun
     Cost: 3
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: Not yet!
+    Description: A powerful shotgun that shoots 5 bolts and launches back enemies
     itemRef: {fileID: 0}
     Purchased: 0
   ScrapPoolRound2:

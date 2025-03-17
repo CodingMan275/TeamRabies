@@ -111,7 +111,7 @@ public class Basic_Robot : MonoBehaviour
             agent.avoidancePriority = 40;
           //Knock back
             Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
-            agent.velocity = -(Direction * 4);
+            agent.velocity = -(Direction * col.GetComponent<Knockback_Logic>().KnockbackDist);
         }
     }
 

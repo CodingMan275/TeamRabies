@@ -134,6 +134,15 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 //findpool
                 //pool.add(Upgraded Bolt Launcher)
                 break;
+            case "Shotgun":
+                player.Pistol = false;
+                player.Bolt_Launcher = false;
+                player.Shotgun = true;
+                player.Sword = false;
+                WPC.AssignWeapon();
+                //findpool
+                //pool.add(Upgraded Bolt Launcher)
+                break;
             default:
                 Debug.Log("What did you just do");
                 //Example code
