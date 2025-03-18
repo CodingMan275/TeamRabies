@@ -8,9 +8,11 @@ public class Shotgun_Logic : MonoBehaviour
     public GameObject BulletPrefab;
     public GameObject KnockbackPrefab;
 
+    public double ReloadTime = 2;
 
     public float BulletSpeed;
     public double BulletDelay;
+    double holdDelay;
     float LastTimeBulletFired;
     float timeSinceLastFiredBullet;
     public Weapon_Controller WPC;
@@ -24,9 +26,12 @@ public class Shotgun_Logic : MonoBehaviour
 
     public SaveData stats;
 
+    int shootCount;
+
     // Start is called before the first frame update
     void Start()
     {
+        holdDelay = BulletDelay;
         IC = transform.parent.GetComponent<InputController>();
         WPC = GetComponent<Weapon_Controller>();
         IC.OnShootPressed += Fire;
@@ -39,8 +44,6 @@ public class Shotgun_Logic : MonoBehaviour
     }
 
     public void Fire()
-
-        //So close
     {
         if ((timeSinceLastFiredBullet > BulletDelay * stats.FireRateMod) && WPC.CanFire)
         {
@@ -56,7 +59,17 @@ public class Shotgun_Logic : MonoBehaviour
             Bullet4.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
 
             GameObject KnockBack = Instantiate(KnockbackPrefab, WPC.Spawnloc, transform.rotation * Quaternion.Euler(new Vector3(0, 0, 90f)));
-            LastTimeBulletFired = Time.time;
+            shootCount++;
+            if (shootCount == 2)
+            {
+                shootCount = 0;
+                BulletDelay = ReloadTime;
+            }
+            else
+            {
+                BulletDelay = holdDelay;
+                LastTimeBulletFired = Time.time;
+            }
             StartCoroutine(Bang());
         }
     }

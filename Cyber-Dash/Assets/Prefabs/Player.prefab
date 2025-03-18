@@ -1646,7 +1646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 843936082987813954, guid: 3719308b35c94d84eabe3ddc0a9d81be, type: 3}
-  BulletSpeed: 10
+  BulletSpeed: 20
   BulletDelay: 0.3
   WPC: {fileID: 0}
   ALFEVocal: 3
@@ -1670,7 +1670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoltPrefab: {fileID: 843936082987813954, guid: dbb04bea51b25b34186d09a830467b9a, type: 3}
-  BulletSpeed: 20
+  BulletSpeed: 35
   BulletDelay: 1
   WPC: {fileID: 0}
   ALFEVocal: 2
@@ -1688,14 +1688,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8056955563487024752}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee687f90f1d40c04bace8e3b9ac226ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 843936082987813954, guid: 3719308b35c94d84eabe3ddc0a9d81be, type: 3}
   KnockbackPrefab: {fileID: 912157597495188468, guid: ff5e18a885f17f64696ff6639dc22336, type: 3}
-  BulletSpeed: 10
+  ReloadTime: 2
+  BulletSpeed: 20
   BulletDelay: 0.5
   WPC: {fileID: 8056955563487024750}
   ALFEVocal: 1
@@ -2110,7 +2111,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8056955563528944069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bc34124b91d8cf4598e9b34ff8dd9bf, type: 3}
   m_Name: 
@@ -2466,7 +2467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5672786075041879811
 RectTransform:
   m_ObjectHideFlags: 0
