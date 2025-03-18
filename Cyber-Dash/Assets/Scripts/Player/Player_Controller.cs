@@ -27,6 +27,8 @@ public class Player_Controller : MonoBehaviour
 
     public AudioSource Walk;
 
+    public SaveData SD;
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,8 @@ public class Player_Controller : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         IC = GetComponent<InputController>();
         GetComponent<Ability_Dash>().enabled = true;
+        if(SD.Turret)
+            GetComponent<Ability_Turret>().enabled = true;
     }
 
     // Update is called once per frame

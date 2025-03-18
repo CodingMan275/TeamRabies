@@ -2072,6 +2072,7 @@ MonoBehaviour:
   AbilityLock: 0
   isRight: 0
   Walk: {fileID: 1341194975893128817}
+  SD: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
 --- !u!114 &8056955563528944065
 MonoBehaviour:
   m_ObjectHideFlags: 0
