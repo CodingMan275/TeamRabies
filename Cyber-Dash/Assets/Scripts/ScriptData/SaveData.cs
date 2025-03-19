@@ -24,7 +24,7 @@ public class SaveData : ScriptableObject
     public bool Pistol = true;
     public bool Bolt_Launcher;
     public bool Shotgun;
-    public bool Sword;
+    public bool PlasmaCutter;
 
     //List of energy upgrades that change and move from rounds
     public List<Upgrade> EnergyPoolRound1;

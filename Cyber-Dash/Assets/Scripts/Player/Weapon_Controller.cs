@@ -71,6 +71,10 @@ public class Weapon_Controller : MonoBehaviour
         {
             GetComponent<Shotgun_Logic>().enabled = true;
         }
+        else if (SD.PlasmaCutter)
+        {
+            GetComponent<Beam_Logic>().enabled = true;
+        }
 
 
     }

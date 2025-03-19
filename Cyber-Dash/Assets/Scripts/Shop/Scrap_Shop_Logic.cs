@@ -129,7 +129,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.Pistol = false;
                 player.Bolt_Launcher = true;
                 player.Shotgun = false;
-                player.Sword = false;
+                player.PlasmaCutter = false;
                 WPC.AssignWeapon();
                 //findpool
                 //pool.add(Upgraded Bolt Launcher)
@@ -138,7 +138,16 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.Pistol = false;
                 player.Bolt_Launcher = false;
                 player.Shotgun = true;
-                player.Sword = false;
+                player.PlasmaCutter = false;
+                WPC.AssignWeapon();
+                //findpool
+                //pool.add(Upgraded Bolt Launcher)
+                break;
+            case "Plasma Cutter":
+                player.Pistol = false;
+                player.Bolt_Launcher = false;
+                player.Shotgun = false;
+                player.PlasmaCutter = true;
                 WPC.AssignWeapon();
                 //findpool
                 //pool.add(Upgraded Bolt Launcher)
