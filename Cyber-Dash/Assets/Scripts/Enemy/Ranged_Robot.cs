@@ -10,6 +10,7 @@ public class Ranged_Robot : MonoBehaviour
     private SpriteRenderer render;
 
     public GameObject DropScrap;
+    public GameObject DropEnergy;
     private float Health;
     public float MaxHealth;
     private bool WasHurt = false;
@@ -105,7 +106,12 @@ public class Ranged_Robot : MonoBehaviour
     {
         Player.killCount++;
         EC.UpdateCounter();
-        Instantiate(DropScrap, transform.position, Quaternion.identity);
+
+        int temp = Random.Range(0, 2);
+        if (temp == 0)
+            Instantiate(DropScrap, transform.position, Quaternion.identity);
+        else
+            Instantiate(DropEnergy, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
         return 0;
     }

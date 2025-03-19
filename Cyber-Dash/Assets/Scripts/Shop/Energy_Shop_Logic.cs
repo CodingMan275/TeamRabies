@@ -127,9 +127,9 @@ public class Energy_Shop_Logic : MonoBehaviour
     {
         switch (upgrade.Name)
         {
-            case "Rapid Fire Circuit": player.FireRateMod *= .85;
+            case "Rapid Fire Circuit": player.FireRateMod -= .15f;
                 break;
-            case "Dodge Booster": player.DodgeCooldownMod *= .75;
+            case "Dodge Booster": player.DodgeCooldownMod -= 1;
                 break;
             case "Explosive Rounds":
                 player.explodingBullets = true;
@@ -229,4 +229,12 @@ public class Upgrade
     public string Description;
     [HideInInspector] public GameObject itemRef;
     [HideInInspector] public bool Purchased;
+
+    public Upgrade(string Name, int Cost, Sprite Sprite, string Decsription)
+    {
+        this.Name = Name;
+        this.Cost = Cost;
+        this.Sprite = Sprite;
+        this.Description = Decsription;
+    }
 }

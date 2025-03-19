@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79c3d7ad14e8b94ab606ef5196f50f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BeamDuration: 0.2
+  BeamDuration: 0.1
   Damage: 5
 --- !u!61 &3170478239042925575
 BoxCollider2D:

@@ -17,6 +17,8 @@ public class Scrap_Shop_Logic : MonoBehaviour
     public Weapon_Controller WPC;
     public Shop_Interactiob SB;
 
+    public Sprite gunSprite;
+
     //Master list of all perks
     public List<Upgrade> UpgradesList;
 
@@ -151,6 +153,24 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 WPC.AssignWeapon();
                 //findpool
                 //pool.add(Upgraded Bolt Launcher)
+                break;
+            case "Pistol: Tier 2":
+                player.Pistol = true;
+                player.Bolt_Launcher = false;
+                player.Shotgun = false;
+                player.PlasmaCutter = false;
+                WPC.AssignWeapon();
+                player.PistolFireRateMod = .20f;
+                //Add new item
+                FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 10, gunSprite, "An upgraded pistol that shoots 30% faster and bullets pierce one enemy"));
+                break;
+            case "Pistol: Tier 3":
+                player.Pistol = true;
+                player.Bolt_Launcher = false;
+                player.Shotgun = false;
+                player.PlasmaCutter = false;
+                WPC.AssignWeapon();
+                player.PistolFireRateMod = .30f;
                 break;
             default:
                 Debug.Log("What did you just do");

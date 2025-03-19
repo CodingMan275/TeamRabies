@@ -21,6 +21,8 @@ public class Enemy_Counter : MonoBehaviour
     public AudioSource Victory;
     public AudioClip[] VictorySound;
 
+    public SaveData SD;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +76,13 @@ public class Enemy_Counter : MonoBehaviour
         Victory.Play();
         yield return new WaitForSeconds(VictorySound[voice].length);
         yield return new WaitForSeconds(0.5f);
-        SC.Shop();
+        if (SD.Round != 2)
+        {
+            SC.Shop();
+        }
+        else
+        {
+            SC.Victory();
+        }
     }
 }

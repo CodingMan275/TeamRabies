@@ -47,7 +47,7 @@ public class Shotgun_Logic : MonoBehaviour
 
     public void Fire()
     {
-        if ((timeSinceLastFiredBullet > BulletDelay * stats.FireRateMod) && WPC.CanFire)
+        if ((timeSinceLastFiredBullet > BulletDelay * Mathf.Abs(stats.FireRateMod - stats.ShotgunFireRateMod)) && WPC.CanFire)
         {
             GameObject Bullet = Instantiate(BulletPrefab, WPC.Spawnloc, transform.rotation);
             GameObject Bullet1 = Instantiate(BulletPrefab, WPC.Spawnloc, transform.rotation * Quaternion.Euler(new Vector3(0, 0, -15f)));

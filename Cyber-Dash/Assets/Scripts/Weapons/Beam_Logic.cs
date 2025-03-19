@@ -22,6 +22,7 @@ public class Beam_Logic : MonoBehaviour
     private bool CanScream = true;
 
     public SaveData stats;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +39,7 @@ public class Beam_Logic : MonoBehaviour
 
     public void Fire()
     {
-        if ((timeSinceLastFiredBullet > BulletDelay * stats.FireRateMod) && WPC.CanFire)
+        if ((timeSinceLastFiredBullet > BulletDelay * Mathf.Abs(stats.FireRateMod - stats.BeamFireRateMod)) && WPC.CanFire)
         {
             Transform playerTM = GetComponentInParent<Transform>();
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);

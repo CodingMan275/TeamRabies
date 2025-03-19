@@ -1503,9 +1503,10 @@ GameObject:
   - component: {fileID: 8494322631593978731}
   - component: {fileID: 5700944580274404566}
   - component: {fileID: 5176548624018863902}
+  - component: {fileID: 8956059728039955753}
   - component: {fileID: 5014291607093857698}
   - component: {fileID: 8390004952299454072}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1709,6 +1710,27 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 242e110bb07797148b03820b26499213, type: 3}
   - {fileID: 8300000, guid: 4dc7e51771a9627489e991127561dfac, type: 3}
   - {fileID: 8300000, guid: eca14505da0da8945b99d235246a93f2, type: 3}
+  stats: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+--- !u!114 &8956059728039955753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8056955563487024752}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a68fb169585f9741a41e679b6c290d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 5
+  BeamPrefab: {fileID: 7678160978576943912, guid: 36972147da8e44e41ac39e7fe2593fa5, type: 3}
+  BulletDelay: 1
+  WPC: {fileID: 8056955563487024750}
+  ALFEVocal: 1
+  Shoot: {fileID: 0}
+  Voice: {fileID: 0}
+  PistolSound: []
   stats: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
 --- !u!82 &5014291607093857698
 AudioSource:
@@ -2611,6 +2633,7 @@ MonoBehaviour:
   VictorySound:
   - {fileID: 8300000, guid: a0b93e9d1b5762d468c550c22a424411, type: 3}
   - {fileID: 8300000, guid: c563a1680a3fc6c41b1b84dd341dc226, type: 3}
+  SD: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
 --- !u!82 &423412058315183086
 AudioSource:
   m_ObjectHideFlags: 0

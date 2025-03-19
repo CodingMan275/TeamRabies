@@ -10,7 +10,7 @@ public class SaveData : ScriptableObject
     public int Energy = 0;
 
     //Player stats to be modified
-    public double FireRateMod = 1;
+    public float FireRateMod = 1;
     public double DodgeCooldownMod = 1;
     public double ScrapDropMod = 1;
 
@@ -25,6 +25,11 @@ public class SaveData : ScriptableObject
     public bool Bolt_Launcher;
     public bool Shotgun;
     public bool PlasmaCutter;
+
+    public float PistolFireRateMod = 0;
+    public float ShotgunFireRateMod = 0;
+    public float BoltLauncherFireRateMod = 0;
+    public float BeamFireRateMod = 0;
 
     //List of energy upgrades that change and move from rounds
     public List<Upgrade> EnergyPoolRound1;
