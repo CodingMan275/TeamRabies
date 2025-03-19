@@ -94,11 +94,12 @@ public class Basic_Robot : MonoBehaviour
         if (col.CompareTag("Bullet"))
         {
             print("Bullet hit");
-            
-            // agent.speed = 0;
-
-          
-            StartCoroutine(TakeDamage(1));
+            if(col.GetComponent<Bullet>() != null)
+            StartCoroutine(TakeDamage(col.GetComponent<Bullet>().Damage));
+            else if(col.GetComponent<Bolt>() != null)
+            StartCoroutine(TakeDamage(col.GetComponent<Bolt>().Damage));
+            else
+            StartCoroutine(TakeDamage(col.GetComponent<Beam>().Damage));
         }
         if (col.CompareTag("Explode"))
         {

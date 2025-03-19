@@ -1646,6 +1646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 843936082987813954, guid: 3719308b35c94d84eabe3ddc0a9d81be, type: 3}
+  Damage: 1
   BulletSpeed: 20
   BulletDelay: 0.3
   WPC: {fileID: 0}
@@ -1670,6 +1671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoltPrefab: {fileID: 843936082987813954, guid: dbb04bea51b25b34186d09a830467b9a, type: 3}
+  Damage: 5
   BulletSpeed: 35
   BulletDelay: 1
   WPC: {fileID: 0}
@@ -1695,6 +1697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 843936082987813954, guid: 3719308b35c94d84eabe3ddc0a9d81be, type: 3}
   KnockbackPrefab: {fileID: 912157597495188468, guid: ff5e18a885f17f64696ff6639dc22336, type: 3}
+  DamagePerBullet: 1
   ReloadTime: 2
   BulletSpeed: 20
   BulletDelay: 0.5
@@ -1703,9 +1706,9 @@ MonoBehaviour:
   Shoot: {fileID: 5014291607093857698}
   Voice: {fileID: 5014291607093857698}
   PistolSound:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 242e110bb07797148b03820b26499213, type: 3}
+  - {fileID: 8300000, guid: 4dc7e51771a9627489e991127561dfac, type: 3}
+  - {fileID: 8300000, guid: eca14505da0da8945b99d235246a93f2, type: 3}
   stats: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
 --- !u!82 &5014291607093857698
 AudioSource:

@@ -6,6 +6,8 @@ public class Bolt_Launcher_Logic : MonoBehaviour
 {
     public GameObject BoltPrefab;
 
+    public int Damage;
+
     public float BulletSpeed = 20;
     public double BulletDelay = 1;
     float LastTimeBulletFired;
@@ -39,6 +41,7 @@ public class Bolt_Launcher_Logic : MonoBehaviour
         if ((timeSinceLastFiredBullet > BulletDelay * stats.FireRateMod) && WPC.CanFire)
         {
             GameObject Bullet = Instantiate(BoltPrefab, WPC.Spawnloc, transform.rotation);
+            Bullet.GetComponent<Bolt>().Damage = Damage;
             Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);
             LastTimeBulletFired = Time.time;
             StartCoroutine(Bang());

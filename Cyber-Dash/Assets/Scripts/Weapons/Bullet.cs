@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
 
     public SaveData bulletEffects;
     public GameObject Explosion;
+    public int Damage;
 
     public int BulletSpeed;
     void Start()

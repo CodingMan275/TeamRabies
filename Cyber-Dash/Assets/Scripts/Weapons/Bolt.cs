@@ -8,6 +8,7 @@ public class Bolt : MonoBehaviour
 
     public SaveData bulletEffects;
     public GameObject Explosion;
+    public int Damage;
     void Start()
     {
         

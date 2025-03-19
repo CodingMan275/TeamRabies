@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pistol_Logic : MonoBehaviour
+public class Beam_Logic : MonoBehaviour
 {
-    public GameObject BulletPrefab;
 
     public int Damage;
 
-    public float BulletSpeed;
-    public double BulletDelay;
+    public GameObject BeamPrefab;
+
+    public double BulletDelay = 1;
     float LastTimeBulletFired;
     float timeSinceLastFiredBullet;
     public Weapon_Controller WPC;
@@ -22,8 +22,8 @@ public class Pistol_Logic : MonoBehaviour
     private bool CanScream = true;
 
     public SaveData stats;
-
-    void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
         IC = transform.parent.GetComponent<InputController>();
         WPC = GetComponent<Weapon_Controller>();
@@ -33,21 +33,31 @@ public class Pistol_Logic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
+        timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
     }
 
     public void Fire()
-    { 
+    {
         if ((timeSinceLastFiredBullet > BulletDelay * stats.FireRateMod) && WPC.CanFire)
         {
-            GameObject Bullet = Instantiate(BulletPrefab, WPC.Spawnloc, transform.rotation);
-            Bullet.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
-            Bullet.GetComponent<Bullet>().Damage = Damage;
-            //  Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);
+            Transform playerTM = GetComponentInParent<Transform>();
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
+            Debug.DrawRay(transform.position, transform.right, Color.magenta);
+            print("Ray Drawn!");
+            if (hit.collider.gameObject.tag == "Wall" && hit.collider.gameObject != null)
+            {
+                GameObject Bullet = Instantiate(BeamPrefab, WPC.Spawnloc, transform.rotation);
+                Bullet.GetComponent<Beam>().Damage = 5;
+                float dist = Mathf.Abs(Vector3.Distance(hit.collider.transform.position, transform.position));
+                Bullet.transform.localScale = new Vector3(dist,1,1);
+            }
+            else {
+                print(hit.collider.gameObject.tag);
+            }
             LastTimeBulletFired = Time.time;
-            StartCoroutine(Bang());
         }
     }
+
     private void OnDisable()
     {
         IC.OnShootPressed -= Fire;
