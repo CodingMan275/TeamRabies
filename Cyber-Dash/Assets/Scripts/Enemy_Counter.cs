@@ -17,7 +17,7 @@ public class Enemy_Counter : MonoBehaviour
     public bool Activate = false;
 
     private bool playaudio = true;
-    public List<AudioSource> PlayerAudio;
+    public GameObject AudioUI;
     public AudioSource Victory;
     public AudioClip[] VictorySound;
 
@@ -30,8 +30,6 @@ public class Enemy_Counter : MonoBehaviour
         E = GameObject.FindGameObjectsWithTag("Enemy"); 
         SC = transform.parent.GetComponent<SceneController>();
         IC = transform.parent.transform.parent.GetComponent<InputController>();
-        PlayerAudio.AddRange(transform.parent.transform.parent.GetComponents<AudioSource>());
-        PlayerAudio.AddRange(transform.parent.transform.parent.GetChild(1).GetComponents<AudioSource>());
         Text = GetComponent<TextMeshProUGUI>();
         StartCoroutine(GetRemaining());
     }
@@ -67,10 +65,7 @@ public class Enemy_Counter : MonoBehaviour
 
     IEnumerator VictoryScene()
     {
-        foreach(AudioSource a in PlayerAudio)
-        {
-            a.enabled = false;
-        }
+        AudioUI.GetComponent<VolumeSettings>().Mute(true);
         int voice = Random.Range(0, 2);
         Victory.clip = VictorySound[voice];
         Victory.Play();

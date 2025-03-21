@@ -50,4 +50,13 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene(6);
     }
 
+    public void Exit()
+    {
+        if (UnityEditor.EditorApplication.isPlaying)
+            UnityEditor.EditorApplication.isPlaying = false;
+        else
+            Application.Quit();
+        
+    }
+
 }

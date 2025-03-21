@@ -9,35 +9,15 @@ using UnityEngine.UI;
 public class Shop_Interactiob : MonoBehaviour
 {
     public Weapon_Controller WPC;
-    public GameObject[] E;
-    public EventSystem EV;
     public InputController IC;
-    GameObject Shop;
+    public GameObject Shop;
     public int shopPos = 0;
     public int size = 0;
 
     bool SoldOut = false;
 
-    public void Start()
-    {
-        EV = E[1].GetComponent<EventSystem>();
-    }
 
 
-
-    public void Update()
-    {
-       if(Gamepad.all.Count > 0)
-        {
-            E[0].SetActive(false);
-            E[1].SetActive(true);
-        }
-        else
-        {
-            E[0].SetActive(true);
-            E[1].SetActive(false);
-        }
-    }
 
 
     private void Rotate(float f)
@@ -49,8 +29,8 @@ public class Shop_Interactiob : MonoBehaviour
             shopPos = shopPos < 0 ? size-1 : (shopPos == size ? 0 : shopPos);
             if(Shop.transform.GetChild(shopPos).gameObject.active)
             {
-                    EV.firstSelectedGameObject = Shop.transform.GetChild(shopPos).gameObject;
-                    EV.firstSelectedGameObject.GetComponent<Button>().Select();
+                    IC.EV.firstSelectedGameObject = Shop.transform.GetChild(shopPos).gameObject;
+                    IC.EV.firstSelectedGameObject.GetComponent<Button>().Select();
                 select = true;
             }
 
@@ -88,11 +68,11 @@ public class Shop_Interactiob : MonoBehaviour
                     size++;
                     if(child.gameObject.active && !found)
                     {
-                        EV.firstSelectedGameObject = child.gameObject;
+                        IC.EV.firstSelectedGameObject = child.gameObject;
                         found = true;
                     }
                 }
-                EV.firstSelectedGameObject.GetComponent<Button>().Select();
+                IC.EV.firstSelectedGameObject.GetComponent<Button>().Select();
             }
 
             collision.GetComponentInChildren<Canvas>().enabled = true;
@@ -108,7 +88,7 @@ public class Shop_Interactiob : MonoBehaviour
             {
                 Shop = null;
                 IC.OnShopRotate -= Rotate;
-                EV.firstSelectedGameObject = null;
+                IC.EV.firstSelectedGameObject = null;
             }
             collision.GetComponentInChildren<Canvas>().enabled = false;
             WPC.CanFire = true;

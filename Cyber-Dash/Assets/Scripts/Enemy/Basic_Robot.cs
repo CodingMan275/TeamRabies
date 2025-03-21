@@ -13,9 +13,11 @@ public class Basic_Robot : MonoBehaviour
 
     public GameObject DropScrap;
     public GameObject DropEnergy;
-    private float Health;
+    public float Health;
     public float MaxHealth;
+
     private bool WasHurt = false;
+    public bool Die = false;
 
     public SaveData Player;
 
@@ -64,6 +66,15 @@ public class Basic_Robot : MonoBehaviour
                 agent.speed = 8f;
             }
            
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(Health <=0 && !Die)
+        {
+            Die = true;
+            Death();
         }
     }
 
@@ -125,7 +136,7 @@ public class Basic_Robot : MonoBehaviour
 
     public IEnumerator TakeDamage(float dmg)
     {
-        Health -= Health - dmg <= 0 ? Death() : dmg;    //Replace 1 with bull damage
+        Health -= dmg;    //Replace 1 with bull damage
         if (!WasHurt)
         {
             WasHurt = true;

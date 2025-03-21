@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class InputController : MonoBehaviour
 {
+    public GameObject[] E;
+    public EventSystem EV;
 
     public Vector2 LInput { get; private set; }
     public float AimAngle { get; private set; }
@@ -81,13 +84,16 @@ public class InputController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        EV = E[1].GetComponent<EventSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       LInput = move.ReadValue<Vector2>();
+
+        ContollerCheck();
+
+        LInput = move.ReadValue<Vector2>();
        isRunning = run.IsPressed();
 
 
@@ -149,5 +155,19 @@ public class InputController : MonoBehaviour
             Shoot.Enable();
         else
             Shoot.Disable();
+    }
+
+    void ContollerCheck()
+    {
+        if (Gamepad.all.Count > 0)
+        {
+            E[0].SetActive(false);
+            E[1].SetActive(true);
+        }
+        else
+        {
+            E[0].SetActive(true);
+            E[1].SetActive(false);
+        }
     }
 }
