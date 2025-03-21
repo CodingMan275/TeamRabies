@@ -39,7 +39,7 @@ public class Beam_Logic : MonoBehaviour
 
     public void Fire()
     {
-        if ((timeSinceLastFiredBullet > BulletDelay * Mathf.Abs(stats.FireRateMod - stats.BeamFireRateMod)) && WPC.CanFire)
+        if ((timeSinceLastFiredBullet > BulletDelay * Mathf.Abs(1 - stats.FireRateMod - stats.BeamFireRateMod)) && WPC.CanFire)
         {
             Transform playerTM = GetComponentInParent<Transform>();
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
