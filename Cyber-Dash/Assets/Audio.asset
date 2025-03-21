@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5d5b28746acf5439abb25c0746cbe7, type: 3}
   m_Name: Audio
   m_EditorClassIdentifier: 
-  Master: 1
-  Vocal: 0.0001
-  SFX: 0.2
+  Master: 0.8
+  Vocal: 0.8
+  SFX: 0.8
