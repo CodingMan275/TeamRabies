@@ -26,10 +26,10 @@ public class SaveData : ScriptableObject
     public bool Shotgun;
     public bool PlasmaCutter;
 
-    public float PistolFireRateMod = 0;
-    public float ShotgunFireRateMod = 0;
-    public float BoltLauncherFireRateMod = 0;
-    public float BeamFireRateMod = 0;
+    public float PistolFireRateMod = 1;
+    public float ShotgunFireRateMod = 1;
+    public float BoltLauncherFireRateMod = 1;
+    public float BeamFireRateMod = 1;
 
     //List of energy upgrades that change and move from rounds
     public List<Upgrade> EnergyPoolRound1;

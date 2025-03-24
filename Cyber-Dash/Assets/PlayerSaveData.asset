@@ -24,10 +24,10 @@ MonoBehaviour:
   Bolt_Launcher: 0
   Shotgun: 0
   PlasmaCutter: 0
-  PistolFireRateMod: 0
-  ShotgunFireRateMod: 0
-  BoltLauncherFireRateMod: 0
-  BeamFireRateMod: 0
+  PistolFireRateMod: 1
+  ShotgunFireRateMod: 1
+  BoltLauncherFireRateMod: 1
+  BeamFireRateMod: 1
   EnergyPoolRound1:
   - Name: Rapid Fire Circuit
     Cost: 1
