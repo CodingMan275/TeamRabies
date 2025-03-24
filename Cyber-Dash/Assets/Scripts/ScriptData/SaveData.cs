@@ -10,7 +10,7 @@ public class SaveData : ScriptableObject
     public int Energy = 0;
 
     //Player stats to be modified
-    public float FireRateMod = 1;
+    public float FireRateMod = 0;
     public double DodgeCooldownMod = 1;
     public double ScrapDropMod = 1;
 

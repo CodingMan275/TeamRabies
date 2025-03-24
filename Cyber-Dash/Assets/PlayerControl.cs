@@ -357,7 +357,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""UI System"",
+            ""name"": ""UISystem"",
             ""id"": ""e4d487fe-5aad-4a6c-9b35-ead2690a6d0e"",
             ""actions"": [
                 {
@@ -381,6 +381,17 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a21e45ec-d78b-48da-94df-6f620ab17f3c"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -397,8 +408,8 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         m_PlayerInput_Shoot = m_PlayerInput.FindAction("Shoot", throwIfNotFound: true);
         m_PlayerInput_ShopSwitch = m_PlayerInput.FindAction("ShopSwitch", throwIfNotFound: true);
         m_PlayerInput_Ability = m_PlayerInput.FindAction("Ability", throwIfNotFound: true);
-        // UI System
-        m_UISystem = asset.FindActionMap("UI System", throwIfNotFound: true);
+        // UISystem
+        m_UISystem = asset.FindActionMap("UISystem", throwIfNotFound: true);
         m_UISystem_Pause = m_UISystem.FindAction("Pause", throwIfNotFound: true);
     }
 
@@ -545,7 +556,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
     }
     public PlayerInputActions @PlayerInput => new PlayerInputActions(this);
 
-    // UI System
+    // UISystem
     private readonly InputActionMap m_UISystem;
     private IUISystemActions m_UISystemActionsCallbackInterface;
     private readonly InputAction m_UISystem_Pause;
