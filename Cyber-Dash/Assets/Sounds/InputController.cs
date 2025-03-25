@@ -10,6 +10,7 @@ public class InputController : MonoBehaviour
 {
     public GameObject[] E;
     public EventSystem EV;
+    public bool Controller = false;
 
     public Vector2 LInput { get; private set; }
     public float AimAngle { get; private set; }
@@ -161,11 +162,13 @@ public class InputController : MonoBehaviour
     {
         if (Gamepad.all.Count > 0)
         {
+            Controller = true;
             E[0].SetActive(false);
             E[1].SetActive(true);
         }
         else
         {
+            Controller = false;
             E[0].SetActive(true);
             E[1].SetActive(false);
         }

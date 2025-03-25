@@ -13,6 +13,7 @@ public class Shop_Interactiob : MonoBehaviour
     public GameObject Shop;
     public int shopPos = 0;
     public int size = 0;
+    public AudioSource ShopBell;
 
     bool SoldOut = false;
 
@@ -39,6 +40,7 @@ public class Shop_Interactiob : MonoBehaviour
 
     public void Buy()
     {
+        ShopBell.Play();
         int Detection = 0;
         foreach (Transform child in Shop.transform)
         {
