@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: PlayerSaveData
   m_EditorClassIdentifier: 
   killCount: 0
-  Scrap: 73
-  Energy: 73
-  FireRateMod: 0.5500001
+  Scrap: 0
+  Energy: 0
+  FireRateMod: 1
   DodgeCooldownMod: 0
   ScrapDropMod: 1
-  explodingBullets: 1
+  explodingBullets: 0
   Turret: 1
   Pistol: 0
-  Bolt_Launcher: 1
+  Bolt_Launcher: 0
   Shotgun: 0
   PlasmaCutter: 0
   PistolFireRateMod: 1
