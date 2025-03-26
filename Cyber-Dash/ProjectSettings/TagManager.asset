@@ -12,6 +12,7 @@ TagManager:
   - Explode
   - Enemy Bullet
   - Knockback
+  - Boss
   layers:
   - Default
   - TransparentFX

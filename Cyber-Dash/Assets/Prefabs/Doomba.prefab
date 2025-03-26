@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5545767756698804564}
   m_Layer: 0
   m_Name: Doomba
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,10 +116,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 649e3467e92249f4981bdcdb91b6addb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+  DropScrap: {fileID: 2143827383965784735, guid: b3a9e5a3933da7246b0f256b74bd8120, type: 3}
+  DropEnergy: {fileID: 2143827383965784735, guid: 6f2e931c0f5a8954eaa857b58cd79f37, type: 3}
+  AttackDmg: 1
+  Health: 5
+  MaxHealth: 5
   Speed: 20
   LockedOn: 0
   onWall: 0
   Charging: 0
+  Die: 0
 --- !u!50 &5545767756698804564
 Rigidbody2D:
   serializedVersion: 4

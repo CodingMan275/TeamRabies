@@ -26,6 +26,8 @@ public class Basic_Robot : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
 
+    Transform miniboss;
+
 
     [SerializeField] private float MoveDelay;
     private float DelayTimer;
@@ -46,6 +48,7 @@ public class Basic_Robot : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         target = GameObject.Find("Player").GetComponent<Transform>();
+        miniboss = GameObject.Find("Doomba").GetComponent<Transform>();
     }
 
 
@@ -60,7 +63,8 @@ public class Basic_Robot : MonoBehaviour
         if(DelayTimer <=0)
         {
             StartDelay = false;
-           float dist = Mathf.Abs(Vector3.Distance(target.position, transform.position));
+            GetComponent<CapsuleCollider2D>().enabled = true;
+            float dist = Mathf.Abs(Vector3.Distance(target.position, transform.position));
             if(dist > 5.5)
             {
                 agent.speed = 8f;
@@ -83,9 +87,24 @@ public class Basic_Robot : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             agent.speed = 0;
-           // playerInRange = true;
-          //  agent.SetDestination(-target.position);
+            // playerInRange = true;
+            //  agent.SetDestination(-target.position);
 
+        }
+        else if(collision.gameObject.name == "Doomba")
+        {
+            // print("Collided");
+            if (collision.gameObject.GetComponent<Miniboss>().Charging)
+            {
+                GetComponent<CapsuleCollider2D>().enabled = false;
+                StartDelay = true;
+                //float rand = Random.Range(0f, 1f);
+                Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
+                if (Random.value < .5f)
+                    agent.velocity = -(Quaternion.Euler(0, 90, 0) * Direction * 10);
+                else
+                    agent.velocity = -(Quaternion.Euler(0, -90, 0) * Direction * 10);
+            }
         }
         
     }
