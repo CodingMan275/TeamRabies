@@ -52,11 +52,7 @@ public class SceneController : MonoBehaviour
 
     public void Exit()
     {
-        if (UnityEditor.EditorApplication.isPlaying)
-            UnityEditor.EditorApplication.isPlaying = false;
-        else
-            Application.Quit();
-        
+            Application.Quit(); 
     }
 
 }
