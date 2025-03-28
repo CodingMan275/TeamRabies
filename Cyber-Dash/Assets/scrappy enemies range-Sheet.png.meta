@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1950
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea94c6bc94ac8d4e8e2d766cbf4d9ad
+      internalID: -719905617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 1950
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68c4a960247a3748819f5ee4fd32f36
+      internalID: -781804000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 1950
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b80dd95a6e99a4ea53334ad72de6a5
+      internalID: -226966570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 3660
+        y: 1950
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a4606c2cf71d884c9ef8bd5aa6beeaa
+      internalID: 1473915054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1300
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc4a88d11fbb4b4998c1ab5640cf92a
+      internalID: -319464312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 1300
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 773f26344b5c0a8499a5da6fe5eb48ea
+      internalID: -32352132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 1300
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00fe3c916074a464580a2f2831c25d12
+      internalID: 819265500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3660
+        y: 1300
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc8bd0bb74d5ad746bf937c96ea748f4
+      internalID: -775652292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 650
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11666e2df5429bd42af869487a404042
+      internalID: 1697597951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 650
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db0a40be1343d5a42a2be0ffd7d897f6
+      internalID: 279720415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 650
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ab9f47cfdfea8543a79eca986a8f4e3
+      internalID: -847373783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 3660
+        y: 650
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba805009959edf740994f590916a3916
+      internalID: 1115325327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64481dc2a325958488d74176c90e7d4d
+      internalID: 1078531616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 0
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5384cf7d53a3adf4e85598cb93a2fcaf
+      internalID: 1018641739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2440
+        y: 0
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a656da62e0adcaa4799a7f22111519ab
+      internalID: -62246274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: scrappy enemies range-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 3660
+        y: 0
+        width: 1220
+        height: 650
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a5e0e2c515d8664a877efd88d08d0c9
+      internalID: -1567933425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +450,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      scrappy enemies range-Sheet_9: 279720415
+      scrappy enemies range-Sheet_2: -226966570
+      scrappy enemies range-Sheet_6: 819265500
+      scrappy enemies range-Sheet_15: -1567933425
+      scrappy enemies range-Sheet_7: -775652292
+      scrappy enemies range-Sheet_3: 1473915054
+      scrappy enemies range-Sheet_10: -847373783
+      scrappy enemies range-Sheet_5: -32352132
+      scrappy enemies range-Sheet_13: 1018641739
+      scrappy enemies range-Sheet_4: -319464312
+      scrappy enemies range-Sheet_8: 1697597951
+      scrappy enemies range-Sheet_14: -62246274
+      scrappy enemies range-Sheet_1: -781804000
+      scrappy enemies range-Sheet_12: 1078531616
+      scrappy enemies range-Sheet_0: -719905617
+      scrappy enemies range-Sheet_11: 1115325327
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
