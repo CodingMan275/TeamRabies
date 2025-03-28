@@ -48,7 +48,6 @@ public class Basic_Robot : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         target = GameObject.Find("Player").GetComponent<Transform>();
-        miniboss = GameObject.Find("Doomba").GetComponent<Transform>();
     }
 
 
