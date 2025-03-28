@@ -12,6 +12,8 @@ public class TurretLogic : MonoBehaviour
     public GameObject BulletPrefab;
     public GameObject Offset;
 
+    public int bulletDmg;
+
     public float BulletSpeed;
     public double BulletDelay;
     float LastTimeBulletFired;
@@ -85,6 +87,7 @@ public class TurretLogic : MonoBehaviour
             print("FIRE");
             GameObject Bullet = Instantiate(BulletPrefab, Offset.transform.position, transform.rotation);
             Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BulletSpeed, ForceMode2D.Impulse);
+            Bullet.GetComponent<Bullet>().Damage = bulletDmg;
             LastTimeBulletFired = Time.time;
         }
     }

@@ -218,6 +218,7 @@ MonoBehaviour:
   enemies: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
   BulletPrefab: {fileID: 843936082987813954, guid: 3719308b35c94d84eabe3ddc0a9d81be, type: 3}
   Offset: {fileID: 4682877463201841572}
+  bulletDmg: 1
   BulletSpeed: 20
   BulletDelay: 0.5
   DeployTime: 10
