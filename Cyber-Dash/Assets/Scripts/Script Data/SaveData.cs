@@ -5,32 +5,40 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="SaveData/PlayerSave")]
 public class SaveData : ScriptableObject
 {
+    [Header("Player Stats")]
+    public int Round = 1;
     public int killCount = 0;
     public int Scrap = 0;
     public int Energy = 0;
 
+    [Header("Mod Player")]
     //Player stats to be modified
     public float FireRateMod = 0;
     public double DodgeCooldownMod = 1;
     public double ScrapDropMod = 1;
-
     public bool explodingBullets = false;
 
+    [Header("Player Abilities")]
     //Player abilities
     //Player adds the abilities that are marked true on enter
     public bool Turret = false;
 
+    [Header("Weapons")]
     //Weapons
     public bool Pistol = true;
     public bool Bolt_Launcher;
     public bool Shotgun;
     public bool PlasmaCutter;
 
+    [Header("Weapon Mods")]
     public float PistolFireRateMod = 1;
     public float ShotgunFireRateMod = 1;
     public float BoltLauncherFireRateMod = 1;
     public float BeamFireRateMod = 1;
 
+
+
+    [Header("Smelly Stinky List")]
     //List of energy upgrades that change and move from rounds
     public List<Upgrade> EnergyPoolRound1;
     public List<Upgrade> EnergyPoolRound2;
@@ -60,6 +68,5 @@ public class SaveData : ScriptableObject
     public List<Upgrade> StaticScrapPoolRound5;
 
 
-    public int Round = 1;
 
 }

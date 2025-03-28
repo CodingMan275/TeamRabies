@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d06dd458699adf4f80fd5ae7e2f1c88, type: 3}
   m_Name: PlayerSaveData
   m_EditorClassIdentifier: 
-  killCount: 3
-  Scrap: 73
-  Energy: 73
-  FireRateMod: 1
-  DodgeCooldownMod: 0
+  Round: 1
+  killCount: 11
+  Scrap: 63
+  Energy: 798
+  FireRateMod: -0.34999996
+  DodgeCooldownMod: -8
   ScrapDropMod: 1
-  explodingBullets: 0
+  explodingBullets: 1
   Turret: 1
   Pistol: 1
   Bolt_Launcher: 0
@@ -34,19 +35,19 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
     Description: increase fire rate by 15%
     itemRef: {fileID: 0}
-    Purchased: 0
+    Purchased: 1
   - Name: Dodge Booster
     Cost: 1
     Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
     Description: decrease dash cooldown by 25%
     itemRef: {fileID: 0}
-    Purchased: 0
+    Purchased: 1
   - Name: Explosive Rounds
     Cost: 3
     Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
     Description: create a small explosion when bullets hit their end
     itemRef: {fileID: 0}
-    Purchased: 0
+    Purchased: 1
   - Name: Turret
     Cost: 10
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
@@ -69,19 +70,19 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
     Description: increase fire rate by 15%
     itemRef: {fileID: 0}
-    Purchased: 0
+    Purchased: 1
   - Name: Dodge Booster
     Cost: 1
     Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
     Description: decrease dash cooldown by 25%
     itemRef: {fileID: 0}
-    Purchased: 0
+    Purchased: 1
   - Name: Explosive Rounds
     Cost: 3
     Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
     Description: create a small explosion when bullets hit their end
     itemRef: {fileID: 0}
-    Purchased: 0
+    Purchased: 1
   - Name: Turret
     Cost: 10
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
@@ -144,4 +145,3 @@ MonoBehaviour:
   StaticScrapPoolRound3: []
   StaticScrapPoolRound4: []
   StaticScrapPoolRound5: []
-  Round: 1

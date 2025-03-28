@@ -59,11 +59,12 @@ public class Shop_Interactiob : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop")
         {
+            Shop = collision.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject;
+            Shop.SetActive(true);
             if(Gamepad.all.Count > 0 && !SoldOut)
             {
                 size = 0;
                  IC.OnShopRotate += Rotate;
-                Shop = collision.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject;
                 bool found = false;
                 foreach (Transform child in Shop.transform)
                 {
@@ -88,10 +89,11 @@ public class Shop_Interactiob : MonoBehaviour
         {
             if (Gamepad.all.Count > 0)
             {
-                Shop = null;
                 IC.OnShopRotate -= Rotate;
                 IC.EV.firstSelectedGameObject = null;
             }
+            Shop.SetActive(false);
+            Shop = null;
             collision.GetComponentInChildren<Canvas>().enabled = false;
             WPC.CanFire = true;
         }
