@@ -30,6 +30,10 @@ public class Beam_Logic : MonoBehaviour
         WPC = GetComponent<Weapon_Controller>();
         IC.OnShootPressed += Fire;
     }
+    private void OnEnable()
+    {
+        IC.OnShootPressed += Fire;
+    }
 
     // Update is called once per frame
     void Update()

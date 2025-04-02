@@ -43,11 +43,24 @@ public class SceneController : MonoBehaviour
         SD.Pistol = true;
         SD.FireRateMod = 1;
         SD.DodgeCooldownMod = 1;
+        SD.curWep = new Upgrade("Pistol", 0, Resources.Load<Sprite>("ALFE_Art/gun 1"), "A basic Pistol", false);
         SceneManager.LoadScene(5);
     }
     public void Arena2()
     {
         SceneManager.LoadScene(6);
+    }
+    public void Arena3()
+    {
+        SceneManager.LoadScene(7);
+    }
+    public void Arena4()
+    {
+        SceneManager.LoadScene(8);
+    }
+    public void Arena5()
+    {
+        SceneManager.LoadScene(9);
     }
 
     public void Exit()

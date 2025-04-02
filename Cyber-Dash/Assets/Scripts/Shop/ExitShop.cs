@@ -34,7 +34,18 @@ public class ExitShop : MonoBehaviour
             {
                 SC.Arena2();
             }
-           // SC.StartGame();
+            else if (SD.Round == 3)
+            {
+                SC.Arena3();
+            }
+            else if (SD.Round == 4)
+            {
+                SC.Arena4();
+            }
+            else if (SD.Round == 5)
+            {
+                SC.Arena5();
+            }
         }
     }
 }

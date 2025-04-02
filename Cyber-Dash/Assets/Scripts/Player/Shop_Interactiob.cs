@@ -81,11 +81,47 @@ public class Shop_Interactiob : MonoBehaviour
             collision.GetComponentInChildren<Canvas>().enabled = true;
             WPC.CanFire = false;
         }
+        else if (collision.gameObject.tag == "Chest")
+        {
+            Shop = collision.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject;
+            Shop.SetActive(true);
+            if (Gamepad.all.Count > 0 && !SoldOut)
+            {
+                size = 0;
+                IC.OnShopRotate += Rotate;
+                bool found = false;
+                foreach (Transform child in Shop.transform)
+                {
+                    size++;
+                    if (child.gameObject.active && !found)
+                    {
+                        IC.EV.firstSelectedGameObject = child.gameObject;
+                        found = true;
+                    }
+                }
+                IC.EV.firstSelectedGameObject.GetComponent<Button>().Select();
+            }
+
+            collision.GetComponentInChildren<Canvas>().enabled = true;
+            WPC.CanFire = false;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Shop")
+        {
+            if (Gamepad.all.Count > 0)
+            {
+                IC.OnShopRotate -= Rotate;
+                IC.EV.firstSelectedGameObject = null;
+            }
+            Shop.SetActive(false);
+            Shop = null;
+            collision.GetComponentInChildren<Canvas>().enabled = false;
+            WPC.CanFire = true;
+        }
+        if (collision.gameObject.tag == "Chest")
         {
             if (Gamepad.all.Count > 0)
             {

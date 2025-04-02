@@ -27,6 +27,10 @@ public class Bolt_Launcher_Logic : MonoBehaviour
     {
         IC = transform.parent.GetComponent<InputController>();
         WPC = GetComponent<Weapon_Controller>();
+      //  IC.OnShootPressed += Fire;
+    }
+    private void OnEnable()
+    {
         IC.OnShootPressed += Fire;
     }
 
