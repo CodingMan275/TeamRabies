@@ -64,6 +64,7 @@ public class Ranged_Robot : MonoBehaviour
                 //transform.up = Direction;
        if ((Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= ShootRange) && hit.collider.gameObject.tag != "Wall")
         {
+            agent.avoidancePriority = 50;
             agent.speed = 0; ;
             CanShoot = true;
             running_away = false;
@@ -84,9 +85,16 @@ public class Ranged_Robot : MonoBehaviour
             if(!WasHurt)
             StartCoroutine(TakeDamage(1));
         }
-        if (col.CompareTag("Explode"))
+        else if (col.CompareTag("Explode"))
         {
             StartCoroutine(TakeDamage(1));
+        }
+        else if (col.CompareTag("Knockback"))
+        {
+            agent.avoidancePriority = 40;
+            //Knock back
+            Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
+            agent.velocity = -(Direction * col.GetComponent<Knockback_Logic>().KnockbackDist) * .3f;
         }
     }
 

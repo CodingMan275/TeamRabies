@@ -130,18 +130,18 @@ public class Basic_Robot : MonoBehaviour
             else
             StartCoroutine(TakeDamage(col.GetComponent<Beam>().Damage));
         }
-        if (col.CompareTag("Explode"))
+        else if (col.CompareTag("Explode"))
         {
             print("explo hit");
             StartCoroutine(TakeDamage(1));
         }
 
-        if (col.CompareTag("Knockback"))
+        else if (col.CompareTag("Knockback"))
         {
             agent.avoidancePriority = 40;
           //Knock back
             Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
-            agent.velocity = -(Direction * col.GetComponent<Knockback_Logic>().KnockbackDist);
+            agent.velocity = -(Direction * col.GetComponent<Knockback_Logic>().KnockbackDist) * 1.2f;
         }
     }
 
