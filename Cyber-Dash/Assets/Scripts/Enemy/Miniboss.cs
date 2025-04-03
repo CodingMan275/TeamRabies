@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Miniboss : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Miniboss : MonoBehaviour
     public SaveData Player;
     public GameObject DropScrap;
     public GameObject DropEnergy;
+    public GameObject Trail;
 
     public int AttackDmg;
 
@@ -31,6 +33,10 @@ public class Miniboss : MonoBehaviour
     float delay = .4f;
     float delayTimer;
     float lastAttack;
+
+    float trailDelay;
+    float lastTrail;
+    public Slider HealthBar;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +50,8 @@ public class Miniboss : MonoBehaviour
         rb.velocity = chargePos * Speed;
         Charging = true;
         transform.right = target.position - transform.position;
+        HealthBar.maxValue = MaxHealth;
+        HealthBar.value = MaxHealth;
 
     }
 
@@ -54,6 +62,15 @@ public class Miniboss : MonoBehaviour
         if (!Charging)
         { 
             transform.right = target.position - transform.position;
+        }
+        else
+        {
+            lastTrail = Time.time - trailDelay;
+            if (lastTrail > .11)
+            {
+                Instantiate(Trail, transform.position, transform.rotation);
+                trailDelay = Time.time;
+                    }
         }
       
         if (rb.velocity != (chargePos * Speed) && Charging)
@@ -117,6 +134,7 @@ public class Miniboss : MonoBehaviour
     public IEnumerator TakeDamage(float dmg)
     {
         Health -= dmg;    //Replace 1 with bull damage
+        HealthBar.value = Health;
         if (!WasHurt)
         {
             WasHurt = true;

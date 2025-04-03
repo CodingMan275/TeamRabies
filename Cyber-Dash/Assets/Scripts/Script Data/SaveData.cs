@@ -67,6 +67,9 @@ public class SaveData : ScriptableObject
     public List<Upgrade> StaticScrapPoolRound4;
     public List<Upgrade> StaticScrapPoolRound5;
 
+    public Upgrade curWep;
+    public List<Upgrade> PastWeapons;
+
 
 
 }

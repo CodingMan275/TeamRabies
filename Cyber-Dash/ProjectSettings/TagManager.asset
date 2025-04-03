@@ -13,6 +13,7 @@ TagManager:
   - Enemy Bullet
   - Knockback
   - Boss
+  - Chest
   layers:
   - Default
   - TransparentFX

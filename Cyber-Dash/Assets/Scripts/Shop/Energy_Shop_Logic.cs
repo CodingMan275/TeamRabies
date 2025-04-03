@@ -156,7 +156,7 @@ public class Energy_Shop_Logic : MonoBehaviour
 
     private void OnGUI()
     {
-       scrapDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "Energy " + player.Scrap;
+       scrapDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "Energy " + player.Energy;
     }
 
   List<Upgrade> FindPool(int round)
@@ -228,13 +228,14 @@ public class Upgrade
     public Sprite Sprite;
     public string Description;
     [HideInInspector] public GameObject itemRef;
-    [HideInInspector] public bool Purchased;
+    public bool Purchased;
 
-    public Upgrade(string Name, int Cost, Sprite Sprite, string Decsription)
+    public Upgrade(string Name, int Cost, Sprite Sprite, string Decsription, bool Purchased)
     {
         this.Name = Name;
         this.Cost = Cost;
         this.Sprite = Sprite;
         this.Description = Decsription;
+        this.Purchased = Purchased;
     }
 }

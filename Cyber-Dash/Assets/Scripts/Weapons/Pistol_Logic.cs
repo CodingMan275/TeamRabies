@@ -27,6 +27,11 @@ public class Pistol_Logic : MonoBehaviour
     {
         IC = transform.parent.GetComponent<InputController>();
         WPC = GetComponent<Weapon_Controller>();
+       // IC.OnShootPressed += Fire;
+    }
+
+    private void OnEnable()
+    {
         IC.OnShootPressed += Fire;
     }
 
@@ -52,6 +57,7 @@ public class Pistol_Logic : MonoBehaviour
     {
         IC.OnShootPressed -= Fire;
     }
+
 
     private IEnumerator Bang()
     {

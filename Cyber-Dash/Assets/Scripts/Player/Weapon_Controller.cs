@@ -83,5 +83,6 @@ public class Weapon_Controller : MonoBehaviour
         GetComponent<Pistol_Logic>().enabled = false;
         GetComponent<Bolt_Launcher_Logic>().enabled = false;
         GetComponent<Shotgun_Logic>().enabled = false;
+        GetComponent<Beam_Logic>().enabled = false;
     }
 }
