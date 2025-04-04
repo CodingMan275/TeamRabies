@@ -4878,6 +4878,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera_Offset: {x: 0, y: 1, z: -5}
+  minX: -14
+  maxX: 21
+  minY: 2
+  maxY: 14
 --- !u!114 &8311743821360537599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5141,6 +5145,7 @@ MonoBehaviour:
   Spawner: []
   E: []
   Activate: 0
+  WaitTime: 5
   AudioUI: {fileID: 1618173551332000379}
   Victory: {fileID: 423412058315183086}
   VictorySound:

@@ -142,7 +142,7 @@ MonoBehaviour:
   DropScrap: {fileID: 2143827383965784735, guid: b3a9e5a3933da7246b0f256b74bd8120, type: 3}
   DropEnergy: {fileID: 2143827383965784735, guid: 6f2e931c0f5a8954eaa857b58cd79f37, type: 3}
   Health: 0
-  MaxHealth: 8
+  MaxHealth: 4
   Die: 0
   Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
   MoveDelay: 1

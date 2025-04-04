@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
     public int[] EnemyCounter;
     private int SpawnCount;
 
+    public bool StartSummon = false;
+
     private int[] CounterControl;
     [Tooltip("Time between each spawn.")] public float SpawnTimer;
     [Tooltip("Time between each summon.")]public float SummonTimer;
@@ -28,6 +30,13 @@ public class EnemySpawner : MonoBehaviour
         print("Create Total");
         NextSpawn = SpawnTimer;
         offset = transform.GetChild(0).GameObject();
+        if (StartSummon)
+        {
+            CounterControl = (int[])EnemyCounter.Clone();
+            Respawn = false;
+            StartCoroutine(Summon());
+        }
+
     }
 
     // Update is called once per frame

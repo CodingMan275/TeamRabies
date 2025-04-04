@@ -17,6 +17,7 @@ public class Enemy_Counter : MonoBehaviour
     public bool Activate = false;
 
     private bool playaudio = true;
+    public int WaitTime = 1;
     public GameObject AudioUI;
     public AudioSource Victory;
     public AudioClip[] VictorySound;
@@ -70,8 +71,8 @@ public class Enemy_Counter : MonoBehaviour
         Victory.clip = VictorySound[voice];
         Victory.Play();
         yield return new WaitForSeconds(VictorySound[voice].length);
-        yield return new WaitForSeconds(0.5f);
-        if (SD.Round != 2)
+        yield return new WaitForSeconds(WaitTime);
+        if (SD.Round != 3)
         {
             SC.Shop();
         }

@@ -503,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: SpawnTimer
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: SpawnRadius
@@ -511,7 +511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: SummonTimer
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: SummonCounter
@@ -657,11 +657,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643731, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20
+      value: 11.11
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643731, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 3.89
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643731, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -697,7 +697,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: SpawnTimer
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: SpawnRadius
@@ -705,7 +705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: SummonTimer
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: SummonCounter
