@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: PlayerSaveData
   m_EditorClassIdentifier: 
   Round: 1
-  killCount: 100
-  Scrap: 804
+  killCount: 109
+  Scrap: 805
   Energy: 28
   FireRateMod: 1
   DodgeCooldownMod: 0
@@ -22,8 +22,8 @@ MonoBehaviour:
   explodingBullets: 0
   Turret: 0
   Pistol: 0
-  Bolt_Launcher: 1
-  Shotgun: 0
+  Bolt_Launcher: 0
+  Shotgun: 1
   PlasmaCutter: 0
   PistolFireRateMod: 0.8
   ShotgunFireRateMod: 1
@@ -105,33 +105,26 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: a slow firing, high damage gun that shoots piercing bolts
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: 'Pistol: Tier 2'
     Cost: 5
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: a slow firing weapon that fires a piercing beam
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Shotgun
     Cost: 3
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Plasma Cutter
     Cost: 3
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: a slow firing weapon that fires a piercing beam
     itemRef: {fileID: 0}
-    Purchased: 1
-  ScrapPoolRound2:
-  - Name: 'Pistol: Tier 3'
-    Cost: 10
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: An upgraded pistol that shoots 30% faster and bullets pierce one
-      enemy
-    itemRef: {fileID: 0}
     Purchased: 0
+  ScrapPoolRound2: []
   ScrapPoolRound3: []
   ScrapPoolRound4: []
   ScrapPoolRound5: []
@@ -141,58 +134,34 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: a slow firing, high damage gun that shoots piercing bolts
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: 'Pistol: Tier 2'
     Cost: 5
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: a slow firing weapon that fires a piercing beam
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Shotgun
     Cost: 3
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Plasma Cutter
     Cost: 3
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: a slow firing weapon that fires a piercing beam
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   StaticScrapPoolRound2: []
   StaticScrapPoolRound3: []
   StaticScrapPoolRound4: []
   StaticScrapPoolRound5: []
   curWep:
-    Name: Bolt Launcher
+    Name: Pistol
     Cost: 0
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: a slow firing, high damage gun that shoots piercing bolts
+    Sprite: {fileID: 0}
+    Description: A basic Pistol, false
     itemRef: {fileID: 0}
     Purchased: 0
-  PastWeapons:
-  - Name: Bolt Launcher
-    Cost: 0
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: a slow firing, high damage gun that shoots piercing bolts
-    itemRef: {fileID: 0}
-    Purchased: 0
-  - Name: Shotgun
-    Cost: 0
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
-    itemRef: {fileID: 0}
-    Purchased: 0
-  - Name: Plasma Cutter
-    Cost: 0
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: a slow firing weapon that fires a piercing beam
-    itemRef: {fileID: 0}
-    Purchased: 0
-  - Name: 'Pistol: Tier 2'
-    Cost: 0
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: a slow firing weapon that fires a piercing beam
-    itemRef: {fileID: 0}
-    Purchased: 0
+  PastWeapons: []

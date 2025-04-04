@@ -29,7 +29,7 @@ public class Player_Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HealthBar.value = HP;
+        
     }
 
     private void FixedUpdate()
@@ -41,7 +41,8 @@ public class Player_Health : MonoBehaviour
     public void TakeDamage(float dmg)
     {
         HP -= HP - dmg <= 0 ? Death() : dmg;
-        if(!WasHurt)
+        HealthBar.value = HP;
+        if (!WasHurt)
             StartCoroutine(Flash());
     }
 
