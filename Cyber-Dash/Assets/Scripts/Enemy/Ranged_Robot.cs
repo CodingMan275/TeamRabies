@@ -17,17 +17,26 @@ public class Ranged_Robot : MonoBehaviour
 
     public SaveData Player;
 
+    public float speed;
     public int ShootRange = 16;
+
+    Rigidbody2D rb;
+    Vector3 dir;
 
     public int RunRange = 10;
 
-    public bool running_away = false;
+    bool running_away = false;
 
     public bool CanShoot = false;
 
    [SerializeField ]private Transform gunTransform;
+    [SerializeField] private float MoveDelay;
+    private float DelayTimer;
+    private bool StartDelay = false;
 
-    
+    bool flop = false;
+
+
 
     [SerializeField] Transform target;
 
@@ -43,38 +52,51 @@ public class Ranged_Robot : MonoBehaviour
     void Start()
     {
         EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>(); 
-        agent = GetComponentInParent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
+       // agent = GetComponentInParent<NavMeshAgent>();
+      //  agent.updateRotation = false;
+      //  agent.updateUpAxis = false;
         target = GameObject.Find("Player").GetComponent<Transform>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (!running_away)
+        //get direction
+        dir = (target.position - transform.position).normalized;
+        DelayTimer = StartDelay ? DelayTimer - Time.deltaTime : MoveDelay;
+        if (DelayTimer <= 0)
         {
-            agent.SetDestination(target.position);
+            GetComponent<CapsuleCollider2D>().isTrigger = false;
+            StartDelay = false;
+            rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
-           Vector3 Direction = new Vector3(target.position.x - gunTransform.position.x, target.position.y - gunTransform.position.y);
-           Ray ray = new Ray(gunTransform.position, (target.position - gunTransform.position).normalized * 10);
-           RaycastHit2D hit = Physics2D.Raycast(gunTransform.position, Direction);
-           Debug.DrawRay(gunTransform.position,Direction, Color.green);
-                //transform.up = Direction;
-       if ((Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= ShootRange) && hit.collider.gameObject.tag != "Wall")
-        {
-            agent.avoidancePriority = 50;
-            agent.speed = 0; ;
+        }
+
+    private void FixedUpdate()
+    {
+        Vector3 Direction = new Vector3(target.position.x - gunTransform.position.x, target.position.y - gunTransform.position.y);
+        RaycastHit2D hit = Physics2D.Raycast(gunTransform.position, Direction);
+        Debug.DrawRay(gunTransform.position, Direction, Color.green);
+        //transform.up = Direction;
+        if ((Mathf.Abs(Vector3.Distance(target.position, transform.position)) <= ShootRange) && hit.collider.gameObject.tag != "Wall")
+        {        
+            if (!StartDelay)
+            {
+                 rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0;
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
             CanShoot = true;
-            running_away = false;
         }
-        else {
-            running_away = false;
-            agent.speed = 3.5f;
-            CanShoot = false;   
+        else 
+        {
+            CanShoot = false;
+            rb.velocity = new Vector2(dir.x, dir.y) * speed;
+            rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
-    }
+        }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -82,19 +104,34 @@ public class Ranged_Robot : MonoBehaviour
         GameObject col = collision.gameObject;
         if (col.CompareTag("Bullet"))
         {
-            if(!WasHurt)
-            StartCoroutine(TakeDamage(1));
+            print("Bullet hit");
+            if (col.GetComponent<Bullet>() != null)
+                StartCoroutine(TakeDamage(col.GetComponent<Bullet>().Damage));
+            else if (col.GetComponent<Bolt>() != null)
+                StartCoroutine(TakeDamage(col.GetComponent<Bolt>().Damage));
+            else
+                StartCoroutine(TakeDamage(col.GetComponent<Beam>().Damage));
         }
         else if (col.CompareTag("Explode"))
         {
+            print("explo hit");
             StartCoroutine(TakeDamage(1));
+        }
+        else if (col.CompareTag("Wall"))
+        {
+            GetComponent<CapsuleCollider2D>().isTrigger = false;
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0;
         }
         else if (col.CompareTag("Knockback"))
         {
-            agent.avoidancePriority = 40;
             //Knock back
-            Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
-            agent.velocity = -(Direction * col.GetComponent<Knockback_Logic>().KnockbackDist) * .3f;
+            rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
+            StartDelay = true;
+            rb.AddForce(-dir * col.GetComponent<Knockback_Logic>().KnockbackDist * 10f, ForceMode2D.Impulse);
+            rb.velocity = -dir * speed * 8f;
+          //  rb.angularVelocity = 3;
         }
     }
 

@@ -201,7 +201,6 @@ GameObject:
   - component: {fileID: 648178562}
   - component: {fileID: 6943058257212433888}
   - component: {fileID: 4984484033451977960}
-  - component: {fileID: 5594205021862337206}
   m_Layer: 2
   m_Name: Ranged Enemy
   m_TagString: Enemy
@@ -329,7 +328,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!195 &6943058257212433888
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -337,7 +336,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7360717835239363194}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 1
   m_Speed: 3.5
@@ -369,25 +368,10 @@ MonoBehaviour:
   DropEnergy: {fileID: 2143827383965784735, guid: b3a9e5a3933da7246b0f256b74bd8120, type: 3}
   MaxHealth: 4
   Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+  speed: 3.5
   ShootRange: 16
   RunRange: 13
-  running_away: 0
   CanShoot: 0
   gunTransform: {fileID: 3160069108066964546}
+  MoveDelay: 0.5
   target: {fileID: 8056955563528944122, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
---- !u!58 &5594205021862337206
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7360717835239363194}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.6999999, y: 0.5999999}
-  serializedVersion: 2
-  m_Radius: 18.1

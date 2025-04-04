@@ -96,6 +96,10 @@ public class Basic_Robot : MonoBehaviour
             rb.velocity = Vector2.zero;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
+        else if (collision.gameObject.GetComponent<Ranged_Robot>() == true)
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<CapsuleCollider2D>());
+        }
       /*  else if(collision.gameObject.name == "Doomba")
         {
             // print("Collided");
@@ -124,8 +128,8 @@ public class Basic_Robot : MonoBehaviour
             StartDelay = true;
             rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
-           // playerInRange = false;
-       // }
+        // playerInRange = false;
+        // }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -160,17 +164,9 @@ public class Basic_Robot : MonoBehaviour
             GetComponent<CapsuleCollider2D>().isTrigger = true;
             //  dir = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
             rb.AddForce(-dir * col.GetComponent<Knockback_Logic>().KnockbackDist * 1.4f, ForceMode2D.Impulse);
-            rb.velocity = -dir * speed;
+            rb.velocity = -dir * speed * 2f;
         }
     }
-
-    public IEnumerator StunDelay()
-    {
-        yield return new WaitForSeconds(.5f);
-       // agent.avoidancePriority = 50;
-        //agent.speed = 8;
-    }
-
     public IEnumerator TakeDamage(float dmg)
     {
         Health -= dmg;    //Replace 1 with bull damage

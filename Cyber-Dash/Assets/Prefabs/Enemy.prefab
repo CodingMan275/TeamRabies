@@ -103,7 +103,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.56, y: 5.23}
+  m_Size: {x: 2.25, y: 5.23}
   m_Direction: 0
 --- !u!50 &648178562
 Rigidbody2D:
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!114 &7360717835239363195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,13 +138,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867fbb238d9fa2d4d8981d3e61131685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnockBackStun: 0
   DropScrap: {fileID: 2143827383965784735, guid: b3a9e5a3933da7246b0f256b74bd8120, type: 3}
   DropEnergy: {fileID: 2143827383965784735, guid: 6f2e931c0f5a8954eaa857b58cd79f37, type: 3}
   Health: 0
   MaxHealth: 4
+  speed: 8
   Die: 0
   Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+  KnockBackStun: 0
   MoveDelay: 1
 --- !u!114 &5337829400149670089
 MonoBehaviour:
@@ -171,7 +172,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7360717835239363194}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 1.18
   m_Speed: 8
