@@ -10,12 +10,13 @@ public class Weapons_Chest : MonoBehaviour
     public GameObject UpgradePrefab;
     public Transform shopUiTransform;
     public Weapon_Controller WPC;
-    int itemNum = 0;
+    public Shop_Interactiob SI;
     // Start is called before the first frame update
     void Start()
     {
         if (player.Round == 1)
             player.PastWeapons.Clear();
+        SI.size = 0;
         resetBox();
     }
 
@@ -28,19 +29,20 @@ public class Weapons_Chest : MonoBehaviour
     public void getStuff(Upgrade curWep)
     {
 
-            // int randnumpicked =  Random.Range(0, CopyList.Count);
+        // int randnumpicked =  Random.Range(0, CopyList.Count);
 
-            //  Upgrade upgrade = CopyList[randnumpicked];
+        //  Upgrade upgrade = CopyList[randnumpicked];
 
-            //Upgrade upgrade = curWep;
+        //Upgrade upgrade = curWep;
 
-            //CopyList.RemoveAt(randnumpicked);
-            //player.UpgradePoolRound1.RemoveAt(randnumpicked);
+        //CopyList.RemoveAt(randnumpicked);
+        //player.UpgradePoolRound1.RemoveAt(randnumpicked);
 
-            //Actually create it
-            GameObject item = Instantiate(UpgradePrefab, shopUiTransform);
+        //Actually create it
+        GameObject item = Instantiate(UpgradePrefab, shopUiTransform);
+            item.name = curWep.Name;
 
-            curWep.itemRef = item;
+              curWep.itemRef = item;
             curWep.Purchased = false;
 
             foreach (Transform child in item.transform)
@@ -64,18 +66,18 @@ public class Weapons_Chest : MonoBehaviour
                 }
             
 
-
-
             item.GetComponent<Button>().onClick.AddListener(() =>
             {
                 ApplyUpgrade(curWep);
             });
-            itemNum++;
         }
+
+        SI.size++;
     }
 
     public void resetBox()
-    { 
+    {
+        //SI.size = 0;
             foreach (Transform child in shopUiTransform)
         {
             Destroy(child.gameObject);
@@ -85,12 +87,6 @@ public class Weapons_Chest : MonoBehaviour
             getStuff(upgrade);
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // freeWeapons = player.PastWeapons;
-       
-     
-    }
 
     void ApplyUpgrade(Upgrade upgrade)
     {
@@ -98,6 +94,7 @@ public class Weapons_Chest : MonoBehaviour
         if (!player.PastWeapons.Contains(player.curWep))
         {
             player.PastWeapons.Add(player.curWep);
+            //remove child with upgrade name
             getStuff(player.curWep);
         }
 

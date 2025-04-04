@@ -59,6 +59,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
 
             //Actually create it
             GameObject item = Instantiate(UpgradePrefab, shopUiTransform);
+            item.name = upgrade.Name;
 
             upgrade.itemRef = item;
             upgrade.Purchased = false;
@@ -108,12 +109,17 @@ public class Scrap_Shop_Logic : MonoBehaviour
             upgrade.Purchased = true;
             upgrade.itemRef.SetActive(false);
             //Take previous weapon and add it to the weapons chest
-            player.PastWeapons.Add(player.curWep);
-          //  weaponsChest.GetComponent<Weapons_Chest>().getStuff(player.curWep);
+            if (!player.PastWeapons.Contains(player.curWep))
+            {
+                player.PastWeapons.Add(player.curWep);
+                //weaponsChest.GetComponent<Weapons_Chest>().getStuff(player.curWep);
+                weaponsChest.GetComponent<Weapons_Chest>().getStuff(player.curWep);
+            }
 
             ApplyUpgrade(upgrade);
             SB.Buy();
-            weaponsChest.GetComponent<Weapons_Chest>().resetBox();
+            //  weaponsChest.GetComponent<Weapons_Chest>().resetBox();
+           
         }
     }
 
@@ -175,6 +181,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 10, gunSprite, "An upgraded pistol that shoots 30% faster and bullets pierce one enemy", false));
                 player.curWep = tempWep;
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
+                weaponsChest.GetComponent<Weapons_Chest>().resetBox();
                 //Remove previous versions of pistol
                 FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Pistol");
                 break;

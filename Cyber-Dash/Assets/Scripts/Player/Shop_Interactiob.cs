@@ -57,7 +57,7 @@ public class Shop_Interactiob : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Shop")
+        if (collision.gameObject.tag == "Shop" || collision.gameObject.tag == "Chest")
         {
             Shop = collision.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject;
             Shop.SetActive(true);
@@ -71,34 +71,12 @@ public class Shop_Interactiob : MonoBehaviour
                     size++;
                     if(child.gameObject.active && !found)
                     {
+                        shopPos = size - 1;
                         IC.EV.firstSelectedGameObject = child.gameObject;
                         found = true;
                     }
                 }
-                IC.EV.firstSelectedGameObject.GetComponent<Button>().Select();
-            }
-
-            collision.GetComponentInChildren<Canvas>().enabled = true;
-            WPC.CanFire = false;
-        }
-        else if (collision.gameObject.tag == "Chest")
-        {
-            Shop = collision.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject;
-            Shop.SetActive(true);
-            if (Gamepad.all.Count > 0 && !SoldOut)
-            {
-                size = 0;
-                IC.OnShopRotate += Rotate;
-                bool found = false;
-                foreach (Transform child in Shop.transform)
-                {
-                    size++;
-                    if (child.gameObject.active && !found)
-                    {
-                        IC.EV.firstSelectedGameObject = child.gameObject;
-                        found = true;
-                    }
-                }
+                if(found)
                 IC.EV.firstSelectedGameObject.GetComponent<Button>().Select();
             }
 
