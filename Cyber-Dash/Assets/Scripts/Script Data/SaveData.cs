@@ -40,6 +40,8 @@ public class SaveData : ScriptableObject
     public float ShotGunAmmo = 2;
     public int boltIncreaseDamage = 0;
     public float boltSpeedIncrease = 0;
+    public float beamCharge = .01f;
+    public int beamDamage = 5;
 
 
 
@@ -107,6 +109,8 @@ public class SaveData : ScriptableObject
   HowManyPierce = 0;
         boltIncreaseDamage = 0;
         boltSpeedIncrease = 0;
+        beamCharge = .01f;
+        beamDamage = 5;
     }
 
 }

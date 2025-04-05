@@ -9,9 +9,8 @@ public class Beam_Logic : MonoBehaviour
 
     public GameObject BeamPrefab;
 
-    public double BulletDelay = 1;
-    float LastTimeBulletFired;
-    float timeSinceLastFiredBullet;
+    public double BulletDelay = 3;
+    bool Charged = false;
     public Weapon_Controller WPC;
     InputController IC;
 
@@ -22,30 +21,58 @@ public class Beam_Logic : MonoBehaviour
     private bool CanScream = true;
 
     public SaveData stats;
+
+    public GameObject visibleCharge;
+    float maxChrage = 2f;
+    float minCharge = 0f;
+    float curCharge = 0f;
     
     // Start is called before the first frame update
     void Start()
     {
         IC = transform.parent.GetComponent<InputController>();
         WPC = GetComponent<Weapon_Controller>();
-        IC.OnShootPressed += Fire;
+        IC.OnShootPressed += Charge;
+        IC.onShootReleased += Fire;
+        visibleCharge.SetActive(true);
     }
     private void OnEnable()
     {
-        IC.OnShootPressed += Fire;
+        IC.OnShootPressed +=Charge;
+        IC.onShootReleased += Fire;
+        visibleCharge.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
+    }
+
+    public void Charge()
+    {
+        print(Time.time);
+        print("Charging");
+        //set charge time
+        curCharge += .01f;
+        if (curCharge >= 2f)
+        {
+            print(Time.time);
+            curCharge = 2f;
+            visibleCharge.GetComponent<SpriteRenderer>().color = new Color(254, 250, 0, 255);
+            Charged = true;
+        }
+        visibleCharge.GetComponent<SpriteRenderer>().size = new Vector2(minCharge + curCharge,.36f);
     }
 
     public void Fire()
     {
-        if ((timeSinceLastFiredBullet > BulletDelay * Mathf.Abs(1 - stats.FireRateMod - stats.BeamFireRateMod)) && WPC.CanFire)
+        print("Released");
+        curCharge = 0;
+        visibleCharge.GetComponent<SpriteRenderer>().size = new Vector2(minCharge, .36f);
+        visibleCharge.GetComponent<SpriteRenderer>().color = new Color(0, 0, 104, 255);
+
+        if (WPC.CanFire && Charged)
         {
-            Transform playerTM = GetComponentInParent<Transform>();
             RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right);
             Debug.DrawRay(transform.position, transform.right, Color.magenta);
             print("Ray Drawn!");
@@ -54,18 +81,21 @@ public class Beam_Logic : MonoBehaviour
                 GameObject Bullet = Instantiate(BeamPrefab, WPC.Spawnloc, transform.rotation);
                 Bullet.GetComponent<Beam>().Damage = 5;
                 float dist = Mathf.Abs(Vector3.Distance(hit.collider.transform.position, transform.position));
-                Bullet.transform.localScale = new Vector3(dist,1,1);
+                Bullet.transform.localScale = new Vector3(dist, 1, 1);
             }
-            else {
+            else
+            {
                 print(hit.collider.gameObject.tag);
             }
-            LastTimeBulletFired = Time.time;
         }
+        Charged = false;
+    
     }
-
     private void OnDisable()
     {
-        IC.OnShootPressed -= Fire;
+        IC.OnShootPressed -= Charge;
+        IC.onShootReleased -= Fire;
+        visibleCharge.SetActive(false);
     }
 
     private IEnumerator Bang()

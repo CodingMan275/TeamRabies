@@ -11,6 +11,7 @@ public class InputController : MonoBehaviour
     public GameObject[] E;
     public EventSystem EV;
     public bool Controller = false;
+    bool flop = false;
 
     public Vector2 LInput { get; private set; }
     public float AimAngle { get; private set; }
@@ -19,6 +20,7 @@ public class InputController : MonoBehaviour
 
     public event Action OnDashPressed;
     public event Action OnShootPressed;
+    public event Action onShootReleased;
     public event Action<float> OnShopRotate;
     public event Action OnAbilityPressed;
 
@@ -111,6 +113,12 @@ public class InputController : MonoBehaviour
         if (Shoot.IsInProgress()) //Previously .triggered
         {
             OnShootPressed?.Invoke();
+            flop = true;
+        }
+        else if(!Shoot.IsInProgress() && flop)
+        {
+            onShootReleased?.Invoke();
+            flop = false;
         }
 
         if (Ability.triggered)

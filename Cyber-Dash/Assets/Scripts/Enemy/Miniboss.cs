@@ -94,14 +94,14 @@ public class Miniboss : MonoBehaviour
         {
             Charging = false;
             rb.velocity = chargePos * 0;
-           // rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
             //chargePos = new Vector3(target.position.x * .5f - transform.position.x, target.position.y * .5f - transform.position.y, target.position.z);
 
             // rb.velocity = Vector2.MoveTowards(transform.position, target.position, Speed);
 
             yield return new WaitForSeconds(2f);
             chargePos = (target.position - transform.position).normalized;
-            //rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+            rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
             rb.velocity = chargePos * Speed;
             transform.right = target.position - transform.position;
             Charging = true;

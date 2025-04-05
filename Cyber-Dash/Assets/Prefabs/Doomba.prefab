@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 71101820}
   - component: {fileID: 71101822}
   - component: {fileID: 71101821}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Doomba_Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 757912491}
   - component: {fileID: 757912493}
   - component: {fileID: 757912492}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 860709661}
   - component: {fileID: 860709663}
   - component: {fileID: 860709662}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: HP_Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 963446443}
   - component: {fileID: 963446445}
   - component: {fileID: 963446444}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: HP_Progress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 2082851063}
   - component: {fileID: 2082851062}
   - component: {fileID: 2082851061}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 5545767756698804563}
   - component: {fileID: 5545767756698804561}
   - component: {fileID: 5545767756698804564}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Doomba
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -611,8 +611,8 @@ MonoBehaviour:
   DropEnergy: {fileID: 2143827383965784735, guid: 6f2e931c0f5a8954eaa857b58cd79f37, type: 3}
   Trail: {fileID: 4382480052034358359, guid: 90837e077973ab84289e88eab79ae4aa, type: 3}
   AttackDmg: 1
-  Health: 5
-  MaxHealth: 5
+  Health: 100
+  MaxHealth: 100
   Speed: 20
   LockedOn: 0
   onWall: 0
@@ -650,7 +650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5545767756790684294}
   - component: {fileID: 5545767756790684313}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
