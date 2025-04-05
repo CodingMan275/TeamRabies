@@ -14,9 +14,11 @@ public class Weapons_Chest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Clear anything from the past
         if (player.Round == 1)
             player.PastWeapons.Clear();
         SI.size = 0;
+        //this is a tad redundent but good practice
         resetBox();
     }
 
@@ -28,29 +30,24 @@ public class Weapons_Chest : MonoBehaviour
 
     public void getStuff(Upgrade curWep)
     {
+        //This function will add past weapons to the UI
+        //Either on start or when a weapon has been bought
 
-        // int randnumpicked =  Random.Range(0, CopyList.Count);
-
-        //  Upgrade upgrade = CopyList[randnumpicked];
-
-        //Upgrade upgrade = curWep;
-
-        //CopyList.RemoveAt(randnumpicked);
-        //player.UpgradePoolRound1.RemoveAt(randnumpicked);
-
-        //Actually create it
+        //Creat the UI prefab
         GameObject item = Instantiate(UpgradePrefab, shopUiTransform);
+        //For debugging make its name the name of the weapon being added
             item.name = curWep.Name;
 
+        //Give the weapon being added a connection to the UI element
               curWep.itemRef = item;
-            curWep.Purchased = false;
-
+            
+        //Go through each child of the UI and update it so it says the correct thing
             foreach (Transform child in item.transform)
             {
-               // upgrade.Purchased = false;
+               //There is no cost so set this to basically empty
                 if (child.gameObject.name == "Cost")
                 {
-                    child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Scrap Cost: " + curWep.Cost;
+                    child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "";
                 }
                 else if (child.gameObject.name == "Name")
                 {
@@ -65,16 +62,20 @@ public class Weapons_Chest : MonoBehaviour
                     child.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = curWep.Description;
                 }
             
-
+                //Give the UI button functionality
             item.GetComponent<Button>().onClick.AddListener(() =>
             {
                 ApplyUpgrade(curWep);
             });
         }
 
+        //Functionality for controller
+        //Changes the size for every added gun
         SI.size++;
     }
 
+    //At start or specific times remake the UI elements
+    //TO make them up to date
     public void resetBox()
     {
         //SI.size = 0;
@@ -88,16 +89,20 @@ public class Weapons_Chest : MonoBehaviour
         }
     }
 
+    //The weapon button that was pressed lets do the logic
     void ApplyUpgrade(Upgrade upgrade)
     {
-        print(upgrade.Name);
+        //debugging
+        print("Weapon chest:" + upgrade.Name);
+        //Lets swap out our current weapon if it is not already in the chest
         if (!player.PastWeapons.Contains(player.curWep))
         {
+            //Adding the weapon, ie. currently has the shotgun but wants the pistol. Takes pistol and adds the shotgun
             player.PastWeapons.Add(player.curWep);
-            //remove child with upgrade name
             getStuff(player.curWep);
         }
 
+        //what weapon button was pressed
         switch (upgrade.Name)
         {
             case "Bolt Launcher":
@@ -129,7 +134,6 @@ public class Weapons_Chest : MonoBehaviour
                 player.Bolt_Launcher = false;
                 player.Shotgun = false;
                 player.PlasmaCutter = false;
-                
                 player.curWep = upgrade;
                 player.PistolFireRateMod = 1f;
                 WPC.AssignWeapon();
@@ -141,6 +145,7 @@ public class Weapons_Chest : MonoBehaviour
                 player.PlasmaCutter = false;
                 player.PistolFireRateMod = .80f;
                 player.curWep = upgrade;
+                //This line of code should never do anything but it is a fail safe
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
                 WPC.AssignWeapon();
                 break;

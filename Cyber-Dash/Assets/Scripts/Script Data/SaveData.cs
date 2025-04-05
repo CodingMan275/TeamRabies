@@ -35,6 +35,9 @@ public class SaveData : ScriptableObject
     public float ShotgunFireRateMod = 1;
     public float BoltLauncherFireRateMod = 1;
     public float BeamFireRateMod = 1;
+    public int HowManyPierce = 0;
+    public float ShotgunReloadTime = 2;
+    public float ShotGunAmmo = 2;
 
 
 
@@ -70,6 +73,36 @@ public class SaveData : ScriptableObject
     public Upgrade curWep;
     public List<Upgrade> PastWeapons;
 
+    public void Reset()
+    {
+      Round = 1;
+     killCount = 0;
+    Scrap = 0;
+   Energy = 0;
+    //Player stats to be modified
+    FireRateMod = 0;
+    DodgeCooldownMod = 1;
+    ScrapDropMod = 1;
+   explodingBullets = false;
 
+   
+    //Player abilities
+    //Player adds the abilities that are marked true on enter
+   Turret = false;
+
+   
+    //Weapons
+    Pistol = true;
+    Bolt_Launcher = false;
+    Shotgun = false;
+    PlasmaCutter= false;
+
+
+   PistolFireRateMod = 1;
+   ShotgunFireRateMod = 1;
+   BoltLauncherFireRateMod = 1;
+  BeamFireRateMod = 1;
+  HowManyPierce = 0;
+}
 
 }

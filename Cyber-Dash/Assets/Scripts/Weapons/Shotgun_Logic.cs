@@ -37,10 +37,12 @@ public class Shotgun_Logic : MonoBehaviour
         IC = transform.parent.GetComponent<InputController>();
         WPC = GetComponent<Weapon_Controller>();
         IC.OnShootPressed += Fire;
+        ReloadTime = stats.ShotgunReloadTime;
     }
     private void OnEnable()
     {
         IC.OnShootPressed += Fire;
+        ReloadTime = stats.ShotgunReloadTime;
     }
 
     // Update is called once per frame
@@ -71,7 +73,7 @@ public class Shotgun_Logic : MonoBehaviour
 
             GameObject KnockBack = Instantiate(KnockbackPrefab, WPC.Spawnloc, transform.rotation * Quaternion.Euler(new Vector3(0, 0, 90f)));
             shootCount++;
-            if (shootCount == 2)
+            if (shootCount == stats.ShotGunAmmo)
             {
                 shootCount = 0;
                 BulletDelay = ReloadTime;

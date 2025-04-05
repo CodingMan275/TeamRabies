@@ -30,7 +30,9 @@ public class Scrap_Shop_Logic : MonoBehaviour
         //Reset perk pool
         if(player.Round == 1)
         {
-            player.curWep = new Upgrade("Pistol", 0, Resources.Load<Sprite>("ALFE_Art/gun 1"), "A basic Pistol, false", false);
+            //Sets the current wepon ALFE is holding, which will then be put in the weapin cheat
+            //Upon another being purchased
+            player.curWep = new Upgrade("Pistol", 0, gunSprite, "A basic Pistol, false", false);
             player.PastWeapons.Clear();
             player.ScrapPoolRound1 = new List<Upgrade>(player.StaticScrapPoolRound1);
             player.ScrapPoolRound2 = new List<Upgrade>(player.StaticScrapPoolRound2);
@@ -39,34 +41,24 @@ public class Scrap_Shop_Logic : MonoBehaviour
             player.ScrapPoolRound5 = new List<Upgrade>(player.StaticScrapPoolRound5);
         }
 
-        //The list of which items are currently in the pool
-      //  CopyList = new List<Upgrade>(FindPool(player.Round));
-
-
-        //Iterate through each random perk
-        //foreach (Upgrade upgrade in UpgradesList)
         for(int i = 0; i < HowManyItemsInShop ;i++)
         {
-
-           // int randnumpicked =  Random.Range(0, CopyList.Count);
-
-          //  Upgrade upgrade = CopyList[randnumpicked];
-
+            
+            //Take the weapon from spot i
             Upgrade upgrade = FindPool(player.Round)[i];
 
-            //CopyList.RemoveAt(randnumpicked);
-            //player.UpgradePoolRound1.RemoveAt(randnumpicked);
-
-            //Actually create it
+            //Create a prefab for the UI which is the button, description, ect.
             GameObject item = Instantiate(UpgradePrefab, shopUiTransform);
+            //Set the prefab's name so that its easier to see whats happening in debug
             item.name = upgrade.Name;
 
+            //Associate the weapon with the prefab
             upgrade.itemRef = item;
             upgrade.Purchased = false;
 
+            //Go through each part of the prefab and change whats needed
             foreach (Transform child in item.transform)
             {
-                upgrade.Purchased = false;
                 if (child.gameObject.name == "Cost")
                 {
                     child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Scrap Cost: " + upgrade.Cost;
@@ -86,47 +78,55 @@ public class Scrap_Shop_Logic : MonoBehaviour
             }
 
 
-
+            //Set the button part of the UI prefab to actually do something
             item.GetComponent<Button>().onClick.AddListener(() =>
             {
-                BuyUpgrade(upgrade, i);
+                //sends the weapon info,
+                BuyUpgrade(upgrade);
             });
         }
     }
     
 
-    void BuyUpgrade(Upgrade upgrade, int i)
+    //Do the buying logic
+    void BuyUpgrade(Upgrade upgrade)
     {
+        //If buyable
         if (player.Scrap >= upgrade.Cost)
         {
+            //Subtract cost from funds
             player.Scrap -= upgrade.Cost;
+            //Update UI
             scrapDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "Scrap " + player.Scrap;
 
             //These are for 1 time purchases
-            //   FindPool(player.Round)[i].Purchased = true;
-            // print(FindPool(player.Round)[i].Name);
-            print(upgrade.Name);
+            //debug testing
+            print("Scrap shop bought item: " + upgrade.Name);
+            //set purchased to true
             upgrade.Purchased = true;
+            //Seting this active to false removes it from the visible UI BUT IT STILL SI THERE IN CHILD COUNT, very tricky
             upgrade.itemRef.SetActive(false);
-            //Take previous weapon and add it to the weapons chest
+
+            //Take previous weapon and add it to a list of past weapons for the eapons chest
             if (!player.PastWeapons.Contains(player.curWep))
             {
                 player.PastWeapons.Add(player.curWep);
-                //weaponsChest.GetComponent<Weapons_Chest>().getStuff(player.curWep);
+                //While we are in the scene add it
                 weaponsChest.GetComponent<Weapons_Chest>().getStuff(player.curWep);
             }
-
+            //Apply the upgrade/ weapon to our player
             ApplyUpgrade(upgrade);
-            SB.Buy();
-            //  weaponsChest.GetComponent<Weapons_Chest>().resetBox();
-           
+            //For controller, this functioon keeps the shops working for non mouse events
+            SB.Buy();           
         }
     }
 
-
+    //Taking what upgrade was bought and applying logic to it
     void ApplyUpgrade(Upgrade upgrade)
     {
+        //Holding what was bought so that if it gets changed out it has the information it needs
         Upgrade tempWep = new Upgrade(upgrade.Name,0,upgrade.Sprite,upgrade.Description, false);
+        //What was bought?
         switch (upgrade.Name)
         {
             case "Bolt Launcher":
@@ -136,8 +136,6 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
                 player.curWep = tempWep;
-                //findpool
-                //pool.add(Upgraded Bolt Launcher)
                 break;
             case "Shotgun":
                 player.Pistol = false;
@@ -146,8 +144,6 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
                 player.curWep = tempWep;
-                //findpool
-                //pool.add(Upgraded Bolt Launcher)
                 break;
             case "Plasma Cutter":
                 player.Pistol = false;
@@ -156,9 +152,8 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.PlasmaCutter = true;
                 WPC.AssignWeapon();
                 player.curWep = tempWep;
-                //findpool
-                //pool.add(Upgraded Bolt Launcher)
                 break;
+                //This isn't possible to buy but just in case
             case "Pistol":
                 player.Pistol = true;
                 player.Bolt_Launcher = false;
@@ -167,9 +162,9 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 WPC.AssignWeapon();
                 player.curWep = tempWep;
                 player.PistolFireRateMod = 1f;
-                //findpool
-                //pool.add(Upgraded Bolt Launcher)
                 break;
+                //Where it starts getting tricky
+                //But the logic is the same for all upgradable weapons
             case "Pistol: Tier 2":
                 player.Pistol = true;
                 player.Bolt_Launcher = false;
@@ -177,12 +172,14 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
                 player.PistolFireRateMod = .80f;
-                //Add new item
+                //So now we need to add the next upgrade to this weapon for the next pool of items
                 FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 10, gunSprite, "An upgraded pistol that shoots 30% faster and bullets pierce one enemy", false));
                 player.curWep = tempWep;
+                //Go through the past weapons and remove the weaker versions
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
+                //This remakes the UI elements in the weapons chest, removing the lesser version
                 weaponsChest.GetComponent<Weapons_Chest>().resetBox();
-                //Remove previous versions of pistol
+                //Remove previous versions of pistol from the next pool
                 FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Pistol");
                 break;
             case "Pistol: Tier 3":
@@ -192,10 +189,28 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
                 player.PistolFireRateMod = .70f;
+                player.HowManyPierce = 1;
                 player.curWep = tempWep;
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
                 //remove lower tiers
                 FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Pistol: Tier 2");
+                break;
+            case "Shotgun: Tier 2":
+                player.Pistol = true;
+                player.Bolt_Launcher = false;
+                player.Shotgun = false;
+                player.PlasmaCutter = false;
+                WPC.AssignWeapon();
+                player.PistolFireRateMod = .80f;
+                //So now we need to add the next upgrade to this weapon for the next pool of items
+                FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 10, gunSprite, "An upgraded pistol that shoots 30% faster and bullets pierce one enemy", false));
+                player.curWep = tempWep;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
+                //This remakes the UI elements in the weapons chest, removing the lesser version
+                weaponsChest.GetComponent<Weapons_Chest>().resetBox();
+                //Remove previous versions of pistol from the next pool
+                FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Pistol");
                 break;
             default:
                 Debug.Log("What did you just do");
@@ -213,12 +228,13 @@ public class Scrap_Shop_Logic : MonoBehaviour
     {
         
     }
-
+    //Updates UI
     private void OnGUI()
     {
        scrapDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "Scrap " + player.Scrap;
     }
 
+    //gets the curremt pool of weapons and scrap upgrade
   List<Upgrade> FindPool(int round)
     {
         switch (round)
@@ -239,6 +255,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
     }
 
     //Only call once shopping is over
+    //This will carry over what wasnt bought
   public void EndShopUpdate()
     {
         List<Upgrade> currentPool = FindPool(player.Round);

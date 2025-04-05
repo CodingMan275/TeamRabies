@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour
     public SaveData bulletEffects;
     public GameObject Explosion;
     public int Damage;
+    public int HowManyPierce;
 
     public int BulletSpeed;
     void Start()
@@ -24,14 +25,29 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy")
         {
-            if (bulletEffects.explodingBullets)
+            if (bulletEffects.explodingBullets && HowManyPierce == 0)
             {
                 print("Create Explo-sion");
                 Instantiate(Explosion, transform.position, Quaternion.identity);
+                Destroy(gameObject);
             }
+            else if (HowManyPierce == 0)
+            {
+                Destroy(gameObject);
+            }
+            else if (HowManyPierce != 0)
+            {
+                HowManyPierce--;
+            }
+        }
+        else if (collision.gameObject.tag == "Wall")
+        {
+            print("Create Explo-sion");
+            Instantiate(Explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+
     }
 }
