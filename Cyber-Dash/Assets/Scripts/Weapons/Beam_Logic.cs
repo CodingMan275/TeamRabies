@@ -50,13 +50,10 @@ public class Beam_Logic : MonoBehaviour
 
     public void Charge()
     {
-        print(Time.time);
-        print("Charging");
         //set charge time
         curCharge += .01f;
         if (curCharge >= 2f)
         {
-            print(Time.time);
             curCharge = 2f;
             visibleCharge.GetComponent<SpriteRenderer>().color = new Color(254, 250, 0, 255);
             Charged = true;
