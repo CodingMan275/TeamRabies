@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Round: 1
   killCount: 109
-  Scrap: 805
+  Scrap: 773
   Energy: 28
   FireRateMod: 1
   DodgeCooldownMod: 0
@@ -25,10 +25,13 @@ MonoBehaviour:
   Bolt_Launcher: 0
   Shotgun: 1
   PlasmaCutter: 0
-  PistolFireRateMod: 0.8
+  PistolFireRateMod: 1
   ShotgunFireRateMod: 1
   BoltLauncherFireRateMod: 1
   BeamFireRateMod: 1
+  HowManyPierce: 0
+  ShotgunReloadTime: 2
+  ShotGunAmmo: 2
   EnergyPoolRound1:
   - Name: Rapid Fire Circuit
     Cost: 1
@@ -102,7 +105,7 @@ MonoBehaviour:
   ScrapPoolRound1:
   - Name: Bolt Launcher
     Cost: 3
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
     Description: a slow firing, high damage gun that shoots piercing bolts
     itemRef: {fileID: 0}
     Purchased: 0
@@ -114,24 +117,31 @@ MonoBehaviour:
     Purchased: 0
   - Name: Shotgun
     Cost: 3
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
     Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
     itemRef: {fileID: 0}
-    Purchased: 0
+    Purchased: 1
   - Name: Plasma Cutter
     Cost: 3
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: a slow firing weapon that fires a piercing beam
     itemRef: {fileID: 0}
     Purchased: 0
-  ScrapPoolRound2: []
+  ScrapPoolRound2:
+  - Name: 'Shotgun: Tier 2'
+    Cost: 10
+    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
+    Description: An upgraded shotgun that shoots more bullets before reloading, and
+      a shortened reload time.
+    itemRef: {fileID: 0}
+    Purchased: 0
   ScrapPoolRound3: []
   ScrapPoolRound4: []
   ScrapPoolRound5: []
   StaticScrapPoolRound1:
   - Name: Bolt Launcher
     Cost: 3
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
     Description: a slow firing, high damage gun that shoots piercing bolts
     itemRef: {fileID: 0}
     Purchased: 0
@@ -143,10 +153,10 @@ MonoBehaviour:
     Purchased: 0
   - Name: Shotgun
     Cost: 3
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
     Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
     itemRef: {fileID: 0}
-    Purchased: 0
+    Purchased: 1
   - Name: Plasma Cutter
     Cost: 3
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
@@ -158,10 +168,22 @@ MonoBehaviour:
   StaticScrapPoolRound4: []
   StaticScrapPoolRound5: []
   curWep:
-    Name: Pistol
+    Name: Shotgun
     Cost: 0
-    Sprite: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
+    Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
+    itemRef: {fileID: 0}
+    Purchased: 0
+  PastWeapons:
+  - Name: Pistol
+    Cost: 0
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: A basic Pistol, false
     itemRef: {fileID: 0}
     Purchased: 0
-  PastWeapons: []
+  - Name: Shotgun
+    Cost: 0
+    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
+    Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
+    itemRef: {fileID: 0}
+    Purchased: 0

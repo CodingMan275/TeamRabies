@@ -483,8 +483,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Scrap: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
+  m_sharedMaterial: {fileID: -6053953785063573789, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -669,7 +669,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
-  m_Color: {r: 0.9793824, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -725,7 +725,11 @@ MonoBehaviour:
   WPC: {fileID: 0}
   SB: {fileID: 0}
   gunSprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+  shotgunSprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
+  boltSprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
+  beamSprite: {fileID: 0}
   UpgradesList: []
+  weaponsChest: {fileID: 0}
 --- !u!1 &4624597291017849430
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,12 +742,12 @@ GameObject:
   - component: {fileID: 4624597291017849427}
   - component: {fileID: 4624597291017849428}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Scrap Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4624597291017849429
 RectTransform:
   m_ObjectHideFlags: 0
@@ -761,8 +765,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23400001}
   m_AnchorMax: {x: 1, y: 0.7627274}
-  m_AnchoredPosition: {x: -1109125.9, y: 0}
-  m_SizeDelta: {x: 0, y: -3}
+  m_AnchoredPosition: {x: -93929.14, y: 0}
+  m_SizeDelta: {x: -1280, y: -3}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4624597291017849427
 MonoBehaviour:
@@ -963,8 +967,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Shop
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
+  m_sharedMaterial: {fileID: -6053953785063573789, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

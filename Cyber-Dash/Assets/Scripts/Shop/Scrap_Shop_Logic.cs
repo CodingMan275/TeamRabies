@@ -18,6 +18,10 @@ public class Scrap_Shop_Logic : MonoBehaviour
     public Shop_Interactiob SB;
 
     public Sprite gunSprite;
+    public Sprite shotgunSprite;
+    public Sprite boltSprite;
+    public Sprite beamSprite;
+
 
     //Master list of all perks
     public List<Upgrade> UpgradesList;
@@ -70,6 +74,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 else if (child.gameObject.name == "Image")
                 {
                     child.gameObject.GetComponent<Image>().sprite = upgrade.Sprite;
+                    child.gameObject.GetComponent<Image>().preserveAspect = true;
                 }
                 else if (child.gameObject.name == "Description")
                 {
@@ -144,6 +149,8 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
                 player.curWep = tempWep;
+                player.HowManyPierce = 0;
+                FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 2", 10, shotgunSprite, "An upgraded shotgun that shoots more bullets before reloading, and a shortened reload time.", false));
                 break;
             case "Plasma Cutter":
                 player.Pistol = false;
@@ -191,26 +198,47 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.PistolFireRateMod = .70f;
                 player.HowManyPierce = 1;
                 player.curWep = tempWep;
-                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol: Tier 2");
                 //remove lower tiers
                 FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Pistol: Tier 2");
                 break;
             case "Shotgun: Tier 2":
-                player.Pistol = true;
+                player.Pistol = false;
                 player.Bolt_Launcher = false;
-                player.Shotgun = false;
+                player.Shotgun = true;
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
-                player.PistolFireRateMod = .80f;
+                player.HowManyPierce = 0;
+                player.ShotGunAmmo = 4;
+                player.ShotgunReloadTime = 1.5f;
                 //So now we need to add the next upgrade to this weapon for the next pool of items
-                FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 10, gunSprite, "An upgraded pistol that shoots 30% faster and bullets pierce one enemy", false));
+                FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 10, shotgunSprite, "An upgraded pistol that shoots 30% faster and bullets pierce one enemy", false));
                 player.curWep = tempWep;
                 //Go through the past weapons and remove the weaker versions
-                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Shotgun");
                 //This remakes the UI elements in the weapons chest, removing the lesser version
                 weaponsChest.GetComponent<Weapons_Chest>().resetBox();
                 //Remove previous versions of pistol from the next pool
-                FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Pistol");
+                FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Shotgun");
+                //Add next shotgun
+                FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 3", 10, shotgunSprite, "An upgraded shotgun that shoots more bullets before reloading, and a shortened reload time.", false));
+                break;
+            case "Shotgun: Tier 3":
+                player.Pistol = false;
+                player.Bolt_Launcher = false;
+                player.Shotgun = true;
+                player.PlasmaCutter = false;
+                WPC.AssignWeapon();
+                player.HowManyPierce = 0;
+                player.ShotGunAmmo = 6;
+                player.ShotgunReloadTime = 1.2f;
+                player.curWep = tempWep;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Shotgun: Tier 2");
+                //This remakes the UI elements in the weapons chest, removing the lesser version
+                weaponsChest.GetComponent<Weapons_Chest>().resetBox();
+                //Remove previous versions of pistol from the next pool
+                FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Shotgun: Tier 2");
                 break;
             default:
                 Debug.Log("What did you just do");

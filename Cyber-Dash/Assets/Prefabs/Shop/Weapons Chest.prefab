@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2486715343778371104}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.8847992, y: -1.5650868}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!223 &2486715343778371100
@@ -189,12 +189,12 @@ GameObject:
   - component: {fileID: 2486715344247882120}
   - component: {fileID: 2486715344247882123}
   m_Layer: 5
-  m_Name: Content
+  m_Name: Chest Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2486715344247882122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -212,8 +212,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23400001}
   m_AnchorMax: {x: 1, y: 0.7627274}
-  m_AnchoredPosition: {x: -1974830.5, y: 0}
-  m_SizeDelta: {x: 0, y: -3}
+  m_AnchoredPosition: {x: -98080.42, y: 0}
+  m_SizeDelta: {x: -1280, y: -3}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2486715344247882120
 MonoBehaviour:
@@ -919,7 +919,7 @@ Transform:
   m_GameObject: {fileID: 2486715345508118245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.58, y: -1.36, z: 0}
-  m_LocalScale: {x: 2.2439861, y: 2.2439861, z: 2.2439861}
+  m_LocalScale: {x: 3.4339721, y: 3.4339721, z: 3.4339721}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2486715343778371105}
@@ -968,7 +968,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.7075472, g: 0.3858216, b: 0, a: 1}
+  m_Color: {r: 0.7075472, g: 0.3858216, b: 0, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -994,6 +994,7 @@ MonoBehaviour:
   UpgradePrefab: {fileID: 6965850824913105004, guid: 9bb64b870671f2047bd5a6b599725f5c, type: 3}
   shopUiTransform: {fileID: 2486715344247882122}
   WPC: {fileID: 0}
+  SI: {fileID: 0}
 --- !u!61 &2486715345508118241
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -56,7 +56,8 @@ public class Weapons_Chest : MonoBehaviour
                 else if (child.gameObject.name == "Image")
                 {
                     child.gameObject.GetComponent<Image>().sprite = curWep.Sprite;
-                }
+                child.gameObject.GetComponent<Image>().preserveAspect = true;
+            }
                 else if (child.gameObject.name == "Description")
                 {
                     child.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = curWep.Description;
@@ -158,6 +159,33 @@ public class Weapons_Chest : MonoBehaviour
                 player.curWep = upgrade;
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
                 WPC.AssignWeapon();
+                break;
+            case "Shotgun: Tier 2":
+                player.Pistol = false;
+                player.Bolt_Launcher = false;
+                player.Shotgun = true;
+                player.PlasmaCutter = false;
+                WPC.AssignWeapon();
+                player.HowManyPierce = 0;
+                player.ShotGunAmmo = 4;
+                player.ShotgunReloadTime = 1.5f;
+                //So now we need to add the next upgrade to this weapon for the next pool of items
+                player.curWep = upgrade;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Shotgun");
+                break;
+            case "Shotgun: Tier 3":
+                player.Pistol = false;
+                player.Bolt_Launcher = false;
+                player.Shotgun = true;
+                player.PlasmaCutter = false;
+                WPC.AssignWeapon();
+                player.HowManyPierce = 0;
+                player.ShotGunAmmo = 6;
+                player.ShotgunReloadTime = 1.2f;
+                player.curWep = upgrade;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Shotgun: Tier 2");
                 break;
             default:
                 Debug.Log("What did you just do");

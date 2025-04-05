@@ -44,8 +44,11 @@ public class Bullet : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Wall")
         {
-            print("Create Explo-sion");
-            Instantiate(Explosion, transform.position, Quaternion.identity);
+            if (bulletEffects.explodingBullets)
+            {
+                print("Create Explo-sion");
+                Instantiate(Explosion, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
         }
 
