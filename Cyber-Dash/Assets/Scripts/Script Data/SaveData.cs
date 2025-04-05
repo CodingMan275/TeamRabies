@@ -38,6 +38,8 @@ public class SaveData : ScriptableObject
     public int HowManyPierce = 0;
     public float ShotgunReloadTime = 2;
     public float ShotGunAmmo = 2;
+    public int boltIncreaseDamage = 0;
+    public float boltSpeedIncrease = 0;
 
 
 
@@ -103,6 +105,8 @@ public class SaveData : ScriptableObject
    BoltLauncherFireRateMod = 1;
   BeamFireRateMod = 1;
   HowManyPierce = 0;
-}
+        boltIncreaseDamage = 0;
+        boltSpeedIncrease = 0;
+    }
 
 }

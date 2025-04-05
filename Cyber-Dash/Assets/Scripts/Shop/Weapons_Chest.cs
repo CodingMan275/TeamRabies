@@ -113,6 +113,7 @@ public class Weapons_Chest : MonoBehaviour
                 player.PlasmaCutter = false;
                 player.curWep = upgrade;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = upgrade.Sprite;
                 break;
             case "Shotgun":
                 player.Pistol = false;
@@ -121,6 +122,7 @@ public class Weapons_Chest : MonoBehaviour
                 player.PlasmaCutter = false;
                 player.curWep = upgrade;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = upgrade.Sprite;
                 break;
             case "Plasma Cutter":
                 player.Pistol = false;
@@ -138,6 +140,7 @@ public class Weapons_Chest : MonoBehaviour
                 player.curWep = upgrade;
                 player.PistolFireRateMod = 1f;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = upgrade.Sprite;
                 break;
             case "Pistol: Tier 2":
                 player.Pistol = true;
@@ -149,6 +152,7 @@ public class Weapons_Chest : MonoBehaviour
                 //This line of code should never do anything but it is a fail safe
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = upgrade.Sprite;
                 break;
             case "Pistol: Tier 3":
                 player.Pistol = true;
@@ -159,6 +163,7 @@ public class Weapons_Chest : MonoBehaviour
                 player.curWep = upgrade;
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = upgrade.Sprite;
                 break;
             case "Shotgun: Tier 2":
                 player.Pistol = false;
@@ -166,6 +171,7 @@ public class Weapons_Chest : MonoBehaviour
                 player.Shotgun = true;
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = upgrade.Sprite;
                 player.HowManyPierce = 0;
                 player.ShotGunAmmo = 4;
                 player.ShotgunReloadTime = 1.5f;
@@ -180,12 +186,40 @@ public class Weapons_Chest : MonoBehaviour
                 player.Shotgun = true;
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = upgrade.Sprite;
                 player.HowManyPierce = 0;
                 player.ShotGunAmmo = 6;
                 player.ShotgunReloadTime = 1.2f;
                 player.curWep = upgrade;
                 //Go through the past weapons and remove the weaker versions
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Shotgun: Tier 2");
+                break;
+            case "Bolt Launcher: Tier 2":
+                player.Pistol = false;
+                player.Bolt_Launcher = true;
+                player.Shotgun = false;
+                player.PlasmaCutter = false;
+                WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = upgrade.Sprite;
+                player.boltIncreaseDamage = 1;
+                player.boltSpeedIncrease = 7;
+                //So now we need to add the next upgrade to this weapon for the next pool of items
+                player.curWep = upgrade;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Bolt Launcher");
+                break;
+            case "Bolt Launcher: Tier 3":
+                player.Pistol = false;
+                player.Bolt_Launcher = true;
+                player.Shotgun = false;
+                player.PlasmaCutter = false;
+                WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = upgrade.Sprite;
+                player.boltIncreaseDamage = 2;
+                player.boltSpeedIncrease = 14;
+                player.curWep = upgrade;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Bolt Launcher: Tier 2");
                 break;
             default:
                 Debug.Log("What did you just do");

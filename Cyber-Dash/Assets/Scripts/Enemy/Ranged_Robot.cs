@@ -25,16 +25,12 @@ public class Ranged_Robot : MonoBehaviour
 
     public int RunRange = 10;
 
-    bool running_away = false;
-
     public bool CanShoot = false;
 
    [SerializeField ]private Transform gunTransform;
     [SerializeField] private float MoveDelay;
     private float DelayTimer;
     private bool StartDelay = false;
-
-    bool flop = false;
 
 
 
@@ -131,7 +127,6 @@ public class Ranged_Robot : MonoBehaviour
             StartDelay = true;
             rb.AddForce(-dir * col.GetComponent<Knockback_Logic>().KnockbackDist * 10f, ForceMode2D.Impulse);
             rb.velocity = -dir * speed * 8f;
-          //  rb.angularVelocity = 3;
         }
     }
 

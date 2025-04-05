@@ -140,7 +140,10 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.Shotgun = false;
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = boltSprite;
                 player.curWep = tempWep;
+                FindPool(player.Round + 1).Add(new Upgrade("Bolt Launcher: Tier 2", 10, boltSprite, "An upgraded bolt launcher that shoots stronger and faster bullets.", false));
+
                 break;
             case "Shotgun":
                 player.Pistol = false;
@@ -148,6 +151,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.Shotgun = true;
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = shotgunSprite;
                 player.curWep = tempWep;
                 player.HowManyPierce = 0;
                 FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 2", 10, shotgunSprite, "An upgraded shotgun that shoots more bullets before reloading, and a shortened reload time.", false));
@@ -178,6 +182,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.Shotgun = false;
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = gunSprite;
                 player.PistolFireRateMod = .80f;
                 //So now we need to add the next upgrade to this weapon for the next pool of items
                 FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 10, gunSprite, "An upgraded pistol that shoots 30% faster and bullets pierce one enemy", false));
@@ -195,6 +200,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.Shotgun = false;
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = gunSprite;
                 player.PistolFireRateMod = .70f;
                 player.HowManyPierce = 1;
                 player.curWep = tempWep;
@@ -208,11 +214,10 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.Shotgun = true;
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = shotgunSprite;
                 player.HowManyPierce = 0;
                 player.ShotGunAmmo = 4;
                 player.ShotgunReloadTime = 1.5f;
-                //So now we need to add the next upgrade to this weapon for the next pool of items
-                FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 10, shotgunSprite, "An upgraded pistol that shoots 30% faster and bullets pierce one enemy", false));
                 player.curWep = tempWep;
                 //Go through the past weapons and remove the weaker versions
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Shotgun");
@@ -229,6 +234,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.Shotgun = true;
                 player.PlasmaCutter = false;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = shotgunSprite;
                 player.HowManyPierce = 0;
                 player.ShotGunAmmo = 6;
                 player.ShotgunReloadTime = 1.2f;
@@ -239,6 +245,42 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 weaponsChest.GetComponent<Weapons_Chest>().resetBox();
                 //Remove previous versions of pistol from the next pool
                 FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Shotgun: Tier 2");
+                break;
+            case "Bolt Launcher: Tier 2":
+                player.Pistol = false;
+                player.Bolt_Launcher = true;
+                player.Shotgun = false;
+                player.PlasmaCutter = false;
+                WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = boltSprite;
+                player.boltIncreaseDamage = 1;
+                player.boltSpeedIncrease = 7;
+                player.curWep = tempWep;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Bolt Launcher");
+                //This remakes the UI elements in the weapons chest, removing the lesser version
+                weaponsChest.GetComponent<Weapons_Chest>().resetBox();
+                //Remove previous versions of pistol from the next pool
+                FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Bolt Launcher");
+                //Add next bolt launcher
+                FindPool(player.Round + 1).Add(new Upgrade("Bolt Launcher: Tier 3", 10, boltSprite, "An upgraded bolt launcher that shoots stronger and faster bolts.", false));
+                break;
+            case "Boltlauncher: Tier 3":
+                player.Pistol = false;
+                player.Bolt_Launcher = true;
+                player.Shotgun = false;
+                player.PlasmaCutter = false;
+                WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = shotgunSprite;
+                player.boltIncreaseDamage = 2;
+                player.boltSpeedIncrease = 14;
+                player.curWep = tempWep;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Bolt Launcher: Tier 2");
+                //This remakes the UI elements in the weapons chest, removing the lesser version
+                weaponsChest.GetComponent<Weapons_Chest>().resetBox();
+                //Remove previous versions of pistol from the next pool
+                FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Bolt Launcher: Tier 2");
                 break;
             default:
                 Debug.Log("What did you just do");

@@ -33,6 +33,7 @@ public class Weapon_Controller : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         IC = transform.parent.GetComponent<InputController>();
         AssignWeapon();
+        GetComponent<SpriteRenderer>().sprite = SD.curWep.Sprite;
       //  IC.OnShootPressed += Fire;
     }
 
@@ -40,8 +41,6 @@ public class Weapon_Controller : MonoBehaviour
     void Update()
     {
         sr.flipY = (-90 < aimAngle && aimAngle < 90) ? false : true;
-
-      
        player = transform.parent.position;
        transform.position = player + new Vector3(Mathf.Cos(aimAngle * Mathf.Deg2Rad) * Gun_Radius, Mathf.Sin(aimAngle * Mathf.Deg2Rad) * Gun_Radius, 0f);
        Spawnloc = player + new Vector3(Mathf.Cos(aimAngle * Mathf.Deg2Rad) * (Gun_Radius + col.size.x/2), Mathf.Sin(aimAngle * Mathf.Deg2Rad) * (Gun_Radius + col.size.y), 0f);

@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Round: 1
   killCount: 109
-  Scrap: 773
+  Scrap: 696
   Energy: 28
   FireRateMod: 1
   DodgeCooldownMod: 0
   ScrapDropMod: 1
   explodingBullets: 0
   Turret: 0
-  Pistol: 0
+  Pistol: 1
   Bolt_Launcher: 0
-  Shotgun: 1
+  Shotgun: 0
   PlasmaCutter: 0
   PistolFireRateMod: 1
   ShotgunFireRateMod: 1
@@ -32,6 +32,8 @@ MonoBehaviour:
   HowManyPierce: 0
   ShotgunReloadTime: 2
   ShotGunAmmo: 2
+  boltIncreaseDamage: 1
+  boltSpeedIncrease: 7
   EnergyPoolRound1:
   - Name: Rapid Fire Circuit
     Cost: 1
@@ -120,21 +122,14 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
     Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Plasma Cutter
     Cost: 3
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: a slow firing weapon that fires a piercing beam
     itemRef: {fileID: 0}
     Purchased: 0
-  ScrapPoolRound2:
-  - Name: 'Shotgun: Tier 2'
-    Cost: 10
-    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
-    Description: An upgraded shotgun that shoots more bullets before reloading, and
-      a shortened reload time.
-    itemRef: {fileID: 0}
-    Purchased: 0
+  ScrapPoolRound2: []
   ScrapPoolRound3: []
   ScrapPoolRound4: []
   ScrapPoolRound5: []
@@ -156,7 +151,7 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
     Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Plasma Cutter
     Cost: 3
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
@@ -168,22 +163,10 @@ MonoBehaviour:
   StaticScrapPoolRound4: []
   StaticScrapPoolRound5: []
   curWep:
-    Name: Shotgun
-    Cost: 0
-    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
-    Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
-    itemRef: {fileID: 0}
-    Purchased: 0
-  PastWeapons:
-  - Name: Pistol
+    Name: Pistol
     Cost: 0
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: A basic Pistol, false
     itemRef: {fileID: 0}
     Purchased: 0
-  - Name: Shotgun
-    Cost: 0
-    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
-    Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
-    itemRef: {fileID: 0}
-    Purchased: 0
+  PastWeapons: []
