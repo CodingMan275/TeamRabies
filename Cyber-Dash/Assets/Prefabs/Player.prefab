@@ -4375,7 +4375,7 @@ MonoBehaviour:
   EV: {fileID: 0}
   Controller: 0
   RotateSpeed: 800
-  AngleSnap: 30
+  AngleSnap: 10
 --- !u!114 &4792301161914442911
 MonoBehaviour:
   m_ObjectHideFlags: 0
