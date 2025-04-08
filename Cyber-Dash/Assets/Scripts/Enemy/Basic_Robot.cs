@@ -46,9 +46,6 @@ public class Basic_Robot : MonoBehaviour
     void Start()
     {
         EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>(); 
-     //   agent = GetComponent<NavMeshAgent>();
-     //   agent.updateRotation = false;
-     //   agent.updateUpAxis = false;
         target = GameObject.Find("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -58,22 +55,12 @@ public class Basic_Robot : MonoBehaviour
     void Update()
     {
         dir = (target.position - transform.position).normalized;
-     //  if(agent.speed != 0)
-     //   agent.SetDestination(target.position);
             
         DelayTimer = StartDelay ? DelayTimer - Time.deltaTime : MoveDelay;
         if(DelayTimer <=0)
         {
             GetComponent<CapsuleCollider2D>().isTrigger = false;
             StartDelay = false;
-            //    GetComponent<CapsuleCollider2D>().enabled = true;
-            // float dist = Mathf.Abs(Vector3.Distance(target.position, transform.position));
-            //if(dist > 5.5)
-            //  {
-            //  agent.speed = 8f;
-            // }
-            //set speed
-           
            
         }
     }
@@ -100,36 +87,15 @@ public class Basic_Robot : MonoBehaviour
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<CapsuleCollider2D>());
         }
-      /*  else if(collision.gameObject.name == "Doomba")
-        {
-            // print("Collided");
-            if (collision.gameObject.GetComponent<Miniboss>().Charging)
-            {
-               // GetComponent<CapsuleCollider2D>().enabled = false;
-                StartDelay = true;
-                //float rand = Random.Range(0f, 1f);
-                Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
-                if (Random.value < .5f)
-                    agent.velocity = -(Quaternion.Euler(0, 90, 0) * Direction * 10);
-                else
-                    agent.velocity = -(Quaternion.Euler(0, -90, 0) * Direction * 10);
-            }
-      
-        }*/
-        
     }
 
     public void OnCollisionExit2D(Collision2D collision)
     {
-        //if (agent.speed == 0)
-        // {
         if (collision.gameObject.tag == "Player")
         {
             StartDelay = true;
             rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
-        // playerInRange = false;
-        // }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
