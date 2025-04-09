@@ -23,14 +23,17 @@ public class Scrappy_Health : MonoBehaviour
 
     public int phase1hp;
     public int phase2hp;
+    public int FirstWaveHP;
 
     // Start is called before the first frame update
     void Start()
     {
         Health = MaxHealth;
         EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>();
+
         phase1hp = (int)(MaxHealth * .70f);
         phase2hp = (int)(MaxHealth * .40f);
+        FirstWaveHP = (int)(MaxHealth * .76f);
          phase1 = true;
          phase2 = false;
          phase3 = false;
@@ -70,7 +73,13 @@ public class Scrappy_Health : MonoBehaviour
     {
         Health -= dmg;    //Replace 1 with bull damage
         HealthBar.value = Health;
-        if ((Health <= phase1hp) && !phase2)
+
+        if ((Health <= FirstWaveHP) && !phase2)
+        {
+            //For michael, not sure how you want to do this
+            GetComponent<Scrappy_Phase1>().Spawn();
+        }
+        else if ((Health <= phase1hp) && !phase2)
         {
             phase2 = true;
             GetComponent<Scrappy_Phase1>().enabled = false;
