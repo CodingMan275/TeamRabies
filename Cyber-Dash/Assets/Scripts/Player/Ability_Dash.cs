@@ -36,7 +36,7 @@ public class Ability_Dash : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         IC = GetComponent<InputController>();
         IC.OnDashPressed += Dash;
-        CooldownBar.maxValue = (float)(DashCooldown * playerUpgrades.DodgeCooldownMod);
+        CooldownBar.maxValue = (float)(DashCooldown - playerUpgrades.DodgeCooldownMod);
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class Ability_Dash : MonoBehaviour
             if (ActiveAbilityDuration <= 0)
             {
  
-                AbilityCountdownCounter = DashCooldown * playerUpgrades.DodgeCooldownMod;
+                AbilityCountdownCounter = DashCooldown - playerUpgrades.DodgeCooldownMod;
 
             }
         }

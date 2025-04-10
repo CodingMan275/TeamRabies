@@ -61,7 +61,8 @@ public class Shop_Interactiob : MonoBehaviour
         {
             Shop = collision.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject;
             Shop.SetActive(true);
-            if(Gamepad.all.Count > 0 && !SoldOut)
+            //Unclear, but the buying all the upgrades/ shop seem to be caused by what was commented out.
+            if(Gamepad.all.Count > 0)// && !SoldOut)
             {
                 size = 0;
                  IC.OnShopRotate += Rotate;
@@ -98,6 +99,7 @@ public class Shop_Interactiob : MonoBehaviour
             Shop = null;
             collision.GetComponentInChildren<Canvas>().enabled = false;
             WPC.CanFire = true;
+            
         }
         if (collision.gameObject.tag == "Chest")
         {

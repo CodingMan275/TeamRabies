@@ -162,6 +162,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.Shotgun = false;
                 player.PlasmaCutter = true;
                 WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = beamSprite;
                 player.curWep = tempWep;
                 break;
                 //This isn't possible to buy but just in case

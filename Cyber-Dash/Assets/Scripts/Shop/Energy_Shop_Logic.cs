@@ -22,11 +22,6 @@ public class Energy_Shop_Logic : MonoBehaviour
     //Master list of all perks
     public List<Upgrade> UpgradesList;
 
-    //Current pool of upgrades
-    List<Upgrade> pool;
-
-
-
 
 
     void Start()
@@ -61,6 +56,8 @@ public class Energy_Shop_Logic : MonoBehaviour
             //Actually create it
             GameObject item = Instantiate(UpgradePrefab, shopUiTransform);
 
+            item.name = upgrade.Name;
+
             upgrade.itemRef = item;
 
             foreach (Transform child in item.transform)
@@ -77,6 +74,7 @@ public class Energy_Shop_Logic : MonoBehaviour
                 else if (child.gameObject.name == "Image")
                 {
                     child.gameObject.GetComponent<Image>().sprite = upgrade.Sprite;
+                    child.gameObject.GetComponent<Image>().preserveAspect = true;
                 }
                 else if (child.gameObject.name == "Description")
                 {
@@ -93,19 +91,6 @@ public class Energy_Shop_Logic : MonoBehaviour
         }
     }
 
-    void ShowDescription()
-    { 
-
-    }
-
-    void HideDescription()
-    { 
-    
-    }
-
-    
-    
-
     public void BuyUpgrade(Upgrade upgrade, int randnum)
     {
         if (player.Energy >= upgrade.Cost)
@@ -116,6 +101,8 @@ public class Energy_Shop_Logic : MonoBehaviour
             //These are for 1 time purchases
             FindPool(player.Round)[randnum].Purchased = true;
             upgrade.itemRef.SetActive(false);
+
+            print("Energy shop bought item: " + upgrade.Name);
 
             ApplyUpgrade(upgrade);
             SB.Buy();
@@ -129,7 +116,7 @@ public class Energy_Shop_Logic : MonoBehaviour
         {
             case "Rapid Fire Circuit": player.FireRateMod -= .15f;
                 break;
-            case "Dodge Booster": player.DodgeCooldownMod -= 1;
+            case "Dodge Booster": player.DodgeCooldownMod = 1;
                 break;
             case "Explosive Rounds":
                 player.explodingBullets = true;
@@ -177,25 +164,7 @@ public class Energy_Shop_Logic : MonoBehaviour
         }
         return UpgradesList;
     }
-    
-    List<Upgrade> FindStaticPool(int round)
-    {
-        switch (round)
-        {
-            case 1:
-                return player.StaticEnergyPoolRound1;
-            case 2:
-                return player.StaticEnergyPoolRound2;
-            case 3:
-                return player.StaticEnergyPoolRound3;
-            case 4:
-                return player.StaticEnergyPoolRound4;
-            case 5:
-                return player.StaticEnergyPoolRound5;
 
-        }
-        return UpgradesList;
-    }
     
 
     //Only call once shopping is over

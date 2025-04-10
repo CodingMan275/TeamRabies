@@ -14,7 +14,7 @@ public class SaveData : ScriptableObject
     [Header("Mod Player")]
     //Player stats to be modified
     public float FireRateMod = 0;
-    public double DodgeCooldownMod = 1;
+    public double DodgeCooldownMod = 0;
     public double ScrapDropMod = 1;
     public bool explodingBullets = false;
 
@@ -74,18 +74,22 @@ public class SaveData : ScriptableObject
     public List<Upgrade> StaticScrapPoolRound4;
     public List<Upgrade> StaticScrapPoolRound5;
 
+    public Sprite gun;
     public Upgrade curWep;
     public List<Upgrade> PastWeapons;
 
     public void Reset()
     {
-      Round = 1;
+
+       curWep = new Upgrade("Pistol", 0, gun, "A basic Pistol", false);
+
+        Round = 1;
      killCount = 0;
     Scrap = 0;
    Energy = 0;
     //Player stats to be modified
-    FireRateMod = 0;
-    DodgeCooldownMod = 1;
+    FireRateMod = 1;
+    DodgeCooldownMod = 0;
     ScrapDropMod = 1;
    explodingBullets = false;
 

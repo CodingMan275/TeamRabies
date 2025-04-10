@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4624597289357710322}
   - component: {fileID: 4624597289357710323}
   - component: {fileID: 4624597289357710324}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Scrollbar Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 4624597289689604731}
   - component: {fileID: 4624597289689604732}
   - component: {fileID: 4624597289689604733}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 4624597290122786781}
   - component: {fileID: 4624597290122786782}
   - component: {fileID: 4624597290122786783}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ShopUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 4624597290211385216}
   - component: {fileID: 4624597290211385230}
   - component: {fileID: 4624597290211385231}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 4624597290223048274}
   - component: {fileID: 4624597290223048272}
   - component: {fileID: 4624597290223048273}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: ScrapDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -483,8 +483,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Scrap: '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
-  m_sharedMaterial: {fileID: -6053953785063573789, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28d581fadf5ce6442a61f6ceb73ceb60, type: 2}
+  m_sharedMaterial: {fileID: 8499912703663226961, guid: 28d581fadf5ce6442a61f6ceb73ceb60, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -559,7 +559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4624597290632328050}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Sliding Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 4624597290884954770}
   - component: {fileID: 4624597290884954771}
   - component: {fileID: 4624597290884954768}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Scrap Shop
   m_TagString: Shop
   m_Icon: {fileID: 0}
@@ -727,7 +727,7 @@ MonoBehaviour:
   gunSprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
   shotgunSprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
   boltSprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
-  beamSprite: {fileID: 0}
+  beamSprite: {fileID: 21300000, guid: 14c20889bf89d6e4ba42fbea01e5c511, type: 3}
   UpgradesList: []
   weaponsChest: {fileID: 0}
 --- !u!1 &4624597291017849430
@@ -741,7 +741,7 @@ GameObject:
   - component: {fileID: 4624597291017849429}
   - component: {fileID: 4624597291017849427}
   - component: {fileID: 4624597291017849428}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Scrap Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -765,7 +765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.23400001}
   m_AnchorMax: {x: 1, y: 0.7627274}
-  m_AnchoredPosition: {x: -93929.14, y: 0}
+  m_AnchoredPosition: {x: -372962.47, y: 0}
   m_SizeDelta: {x: -1280, y: -3}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4624597291017849427
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 4624597291045997941}
   - component: {fileID: 4624597291045997942}
   - component: {fileID: 4624597291045997943}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Viewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -910,7 +910,7 @@ GameObject:
   - component: {fileID: 4624597291266208474}
   - component: {fileID: 4624597291266208472}
   - component: {fileID: 4624597291266208473}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -967,8 +967,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Shop
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
-  m_sharedMaterial: {fileID: -6053953785063573789, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28d581fadf5ce6442a61f6ceb73ceb60, type: 2}
+  m_sharedMaterial: {fileID: 8499912703663226961, guid: 28d581fadf5ce6442a61f6ceb73ceb60, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

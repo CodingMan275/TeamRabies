@@ -33,17 +33,7 @@ public class SceneController : MonoBehaviour
 
     public void Arena1()
     {
-        print("Hello");
-        SD.Scrap = 0;
-        SD.Energy = 0;
-        SD.Round = 1;
-        SD.killCount = 0;
-        SD.Turret = false;
-        SD.explodingBullets = false;
-        SD.Pistol = true;
-        SD.FireRateMod = 1;
-        SD.DodgeCooldownMod = 1;
-        SD.curWep = new Upgrade("Pistol", 0, Resources.Load<Sprite>("ALFE_Art/gun 1"), "A basic Pistol", false);
+        SD.Reset();
         SceneManager.LoadScene(5);
     }
     public void Arena2()
