@@ -167,8 +167,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: scrappy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
-  m_sharedMaterial: {fileID: -6053953785063573789, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28d581fadf5ce6442a61f6ceb73ceb60, type: 2}
+  m_sharedMaterial: {fileID: 8499912703663226961, guid: 28d581fadf5ce6442a61f6ceb73ceb60, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -567,6 +567,7 @@ MonoBehaviour:
   phase1hp: 70
   phase2hp: 40
   FirstWaveHP: 0
+  FinalExplosion: 0
 --- !u!114 &7813446601140375175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,7 +599,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff60ed34d4520d743bf6e11d0919e011, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 14
+  speed: 7
+  meleeDmg: 4
+  meleeDelay: 1
+  rangedDmg: 5
+  missileDmg: 4
+  MeleeAttack: {fileID: 6399027038020449318, guid: 37cb1533825407647af0033edf670e62, type: 3}
+  RangedAttack: {fileID: 8073435313007495032, guid: 569c1d3c497678647a4b04a81b77dd0d, type: 3}
+  MissileAttack: {fileID: 3074054533227051399, guid: 6f9df10095e303347be505202723889b, type: 3}
   player: {fileID: 0}
 --- !u!114 &7813446601140375193
 MonoBehaviour:
@@ -612,7 +620,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26d5c03f8a781ee4592a9626108d79b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 14
+  speed: 7
+  meleeDmg: 4
+  meleeDelay: 1
+  rangedDmg: 5
+  missileDmg: 4
+  MeleeAttack: {fileID: 6399027038020449318, guid: 37cb1533825407647af0033edf670e62, type: 3}
+  RangedAttack: {fileID: 8073435313007495032, guid: 569c1d3c497678647a4b04a81b77dd0d, type: 3}
+  MissileAttack: {fileID: 3074054533227051399, guid: 6f9df10095e303347be505202723889b, type: 3}
+  ExplosionAttack: {fileID: 8075606723099577094, guid: d2fe182bbefca864dbdbac7fce6e0fc8, type: 3}
   player: {fileID: 0}
 --- !u!1 &7813446601226157736
 GameObject:

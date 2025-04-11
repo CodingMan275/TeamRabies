@@ -15,6 +15,17 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);
+        // Find all Circle Collider 2D components in the scene
+        CircleCollider2D[] circleColliders = FindObjectsOfType<CircleCollider2D>();
+
+        // Get this object's Collider 2D
+        Collider2D thisCollider = GetComponent<Collider2D>();
+
+        // Iterate through all found Circle Collider 2Ds and ignore collisions
+        foreach (CircleCollider2D circleCollider in circleColliders)
+        {
+            Physics2D.IgnoreCollision(thisCollider, circleCollider, true);
+        }
     }
 
     // Update is called once per frame

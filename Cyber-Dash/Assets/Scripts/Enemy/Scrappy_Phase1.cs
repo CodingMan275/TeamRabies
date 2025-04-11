@@ -20,7 +20,7 @@ public class Scrappy_Phase1 : MonoBehaviour
     float AttackDelay = 5.0f;
     float AttackTimer = 5.0f;
 
-    public GameObject player;
+    public GameObject player = null;
     // Start is called before the first frame update
     void Start()
     {

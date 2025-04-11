@@ -61,6 +61,7 @@ public class EnemySpawner : MonoBehaviour
         {
             int p;
             bool Picked = false;
+            //getting random guys
             do
             {
                 p = (int)Random.Range(0, EnemyCounter.Length);
