@@ -70,7 +70,7 @@ public class Robot_Attack : MonoBehaviour
 
     IEnumerator Attack()
     {
-        anim.Play("ML_Attack");
+        anim.Play("Attack");
         pt.GetComponent<Player_Health>().TakeDamage(AttackDmg);
        yield return new WaitForSeconds(.15f);
         Timer = true;
