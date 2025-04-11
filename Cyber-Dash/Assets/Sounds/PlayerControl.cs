@@ -98,6 +98,15 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ultamite"",
+                    ""type"": ""Button"",
+                    ""id"": ""25d2c8c6-7ee3-4ca6-9136-b8c618e8c3e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -258,7 +267,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""953f950f-7058-489a-8bdc-239ec1f3b3f0"",
-                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -353,6 +362,39 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                     ""action"": ""Ability"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e32c2158-40f4-4710-a838-d11225614408"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d50400f4-14e7-4bea-9deb-ab21f0e1df3e"",
+                    ""path"": ""<Keyboard>/leftAlt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ultamite"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b944b1ca-33f5-4ccb-8a0c-08245f4dd089"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ultamite"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -408,6 +450,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         m_PlayerInput_Shoot = m_PlayerInput.FindAction("Shoot", throwIfNotFound: true);
         m_PlayerInput_ShopSwitch = m_PlayerInput.FindAction("ShopSwitch", throwIfNotFound: true);
         m_PlayerInput_Ability = m_PlayerInput.FindAction("Ability", throwIfNotFound: true);
+        m_PlayerInput_Ultamite = m_PlayerInput.FindAction("Ultamite", throwIfNotFound: true);
         // UISystem
         m_UISystem = asset.FindActionMap("UISystem", throwIfNotFound: true);
         m_UISystem_Pause = m_UISystem.FindAction("Pause", throwIfNotFound: true);
@@ -478,6 +521,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerInput_Shoot;
     private readonly InputAction m_PlayerInput_ShopSwitch;
     private readonly InputAction m_PlayerInput_Ability;
+    private readonly InputAction m_PlayerInput_Ultamite;
     public struct PlayerInputActions
     {
         private @PlayerControl m_Wrapper;
@@ -490,6 +534,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         public InputAction @Shoot => m_Wrapper.m_PlayerInput_Shoot;
         public InputAction @ShopSwitch => m_Wrapper.m_PlayerInput_ShopSwitch;
         public InputAction @Ability => m_Wrapper.m_PlayerInput_Ability;
+        public InputAction @Ultamite => m_Wrapper.m_PlayerInput_Ultamite;
         public InputActionMap Get() { return m_Wrapper.m_PlayerInput; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -523,6 +568,9 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                 @Ability.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAbility;
                 @Ability.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAbility;
                 @Ability.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnAbility;
+                @Ultamite.started -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnUltamite;
+                @Ultamite.performed -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnUltamite;
+                @Ultamite.canceled -= m_Wrapper.m_PlayerInputActionsCallbackInterface.OnUltamite;
             }
             m_Wrapper.m_PlayerInputActionsCallbackInterface = instance;
             if (instance != null)
@@ -551,6 +599,9 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
                 @Ability.started += instance.OnAbility;
                 @Ability.performed += instance.OnAbility;
                 @Ability.canceled += instance.OnAbility;
+                @Ultamite.started += instance.OnUltamite;
+                @Ultamite.performed += instance.OnUltamite;
+                @Ultamite.canceled += instance.OnUltamite;
             }
         }
     }
@@ -598,6 +649,7 @@ public partial class @PlayerControl : IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnShopSwitch(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);
+        void OnUltamite(InputAction.CallbackContext context);
     }
     public interface IUISystemActions
     {

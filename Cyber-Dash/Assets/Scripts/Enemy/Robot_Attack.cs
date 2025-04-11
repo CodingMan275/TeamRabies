@@ -16,10 +16,13 @@ public class Robot_Attack : MonoBehaviour
 
     private GameObject Player;
     private Transform pt;
+
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         pt = GameObject.Find("Player").GetComponent<Transform>();
+        anim = GetComponent<Animator>();
         CoolDownTimer = AttackCoolDown;
     }
 
@@ -67,7 +70,8 @@ public class Robot_Attack : MonoBehaviour
 
     IEnumerator Attack()
     {
-       pt.GetComponent<Player_Health>().TakeDamage(AttackDmg);
+        anim.Play("ML_Attack");
+        pt.GetComponent<Player_Health>().TakeDamage(AttackDmg);
        yield return new WaitForSeconds(.15f);
         Timer = true;
 

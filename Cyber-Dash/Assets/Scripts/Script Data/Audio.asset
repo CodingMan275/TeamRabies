@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5d5b28746acf5439abb25c0746cbe7, type: 3}
   m_Name: Audio
   m_EditorClassIdentifier: 
-  Master: 1
+  Master: 0
   Vocal: 1
   SFX: 1
   Music: 1

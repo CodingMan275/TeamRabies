@@ -11,6 +11,7 @@ public class Ranged_Aim : MonoBehaviour
     public double BulletDelay;
     float LastTimeBulletFired;
     double timeSinceLastFiredBullet;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,7 @@ public class Ranged_Aim : MonoBehaviour
         transform.up = Direction;
         if (parent.CanShoot && (timeSinceLastFiredBullet > BulletDelay))
         {
+            anim.Play("ML_Attack");
             Fire();
         }
     }

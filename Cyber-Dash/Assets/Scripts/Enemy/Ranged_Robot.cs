@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class Ranged_Robot : MonoBehaviour
 {
     // private variable that can be seen and edited in Unity
-    [SerializeField] private Enemy_Counter EC;
-    private SpriteRenderer render;
+    private Enemy_Counter EC;
+    private SpriteRenderer sr;
 
     public GameObject DropScrap;
     public GameObject DropEnergy;
@@ -32,25 +32,24 @@ public class Ranged_Robot : MonoBehaviour
     private float DelayTimer;
     private bool StartDelay = false;
 
-
-
     [SerializeField] Transform target;
 
-    NavMeshAgent agent;
+    Animator anim;
+    bool isRight = true;
+    bool Die = false;
+
 
     // Called First frame when object spawns
     void Awake()
     {
         Health = MaxHealth;
-        render = GetComponent<SpriteRenderer>();
     }
 
     void Start()
     {
+        sr = GetComponent<SpriteRenderer>();
         EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>(); 
-       // agent = GetComponentInParent<NavMeshAgent>();
-      //  agent.updateRotation = false;
-      //  agent.updateUpAxis = false;
+        anim = GetComponent<Animator>();
         target = GameObject.Find("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -72,6 +71,17 @@ public class Ranged_Robot : MonoBehaviour
 
     private void FixedUpdate()
     {
+        TurnCheck(rb.velocity.x);
+        anim.SetBool("Move", (rb.velocity.magnitude > .1f || rb.velocity.magnitude < -.1f) && !Die);
+        anim.SetBool("Death", Die);
+
+        if (Health <= 0 && !Die)
+        {
+            Die = true;
+        }
+
+
+
         Vector3 Direction = new Vector3(target.position.x - gunTransform.position.x, target.position.y - gunTransform.position.y);
         RaycastHit2D hit = Physics2D.Raycast(gunTransform.position, Direction);
         Debug.DrawRay(gunTransform.position, Direction, Color.green);
@@ -92,7 +102,7 @@ public class Ranged_Robot : MonoBehaviour
             rb.velocity = new Vector2(dir.x, dir.y) * speed;
             rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
-        }
+    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -132,21 +142,21 @@ public class Ranged_Robot : MonoBehaviour
 
     public IEnumerator TakeDamage(float dmg)
     {
-        WasHurt = true;
-        Health -= Health - dmg <= 0 ? Death() : dmg;    //Replace 1 with bull damage
-        render.color = new Color(255f, 0f, 0f, 255f);
-        yield return new WaitForSeconds(.15f);
-        render.color = new Color(255f, 255f, 255f, 255f);
-        yield return new WaitForSeconds(.15f);
-        if(Health > 0)
-        WasHurt = false;
+        Health -= dmg;    //Replace 1 with bull damage
+        if (!WasHurt)
+        {
+            WasHurt = true;
+            sr.color = new Color(255f, 0f, 0f, 255f);
+            yield return new WaitForSeconds(.15f);
+            sr.color = new Color(255f, 255f, 255f, 255f);
+            yield return new WaitForSeconds(.15f);
+        }
+        if (Health > 0)
+            WasHurt = false;
     }
 
     public float Death()
     {
-        Player.killCount++;
-        EC.UpdateCounter();
-
         int temp = Random.Range(0, 2);
         if (temp == 0)
             Instantiate(DropScrap, transform.position, Quaternion.identity);
@@ -154,5 +164,25 @@ public class Ranged_Robot : MonoBehaviour
             Instantiate(DropEnergy, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
         return 0;
+    }
+
+    private void OnDestroy()
+    {
+        Player.killCount++;
+        EC.UpdateCounter();
+    }
+
+    private void TurnCheck(float moveX)
+    {
+        if (isRight && moveX < 0)
+            Turn(false);
+        if (!isRight && moveX > 0)
+            Turn(true);
+    }
+
+    public void Turn(bool turn)
+    {
+        isRight = turn;
+        sr.flipX = !isRight;
     }
 }

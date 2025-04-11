@@ -7,9 +7,8 @@ public class Basic_Robot : MonoBehaviour
 {
     // private variable that can be seen and edited in Unity
     private Enemy_Counter EC;
-    private SpriteRenderer render;
 
-    
+ 
 
     public GameObject DropScrap;
     public GameObject DropEnergy;
@@ -27,6 +26,8 @@ public class Basic_Robot : MonoBehaviour
     Transform target;
     Rigidbody2D rb;
     Vector3 dir;
+    Animator anim;
+    SpriteRenderer sr;
 
     Transform miniboss;
     public bool KnockBackStun = false;
@@ -35,12 +36,15 @@ public class Basic_Robot : MonoBehaviour
     private float DelayTimer;
     private bool StartDelay = false;
 
+
+    bool isRight = true;
+
+
     // Called First frame when object spawns
     void Awake()
     {
         Health = MaxHealth;
         DelayTimer = MoveDelay;
-        render = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -48,6 +52,8 @@ public class Basic_Robot : MonoBehaviour
         EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>(); 
         target = GameObject.Find("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
 
@@ -67,12 +73,18 @@ public class Basic_Robot : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!StartDelay)
-        rb.velocity = new Vector2(dir.x, dir.y) * speed;
+        TurnCheck(rb.velocity.x);
+        anim.SetBool("Move" , (rb.velocity.magnitude > .1f || rb.velocity.magnitude < -.1f) && !Die);
+        anim.SetBool("Death", Die);
+
+
+        
+        rb.velocity = (!StartDelay && !Die) ? new Vector2(dir.x, dir.y) * speed : Vector2.zero;
+
+
         if(Health <=0 && !Die)
         {
             Die = true;
-            Death();
         }
     }
 
@@ -139,9 +151,9 @@ public class Basic_Robot : MonoBehaviour
         if (!WasHurt)
         {
             WasHurt = true;
-            render.color = new Color(255f, 0f, 0f, 255f);
+            sr.color = new Color(255f, 0f, 0f, 255f);
             yield return new WaitForSeconds(.15f);
-            render.color = new Color(255f, 255f, 255f, 255f);
+            sr.color = new Color(255f, 255f, 255f, 255f);
             yield return new WaitForSeconds(.15f);
         }
         if(Health > 0)
@@ -150,8 +162,7 @@ public class Basic_Robot : MonoBehaviour
 
     public float Death()
     {
-        Player.killCount++;
-        EC.UpdateCounter();
+        Player.killCount++;     
         int temp = Random.Range(0,2);
         if(temp == 0)
         Instantiate(DropScrap, transform.position, Quaternion.identity);
@@ -159,5 +170,24 @@ public class Basic_Robot : MonoBehaviour
         Instantiate(DropEnergy, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
         return 0;
+    }
+
+    private void OnDestroy()
+    {
+        EC.UpdateCounter();
+    }
+
+    private void TurnCheck(float moveX)
+    {
+        if (isRight && moveX < 0)
+            Turn(false);
+        if (!isRight && moveX > 0)
+            Turn(true);
+    }
+
+    public void Turn(bool turn)
+    {
+        isRight = turn;
+        sr.flipX = !isRight;
     }
 }

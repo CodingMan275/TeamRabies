@@ -12,8 +12,12 @@ public class UIController : MonoBehaviour
     public PlayerControl pc;
     public InputController IC;
     public GameObject PauseUI;
+    public GameObject PlayerUI;
     public GameObject AudioUI;
     private InputAction Pause;
+
+    public Scrollbar Instruct;
+    private GameObject ExitButotn;
 
     public event Action <bool>OnPausePressed;
 
@@ -35,6 +39,7 @@ public class UIController : MonoBehaviour
     private void Awake()
     {
         pc = new PlayerControl();
+        Instruct.onValueChanged.AddListener(ExitInstruct);
     }
 
 
@@ -65,7 +70,8 @@ public class UIController : MonoBehaviour
     {
         Paused = p;
         PauseUI.SetActive(p);
-        if(!PauseUI.active)
+        PlayerUI.SetActive(!p);
+        if (!PauseUI.active)
             AudioUI.SetActive(false);
         IC.enabled = !p;
         Time.timeScale = Paused? 0 : 1;
@@ -75,8 +81,35 @@ public class UIController : MonoBehaviour
     {
         if(IC.Controller)
         {
-            IC.EV.firstSelectedGameObject = transform.GetChild(1).transform.GetChild(3).transform.GetChild(2).gameObject;
+            IC.EV.firstSelectedGameObject = transform.GetChild(1).transform.GetChild(2).transform.GetChild(3).gameObject;
             IC.EV.firstSelectedGameObject.GetComponent<Slider>().Select();
+        }
+    }
+
+    public void GetNewButton(GameObject G)
+    {
+        if (IC.Controller)
+        {
+            IC.EV.firstSelectedGameObject = G;
+            IC.EV.firstSelectedGameObject.GetComponent<Button>().Select();
+        }
+    }
+
+    public void GetNewSlider(GameObject G)
+    {
+        if (IC.Controller)
+        {
+            IC.EV.firstSelectedGameObject = G;
+            IC.EV.firstSelectedGameObject.GetComponent<Slider>().Select();
+        }
+    }
+
+    public void GetNewSCrollBar(GameObject G)
+    {
+        if (IC.Controller)
+        {
+            IC.EV.firstSelectedGameObject = G;
+            IC.EV.firstSelectedGameObject.GetComponent<Scrollbar>().Select();
         }
     }
 
@@ -84,9 +117,20 @@ public class UIController : MonoBehaviour
     {
             if (IC.Controller)
             {
-                IC.EV.firstSelectedGameObject = transform.GetChild(1).transform.GetChild(1).gameObject;
+                IC.EV.firstSelectedGameObject = transform.GetChild(1).transform.GetChild(1).transform.GetChild(0).gameObject;
                 IC.EV.firstSelectedGameObject.GetComponent<Button>().Select();
             }
         
     }
+
+    public void exitB(GameObject g)
+    {
+        ExitButotn = g;
+    }
+
+    public void ExitInstruct(float f)
+    {
+        ExitButotn.SetActive(f < .05f ? true : false);
+    }
+
 }

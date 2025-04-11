@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 648178562}
   - component: {fileID: 7360717835239363195}
   - component: {fileID: 5337829400149670089}
-  - component: {fileID: 6943058257212433888}
+  - component: {fileID: 5434002658339448816}
   m_Layer: 2
   m_Name: Enemy
   m_TagString: Enemy
@@ -162,28 +162,26 @@ MonoBehaviour:
   AttackDmg: 2
   AttackCoolDown: 0.5
   AttackRange: 5.5
-  CoolDownTimer: 0
+  CoolDownTimer: 0.5
   inRange: 0
   dist: 0
---- !u!195 &6943058257212433888
-NavMeshAgent:
+--- !u!95 &5434002658339448816
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7360717835239363194}
-  m_Enabled: 0
-  m_AgentTypeID: 0
-  m_Radius: 1.18
-  m_Speed: 8
-  m_Acceleration: 120
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 3.5
-  m_AutoTraverseOffMeshLink: 0
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 5.81
-  m_BaseOffset: 2.95
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd2a97893c78c284696e4e26c5239565, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

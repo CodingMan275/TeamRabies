@@ -28,7 +28,7 @@ public class SceneController : MonoBehaviour
 
     public void Shop()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene("shop");
     }
 
     public void Arena1()
@@ -56,6 +56,11 @@ public class SceneController : MonoBehaviour
     public void Exit()
     {
             Application.Quit(); 
+    }
+
+    public void Bug()
+    {
+        Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLSdfKdaVEU_FZnzPAYdUxznZTS5U-tKyvJvWXCvKqxZBWj9O3A/viewform?usp=header");
     }
 
 }

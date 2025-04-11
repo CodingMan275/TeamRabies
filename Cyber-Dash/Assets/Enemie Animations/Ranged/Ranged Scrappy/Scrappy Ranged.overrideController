@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Scrappy Ranged
+  m_Controller: {fileID: 9100000, guid: cd2a97893c78c284696e4e26c5239565, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 1c71ed6547be1c8458ab7f8d57280bfd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8150d93e8040f0b4782959b43c1d7aa4, type: 2}

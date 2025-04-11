@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class InputController : MonoBehaviour
@@ -12,6 +13,8 @@ public class InputController : MonoBehaviour
     public EventSystem EV;
     public bool Controller = false;
     bool flop = false;
+
+    public GameObject ControllerMenu;
 
     public Vector2 LInput { get; private set; }
     public float AimAngle { get; private set; }
@@ -173,12 +176,18 @@ public class InputController : MonoBehaviour
             Controller = true;
             E[0].SetActive(false);
             E[1].SetActive(true);
+            ControllerMenu.transform.GetChild(1).gameObject.SetActive(true);
+            ControllerMenu.transform.GetChild(0).gameObject.SetActive(false);
         }
         else
         {
             Controller = false;
+            ControllerMenu.transform.GetChild(0).gameObject.SetActive(true);
+            ControllerMenu.transform.GetChild(1).gameObject.SetActive(false);
             E[0].SetActive(true);
             E[1].SetActive(false);
         }
+        ControllerMenu.GetComponent<ScrollRect>().content = Controller ? ControllerMenu.transform.GetChild(1).gameObject.GetComponent<RectTransform>() : ControllerMenu.transform.GetChild(0).gameObject.GetComponent<RectTransform>();
+
     }
 }
