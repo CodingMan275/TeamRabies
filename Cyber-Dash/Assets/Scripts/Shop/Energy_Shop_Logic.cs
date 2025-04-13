@@ -62,24 +62,17 @@ public class Energy_Shop_Logic : MonoBehaviour
 
             foreach (Transform child in item.transform)
             {
-                upgrade.Purchased = false;
-                if (child.gameObject.name == "Cost")
-                {
-                    child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Energy Cost: " + upgrade.Cost;
-                }
-                else if (child.gameObject.name == "Name")
-                {
-                    child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = upgrade.Name;
-                }
-                else if (child.gameObject.name == "Image")
+                if (child.gameObject.name == "Image")
                 {
                     child.gameObject.GetComponent<Image>().sprite = upgrade.Sprite;
                     child.gameObject.GetComponent<Image>().preserveAspect = true;
                 }
+                /*
                 else if (child.gameObject.name == "Description")
                 {
                     child.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = upgrade.Description;
                 }
+                */
             }
 
 

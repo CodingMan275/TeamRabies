@@ -63,18 +63,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
             //Go through each part of the prefab and change whats needed
             foreach (Transform child in item.transform)
             {
-                //Get rid of this
-                if (child.gameObject.name == "Cost")
-                {
-                    child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Scrap Cost: " + upgrade.Cost;
-                }
-                //This
-                else if (child.gameObject.name == "Name")
-                {
-                    child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = upgrade.Name;
-                }
-                //Keep
-                else if (child.gameObject.name == "Image")
+               if (child.gameObject.name == "Image")
                 {
                     child.gameObject.GetComponent<Image>().sprite = upgrade.Sprite;
                     child.gameObject.GetComponent<Image>().preserveAspect = true;

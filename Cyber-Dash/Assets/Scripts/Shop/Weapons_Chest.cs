@@ -45,23 +45,17 @@ public class Weapons_Chest : MonoBehaviour
             foreach (Transform child in item.transform)
             {
                //There is no cost so set this to basically empty
-                if (child.gameObject.name == "Cost")
-                {
-                    child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "";
-                }
-                else if (child.gameObject.name == "Name")
-                {
-                    child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = curWep.Name;
-                }
-                else if (child.gameObject.name == "Image")
+               if (child.gameObject.name == "Image")
                 {
                     child.gameObject.GetComponent<Image>().sprite = curWep.Sprite;
                 child.gameObject.GetComponent<Image>().preserveAspect = true;
             }
+               /*
                 else if (child.gameObject.name == "Description")
                 {
                     child.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = curWep.Description;
                 }
+               */
             
                 //Give the UI button functionality
             item.GetComponent<Button>().onClick.AddListener(() =>
