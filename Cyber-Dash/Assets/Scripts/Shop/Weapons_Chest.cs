@@ -221,6 +221,33 @@ public class Weapons_Chest : MonoBehaviour
                 //Go through the past weapons and remove the weaker versions
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Bolt Launcher: Tier 2");
                 break;
+            case "Plasma Cutter: Tier 2":
+                player.Pistol = false;
+                player.Bolt_Launcher = false;
+                player.Shotgun = false;
+                player.PlasmaCutter = true;
+                WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = upgrade.Sprite;
+                player.beamCharge = .3f;
+                player.beamDamage = 8;
+                player.curWep = upgrade;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Plasma Cutter");
+                break;
+            case "Plasma Cutter: Tier 3":
+                player.Pistol = false;
+                player.Bolt_Launcher = false;
+                player.Shotgun = false;
+                player.PlasmaCutter = true;
+                WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = upgrade.Sprite;
+                player.beamCharge = .5f;
+                player.beamDamage = 10;
+                //So now we need to add the next upgrade to this weapon for the next pool of items
+                player.curWep = upgrade;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Plasma Cutter: Tier 2");
+                break;
             default:
                 Debug.Log("What did you just do");
                 //Example code

@@ -146,10 +146,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8056955563528944064, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
-      propertyPath: MaxHP
-      value: 40
-      objectReference: {fileID: 0}
     - target: {fileID: 8056955563528944069, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -198,13 +194,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8056955563528944127, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8098864296413908072, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 8494322631593978731, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: Damage
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
@@ -433,10 +425,6 @@ PrefabInstance:
     - target: {fileID: 7813446600585141695, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7813446601140375192, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
-      propertyPath: meleeDelay
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813446601140375194, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
       propertyPath: m_RootOrder

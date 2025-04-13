@@ -59,7 +59,7 @@ public class Shop_Interactiob : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop" || collision.gameObject.tag == "Chest")
         {
-            Shop = collision.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject;
+            Shop = collision.gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(2).gameObject.transform.GetChild(0).gameObject;
             Shop.SetActive(true);
             //Unclear, but the buying all the upgrades/ shop seem to be caused by what was commented out.
             if(Gamepad.all.Count > 0)// && !SoldOut)

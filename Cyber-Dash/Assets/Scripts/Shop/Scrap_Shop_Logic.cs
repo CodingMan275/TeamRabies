@@ -63,23 +63,28 @@ public class Scrap_Shop_Logic : MonoBehaviour
             //Go through each part of the prefab and change whats needed
             foreach (Transform child in item.transform)
             {
+                //Get rid of this
                 if (child.gameObject.name == "Cost")
                 {
                     child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = "Scrap Cost: " + upgrade.Cost;
                 }
+                //This
                 else if (child.gameObject.name == "Name")
                 {
                     child.gameObject.GetComponent<TMPro.TextMeshProUGUI>().text = upgrade.Name;
                 }
+                //Keep
                 else if (child.gameObject.name == "Image")
                 {
                     child.gameObject.GetComponent<Image>().sprite = upgrade.Sprite;
                     child.gameObject.GetComponent<Image>().preserveAspect = true;
                 }
-                else if (child.gameObject.name == "Description")
+                //Change to have the associated png with it
+             /*   else if (child.gameObject.name == "Description")
                 {
                     child.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = upgrade.Description;
                 }
+             */
             }
 
 
@@ -164,6 +169,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 WPC.AssignWeapon();
                 WPC.GetComponent<SpriteRenderer>().sprite = beamSprite;
                 player.curWep = tempWep;
+                FindPool(player.Round + 1).Add(new Upgrade("Plasma Cutter: Tier 2", 10, beamSprite, "An upgraded plasma cutter that charges faster and hits ahrder.", false));
                 break;
                 //This isn't possible to buy but just in case
             case "Pistol":
@@ -282,6 +288,43 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 weaponsChest.GetComponent<Weapons_Chest>().resetBox();
                 //Remove previous versions of pistol from the next pool
                 FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Bolt Launcher: Tier 2");
+                break;
+            case "Plasma Cutter: Tier 2":
+                player.Pistol = false;
+                player.Bolt_Launcher = false;
+                player.Shotgun = false;
+                player.PlasmaCutter = true;
+                WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = beamSprite;
+                player.beamCharge = .3f;
+                player.beamDamage = 8;
+                //So now we need to add the next upgrade to this weapon for the next pool of items
+                FindPool(player.Round + 1).Add(new Upgrade("Plasma Cutter: Tier 3", 10, beamSprite, "An upgraded plasma cutter that charges faster and hits harder", false));
+                player.curWep = tempWep;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Plasma Cutter");
+                //This remakes the UI elements in the weapons chest, removing the lesser version
+                weaponsChest.GetComponent<Weapons_Chest>().resetBox();
+                //Remove previous versions of pistol from the next pool
+                FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Plasma Cutter");
+                break;
+            case "Plasma Cutter: Tier 3":
+                player.Pistol = false;
+                player.Bolt_Launcher = false;
+                player.Shotgun = false;
+                player.PlasmaCutter = true;
+                WPC.AssignWeapon();
+                WPC.GetComponent<SpriteRenderer>().sprite = beamSprite;
+                player.beamCharge = .5f;
+                player.beamDamage = 10;
+                //So now we need to add the next upgrade to this weapon for the next pool of items
+                player.curWep = tempWep;
+                //Go through the past weapons and remove the weaker versions
+                player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Plasma Cutter: Tier 2");
+                //This remakes the UI elements in the weapons chest, removing the lesser version
+                weaponsChest.GetComponent<Weapons_Chest>().resetBox();
+                //Remove previous versions of pistol from the next pool
+                FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Plasma Cutter: Tier 2");
                 break;
             default:
                 Debug.Log("What did you just do");
