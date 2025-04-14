@@ -67,12 +67,12 @@ public class Energy_Shop_Logic : MonoBehaviour
                     child.gameObject.GetComponent<Image>().sprite = upgrade.Sprite;
                     child.gameObject.GetComponent<Image>().preserveAspect = true;
                 }
-                /*
+                
                 else if (child.gameObject.name == "Description")
                 {
-                    child.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = upgrade.Description;
+                    child.gameObject.GetComponentInChildren<Image>().sprite = upgrade.Description;
                 }
-                */
+                
             }
 
 
@@ -188,11 +188,11 @@ public class Upgrade
     public string Name;
     public int Cost;
     public Sprite Sprite;
-    public string Description;
+    public Sprite Description;
     [HideInInspector] public GameObject itemRef;
     public bool Purchased;
 
-    public Upgrade(string Name, int Cost, Sprite Sprite, string Decsription, bool Purchased)
+    public Upgrade(string Name, int Cost, Sprite Sprite, Sprite Decsription, bool Purchased)
     {
         this.Name = Name;
         this.Cost = Cost;

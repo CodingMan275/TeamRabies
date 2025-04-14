@@ -81,7 +81,7 @@ public class SaveData : ScriptableObject
     public void Reset()
     {
 
-       curWep = new Upgrade("Pistol", 0, gun, "A basic Pistol", false);
+       curWep = new Upgrade("Pistol", 0, gun, gun, false);
 
         Round = 1;
      killCount = 0;

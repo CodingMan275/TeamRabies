@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d06dd458699adf4f80fd5ae7e2f1c88, type: 3}
   m_Name: PlayerSaveData
   m_EditorClassIdentifier: 
-  Round: 1
+  Round: 2
   killCount: 0
-  Scrap: 11
+  Scrap: 5
   Energy: 0
   FireRateMod: 1
   DodgeCooldownMod: 0
@@ -22,10 +22,10 @@ MonoBehaviour:
   explodingBullets: 0
   Turret: 0
   Pistol: 0
-  Bolt_Launcher: 0
-  Shotgun: 1
+  Bolt_Launcher: 1
+  Shotgun: 0
   PlasmaCutter: 0
-  PistolFireRateMod: 0.8
+  PistolFireRateMod: 1
   ShotgunFireRateMod: 1
   BoltLauncherFireRateMod: 1
   BeamFireRateMod: 1
@@ -40,40 +40,70 @@ MonoBehaviour:
   - Name: Rapid Fire Circuit
     Cost: 1
     Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
-    Description: increase fire rate by 15%
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Dodge Booster
     Cost: 1
     Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
-    Description: decrease dash cooldown by 25%
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Explosive Rounds
     Cost: 3
     Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
-    Description: create a small explosion when bullets hit their end
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Turret
     Cost: 10
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: deploy a turret that lasts for 10 seconds that shoots at enemies
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Test
     Cost: 10
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: test
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   EnergyPoolRound2:
   - Name: Energy Perk 2
     Cost: 3
     Sprite: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
-    Description: test
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 1
+  - Name: Rapid Fire Circuit
+    Cost: 1
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: {fileID: 0}
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 1
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: {fileID: 0}
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: {fileID: 0}
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Turret
+    Cost: 10
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 0}
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Test
+    Cost: 10
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 0}
+    itemRef: {fileID: 0}
+    Purchased: 0
   EnergyPoolRound3: []
   EnergyPoolRound4: []
   EnergyPoolRound5: []
@@ -81,38 +111,38 @@ MonoBehaviour:
   - Name: Rapid Fire Circuit
     Cost: 1
     Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
-    Description: increase fire rate by 15%
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Dodge Booster
     Cost: 1
     Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
-    Description: decrease dash cooldown by 25%
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Explosive Rounds
     Cost: 3
     Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
-    Description: create a small explosion when bullets hit their end
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Turret
     Cost: 10
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: deploy a turret that lasts for 10 seconds that shoots at enemies
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Test
     Cost: 10
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: test
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   StaticEnergyPoolRound2:
   - Name: Energy Perk 2
     Cost: 3
     Sprite: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
-    Description: test
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 1
   StaticEnergyPoolRound3: []
@@ -122,46 +152,50 @@ MonoBehaviour:
   - Name: Bolt Launcher
     Cost: 3
     Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
-    Description: a slow firing, high damage gun that shoots piercing bolts
+    Description: {fileID: 21300000, guid: a421958ff3e4d2a44b730977be3af0e8, type: 3}
     itemRef: {fileID: 0}
     Purchased: 1
   - Name: 'Pistol: Tier 2'
     Cost: 5
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: a slow firing weapon that fires a piercing beam
+    Description: {fileID: 21300000, guid: 8e533d592f899ac4b84eb9401c3ea565, type: 3}
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Shotgun
     Cost: 3
     Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
-    Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
+    Description: {fileID: 21300000, guid: fd4128bd0ea162b42956dea5a8fbeea1, type: 3}
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Plasma Cutter
     Cost: 3
     Sprite: {fileID: 21300000, guid: 14c20889bf89d6e4ba42fbea01e5c511, type: 3}
-    Description: a slow firing weapon that fires a piercing beam
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   ScrapPoolRound2:
   - Name: 'Bolt Launcher: Tier 2'
     Cost: 10
     Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
-    Description: An upgraded bolt launcher that shoots stronger and faster bullets.
+    Description: {fileID: 21300000, guid: 187f7b5af764ac149a788c5610b22d6f, type: 3}
     itemRef: {fileID: 0}
     Purchased: 0
-  - Name: 'Pistol: Tier 3'
-    Cost: 10
+  - Name: 'Pistol: Tier 2'
+    Cost: 5
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: An upgraded pistol that shoots 30% faster and bullets pierce one
-      enemy
+    Description: {fileID: 21300000, guid: 8e533d592f899ac4b84eb9401c3ea565, type: 3}
     itemRef: {fileID: 0}
     Purchased: 0
-  - Name: 'Shotgun: Tier 2'
-    Cost: 10
+  - Name: Shotgun
+    Cost: 3
     Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
-    Description: An upgraded shotgun that shoots more bullets before reloading, and
-      a shortened reload time.
+    Description: {fileID: 21300000, guid: fd4128bd0ea162b42956dea5a8fbeea1, type: 3}
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Plasma Cutter
+    Cost: 3
+    Sprite: {fileID: 21300000, guid: 14c20889bf89d6e4ba42fbea01e5c511, type: 3}
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   ScrapPoolRound3: []
@@ -171,25 +205,25 @@ MonoBehaviour:
   - Name: Bolt Launcher
     Cost: 3
     Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
-    Description: a slow firing, high damage gun that shoots piercing bolts
+    Description: {fileID: 21300000, guid: a421958ff3e4d2a44b730977be3af0e8, type: 3}
     itemRef: {fileID: 0}
     Purchased: 1
   - Name: 'Pistol: Tier 2'
     Cost: 5
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: a slow firing weapon that fires a piercing beam
+    Description: {fileID: 21300000, guid: 8e533d592f899ac4b84eb9401c3ea565, type: 3}
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Shotgun
     Cost: 3
     Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
-    Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
+    Description: {fileID: 21300000, guid: fd4128bd0ea162b42956dea5a8fbeea1, type: 3}
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Plasma Cutter
     Cost: 3
     Sprite: {fileID: 21300000, guid: 14c20889bf89d6e4ba42fbea01e5c511, type: 3}
-    Description: a slow firing weapon that fires a piercing beam
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0
   StaticScrapPoolRound2: []
@@ -198,28 +232,16 @@ MonoBehaviour:
   StaticScrapPoolRound5: []
   gun: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
   curWep:
-    Name: Shotgun
+    Name: Bolt Launcher
     Cost: 0
-    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
-    Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
+    Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
+    Description: {fileID: 21300000, guid: a421958ff3e4d2a44b730977be3af0e8, type: 3}
     itemRef: {fileID: 0}
     Purchased: 0
   PastWeapons:
-  - Name: Bolt Launcher
-    Cost: 0
-    Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
-    Description: a slow firing, high damage gun that shoots piercing bolts
-    itemRef: {fileID: 0}
-    Purchased: 0
-  - Name: 'Pistol: Tier 2'
+  - Name: Pistol
     Cost: 0
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: a slow firing weapon that fires a piercing beam
-    itemRef: {fileID: 0}
-    Purchased: 0
-  - Name: Shotgun
-    Cost: 0
-    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
-    Description: a powerful shotgun that knocks back enemies and shoots 5 pellets
+    Description: {fileID: 0}
     itemRef: {fileID: 0}
     Purchased: 0

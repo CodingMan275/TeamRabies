@@ -50,12 +50,12 @@ public class Weapons_Chest : MonoBehaviour
                     child.gameObject.GetComponent<Image>().sprite = curWep.Sprite;
                 child.gameObject.GetComponent<Image>().preserveAspect = true;
             }
-               /*
+               
                 else if (child.gameObject.name == "Description")
                 {
-                    child.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = curWep.Description;
-                }
-               */
+                child.gameObject.GetComponentInChildren<Image>().sprite = curWep.Description;
+            }
+               
             
                 //Give the UI button functionality
             item.GetComponent<Button>().onClick.AddListener(() =>
