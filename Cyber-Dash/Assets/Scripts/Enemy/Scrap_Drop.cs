@@ -21,8 +21,10 @@ public class Scrap_Drop : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            player.Scrap++;
-            //player.Scrap += rand(minBound, maxBound) * player.ScrapDropMod;
+            int scrap = Random.Range(5, 13);
+            if (player.scrapRecycle)
+                scrap += 5;
+            player.Scrap += scrap;
             Destroy(gameObject);
         }
     }

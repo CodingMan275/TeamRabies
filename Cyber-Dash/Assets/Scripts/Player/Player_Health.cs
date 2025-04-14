@@ -7,10 +7,11 @@ using UnityEngine.UI;
 
 public class Player_Health : MonoBehaviour
 {
-    public float MaxHP = 10;
+    public float MaxHP = 40;
     public float HP;
     private bool WasHurt = false;
     public Slider HealthBar;
+    public SaveData stats;
     SpriteRenderer render;
     SceneController SC;
 
@@ -22,7 +23,9 @@ public class Player_Health : MonoBehaviour
     void Start()
     {
         SC = transform.GetChild(0).GetComponent<SceneController>();
-        HP = MaxHP;
+        HP = MaxHP + stats.healthBuff;
+        HealthBar.maxValue = HP;
+        HealthBar.value = HP;
         render = GetComponent<SpriteRenderer>();
     }
 

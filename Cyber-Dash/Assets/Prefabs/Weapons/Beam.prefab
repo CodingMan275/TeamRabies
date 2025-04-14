@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BeamDuration: 0.1
   Damage: 5
+  bulletEffects: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
 --- !u!61 &3170478239042925575
 BoxCollider2D:
   m_ObjectHideFlags: 0

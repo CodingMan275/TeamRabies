@@ -17,6 +17,9 @@ public class SaveData : ScriptableObject
     public double DodgeCooldownMod = 0;
     public double ScrapDropMod = 1;
     public bool explodingBullets = false;
+    public bool criticalStrike = false;
+    public bool scrapRecycle = false;
+    public int healthBuff = 0;
 
     [Header("Player Abilities")]
     //Player abilities
@@ -92,11 +95,16 @@ public class SaveData : ScriptableObject
     DodgeCooldownMod = 0;
     ScrapDropMod = 1;
    explodingBullets = false;
+        criticalStrike = false;
+        scrapRecycle = false;
+        healthBuff = 0;
 
-   
-    //Player abilities
-    //Player adds the abilities that are marked true on enter
-   Turret = false;
+
+
+
+        //Player abilities
+        //Player adds the abilities that are marked true on enter
+        Turret = false;
 
    
     //Weapons

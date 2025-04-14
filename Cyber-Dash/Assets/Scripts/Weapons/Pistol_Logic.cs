@@ -47,7 +47,7 @@ public class Pistol_Logic : MonoBehaviour
         {
             GameObject Bullet = Instantiate(BulletPrefab, WPC.Spawnloc, transform.rotation);
             Bullet.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
-            Bullet.GetComponent<Bullet>().Damage = Damage;
+            Bullet.GetComponent<Bullet>().updateDmg(Damage);
             Bullet.GetComponent<Bullet>().HowManyPierce = stats.HowManyPierce;
             //  Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);
             LastTimeBulletFired = Time.time;

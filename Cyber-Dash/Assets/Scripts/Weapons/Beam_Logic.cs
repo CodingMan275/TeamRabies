@@ -5,7 +5,7 @@ using UnityEngine;
 public class Beam_Logic : MonoBehaviour
 {
 
-    public int Damage;
+   // public int Damage;
 
     public GameObject BeamPrefab;
 
@@ -76,7 +76,7 @@ public class Beam_Logic : MonoBehaviour
             if (hit.collider.gameObject.tag == "Wall" && hit.collider.gameObject != null)
             {
                 GameObject Bullet = Instantiate(BeamPrefab, WPC.Spawnloc, transform.rotation);
-                Bullet.GetComponent<Beam>().Damage = 5;
+                Bullet.GetComponent<Beam>().updateDmg(stats.beamDamage);
                 float dist = Mathf.Abs(Vector3.Distance(hit.collider.transform.position, transform.position));
                 Bullet.transform.localScale = new Vector3(dist, 1, 1);
             }

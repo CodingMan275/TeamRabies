@@ -34,6 +34,22 @@ public class Bullet : MonoBehaviour
         
     }
 
+    public void updateDmg(int dmg)
+    {
+        if (bulletEffects.criticalStrike)
+        {
+            //if 10% chance
+            float temp = Random.Range(1f, 10f);
+            if (temp <= 1f)
+            {
+                Damage = dmg * 2;
+            }
+
+        }
+        else
+            Damage = dmg;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")

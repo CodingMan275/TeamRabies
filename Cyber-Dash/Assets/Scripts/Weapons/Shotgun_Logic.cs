@@ -65,11 +65,11 @@ public class Shotgun_Logic : MonoBehaviour
             Bullet2.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
             Bullet3.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
             Bullet4.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
-            Bullet.GetComponent<Bullet>().Damage = DamagePerBullet;
-            Bullet1.GetComponent<Bullet>().Damage = DamagePerBullet;
-            Bullet2.GetComponent<Bullet>().Damage = DamagePerBullet;
-            Bullet3.GetComponent<Bullet>().Damage = DamagePerBullet;
-            Bullet4.GetComponent<Bullet>().Damage = DamagePerBullet;
+            Bullet.GetComponent<Bullet>().updateDmg(DamagePerBullet);
+            Bullet1.GetComponent<Bullet>().updateDmg(DamagePerBullet);
+            Bullet2.GetComponent<Bullet>().updateDmg(DamagePerBullet);
+            Bullet3.GetComponent<Bullet>().updateDmg(DamagePerBullet);
+            Bullet4.GetComponent<Bullet>().updateDmg(DamagePerBullet);
 
             GameObject KnockBack = Instantiate(KnockbackPrefab, WPC.Spawnloc, transform.rotation * Quaternion.Euler(new Vector3(0, 0, 90f)));
             shootCount++;

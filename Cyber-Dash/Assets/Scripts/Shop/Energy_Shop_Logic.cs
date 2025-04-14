@@ -118,6 +118,15 @@ public class Energy_Shop_Logic : MonoBehaviour
                 player.Turret = true;
                 playerInScene.GetComponent<Ability_Turret>().enabled = true;
                 break;
+            case "Critical Strike":
+                player.criticalStrike = true;
+            break;
+            case "Scrap Recycle":
+                player.scrapRecycle = true;
+                break;
+            case "Reinforced Chassis":
+                player.healthBuff = 10;
+                break;
             default:
                 Debug.Log("What did you just do");
                 //Example code

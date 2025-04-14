@@ -20,7 +20,8 @@ public class Energy_Drop : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            player.Energy++;
+            int energy = Random.Range(2,6);
+            player.Energy += energy;
             //player.Scrap += rand(minBound, maxBound) * player.ScrapDropMod;
             Destroy(gameObject);
         }
