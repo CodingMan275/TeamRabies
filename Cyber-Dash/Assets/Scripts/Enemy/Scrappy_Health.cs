@@ -74,6 +74,10 @@ public class Scrappy_Health : MonoBehaviour
             else
                 StartCoroutine(TakeDamage(col.GetComponent<Beam>().Damage));
         }
+        else if (col.CompareTag("UltBlast"))
+        {
+            StartCoroutine(TakeDamage(20));
+        }
     }
     public IEnumerator TakeDamage(float dmg)
     {

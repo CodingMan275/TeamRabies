@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="SaveData/PlayerSave")]
@@ -10,6 +11,11 @@ public class SaveData : ScriptableObject
     public int killCount = 0;
     public int Scrap = 0;
     public int Energy = 0;
+    public int MaxHealth = 40;
+    public int Health = 40;
+    [Range(0,100)]public int UltPerc = 0;
+    public float WalkSpeed = 15f;
+    public float RunSpeed = 20f;
 
     [Header("Mod Player")]
     //Player stats to be modified
@@ -45,6 +51,7 @@ public class SaveData : ScriptableObject
     public float boltSpeedIncrease = 0;
     public float beamCharge = .01f;
     public int beamDamage = 5;
+    public bool DoubleDamage;
 
 
 
@@ -87,9 +94,14 @@ public class SaveData : ScriptableObject
        curWep = new Upgrade("Pistol", 0, gun, gun, false);
 
         Round = 1;
-     killCount = 0;
-    Scrap = 0;
-   Energy = 0;
+         killCount = 0;
+        Scrap = 0;
+        Energy = 0;
+        Health = MaxHealth;
+        UltPerc = 0;
+        WalkSpeed = 15f;
+        RunSpeed = 20;
+        DoubleDamage = false;
     //Player stats to be modified
     FireRateMod = 1;
     DodgeCooldownMod = 0;
@@ -123,6 +135,32 @@ public class SaveData : ScriptableObject
         boltSpeedIncrease = 0;
         beamCharge = .01f;
         beamDamage = 5;
+    }
+
+    public IEnumerator StatBoost()
+    {
+        BeamFireRateMod /= 2;
+        PistolFireRateMod /= 2;
+        BoltLauncherFireRateMod /= 2;
+        WalkSpeed *= 2;
+        RunSpeed *= 2;
+        Health += 20;
+        DoubleDamage = true;
+        yield return new WaitForSeconds(10);
+        ForceUltReset();
+        
+    }
+
+    public IEnumerator ForceUltReset()
+    {
+        BeamFireRateMod *= 2;
+        PistolFireRateMod *= 2;
+        BoltLauncherFireRateMod *= 2;
+        WalkSpeed /= 2;
+        RunSpeed /= 2;
+        Health -= 20;
+        DoubleDamage = false;
+        yield return new WaitForSeconds(0.5f);
     }
 
 }

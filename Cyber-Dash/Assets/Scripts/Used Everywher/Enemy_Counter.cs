@@ -74,11 +74,11 @@ public class Enemy_Counter : MonoBehaviour
         yield return new WaitForSeconds(WaitTime);
         if (SD.Round != 3)
         {
-            SC.Shop();
+            SC.ChangeScene("Shop");
         }
         else
         {
-            SC.Victory();
+            SC.ChangeScene("Victory");
         }
     }
 }

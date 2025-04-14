@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class Player_Health : MonoBehaviour
 {
-    public float MaxHP = 40;
-    public float HP;
     private bool WasHurt = false;
     public Slider HealthBar;
     public SaveData stats;
@@ -23,9 +21,8 @@ public class Player_Health : MonoBehaviour
     void Start()
     {
         SC = transform.GetChild(0).GetComponent<SceneController>();
-        HP = MaxHP + stats.healthBuff;
-        HealthBar.maxValue = HP;
-        HealthBar.value = HP;
+        HealthBar.maxValue = stats.MaxHealth + stats.healthBuff;
+        HealthBar.value = stats.Health;
         render = GetComponent<SpriteRenderer>();
     }
 
@@ -43,8 +40,8 @@ public class Player_Health : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        HP -= HP - dmg <= 0 ? Death() : dmg;
-        HealthBar.value = HP;
+        stats.Health -= stats.Health - dmg <= 0 ? Death() : (int)dmg;
+        HealthBar.value = stats.Health;
         if (!WasHurt)
             StartCoroutine(Flash());
     }
@@ -61,9 +58,9 @@ public class Player_Health : MonoBehaviour
     }
 
 
-    private float Death()
+    private int Death()
     {
-        SC.Defeat();
+        SC.ChangeScene("Defeat");
         return 0;
     }
 }

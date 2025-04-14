@@ -32,19 +32,19 @@ public class ExitShop : MonoBehaviour
             SD.Round++;
             if (SD.Round == 2)
             {
-                SC.Arena2();
+                SC.ChangeScene("Arena 1-2");
             }
             else if (SD.Round == 3)
             {
-                SC.Arena3();
+                SC.ChangeScene("Arena 1-3");
             }
             else if (SD.Round == 4)
             {
-                SC.Arena4();
+                SC.ChangeScene("Arena 1-4");
             }
             else if (SD.Round == 5)
             {
-                SC.Arena5();
+                SC.ChangeScene("Arena 1-5");
             }
         }
     }

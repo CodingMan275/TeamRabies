@@ -126,6 +126,7 @@ public class Energy_Shop_Logic : MonoBehaviour
                 break;
             case "Reinforced Chassis":
                 player.healthBuff = 10;
+                player.Health += 10;
                 break;
             default:
                 Debug.Log("What did you just do");

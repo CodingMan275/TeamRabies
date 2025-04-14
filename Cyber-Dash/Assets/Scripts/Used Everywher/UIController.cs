@@ -38,15 +38,9 @@ public class UIController : MonoBehaviour
 
     private void Awake()
     {
+        AudioUI.GetComponent<VolumeSettings>().SetVolume();
         pc = new PlayerControl();
         Instruct.onValueChanged.AddListener(ExitInstruct);
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        AudioUI.GetComponent<VolumeSettings>().SetVolume();
     }
 
     // Update is called once per frame

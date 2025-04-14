@@ -65,18 +65,18 @@ public class Shotgun_Logic : MonoBehaviour
             Bullet2.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
             Bullet3.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
             Bullet4.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
-            Bullet.GetComponent<Bullet>().updateDmg(DamagePerBullet);
-            Bullet1.GetComponent<Bullet>().updateDmg(DamagePerBullet);
-            Bullet2.GetComponent<Bullet>().updateDmg(DamagePerBullet);
-            Bullet3.GetComponent<Bullet>().updateDmg(DamagePerBullet);
-            Bullet4.GetComponent<Bullet>().updateDmg(DamagePerBullet);
+            Bullet.GetComponent<Bullet>().updateDmg(DamagePerBullet * (stats.DoubleDamage ? 2 : 1));
+            Bullet1.GetComponent<Bullet>().updateDmg(DamagePerBullet * (stats.DoubleDamage ? 2 : 1));
+            Bullet2.GetComponent<Bullet>().updateDmg(DamagePerBullet * (stats.DoubleDamage ? 2 : 1));
+            Bullet3.GetComponent<Bullet>().updateDmg(DamagePerBullet * (stats.DoubleDamage ? 2 : 1));
+            Bullet4.GetComponent<Bullet>().updateDmg(DamagePerBullet * (stats.DoubleDamage ? 2 : 1));
 
             GameObject KnockBack = Instantiate(KnockbackPrefab, WPC.Spawnloc, transform.rotation * Quaternion.Euler(new Vector3(0, 0, 90f)));
             shootCount++;
             if (shootCount == stats.ShotGunAmmo)
             {
                 shootCount = 0;
-                BulletDelay = ReloadTime;
+                BulletDelay = stats.DoubleDamage ? 1 : ReloadTime;
             }
             else
             {

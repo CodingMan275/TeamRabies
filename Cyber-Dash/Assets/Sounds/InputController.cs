@@ -22,6 +22,7 @@ public class InputController : MonoBehaviour
     public bool isRunning { get; private set; }
 
     public event Action OnDashPressed;
+    public event Action UltActivate;
     public event Action OnShootPressed;
     public event Action onShootReleased;
     public event Action<float> OnShopRotate;
@@ -36,6 +37,7 @@ public class InputController : MonoBehaviour
     private InputAction Shoot;
     private InputAction Shop;
     private InputAction Ability;
+    private InputAction Ult;
 
 
 
@@ -56,6 +58,7 @@ public class InputController : MonoBehaviour
         Shoot = pc.PlayerInput.Shoot;
         Shop = pc.PlayerInput.ShopSwitch;
         Ability = pc.PlayerInput.Ability;
+        Ult = pc.PlayerInput.Ultamite;
 
         move.Enable();
         Maim.Enable();
@@ -65,6 +68,7 @@ public class InputController : MonoBehaviour
         Shoot.Enable();
         Shop.Enable();
         Ability.Enable();
+        Ult.Enable();   
 
 
     }
@@ -79,6 +83,7 @@ public class InputController : MonoBehaviour
         Shoot.Disable();
         Shop.Disable();
         Ability.Disable();
+        Ult.Disable();
 
     }
 
@@ -106,6 +111,11 @@ public class InputController : MonoBehaviour
         if (Dash.triggered)
         {
             OnDashPressed?.Invoke();
+        }
+
+        if(Ult.triggered)
+        {
+            UltActivate?.Invoke();
         }
 
         if(Shop.triggered)

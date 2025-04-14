@@ -11,46 +11,25 @@ public class SceneController : MonoBehaviour
     SceneManager.LoadScene(1);
     }
 
+
+    public void ChangeScene(string s)
+    {
+        if (SD.DoubleDamage)
+            StartCoroutine(SD.ForceUltReset());
+        SceneManager.LoadScene(s);
+    }
+
     public void MainMenu()
     {
+        if (SD.DoubleDamage)
+            StartCoroutine(SD.ForceUltReset());
         SceneManager.LoadScene(0);
-    }
-
-    public void Victory()
-    {
-        SceneManager.LoadScene(2);
-    }
-
-    public void Defeat()
-    {
-        SceneManager.LoadScene(3);
-    }
-
-    public void Shop()
-    {
-        SceneManager.LoadScene("shop");
     }
 
     public void Arena1()
     {
         SD.Reset();
         SceneManager.LoadScene(5);
-    }
-    public void Arena2()
-    {
-        SceneManager.LoadScene(6);
-    }
-    public void Arena3()
-    {
-        SceneManager.LoadScene(7);
-    }
-    public void Arena4()
-    {
-        SceneManager.LoadScene(8);
-    }
-    public void Arena5()
-    {
-        SceneManager.LoadScene(9);
     }
 
     public void Exit()

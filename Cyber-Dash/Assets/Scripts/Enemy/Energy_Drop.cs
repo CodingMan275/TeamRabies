@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Energy_Drop : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class Energy_Drop : MonoBehaviour
         {
             int energy = Random.Range(2,6);
             player.Energy += energy;
+            player.UltPerc += energy;
+            collision.gameObject.GetComponent<Ultamite>().UltSlider.value += energy; 
             //player.Scrap += rand(minBound, maxBound) * player.ScrapDropMod;
             Destroy(gameObject);
         }

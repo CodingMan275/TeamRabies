@@ -471,7 +471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089628455614, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089628455614, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -650,6 +650,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8460512089410643758, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8460512089628455614, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -691,6 +695,10 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 57.636414
       objectReference: {fileID: 0}
+    - target: {fileID: 1927674226748580370, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: EBlast
+      value: 
+      objectReference: {fileID: 1452417433}
     - target: {fileID: 2220394687684800020, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -710,6 +718,10 @@ PrefabInstance:
     - target: {fileID: 7500880652491570909, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: MinDistance
       value: 6.8636436
+      objectReference: {fileID: 0}
+    - target: {fileID: 7937399746884524919, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8056955563487024753, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -781,6 +793,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+--- !u!1 &1452417433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5446148988951594271, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+  m_PrefabInstance: {fileID: 1271747159}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1644894421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -871,6 +888,10 @@ PrefabInstance:
     - target: {fileID: 8460512089410643758, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: m_Name
       value: Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8460512089410643758, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089628455614, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: m_LocalScale.x

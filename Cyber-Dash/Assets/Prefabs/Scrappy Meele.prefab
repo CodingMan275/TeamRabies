@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5337829400149670089}
   - component: {fileID: 5434002658339448816}
   m_Layer: 2
-  m_Name: Enemy
+  m_Name: Scrappy Meele
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1669ea05ee15333488b02b48afae40d0, type: 3}
+  m_Sprite: {fileID: 444430640, guid: ff88f0e8db3067e4798cc64003941f0e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867fbb238d9fa2d4d8981d3e61131685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  col: {fileID: 1825160091060151955}
   DropScrap: {fileID: 2143827383965784735, guid: b3a9e5a3933da7246b0f256b74bd8120, type: 3}
   DropEnergy: {fileID: 2143827383965784735, guid: 6f2e931c0f5a8954eaa857b58cd79f37, type: 3}
   Health: 0
@@ -176,7 +175,7 @@ Animator:
   m_GameObject: {fileID: 7360717835239363194}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cd2a97893c78c284696e4e26c5239565, type: 2}
+  m_Controller: {fileID: 22100000, guid: 6c7207c48da89c6488937f72a81e3df4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

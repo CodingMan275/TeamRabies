@@ -8,7 +8,7 @@ public class Basic_Robot : MonoBehaviour
     // private variable that can be seen and edited in Unity
     private Enemy_Counter EC;
 
- 
+    public Collider2D col;
 
     public GameObject DropScrap;
     public GameObject DropEnergy;
@@ -85,6 +85,7 @@ public class Basic_Robot : MonoBehaviour
         if(Health <=0 && !Die)
         {
             Die = true;
+            col.enabled = false;
         }
     }
 
@@ -143,6 +144,10 @@ public class Basic_Robot : MonoBehaviour
             //  dir = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
             rb.AddForce(-dir * col.GetComponent<Knockback_Logic>().KnockbackDist * 1.4f, ForceMode2D.Impulse);
             rb.velocity = -dir * speed * 2f;
+        }
+        else if (col.CompareTag("UltBlast"))
+        {
+            StartCoroutine(TakeDamage(20));
         }
     }
     public IEnumerator TakeDamage(float dmg)

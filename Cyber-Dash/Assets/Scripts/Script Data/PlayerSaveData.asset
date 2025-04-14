@@ -13,16 +13,21 @@ MonoBehaviour:
   m_Name: PlayerSaveData
   m_EditorClassIdentifier: 
   Round: 1
-  killCount: 0
-  Scrap: 100
-  Energy: 100
+  killCount: 5
+  Scrap: 24
+  Energy: 6
+  MaxHealth: 40
+  Health: 18
+  UltPerc: 4
+  WalkSpeed: 15
+  RunSpeed: 20
   FireRateMod: 1
   DodgeCooldownMod: 0
   ScrapDropMod: 1
   explodingBullets: 0
   criticalStrike: 0
   scrapRecycle: 0
-  healthBuff: 10
+  healthBuff: 0
   Turret: 0
   Pistol: 1
   Bolt_Launcher: 0
@@ -33,12 +38,13 @@ MonoBehaviour:
   BoltLauncherFireRateMod: 1
   BeamFireRateMod: 1
   HowManyPierce: 0
-  ShotgunReloadTime: 2
+  ShotgunReloadTime: 4
   ShotGunAmmo: 2
   boltIncreaseDamage: 0
   boltSpeedIncrease: 0
   beamCharge: 0.01
   beamDamage: 5
+  DoubleDamage: 0
   EnergyPoolRound1:
   - Name: Rapid Fire Circuit
     Cost: 1
