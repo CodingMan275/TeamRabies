@@ -149,6 +149,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 WPC.GetComponent<SpriteRenderer>().sprite = shotgunSprite;
                 player.curWep = tempWep;
                 player.HowManyPierce = 0;
+                player.ShotgunReloadTime = 2;
                 FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 2", 10, shotgunSprite, descriptions[4], false));
                 break;
             case "Plasma Cutter":

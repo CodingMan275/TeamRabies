@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Ability_Turret : MonoBehaviour
+public class Ability_RepairPack : MonoBehaviour
 {
     InputController IC;
-    public GameObject TurretPrefab;
 
     public GameObject abiltiyCountdown;
+    public float cooldown = 15f;
+
 
     public Sprite icon;
 
@@ -18,11 +19,11 @@ public class Ability_Turret : MonoBehaviour
     void Start()
     {
         abiltiyCountdown.SetActive(true);
-        abiltiyCountdown.GetComponent<Slider>().maxValue = TurretPrefab.GetComponent<TurretLogic>().DeployTime;
-        AbilityCooldown = TurretPrefab.GetComponent<TurretLogic>().DeployTime;
+        abiltiyCountdown.GetComponent<Slider>().maxValue = cooldown;
+        AbilityCooldown = cooldown;
         abiltiyCountdown.GetComponentInChildren<Image>().sprite = icon;
         IC = GetComponent<InputController>();
-        IC.OnAbilityPressed += DeployTurret;
+        IC.OnAbilityPressed += Repair;
     }
 
     // Update is called once per frame
@@ -41,24 +42,26 @@ public class Ability_Turret : MonoBehaviour
             if (AbilityCooldown <= 0)
             {
                 active = false;
-                AbilityCooldown = TurretPrefab.GetComponent<TurretLogic>().DeployTime;
+                AbilityCooldown = cooldown;
             }
         }
-
     }
 
-    void DeployTurret()
+    void Repair()
     {
         if (!active)
         {
-            abiltiyCountdown.GetComponent<Slider>().maxValue = TurretPrefab.GetComponent<TurretLogic>().DeployTime;
-            Instantiate(TurretPrefab, transform.position, Quaternion.identity);
+            GetComponent<Player_Health>().stats.Health += 15;
+            if (GetComponent<Player_Health>().stats.Health > GetComponent<Player_Health>().stats.MaxHealth)
+            {
+                GetComponent<Player_Health>().stats.Health = GetComponent<Player_Health>().stats.MaxHealth;
+            }
+            GetComponent<Player_Health>().HealthBar.value = GetComponent<Player_Health>().stats.Health;
             active = true;
         }
     }
-
     private void OnDisable()
     {
-        IC.OnAbilityPressed -= DeployTurret;
+        IC.OnAbilityPressed -= Repair;
     }
 }

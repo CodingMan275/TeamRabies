@@ -116,7 +116,9 @@ public class Energy_Shop_Logic : MonoBehaviour
                 break;
             case "Turret":
                 player.Turret = true;
+                player.repairPack = false;
                 playerInScene.GetComponent<Ability_Turret>().enabled = true;
+                playerInScene.GetComponent<Ability_RepairPack>().enabled = false;
                 break;
             case "Critical Strike":
                 player.criticalStrike = true;
@@ -127,6 +129,18 @@ public class Energy_Shop_Logic : MonoBehaviour
             case "Reinforced Chassis":
                 player.healthBuff = 10;
                 player.Health += 10;
+                break;
+            case "Energy Deflector":
+                player.energyDeflector = true;
+                break;
+            case "Adaptive Armor":
+                player.adaptiveArmor = true;
+                break;
+            case "Repair Pack":
+                player.Turret = false;
+                player.repairPack = true;
+                playerInScene.GetComponent<Ability_Turret>().enabled = false;
+                playerInScene.GetComponent<Ability_RepairPack>().enabled = true;
                 break;
             default:
                 Debug.Log("What did you just do");

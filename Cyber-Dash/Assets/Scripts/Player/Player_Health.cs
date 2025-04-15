@@ -40,6 +40,11 @@ public class Player_Health : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
+        if (stats.adaptiveArmor)
+        {
+            //Change var with balancing
+            dmg -= 3;
+        }
         stats.Health -= stats.Health - dmg <= 0 ? Death() : (int)dmg;
         HealthBar.value = stats.Health;
         if (!WasHurt)

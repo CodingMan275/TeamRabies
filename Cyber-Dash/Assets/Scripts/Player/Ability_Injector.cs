@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Ability_Turret : MonoBehaviour
+public class Ability_Injector : MonoBehaviour
 {
     InputController IC;
-    public GameObject TurretPrefab;
+    public float cooldown = 10f;
 
     public GameObject abiltiyCountdown;
 
@@ -14,15 +14,16 @@ public class Ability_Turret : MonoBehaviour
 
     float AbilityCooldown;
     bool active = false;
+    bool waitbool = false;
     // Start is called before the first frame update
     void Start()
     {
         abiltiyCountdown.SetActive(true);
-        abiltiyCountdown.GetComponent<Slider>().maxValue = TurretPrefab.GetComponent<TurretLogic>().DeployTime;
-        AbilityCooldown = TurretPrefab.GetComponent<TurretLogic>().DeployTime;
+        abiltiyCountdown.GetComponent<Slider>().maxValue = cooldown;
+        AbilityCooldown = cooldown;
         abiltiyCountdown.GetComponentInChildren<Image>().sprite = icon;
         IC = GetComponent<InputController>();
-        IC.OnAbilityPressed += DeployTurret;
+        IC.OnAbilityPressed += inject;
     }
 
     // Update is called once per frame
@@ -41,24 +42,35 @@ public class Ability_Turret : MonoBehaviour
             if (AbilityCooldown <= 0)
             {
                 active = false;
-                AbilityCooldown = TurretPrefab.GetComponent<TurretLogic>().DeployTime;
+                waitbool = false;
+                AbilityCooldown = cooldown;
             }
         }
-
     }
 
-    void DeployTurret()
+    void inject()
     {
-        if (!active)
+        if (!active && !waitbool)
         {
-            abiltiyCountdown.GetComponent<Slider>().maxValue = TurretPrefab.GetComponent<TurretLogic>().DeployTime;
-            Instantiate(TurretPrefab, transform.position, Quaternion.identity);
-            active = true;
+            GetComponent<Player_Controller>().SD.FireRateMod *= .75f;
+            GetComponent<Player_Controller>().WalkSpeed += 2;
+            GetComponent<Player_Controller>().RunSpeed += 2;
+            waitbool = true;
+            wait();
         }
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(8f);
+        GetComponent<Player_Controller>().SD.FireRateMod /= .75f;
+        GetComponent<Player_Controller>().WalkSpeed -= 2;
+        GetComponent<Player_Controller>().RunSpeed -= 2;
+        active = true;
     }
 
     private void OnDisable()
     {
-        IC.OnAbilityPressed -= DeployTurret;
+        IC.OnAbilityPressed -= inject;
     }
 }

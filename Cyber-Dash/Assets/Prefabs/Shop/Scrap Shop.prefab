@@ -802,6 +802,19 @@ MonoBehaviour:
   boltSprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
   beamSprite: {fileID: 21300000, guid: 14c20889bf89d6e4ba42fbea01e5c511, type: 3}
   UpgradesList: []
+  descriptions:
+  - {fileID: 21300000, guid: a52b4cd1a0741e8429e74d26d150540e, type: 3}
+  - {fileID: 21300000, guid: 8e533d592f899ac4b84eb9401c3ea565, type: 3}
+  - {fileID: 21300000, guid: 2c1ba851f077ac04281d708bfff99926, type: 3}
+  - {fileID: 21300000, guid: fd4128bd0ea162b42956dea5a8fbeea1, type: 3}
+  - {fileID: 21300000, guid: c4f02c8a32954aa478a2104117bb7316, type: 3}
+  - {fileID: 21300000, guid: a6fdf3c287a7522408b7c88dc053e83b, type: 3}
+  - {fileID: 21300000, guid: a421958ff3e4d2a44b730977be3af0e8, type: 3}
+  - {fileID: 21300000, guid: 187f7b5af764ac149a788c5610b22d6f, type: 3}
+  - {fileID: 21300000, guid: 4b5747b64334671419f6944a1f7705e9, type: 3}
+  - {fileID: 21300000, guid: ab0d73379aeb458459be8ddeb559ff0a, type: 3}
+  - {fileID: 21300000, guid: 94134fa522d794f4784e8194c00e86ac, type: 3}
+  - {fileID: 21300000, guid: 8ffd78e22538dd1448df03d239a81649, type: 3}
   weaponsChest: {fileID: 0}
 --- !u!1 &4624597291017849430
 GameObject:
@@ -839,7 +852,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -383.44623, y: -188.77243}
+  m_AnchoredPosition: {x: -383.44574, y: -40.757687}
   m_SizeDelta: {x: 895, y: 774}
   m_Pivot: {x: 0.8002883, y: 0.45590988}
 --- !u!114 &4624597291017849428

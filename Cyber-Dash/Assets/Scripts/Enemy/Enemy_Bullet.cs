@@ -6,6 +6,7 @@ public class Enemy_Bullet : MonoBehaviour
 {
     [SerializeField] private float AttackDmg;
     private GameObject Player;
+    public SaveData sd;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +26,17 @@ public class Enemy_Bullet : MonoBehaviour
         {
             if (collision.gameObject.tag == "Player")
             {
-                Player = col;
-               col.GetComponent<Player_Health>().TakeDamage(AttackDmg);
+                //Won't run damage coroutine if 10% chance hit with ability
+                float temp = Random.Range(1f, 10f);
+                if (sd.energyDeflector && (temp <= 1f))
+                {
+
+                }
+                else
+                {
+                    Player = col;
+                    col.GetComponent<Player_Health>().TakeDamage(AttackDmg);
+                }
             }
             Destroy(gameObject);
         }

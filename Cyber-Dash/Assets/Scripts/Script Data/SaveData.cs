@@ -26,11 +26,14 @@ public class SaveData : ScriptableObject
     public bool criticalStrike = false;
     public bool scrapRecycle = false;
     public int healthBuff = 0;
+    public bool energyDeflector = false;
+    public bool adaptiveArmor = false;
 
     [Header("Player Abilities")]
     //Player abilities
     //Player adds the abilities that are marked true on enter
     public bool Turret = false;
+    public bool repairPack = false;
 
     [Header("Weapons")]
     //Weapons
@@ -110,17 +113,18 @@ public class SaveData : ScriptableObject
         criticalStrike = false;
         scrapRecycle = false;
         healthBuff = 0;
-
-
+        energyDeflector = false;
+        adaptiveArmor = false;
 
 
         //Player abilities
         //Player adds the abilities that are marked true on enter
         Turret = false;
+        repairPack = false;
 
-   
-    //Weapons
-    Pistol = true;
+
+        //Weapons
+        Pistol = true;
     Bolt_Launcher = false;
     Shotgun = false;
     PlasmaCutter= false;
@@ -128,6 +132,7 @@ public class SaveData : ScriptableObject
 
    PistolFireRateMod = 1;
    ShotgunFireRateMod = 1;
+        ShotgunReloadTime = 2;
    BoltLauncherFireRateMod = 1;
   BeamFireRateMod = 1;
   HowManyPierce = 0;
