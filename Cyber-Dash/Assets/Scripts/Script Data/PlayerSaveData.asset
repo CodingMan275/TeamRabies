@@ -17,7 +17,7 @@ MonoBehaviour:
   Scrap: 116
   Energy: 76
   MaxHealth: 40
-  Health: 40
+  Health: 50
   UltPerc: 4
   WalkSpeed: 15
   RunSpeed: 20
@@ -32,7 +32,7 @@ MonoBehaviour:
   adaptiveArmor: 0
   Turret: 0
   repairPack: 0
-  Pistol: 0
+  Pistol: 1
   Bolt_Launcher: 0
   Shotgun: 0
   PlasmaCutter: 0

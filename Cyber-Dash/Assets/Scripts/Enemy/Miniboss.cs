@@ -37,9 +37,17 @@ public class Miniboss : MonoBehaviour
     float trailDelay;
     float lastTrail;
     public Slider HealthBar;
+
+    public bool isLeft = true;
+
+
+    Animator anim;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
         EC = GameObject.Find("Enemy Count").GetComponent<Enemy_Counter>();
         target = GameObject.Find("Player").GetComponent<Transform>();
@@ -49,7 +57,7 @@ public class Miniboss : MonoBehaviour
         chargePos = (target.position - transform.position).normalized;
         rb.velocity = chargePos * Speed;
         Charging = true;
-        transform.right = target.position - transform.position;
+       // transform.right = target.position - transform.position; ** This is for rotating **
         HealthBar.maxValue = MaxHealth;
         HealthBar.value = MaxHealth;
 
@@ -59,18 +67,14 @@ public class Miniboss : MonoBehaviour
     void Update()
     {
         lastAttack = Time.time - delayTimer;
-        if (!Charging)
-        { 
-            transform.right = target.position - transform.position;
-        }
-        else
+        if(Charging)
         {
             lastTrail = Time.time - trailDelay;
             if (lastTrail > .11)
             {
                 Instantiate(Trail, transform.position, transform.rotation);
                 trailDelay = Time.time;
-                    }
+            }
         }
       
         if (rb.velocity != (chargePos * Speed) && Charging)
@@ -81,10 +85,14 @@ public class Miniboss : MonoBehaviour
 
     private void FixedUpdate()
     {
+        anim.SetBool("Walking", (rb.velocity.magnitude > .1f || rb.velocity.magnitude < -.1f) && !Die && !anim.GetBool("Stabbing"));
+        anim.SetBool("Death", Die);
+        if(anim.GetBool("Walking"))
+        TurnCheck(rb.velocity.x);
+
         if (Health <= 0 && !Die)
         {
             Die = true;
-            Death();
         }
     }
 
@@ -94,24 +102,39 @@ public class Miniboss : MonoBehaviour
         {
             Charging = false;
             rb.velocity = chargePos * 0;
-            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+
+
+            if (collision.contacts[0].normal.x != 0)
+            {
+                anim.SetBool("Turning", true);
+                anim.Play("Doomba Turn");
+                yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+                anim.SetBool("Turning", false);
+                Turn(!isLeft);
+            }
+            yield return new WaitForSeconds(1f);
+
+
+
             //chargePos = new Vector3(target.position.x * .5f - transform.position.x, target.position.y * .5f - transform.position.y, target.position.z);
 
             // rb.velocity = Vector2.MoveTowards(transform.position, target.position, Speed);
-
-            yield return new WaitForSeconds(2f);
             chargePos = (target.position - transform.position).normalized;
             rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
             rb.velocity = chargePos * Speed;
-            transform.right = target.position - transform.position;
             Charging = true;
         }
         else if (collision.gameObject.tag == "Player")
         {
             if ((lastAttack > delay) && Charging)
             {
+                anim.SetBool("Stabbing", true);
                 target.GetComponent<Player_Health>().TakeDamage(AttackDmg);
+                anim.Play("Doomba Slice");
+                yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0)[0].clip.length);
                 delayTimer = Time.time;
+                anim.SetBool("Stabbing", false);
             }
         }
     }
@@ -165,5 +188,24 @@ public class Miniboss : MonoBehaviour
             Destroy(go);
         Destroy(this.gameObject);
         return 0;
+    }
+
+    private void OnDestroy()
+    {
+        EC.UpdateCounter();
+    }
+
+    private void TurnCheck(float moveX)
+    {
+        if (isLeft && moveX < 0)
+            Turn(false);
+        if (!isLeft && moveX > 0)
+            Turn(true);
+    }
+
+    public void Turn(bool turn)
+    {
+        isLeft = turn;
+        render.flipX = isLeft;
     }
 }

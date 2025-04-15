@@ -167,8 +167,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: doomba
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
-  m_sharedMaterial: {fileID: -6053953785063573789, guid: a682bb7368bf61b479f5154573cd36fa, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28d581fadf5ce6442a61f6ceb73ceb60, type: 2}
+  m_sharedMaterial: {fileID: 8499912703663226961, guid: 28d581fadf5ce6442a61f6ceb73ceb60, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -498,9 +498,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5545767756698804565}
   - component: {fileID: 5545767756698804562}
-  - component: {fileID: 5545767756698804563}
   - component: {fileID: 5545767756698804561}
   - component: {fileID: 5545767756698804564}
+  - component: {fileID: 1761931272249429735}
+  - component: {fileID: 572974138423592093}
   m_Layer: 2
   m_Name: Doomba
   m_TagString: Enemy
@@ -517,8 +518,8 @@ Transform:
   m_GameObject: {fileID: 5545767756698804574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.887797, y: 2.8869545, z: 0}
-  m_LocalScale: {x: 8.0004, y: 8.0004, z: 8.0004}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5545767756790684294}
   - {fileID: 2082851060}
@@ -566,7 +567,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -1304529017, guid: 3e7668d297144774d820fe46b5874e07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -577,22 +578,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &5545767756698804563
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5545767756698804574}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &5545767756698804561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,6 +604,7 @@ MonoBehaviour:
   Charging: 0
   Die: 0
   HealthBar: {fileID: 71101821}
+  isLeft: 0
 --- !u!50 &5545767756698804564
 Rigidbody2D:
   serializedVersion: 4
@@ -640,6 +626,42 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!70 &1761931272249429735
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545767756698804574}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 12, y: 12}
+  m_Direction: 0
+--- !u!95 &572974138423592093
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545767756698804574}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 480f90596ed1cab41ad18df35a45ae2a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5545767756790684295
 GameObject:
   m_ObjectHideFlags: 0
