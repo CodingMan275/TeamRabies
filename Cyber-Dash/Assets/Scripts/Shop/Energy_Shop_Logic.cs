@@ -58,6 +58,7 @@ public class Energy_Shop_Logic : MonoBehaviour
             GameObject item = Instantiate(UpgradePrefab, shopUiTransform);
 
             item.name = upgrade.Name;
+            upgrade.Purchased = false;
 
             upgrade.itemRef = item;
 

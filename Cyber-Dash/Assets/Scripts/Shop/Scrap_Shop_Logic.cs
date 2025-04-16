@@ -150,7 +150,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.curWep = tempWep;
                 player.HowManyPierce = 0;
                 player.ShotgunReloadTime = 2;
-                FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 2", 10, shotgunSprite, descriptions[4],"", false));
+                FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 2", 100, shotgunSprite, descriptions[4],"", false));
                 break;
             case "Plasma Cutter":
                 player.Pistol = false;
@@ -160,7 +160,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 WPC.AssignWeapon();
                 WPC.GetComponent<SpriteRenderer>().sprite = beamSprite;
                 player.curWep = tempWep;
-                FindPool(player.Round + 1).Add(new Upgrade("Plasma Cutter: Tier 2", 10, beamSprite, descriptions[10],"", false));
+                FindPool(player.Round + 1).Add(new Upgrade("Plasma Cutter: Tier 2", 100, beamSprite, descriptions[10],"", false));
                 break;
                 //This isn't possible to buy but just in case
             case "Pistol":
@@ -183,7 +183,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 WPC.GetComponent<SpriteRenderer>().sprite = gunSprite;
                 player.PistolFireRateMod = .80f;
                 //So now we need to add the next upgrade to this weapon for the next pool of items
-                FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 10, gunSprite, descriptions[2],"", false));
+                FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 100, gunSprite, descriptions[2],"", false));
                 player.curWep = tempWep;
                 //Go through the past weapons and remove the weaker versions
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
@@ -224,7 +224,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 //Remove previous versions of pistol from the next pool
                 FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Shotgun");
                 //Add next shotgun
-                FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 3", 10, shotgunSprite, descriptions[5],"", false));
+                FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 3", 100, shotgunSprite, descriptions[5],"", false));
                 break;
             case "Shotgun: Tier 3":
                 player.Pistol = false;
@@ -261,7 +261,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 //Remove previous versions of pistol from the next pool
                 FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Bolt Launcher");
                 //Add next bolt launcher
-                FindPool(player.Round + 1).Add(new Upgrade("Bolt Launcher: Tier 3", 10, boltSprite, descriptions[8],"", false));
+                FindPool(player.Round + 1).Add(new Upgrade("Bolt Launcher: Tier 3", 100, boltSprite, descriptions[8],"", false));
                 break;
             case "Boltlauncher: Tier 3":
                 player.Pistol = false;

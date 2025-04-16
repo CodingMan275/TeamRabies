@@ -107,6 +107,8 @@ public class Player_Health : MonoBehaviour
         {
             stats.lastStand = false;
             stats.Health = stats.MaxHealth;
+            HealthBar.value = stats.MaxHealth;
+            //Not how this was supposed to work Michael
             stats.ExtraHealth = stats.healthBuff;
             if (stats.Round == 2)
             {
