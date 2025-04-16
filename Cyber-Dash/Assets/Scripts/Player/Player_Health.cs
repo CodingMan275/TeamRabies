@@ -65,7 +65,31 @@ public class Player_Health : MonoBehaviour
 
     private int Death()
     {
-        SC.ChangeScene("Defeat");
+        if (stats.lastStand)
+        {
+            stats.lastStand = false;
+            stats.Health = stats.MaxHealth + stats.healthBuff;
+            if (stats.Round == 2)
+            {
+                SC.ChangeScene("Arena 1-2");
+            }
+            else if (stats.Round == 3)
+            {
+                SC.ChangeScene("Arena 1-3");
+            }
+            else if (stats.Round == 4)
+            {
+                SC.ChangeScene("Arena 1-4");
+            }
+            else if (stats.Round == 5)
+            {
+                SC.ChangeScene("Arena 1-5");
+            }
+        }
+        else
+        {
+            SC.ChangeScene("Defeat");
+        }
         return 0;
     }
 }

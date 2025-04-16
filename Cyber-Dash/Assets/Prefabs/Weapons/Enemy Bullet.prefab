@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDmg: 1
+  sd: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
 --- !u!1 &2225617011680508051
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ public class SaveData : ScriptableObject
     public int healthBuff = 0;
     public bool energyDeflector = false;
     public bool adaptiveArmor = false;
+    public bool lastStand = false;
 
     [Header("Player Abilities")]
     //Player abilities
@@ -35,6 +36,7 @@ public class SaveData : ScriptableObject
     public bool Turret = false;
     public bool repairPack = false;
     public bool overchargeBattery = false;
+    public bool injector = false;
 
     [Header("Weapons")]
     //Weapons
@@ -116,6 +118,7 @@ public class SaveData : ScriptableObject
         healthBuff = 0;
         energyDeflector = false;
         adaptiveArmor = false;
+        lastStand = false;
 
 
         //Player abilities
@@ -123,6 +126,8 @@ public class SaveData : ScriptableObject
         Turret = false;
         repairPack = false;
         overchargeBattery = false;
+        injector = false;
+
 
 
         //Weapons

@@ -118,8 +118,11 @@ public class Energy_Shop_Logic : MonoBehaviour
                 player.Turret = true;
                 player.repairPack = false;
                 player.overchargeBattery = false;
+                player.injector = false;
                 playerInScene.GetComponent<Ability_Turret>().enabled = true;
                 playerInScene.GetComponent<Ability_RepairPack>().enabled = false;
+                playerInScene.GetComponent<Ability_Overcharge>().enabled = false;
+                playerInScene.GetComponent<Ability_Injector>().enabled = false;
                 break;
             case "Critical Strike":
                 player.criticalStrike = true;
@@ -143,15 +146,32 @@ public class Energy_Shop_Logic : MonoBehaviour
                 player.overchargeBattery = false;
                 playerInScene.GetComponent<Ability_Turret>().enabled = false;
                 playerInScene.GetComponent<Ability_RepairPack>().enabled = true;
+                playerInScene.GetComponent<Ability_Overcharge>().enabled = false;
+                playerInScene.GetComponent<Ability_Injector>().enabled = false;
                 break;
             case "Overcharge":
                 player.Turret = false;
                 player.repairPack = false;
                 player.overchargeBattery = true;
+                player.injector = false;
                 playerInScene.GetComponent<Ability_Turret>().enabled = false;
-                playerInScene.GetComponent<Ability_RepairPack>().enabled = true;
+                playerInScene.GetComponent<Ability_RepairPack>().enabled = false;
+                playerInScene.GetComponent<Ability_Overcharge>().enabled = true;
+                playerInScene.GetComponent<Ability_Injector>().enabled = false;
                 break;
-
+            case "Adrenaline Injector":
+                player.Turret = false;
+                player.repairPack = false;
+                player.overchargeBattery = false;
+                player.injector = true;
+                playerInScene.GetComponent<Ability_Turret>().enabled = false;
+                playerInScene.GetComponent<Ability_RepairPack>().enabled = false;
+                playerInScene.GetComponent<Ability_Overcharge>().enabled = false;
+                playerInScene.GetComponent<Ability_Injector>().enabled = true;
+                break;
+            case "Last Stand":
+                player.lastStand = true;
+                break;
             default:
                 Debug.Log("What did you just do");
                 //Example code
