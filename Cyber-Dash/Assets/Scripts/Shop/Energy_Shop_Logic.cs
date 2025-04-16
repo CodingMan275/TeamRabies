@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -132,7 +133,16 @@ public class Energy_Shop_Logic : MonoBehaviour
                 break;
             case "Reinforced Chassis":
                 player.healthBuff = 10;
+                if(player.Health <=30)
                 player.Health += 10;
+                else if(player.Health == player.MaxHealth)
+                    player.ExtraHealth += 10;
+                else
+                {
+                    int remainingHP = player.MaxHealth - player.Health;
+                    player.Health = player.MaxHealth;
+                    player.ExtraHealth += remainingHP;
+                }
                 break;
             case "Energy Deflector":
                 player.energyDeflector = true;

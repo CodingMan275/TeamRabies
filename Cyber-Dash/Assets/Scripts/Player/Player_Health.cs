@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class Player_Health : MonoBehaviour
 {
     private bool WasHurt = false;
     public Slider HealthBar;
+    public Slider ExtraHealthBar;
     public SaveData stats;
     SpriteRenderer render;
     SceneController SC;
@@ -21,8 +23,9 @@ public class Player_Health : MonoBehaviour
     void Start()
     {
         SC = transform.GetChild(0).GetComponent<SceneController>();
-        HealthBar.maxValue = stats.MaxHealth + stats.healthBuff;
+        HealthBar.maxValue = stats.MaxHealth;
         HealthBar.value = stats.Health;
+        ExtraHealthBar.value = stats.ExtraHealth;
         render = GetComponent<SpriteRenderer>();
     }
 
@@ -45,10 +48,45 @@ public class Player_Health : MonoBehaviour
             //Change var with balancing
             dmg -= 3;
         }
+        if (ExtraHealthBar.value > 0 && dmg < ExtraHealthBar.value)
+            stats.ExtraHealth -= (int)dmg;
+        else if(ExtraHealthBar.value == 0) 
         stats.Health -= stats.Health - dmg <= 0 ? Death() : (int)dmg;
+        else
+        {
+            int remainingDmg = (int)(dmg - ExtraHealthBar.value);
+            stats.ExtraHealth = 0;
+            stats.Health -= stats.Health - remainingDmg <= 0 ? Death() : remainingDmg;
+        }
+
+
+        ExtraHealthBar.value = stats.ExtraHealth;
         HealthBar.value = stats.Health;
         if (!WasHurt)
             StartCoroutine(Flash());
+    }
+
+    public void ForceHeal(int HP)
+    {
+        if (stats.Health <= stats.MaxHealth - HP)
+            stats.Health += HP;
+        else if (stats.Health == stats.MaxHealth)
+            stats.ExtraHealth += HP;
+        else
+        {
+            int remainingHP = stats.MaxHealth - stats.Health;
+            stats.Health = stats.MaxHealth;
+            stats.ExtraHealth += remainingHP;
+        }
+
+        ExtraHealthBar.value = stats.ExtraHealth;
+        HealthBar.value = stats.Health;
+    }
+
+    public void LoseShield(int HP)
+    {
+        stats.ExtraHealth = stats.ExtraHealth-HP < 0 ? 0 : stats.ExtraHealth-HP;
+        ExtraHealthBar.value = stats.ExtraHealth;
     }
 
     private IEnumerator Flash()
@@ -68,7 +106,8 @@ public class Player_Health : MonoBehaviour
         if (stats.lastStand)
         {
             stats.lastStand = false;
-            stats.Health = stats.MaxHealth + stats.healthBuff;
+            stats.Health = stats.MaxHealth;
+            stats.ExtraHealth = stats.healthBuff;
             if (stats.Round == 2)
             {
                 SC.ChangeScene("Arena 1-2");

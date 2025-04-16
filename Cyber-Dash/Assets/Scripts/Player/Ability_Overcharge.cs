@@ -8,7 +8,6 @@ public class Ability_Overcharge : MonoBehaviour
     InputController IC;
 
     public GameObject abiltiyCountdown;
-    public GameObject ultSlider;
     public float cooldown = 30f;
 
 
@@ -52,12 +51,9 @@ public class Ability_Overcharge : MonoBehaviour
     {
         if (!active)
         {
-            GetComponent<Player_Health>().stats.UltPerc += 25;
-            if (GetComponent<Player_Health>().stats.UltPerc > 100)
-            {
-                GetComponent<Player_Health>().stats.UltPerc = 100;
-            }
-            ultSlider.GetComponent<Slider>().value = GetComponent<Player_Health>().stats.UltPerc;
+            // Ult only looks at the slider not the actual value , the value is to help set the slider between scenes
+            GetComponent<Ultamite>().player.UD.UltPerc += 25;
+            GetComponent<Ultamite>().UltSlider.value += 25;
             active = true;
         }
     }

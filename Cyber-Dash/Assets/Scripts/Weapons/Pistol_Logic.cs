@@ -43,11 +43,11 @@ public class Pistol_Logic : MonoBehaviour
 
     public void Fire()
     { 
-        if ((timeSinceLastFiredBullet > BulletDelay * Mathf.Abs( 1 - stats.FireRateMod - stats.PistolFireRateMod)) && WPC.CanFire)
+        if ((timeSinceLastFiredBullet > BulletDelay * Mathf.Abs( 1 - stats.FireRateMod - (stats.UD.DoubleDamage ? stats.UD.PistolRate : stats.PistolFireRateMod))) && WPC.CanFire)
         {
             GameObject Bullet = Instantiate(BulletPrefab, WPC.Spawnloc, transform.rotation);
             Bullet.GetComponent<Bullet>().BulletSpeed = (int)BulletSpeed;
-            Bullet.GetComponent<Bullet>().updateDmg(Damage * (stats.DoubleDamage ? 2: 1));
+            Bullet.GetComponent<Bullet>().updateDmg(Damage * (stats.UD.DoubleDamage ? 2: 1));
             Bullet.GetComponent<Bullet>().HowManyPierce = stats.HowManyPierce;
             //  Bullet.GetComponent<Rigidbody2D>().AddForce(transform.right * BulletSpeed, ForceMode2D.Impulse);
             LastTimeBulletFired = Time.time;

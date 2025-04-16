@@ -14,15 +14,14 @@ public class SceneController : MonoBehaviour
 
     public void ChangeScene(string s)
     {
-        if (SD.DoubleDamage)
-            StartCoroutine(SD.ForceUltReset());
+        SD.UD.inShop = s.CompareTo("Shop") == 0 ? true : false;
+
         SceneManager.LoadScene(s);
     }
 
     public void MainMenu()
     {
-        if (SD.DoubleDamage)
-            StartCoroutine(SD.ForceUltReset());
+        SD.UD.inShop = true;
         SceneManager.LoadScene(0);
     }
 

@@ -71,7 +71,7 @@ public class Enemy_Counter : MonoBehaviour
         Victory.clip = VictorySound[voice];
         Victory.Play();
         yield return new WaitForSeconds(VictorySound[voice].length);
-        yield return new WaitForSeconds(WaitTime);
+        yield return new WaitForSeconds(WaitTime - VictorySound[voice].length);
         if (SD.Round != 3)
         {
             SC.ChangeScene("Shop");

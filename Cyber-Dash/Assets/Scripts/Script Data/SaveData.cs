@@ -6,6 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="SaveData/PlayerSave")]
 public class SaveData : ScriptableObject
 {
+    public UltamiteData UD;
+
     [Header("Player Stats")]
     public int Round = 1;
     public int killCount = 0;
@@ -13,7 +15,7 @@ public class SaveData : ScriptableObject
     public int Energy = 0;
     public int MaxHealth = 40;
     public int Health = 40;
-    [Range(0,100)]public int UltPerc = 0;
+    [Range(0,30)]public int ExtraHealth = 0;  // 20 from ult + 10 from HP Buff
     public float WalkSpeed = 15f;
     public float RunSpeed = 20f;
 
@@ -57,7 +59,6 @@ public class SaveData : ScriptableObject
     public float boltSpeedIncrease = 0;
     public float beamCharge = .01f;
     public int beamDamage = 5;
-    public bool DoubleDamage;
 
 
 
@@ -104,10 +105,10 @@ public class SaveData : ScriptableObject
         Scrap = 0;
         Energy = 0;
         Health = MaxHealth;
-        UltPerc = 0;
+        ExtraHealth = 0;
         WalkSpeed = 15f;
         RunSpeed = 20;
-        DoubleDamage = false;
+        UD.Reset();
     //Player stats to be modified
     FireRateMod = 1;
     DodgeCooldownMod = 0;
@@ -151,13 +152,7 @@ public class SaveData : ScriptableObject
 
     public IEnumerator StatBoost()
     {
-        BeamFireRateMod /= 2;
-        PistolFireRateMod /= 2;
-        BoltLauncherFireRateMod /= 2;
-        WalkSpeed *= 2;
-        RunSpeed *= 2;
         Health += 20;
-        DoubleDamage = true;
         yield return new WaitForSeconds(10);
         ForceUltReset();
         
@@ -165,13 +160,7 @@ public class SaveData : ScriptableObject
 
     public IEnumerator ForceUltReset()
     {
-        BeamFireRateMod *= 2;
-        PistolFireRateMod *= 2;
-        BoltLauncherFireRateMod *= 2;
-        WalkSpeed /= 2;
-        RunSpeed /= 2;
         Health -= 20;
-        DoubleDamage = false;
         yield return new WaitForSeconds(0.5f);
     }
 
