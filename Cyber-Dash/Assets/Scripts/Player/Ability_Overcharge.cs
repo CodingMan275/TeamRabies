@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Ability_Injector : MonoBehaviour
+public class Ability_Overcharge : MonoBehaviour
 {
     InputController IC;
-    public float cooldown = 10f;
 
     public GameObject abiltiyCountdown;
+    public GameObject ultSlider;
+    public float cooldown = 30f;
+
 
     public Sprite icon;
 
     float AbilityCooldown;
     bool active = false;
-    bool waitbool = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class Ability_Injector : MonoBehaviour
         AbilityCooldown = cooldown;
         abiltiyCountdown.GetComponentInChildren<Image>().sprite = icon;
         IC = GetComponent<InputController>();
-        IC.OnAbilityPressed += inject;
+        IC.OnAbilityPressed += Overcharge;
     }
 
     // Update is called once per frame
@@ -42,35 +43,26 @@ public class Ability_Injector : MonoBehaviour
             if (AbilityCooldown <= 0)
             {
                 active = false;
-                waitbool = false;
                 AbilityCooldown = cooldown;
             }
         }
     }
 
-    void inject()
+    void Overcharge()
     {
-        if (!active && !waitbool)
+        if (!active)
         {
-            GetComponent<Player_Controller>().SD.FireRateMod *= .75f;
-            GetComponent<Player_Controller>().WalkSpeed = 18;
-            GetComponent<Player_Controller>().RunSpeed = 23;
-            waitbool = true;
-            StartCoroutine(wait());
+            GetComponent<Player_Health>().stats.UltPerc += 25;
+            if (GetComponent<Player_Health>().stats.UltPerc > 100)
+            {
+                GetComponent<Player_Health>().stats.UltPerc = 100;
+            }
+            ultSlider.GetComponent<Slider>().value = GetComponent<Player_Health>().stats.UltPerc;
+            active = true;
         }
     }
-
-    IEnumerator wait()
-    {
-        yield return new WaitForSeconds(8f);
-        GetComponent<Player_Controller>().SD.FireRateMod /= .75f;
-        GetComponent<Player_Controller>().WalkSpeed = 15;
-        GetComponent<Player_Controller>().RunSpeed = 20;
-        active = true;
-    }
-
     private void OnDisable()
     {
-        IC.OnAbilityPressed -= inject;
+        IC.OnAbilityPressed -= Overcharge;
     }
 }

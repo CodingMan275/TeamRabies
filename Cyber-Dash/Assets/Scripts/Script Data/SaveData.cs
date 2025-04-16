@@ -34,6 +34,7 @@ public class SaveData : ScriptableObject
     //Player adds the abilities that are marked true on enter
     public bool Turret = false;
     public bool repairPack = false;
+    public bool overchargeBattery = false;
 
     [Header("Weapons")]
     //Weapons
@@ -121,6 +122,7 @@ public class SaveData : ScriptableObject
         //Player adds the abilities that are marked true on enter
         Turret = false;
         repairPack = false;
+        overchargeBattery = false;
 
 
         //Weapons
