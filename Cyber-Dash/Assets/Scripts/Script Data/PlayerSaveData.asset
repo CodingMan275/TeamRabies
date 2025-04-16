@@ -17,7 +17,7 @@ MonoBehaviour:
   Scrap: 208
   Energy: 76
   MaxHealth: 40
-  Health: 40
+  Health: 50
   UltPerc: 4
   WalkSpeed: 15
   RunSpeed: 20

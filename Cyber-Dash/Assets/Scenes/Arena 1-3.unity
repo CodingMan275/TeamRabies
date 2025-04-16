@@ -123,31 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &391033631 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5545767756698804574, guid: 3c393131ae4b07144a21c54105813e45, type: 3}
-  m_PrefabInstance: {fileID: 1633648888}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &391033632
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391033631}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 480f90596ed1cab41ad18df35a45ae2a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &493380806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -360,6 +335,10 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 6.8636436
       objectReference: {fileID: 0}
+    - target: {fileID: 7937399746884524919, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8056955563487024753, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.127
@@ -378,11 +357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8056955563528944122, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.2
+      value: -27.3
       objectReference: {fileID: 0}
     - target: {fileID: 8056955563528944122, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.1
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 8056955563528944122, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -436,14 +415,6 @@ PrefabInstance:
     - target: {fileID: 963446443, guid: 3c393131ae4b07144a21c54105813e45, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5545767756698804561, guid: 3c393131ae4b07144a21c54105813e45, type: 3}
-      propertyPath: MaxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5545767756698804564, guid: 3c393131ae4b07144a21c54105813e45, type: 3}
-      propertyPath: m_Simulated
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5545767756698804565, guid: 3c393131ae4b07144a21c54105813e45, type: 3}
       propertyPath: m_RootOrder
