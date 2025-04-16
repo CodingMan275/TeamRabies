@@ -20,7 +20,15 @@ public class Ability_Turret : MonoBehaviour
         abiltiyCountdown.SetActive(true);
         abiltiyCountdown.GetComponent<Slider>().maxValue = TurretPrefab.GetComponent<TurretLogic>().DeployTime;
         AbilityCooldown = TurretPrefab.GetComponent<TurretLogic>().DeployTime;
-        abiltiyCountdown.GetComponentInChildren<Image>().sprite = icon;
+        //  abiltiyCountdown.GetComponentInChildren<Image>().sprite = icon;
+      //  abiltiyCountdown.transform.GetChild(1).GetComponent<Image>().sprite = icon;
+        foreach (Transform child in abiltiyCountdown.transform)
+        {
+            if (child.gameObject.name == "Image")
+            {
+                child.gameObject.GetComponent<Image>().sprite = icon;
+            }
+        }
         IC = GetComponent<InputController>();
         IC.OnAbilityPressed += DeployTurret;
     }

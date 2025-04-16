@@ -21,8 +21,17 @@ public class Ability_Injector : MonoBehaviour
         abiltiyCountdown.SetActive(true);
         abiltiyCountdown.GetComponent<Slider>().maxValue = cooldown;
         AbilityCooldown = cooldown;
-        abiltiyCountdown.GetComponentInChildren<Image>().sprite = icon;
-        IC = GetComponent<InputController>();
+        //abiltiyCountdown.GetComponentInChildren<Image>().sprite = icon;
+        //  abiltiyCountdown.transform.GetChild(1).GetComponent<Image>().sprite = icon;
+
+        foreach (Transform child in abiltiyCountdown.transform)
+        {
+            if (child.gameObject.name == "Image")
+            {
+                child.gameObject.GetComponent<Image>().sprite = icon;
+            }
+        }
+            IC = GetComponent<InputController>();
         IC.OnAbilityPressed += inject;
     }
 
@@ -52,6 +61,7 @@ public class Ability_Injector : MonoBehaviour
     {
         if (!active && !waitbool)
         {
+            abiltiyCountdown.GetComponent<Slider>().value = abiltiyCountdown.GetComponent<Slider>().maxValue;
             GetComponent<Player_Controller>().SD.FireRateMod *= .75f;
             GetComponent<Player_Controller>().WalkSpeed = 18;
             GetComponent<Player_Controller>().RunSpeed = 23;

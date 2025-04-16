@@ -21,7 +21,15 @@ public class Ability_Overcharge : MonoBehaviour
         abiltiyCountdown.SetActive(true);
         abiltiyCountdown.GetComponent<Slider>().maxValue = cooldown;
         AbilityCooldown = cooldown;
-        abiltiyCountdown.GetComponentInChildren<Image>().sprite = icon;
+        //  abiltiyCountdown.GetComponentInChildren<Image>().sprite = icon;
+        // abiltiyCountdown.transform.GetChild(1).GetComponent<Image>().sprite = icon;
+        foreach (Transform child in abiltiyCountdown.transform)
+        {
+            if (child.gameObject.name == "Image")
+            {
+                child.gameObject.GetComponent<Image>().sprite = icon;
+            }
+        }
         IC = GetComponent<InputController>();
         IC.OnAbilityPressed += Overcharge;
     }
