@@ -51,7 +51,7 @@ public class Beam_Logic : MonoBehaviour
     public void Charge()
     {
         //set charge time
-        curCharge += .01f;
+        curCharge += stats.UD.DoubleDamage ? stats.UD.BeamRate : stats.beamCharge;
         if (curCharge >= 2f)
         {
             curCharge = 2f;
@@ -76,7 +76,7 @@ public class Beam_Logic : MonoBehaviour
             if (hit.collider.gameObject.tag == "Wall" && hit.collider.gameObject != null)
             {
                 GameObject Bullet = Instantiate(BeamPrefab, WPC.Spawnloc, transform.rotation);
-                Bullet.GetComponent<Beam>().updateDmg(stats.beamDamage * (stats.DoubleDamage ? 2 : 1));
+                Bullet.GetComponent<Beam>().updateDmg(stats.beamDamage * (stats.UD.DoubleDamage ? 2 : 1));
                 float dist = Mathf.Abs(Vector3.Distance(hit.collider.transform.position, transform.position));
                 Bullet.transform.localScale = new Vector3(dist, 1, 1);
             }

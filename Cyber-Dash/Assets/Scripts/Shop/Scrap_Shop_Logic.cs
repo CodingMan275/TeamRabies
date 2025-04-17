@@ -37,7 +37,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
         {
             //Sets the current wepon ALFE is holding, which will then be put in the weapin cheat
             //Upon another being purchased
-            player.curWep = new Upgrade("Pistol", 0, gunSprite, descriptions[0], false);
+            player.curWep = new Upgrade("Pistol", 0, gunSprite, descriptions[0],"", false);
             player.PastWeapons.Clear();
             player.ScrapPoolRound1 = new List<Upgrade>(player.StaticScrapPoolRound1);
             player.ScrapPoolRound2 = new List<Upgrade>(player.StaticScrapPoolRound2);
@@ -125,7 +125,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
     void ApplyUpgrade(Upgrade upgrade)
     {
         //Holding what was bought so that if it gets changed out it has the information it needs
-        Upgrade tempWep = new Upgrade(upgrade.Name,0,upgrade.Sprite,upgrade.Description, false);
+        Upgrade tempWep = new Upgrade(upgrade.Name,0,upgrade.Sprite,upgrade.Description,upgrade.text, false);
         //What was bought?
         switch (upgrade.Name)
         {
@@ -137,7 +137,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 WPC.AssignWeapon();
                 WPC.GetComponent<SpriteRenderer>().sprite = boltSprite;
                 player.curWep = tempWep;
-                FindPool(player.Round + 1).Add(new Upgrade("Bolt Launcher: Tier 2", 10, boltSprite, descriptions[7], false));
+                FindPool(player.Round + 1).Add(new Upgrade("Bolt Launcher: Tier 2", 10, boltSprite, descriptions[7],"", false));
 
                 break;
             case "Shotgun":
@@ -150,7 +150,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.curWep = tempWep;
                 player.HowManyPierce = 0;
                 player.ShotgunReloadTime = 2;
-                FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 2", 10, shotgunSprite, descriptions[4], false));
+                FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 2", 100, shotgunSprite, descriptions[4],"", false));
                 break;
             case "Plasma Cutter":
                 player.Pistol = false;
@@ -160,7 +160,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 WPC.AssignWeapon();
                 WPC.GetComponent<SpriteRenderer>().sprite = beamSprite;
                 player.curWep = tempWep;
-                FindPool(player.Round + 1).Add(new Upgrade("Plasma Cutter: Tier 2", 10, beamSprite, descriptions[10], false));
+                FindPool(player.Round + 1).Add(new Upgrade("Plasma Cutter: Tier 2", 100, beamSprite, descriptions[10],"", false));
                 break;
                 //This isn't possible to buy but just in case
             case "Pistol":
@@ -183,7 +183,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 WPC.GetComponent<SpriteRenderer>().sprite = gunSprite;
                 player.PistolFireRateMod = .80f;
                 //So now we need to add the next upgrade to this weapon for the next pool of items
-                FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 10, gunSprite, descriptions[2], false));
+                FindPool(player.Round + 1).Add(new Upgrade("Pistol: Tier 3", 100, gunSprite, descriptions[2],"", false));
                 player.curWep = tempWep;
                 //Go through the past weapons and remove the weaker versions
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Pistol");
@@ -224,7 +224,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 //Remove previous versions of pistol from the next pool
                 FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Shotgun");
                 //Add next shotgun
-                FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 3", 10, shotgunSprite, descriptions[5], false));
+                FindPool(player.Round + 1).Add(new Upgrade("Shotgun: Tier 3", 100, shotgunSprite, descriptions[5],"", false));
                 break;
             case "Shotgun: Tier 3":
                 player.Pistol = false;
@@ -261,7 +261,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 //Remove previous versions of pistol from the next pool
                 FindPool(player.Round + 1).RemoveAll(upgrade => upgrade.Name == "Bolt Launcher");
                 //Add next bolt launcher
-                FindPool(player.Round + 1).Add(new Upgrade("Bolt Launcher: Tier 3", 10, boltSprite, descriptions[8], false));
+                FindPool(player.Round + 1).Add(new Upgrade("Bolt Launcher: Tier 3", 100, boltSprite, descriptions[8],"", false));
                 break;
             case "Boltlauncher: Tier 3":
                 player.Pistol = false;
@@ -290,7 +290,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
                 player.beamCharge = .3f;
                 player.beamDamage = 8;
                 //So now we need to add the next upgrade to this weapon for the next pool of items
-                FindPool(player.Round + 1).Add(new Upgrade("Plasma Cutter: Tier 3", 10, beamSprite, descriptions[11], false));
+                FindPool(player.Round + 1).Add(new Upgrade("Plasma Cutter: Tier 3", 10, beamSprite, descriptions[11],"", false));
                 player.curWep = tempWep;
                 //Go through the past weapons and remove the weaker versions
                 player.PastWeapons.RemoveAll(upgrade => upgrade.Name == "Plasma Cutter");

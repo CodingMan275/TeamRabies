@@ -6,30 +6,23 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public SaveData SD;
-    public void StartGame()
-    {
-    SceneManager.LoadScene(1);
-    }
-
-
     public void ChangeScene(string s)
     {
-        if (SD.DoubleDamage)
-            StartCoroutine(SD.ForceUltReset());
+        SD.UD.inShop = s.CompareTo("Shop") == 0 ? true : false;
+
         SceneManager.LoadScene(s);
     }
 
     public void MainMenu()
     {
-        if (SD.DoubleDamage)
-            StartCoroutine(SD.ForceUltReset());
-        SceneManager.LoadScene(0);
+        SD.UD.inShop = true;
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Arena1()
     {
         SD.Reset();
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("Arena 1-1");
     }
 
     public void Exit()

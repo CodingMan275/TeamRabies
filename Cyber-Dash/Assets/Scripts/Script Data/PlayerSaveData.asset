@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d06dd458699adf4f80fd5ae7e2f1c88, type: 3}
   m_Name: PlayerSaveData
   m_EditorClassIdentifier: 
-  Round: 1
-  killCount: 5
-  Scrap: 116
-  Energy: 76
+  UD: {fileID: 11400000, guid: a7d51a8e37edbe24fac05aff965da1e8, type: 2}
+  Round: 3
+  killCount: 34
+  Scrap: 18
+  Energy: 5
   MaxHealth: 40
-  Health: 50
-  UltPerc: 4
+  Health: 40
+  ExtraHealth: 0
   WalkSpeed: 15
   RunSpeed: 20
   FireRateMod: 1
-  DodgeCooldownMod: 1
+  DodgeCooldownMod: 0
   ScrapDropMod: 1
   explodingBullets: 0
   criticalStrike: 0
@@ -30,8 +31,11 @@ MonoBehaviour:
   healthBuff: 0
   energyDeflector: 0
   adaptiveArmor: 0
-  Turret: 0
+  lastStand: 0
+  Turret: 1
   repairPack: 0
+  overchargeBattery: 0
+  injector: 0
   Pistol: 1
   Bolt_Launcher: 0
   Shotgun: 0
@@ -39,7 +43,6 @@ MonoBehaviour:
   PistolFireRateMod: 1
   ShotgunFireRateMod: 1
   BoltLauncherFireRateMod: 1
-  BeamFireRateMod: 1
   HowManyPierce: 0
   ShotgunReloadTime: 2
   ShotGunAmmo: 2
@@ -47,159 +50,184 @@ MonoBehaviour:
   boltSpeedIncrease: 0
   beamCharge: 0.01
   beamDamage: 5
-  DoubleDamage: 0
   EnergyPoolRound1:
   - Name: Rapid Fire Circuit
     Cost: 1
     Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase fire rate by 15%
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Dodge Booster
     Cost: 1
     Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: decrease dodge cooldown by 50%
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Explosive Rounds
     Cost: 3
     Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: create a small explosion when the bullet is destroyed
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Turret
     Cost: 10
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to create a turret that shoots at nearby enemies
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Critical Strike
     Cost: 10
     Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: get a 10% chance to deal double damage
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Scrap Recycle
     Cost: 10
     Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase scrp drops by 20%
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Reinforced Chassis
     Cost: 10
     Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
-    itemRef: {fileID: 0}
-    Purchased: 1
-  - Name: Energy Reflector
-    Cost: 10
-    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase max health by 10hp
     itemRef: {fileID: 0}
     Purchased: 0
-  - Name: Overclock
+  - Name: Energy Deflector
     Cost: 10
     Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: gain a 10% chance to not take damage from enemy bullets
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Overcharge
+    Cost: 10
+    Sprite: {fileID: 21300000, guid: 3322373ddb31cad4e89aca20494e8080, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to gain 25% ult charge on a 30 second cooldown
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Repair Kit
     Cost: 10
-    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 588ae5b7e6dece344b04e0b2c99623e7, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to reapair 25hp every 15 seconds
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Adrenaline Injector
     Cost: 10
-    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: ffcc3748a56ae014eaca4d114da8f007, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary abiltiy to move and shoot faster by 25% for 10 seconds
     itemRef: {fileID: 0}
     Purchased: 0
-  EnergyPoolRound2:
-  - Name: Energy Perk 2
-    Cost: 3
-    Sprite: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
-    Description: {fileID: 0}
+  EnergyPoolRound2: []
+  EnergyPoolRound3:
+  - Name: Last Stand
+    Cost: 20
+    Sprite: {fileID: 21300000, guid: 7df4d99327d30194db0580e7353da3e2, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: for a one time use when you would die instead restart the level at full
+      health
     itemRef: {fileID: 0}
-    Purchased: 1
-  EnergyPoolRound3: []
+    Purchased: 0
   EnergyPoolRound4: []
   EnergyPoolRound5: []
   StaticEnergyPoolRound1:
   - Name: Rapid Fire Circuit
     Cost: 1
     Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase fire rate by 15%
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Dodge Booster
     Cost: 1
     Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: decrease dodge cooldown by 50%
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Explosive Rounds
     Cost: 3
     Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: create a small explosion when the bullet is destroyed
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Turret
     Cost: 10
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to create a turret that shoots at nearby enemies
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Critical Strike
     Cost: 10
     Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: get a 10% chance to deal double damage
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Scrap Recycle
     Cost: 10
     Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase scrp drops by 20%
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Reinforced Chassis
     Cost: 10
     Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
-    itemRef: {fileID: 0}
-    Purchased: 1
-  - Name: Energy Reflector
-    Cost: 10
-    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase max health by 10hp
     itemRef: {fileID: 0}
     Purchased: 0
-  - Name: Overclock
+  - Name: Energy Deflector
     Cost: 10
     Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: gain a 10% chance to not take damage from enemy bullets
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Overcharge
+    Cost: 10
+    Sprite: {fileID: 21300000, guid: 3322373ddb31cad4e89aca20494e8080, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to gain 25% ult charge on a 30 second cooldown
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Repair Kit
     Cost: 10
-    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: 588ae5b7e6dece344b04e0b2c99623e7, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to reapair 25hp every 15 seconds
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Adrenaline Injector
     Cost: 10
-    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
-    Description: {fileID: 0}
+    Sprite: {fileID: 21300000, guid: ffcc3748a56ae014eaca4d114da8f007, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary abiltiy to move and shoot faster by 25% for 10 seconds
     itemRef: {fileID: 0}
     Purchased: 0
-  StaticEnergyPoolRound2:
-  - Name: Energy Perk 2
-    Cost: 3
-    Sprite: {fileID: 21300000, guid: dcea51d6065d64246aeec467afeff684, type: 3}
-    Description: {fileID: 0}
+  StaticEnergyPoolRound2: []
+  StaticEnergyPoolRound3:
+  - Name: Last Stand
+    Cost: 20
+    Sprite: {fileID: 21300000, guid: 7df4d99327d30194db0580e7353da3e2, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: for a one time use when you would die instead restart the level at full
+      health
     itemRef: {fileID: 0}
-    Purchased: 1
-  StaticEnergyPoolRound3: []
+    Purchased: 0
   StaticEnergyPoolRound4: []
   StaticEnergyPoolRound5: []
   ScrapPoolRound1:
@@ -207,24 +235,28 @@ MonoBehaviour:
     Cost: 3
     Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
     Description: {fileID: 21300000, guid: a421958ff3e4d2a44b730977be3af0e8, type: 3}
+    text: 
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: 'Pistol: Tier 2'
     Cost: 5
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: {fileID: 21300000, guid: 8e533d592f899ac4b84eb9401c3ea565, type: 3}
+    text: 
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Shotgun
     Cost: 3
     Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
     Description: {fileID: 21300000, guid: fd4128bd0ea162b42956dea5a8fbeea1, type: 3}
+    text: 
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Plasma Cutter
     Cost: 3
     Sprite: {fileID: 21300000, guid: 14c20889bf89d6e4ba42fbea01e5c511, type: 3}
     Description: {fileID: 21300000, guid: ab0d73379aeb458459be8ddeb559ff0a, type: 3}
+    text: 
     itemRef: {fileID: 0}
     Purchased: 0
   ScrapPoolRound2: []
@@ -236,24 +268,28 @@ MonoBehaviour:
     Cost: 3
     Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
     Description: {fileID: 21300000, guid: a421958ff3e4d2a44b730977be3af0e8, type: 3}
+    text: 
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: 'Pistol: Tier 2'
     Cost: 5
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     Description: {fileID: 21300000, guid: 8e533d592f899ac4b84eb9401c3ea565, type: 3}
+    text: 
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Shotgun
     Cost: 3
     Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
     Description: {fileID: 21300000, guid: fd4128bd0ea162b42956dea5a8fbeea1, type: 3}
+    text: 
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Plasma Cutter
     Cost: 3
     Sprite: {fileID: 21300000, guid: 14c20889bf89d6e4ba42fbea01e5c511, type: 3}
     Description: {fileID: 21300000, guid: ab0d73379aeb458459be8ddeb559ff0a, type: 3}
+    text: 
     itemRef: {fileID: 0}
     Purchased: 0
   StaticScrapPoolRound2: []
@@ -265,7 +301,8 @@ MonoBehaviour:
     Name: Pistol
     Cost: 0
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: {fileID: 21300000, guid: a52b4cd1a0741e8429e74d26d150540e, type: 3}
+    Description: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    text: 
     itemRef: {fileID: 0}
     Purchased: 0
   PastWeapons: []

@@ -6,6 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName ="SaveData/PlayerSave")]
 public class SaveData : ScriptableObject
 {
+    public UltamiteData UD;
+
     [Header("Player Stats")]
     public int Round = 1;
     public int killCount = 0;
@@ -13,7 +15,7 @@ public class SaveData : ScriptableObject
     public int Energy = 0;
     public int MaxHealth = 40;
     public int Health = 40;
-    [Range(0,100)]public int UltPerc = 0;
+    [Range(0,45)]public int ExtraHealth = 0;  // 20 from ult + 25 from shield Buff
     public float WalkSpeed = 15f;
     public float RunSpeed = 20f;
 
@@ -28,12 +30,15 @@ public class SaveData : ScriptableObject
     public int healthBuff = 0;
     public bool energyDeflector = false;
     public bool adaptiveArmor = false;
+    public bool lastStand = false;
 
     [Header("Player Abilities")]
     //Player abilities
     //Player adds the abilities that are marked true on enter
     public bool Turret = false;
     public bool repairPack = false;
+    public bool overchargeBattery = false;
+    public bool injector = false;
 
     [Header("Weapons")]
     //Weapons
@@ -46,7 +51,6 @@ public class SaveData : ScriptableObject
     public float PistolFireRateMod = 1;
     public float ShotgunFireRateMod = 1;
     public float BoltLauncherFireRateMod = 1;
-    public float BeamFireRateMod = 1;
     public int HowManyPierce = 0;
     public float ShotgunReloadTime = 2;
     public float ShotGunAmmo = 2;
@@ -54,7 +58,6 @@ public class SaveData : ScriptableObject
     public float boltSpeedIncrease = 0;
     public float beamCharge = .01f;
     public int beamDamage = 5;
-    public bool DoubleDamage;
 
 
 
@@ -94,17 +97,17 @@ public class SaveData : ScriptableObject
     public void Reset()
     {
 
-       curWep = new Upgrade("Pistol", 0, gun, gun, false);
+       curWep = new Upgrade("Pistol", 0, gun, gun,"", false);
 
         Round = 1;
          killCount = 0;
         Scrap = 0;
         Energy = 0;
         Health = MaxHealth;
-        UltPerc = 0;
+        ExtraHealth = 0;
         WalkSpeed = 15f;
         RunSpeed = 20;
-        DoubleDamage = false;
+        UD.Reset();
     //Player stats to be modified
     FireRateMod = 1;
     DodgeCooldownMod = 0;
@@ -115,12 +118,16 @@ public class SaveData : ScriptableObject
         healthBuff = 0;
         energyDeflector = false;
         adaptiveArmor = false;
+        lastStand = false;
 
 
         //Player abilities
         //Player adds the abilities that are marked true on enter
         Turret = false;
         repairPack = false;
+        overchargeBattery = false;
+        injector = false;
+
 
 
         //Weapons
@@ -134,38 +141,10 @@ public class SaveData : ScriptableObject
    ShotgunFireRateMod = 1;
         ShotgunReloadTime = 2;
    BoltLauncherFireRateMod = 1;
-  BeamFireRateMod = 1;
   HowManyPierce = 0;
         boltIncreaseDamage = 0;
         boltSpeedIncrease = 0;
         beamCharge = .01f;
         beamDamage = 5;
     }
-
-    public IEnumerator StatBoost()
-    {
-        BeamFireRateMod /= 2;
-        PistolFireRateMod /= 2;
-        BoltLauncherFireRateMod /= 2;
-        WalkSpeed *= 2;
-        RunSpeed *= 2;
-        Health += 20;
-        DoubleDamage = true;
-        yield return new WaitForSeconds(10);
-        ForceUltReset();
-        
-    }
-
-    public IEnumerator ForceUltReset()
-    {
-        BeamFireRateMod *= 2;
-        PistolFireRateMod *= 2;
-        BoltLauncherFireRateMod *= 2;
-        WalkSpeed /= 2;
-        RunSpeed /= 2;
-        Health -= 20;
-        DoubleDamage = false;
-        yield return new WaitForSeconds(0.5f);
-    }
-
 }

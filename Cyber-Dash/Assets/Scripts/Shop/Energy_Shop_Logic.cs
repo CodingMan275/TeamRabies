@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,6 +58,7 @@ public class Energy_Shop_Logic : MonoBehaviour
             GameObject item = Instantiate(UpgradePrefab, shopUiTransform);
 
             item.name = upgrade.Name;
+            upgrade.Purchased = false;
 
             upgrade.itemRef = item;
 
@@ -72,7 +74,11 @@ public class Energy_Shop_Logic : MonoBehaviour
                 {
                     child.gameObject.GetComponentInChildren<Image>().sprite = upgrade.Description;
                 }
-                
+                else if (child.gameObject.name == "text")
+                {
+                    child.gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = upgrade.text;
+                }
+
             }
 
 
@@ -117,8 +123,12 @@ public class Energy_Shop_Logic : MonoBehaviour
             case "Turret":
                 player.Turret = true;
                 player.repairPack = false;
+                player.overchargeBattery = false;
+                player.injector = false;
                 playerInScene.GetComponent<Ability_Turret>().enabled = true;
                 playerInScene.GetComponent<Ability_RepairPack>().enabled = false;
+                playerInScene.GetComponent<Ability_Overcharge>().enabled = false;
+                playerInScene.GetComponent<Ability_Injector>().enabled = false;
                 break;
             case "Critical Strike":
                 player.criticalStrike = true;
@@ -128,7 +138,16 @@ public class Energy_Shop_Logic : MonoBehaviour
                 break;
             case "Reinforced Chassis":
                 player.healthBuff = 10;
+                if(player.Health <=30)
                 player.Health += 10;
+                else if(player.Health == player.MaxHealth)
+                    player.ExtraHealth += 10;
+                else
+                {
+                    int remainingHP = player.MaxHealth - player.Health;
+                    player.Health = player.MaxHealth;
+                    player.ExtraHealth += remainingHP;
+                }
                 break;
             case "Energy Deflector":
                 player.energyDeflector = true;
@@ -139,8 +158,34 @@ public class Energy_Shop_Logic : MonoBehaviour
             case "Repair Pack":
                 player.Turret = false;
                 player.repairPack = true;
+                player.overchargeBattery = false;
                 playerInScene.GetComponent<Ability_Turret>().enabled = false;
                 playerInScene.GetComponent<Ability_RepairPack>().enabled = true;
+                playerInScene.GetComponent<Ability_Overcharge>().enabled = false;
+                playerInScene.GetComponent<Ability_Injector>().enabled = false;
+                break;
+            case "Overcharge":
+                player.Turret = false;
+                player.repairPack = false;
+                player.overchargeBattery = true;
+                player.injector = false;
+                playerInScene.GetComponent<Ability_Turret>().enabled = false;
+                playerInScene.GetComponent<Ability_RepairPack>().enabled = false;
+                playerInScene.GetComponent<Ability_Overcharge>().enabled = true;
+                playerInScene.GetComponent<Ability_Injector>().enabled = false;
+                break;
+            case "Adrenaline Injector":
+                player.Turret = false;
+                player.repairPack = false;
+                player.overchargeBattery = false;
+                player.injector = true;
+                playerInScene.GetComponent<Ability_Turret>().enabled = false;
+                playerInScene.GetComponent<Ability_RepairPack>().enabled = false;
+                playerInScene.GetComponent<Ability_Overcharge>().enabled = false;
+                playerInScene.GetComponent<Ability_Injector>().enabled = true;
+                break;
+            case "Last Stand":
+                player.lastStand = true;
                 break;
             default:
                 Debug.Log("What did you just do");
@@ -213,15 +258,17 @@ public class Upgrade
     public int Cost;
     public Sprite Sprite;
     public Sprite Description;
+    public string text;
     [HideInInspector] public GameObject itemRef;
     public bool Purchased;
 
-    public Upgrade(string Name, int Cost, Sprite Sprite, Sprite Decsription, bool Purchased)
+    public Upgrade(string Name, int Cost, Sprite Sprite, Sprite Decsription,string text, bool Purchased)
     {
         this.Name = Name;
         this.Cost = Cost;
         this.Sprite = Sprite;
         this.Description = Decsription;
+        this.text = text;
         this.Purchased = Purchased;
     }
 }

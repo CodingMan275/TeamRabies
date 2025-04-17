@@ -66,12 +66,17 @@ public class Enemy_Counter : MonoBehaviour
 
     IEnumerator VictoryScene()
     {
-        AudioUI.GetComponent<VolumeSettings>().Mute(true);
+        AudioUI.GetComponent<VolumeController>().Mute(true);
         int voice = Random.Range(0, 2);
         Victory.clip = VictorySound[voice];
         Victory.Play();
         yield return new WaitForSeconds(VictorySound[voice].length);
-        yield return new WaitForSeconds(WaitTime);
+        yield return new WaitForSeconds(WaitTime - VictorySound[voice].length);
+        //Delete me when Scrappy is played
+        if(SD.Round == 3)
+        {
+            SC.ChangeScene("Victory");
+        }
         if (SD.Round != 3)
         {
             SC.ChangeScene("Shop");
