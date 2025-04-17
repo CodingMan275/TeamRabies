@@ -51,7 +51,7 @@ public class UltamiteData : ScriptableObject
         if (UltDur <= 0 && UltCoolDown <= 0)
             DoubleDamage = false;
 
-        BeamRate = SD.BeamFireRateMod * BeamRateMod;
+        BeamRate = SD.beamCharge * BeamRateMod;
         PistolRate = SD.PistolFireRateMod * PistolRateMod;
         BoltRate = SD.BoltLauncherFireRateMod * BoltRateMod;
         ShotGunRate = SD.ShotgunReloadTime - ShotgunTimerMod;

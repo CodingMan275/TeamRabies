@@ -23,7 +23,7 @@ public class Player_Health : MonoBehaviour
     void Start()
     {
         SC = transform.GetChild(0).GetComponent<SceneController>();
-        HealthBar.maxValue = stats.MaxHealth;
+        HealthBar.maxValue = stats.MaxHealth + stats.healthBuff;
         HealthBar.value = stats.Health;
         ExtraHealthBar.value = stats.ExtraHealth;
         render = GetComponent<SpriteRenderer>();
@@ -68,19 +68,8 @@ public class Player_Health : MonoBehaviour
 
     public void ForceHeal(int HP)
     {
-        if (stats.Health <= stats.MaxHealth - HP)
-            stats.Health += HP;
-        else if (stats.Health == stats.MaxHealth)
-            stats.ExtraHealth += HP;
-        else
-        {
-            int remainingHP = stats.MaxHealth - stats.Health;
-            stats.Health = stats.MaxHealth;
-            stats.ExtraHealth += remainingHP;
-        }
-
+        stats.ExtraHealth += HP; 
         ExtraHealthBar.value = stats.ExtraHealth;
-        HealthBar.value = stats.Health;
     }
 
     public void LoseShield(int HP)
@@ -106,9 +95,8 @@ public class Player_Health : MonoBehaviour
         if (stats.lastStand)
         {
             stats.lastStand = false;
-            stats.Health = stats.MaxHealth;
+            stats.Health = stats.MaxHealth + stats.healthBuff;
             HealthBar.value = stats.MaxHealth;
-            //Not how this was supposed to work Michael
             stats.ExtraHealth = stats.healthBuff;
             if (stats.Round == 2)
             {

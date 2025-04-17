@@ -1439,7 +1439,6 @@ GameObject:
   - component: {fileID: 2363712351608359396}
   - component: {fileID: 1201356698292298651}
   - component: {fileID: 2161918550639172026}
-  - component: {fileID: 7013134303308972394}
   m_Layer: 5
   m_Name: Audio UI
   m_TagString: Untagged
@@ -1534,24 +1533,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7013134303308972394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618173551332000379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a20c33f452407a541b195b2b553a9100, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Mixer: {fileID: 24100000, guid: 95f5b1238070b9b47a1ff7d055136e26, type: 2}
-  Master: {fileID: 5066261949980149303}
-  SFX: {fileID: 7556759335662076172}
-  Vocals: {fileID: 8746942594626275934}
-  Music: {fileID: 1070258355470829231}
-  AD: {fileID: 11400000, guid: 60230dd2e661123438107b6c3859a882, type: 2}
 --- !u!1 &1784689610010961638
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,12 +2512,24 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5948290536987675207}
   m_HandleRect: {fileID: 1906764963184403994}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
-  m_NumberOfSteps: 11
+  m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4792301161914442911}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: ExitInstruct
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 4864206896769777708}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Scrollbar, UnityEngine.UI
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2188748699253402033
 GameObject:
   m_ObjectHideFlags: 0
@@ -7976,7 +7969,7 @@ MonoBehaviour:
   Shoot: {fileID: 5014291607093857698}
   Voice: {fileID: 8390004952299454072}
   PistolSound:
-  - {fileID: 8300000, guid: f61d29cf5dd61134c8cc51c0f71fdf83, type: 3}
+  - {fileID: 8300000, guid: de8433d8f1ce1be47beba71b2bff10b1, type: 3}
   - {fileID: 8300000, guid: 4dc7e51771a9627489e991127561dfac, type: 3}
   - {fileID: 8300000, guid: eca14505da0da8945b99d235246a93f2, type: 3}
   stats: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
@@ -8001,7 +7994,7 @@ MonoBehaviour:
   Shoot: {fileID: 5014291607093857698}
   Voice: {fileID: 8390004952299454072}
   PistolSound:
-  - {fileID: 8300000, guid: f61d29cf5dd61134c8cc51c0f71fdf83, type: 3}
+  - {fileID: 8300000, guid: de8433d8f1ce1be47beba71b2bff10b1, type: 3}
   - {fileID: 8300000, guid: 4dc7e51771a9627489e991127561dfac, type: 3}
   - {fileID: 8300000, guid: eca14505da0da8945b99d235246a93f2, type: 3}
   stats: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
@@ -8028,7 +8021,7 @@ MonoBehaviour:
   Shoot: {fileID: 5014291607093857698}
   Voice: {fileID: 5014291607093857698}
   PistolSound:
-  - {fileID: 8300000, guid: 242e110bb07797148b03820b26499213, type: 3}
+  - {fileID: 8300000, guid: f194ed9dd5a391d45b1d29253d78f04d, type: 3}
   - {fileID: 8300000, guid: 4dc7e51771a9627489e991127561dfac, type: 3}
   - {fileID: 8300000, guid: eca14505da0da8945b99d235246a93f2, type: 3}
   stats: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
@@ -8051,7 +8044,7 @@ MonoBehaviour:
   Shoot: {fileID: 5014291607093857698}
   Voice: {fileID: 8390004952299454072}
   PistolSound:
-  - {fileID: 8300000, guid: f61d29cf5dd61134c8cc51c0f71fdf83, type: 3}
+  - {fileID: 8300000, guid: de8433d8f1ce1be47beba71b2bff10b1, type: 3}
   - {fileID: 8300000, guid: 4dc7e51771a9627489e991127561dfac, type: 3}
   - {fileID: 8300000, guid: eca14505da0da8945b99d235246a93f2, type: 3}
   stats: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
@@ -8450,8 +8443,7 @@ MonoBehaviour:
   IC: {fileID: 8056955563528944120}
   PauseUI: {fileID: 7780599613162948802}
   PlayerUI: {fileID: 1984343306899263054}
-  AudioUI: {fileID: 1618173551332000379}
-  Instruct: {fileID: 4864206896769777708}
+  AudioUI: {fileID: 8056955564506772677}
   Paused: 0
 --- !u!114 &8056955563528944126
 MonoBehaviour:
@@ -8852,7 +8844,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8056955563528944069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33b8c28e37f87164b898a91d3e322de2, type: 3}
   m_Name: 
@@ -9001,6 +8993,7 @@ GameObject:
   - component: {fileID: 8056955564506772675}
   - component: {fileID: 8311743821360537599}
   - component: {fileID: 4118085362554535804}
+  - component: {fileID: 967883371095965159}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -9200,6 +9193,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &967883371095965159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8056955564506772677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010ca7a463abe254894a9969607ff5c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Mixer: {fileID: 24100000, guid: 95f5b1238070b9b47a1ff7d055136e26, type: 2}
+  Master: {fileID: 5066261949980149303}
+  SFX: {fileID: 7556759335662076172}
+  Vocals: {fileID: 8746942594626275934}
+  Music: {fileID: 1070258355470829231}
+  AD: {fileID: 11400000, guid: 60230dd2e661123438107b6c3859a882, type: 2}
 --- !u!1 &8098864296413908072
 GameObject:
   m_ObjectHideFlags: 0
@@ -9355,7 +9366,7 @@ MonoBehaviour:
   E: []
   Activate: 0
   WaitTime: 5
-  AudioUI: {fileID: 1618173551332000379}
+  AudioUI: {fileID: 8056955564506772677}
   Victory: {fileID: 423412058315183086}
   VictorySound:
   - {fileID: 8300000, guid: a0b93e9d1b5762d468c550c22a424411, type: 3}

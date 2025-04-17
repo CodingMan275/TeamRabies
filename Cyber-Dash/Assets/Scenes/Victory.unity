@@ -150,6 +150,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4118085362554535804, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 505c9c22dfb0c284a8834b3046be13ef, type: 3}
     - target: {fileID: 4792301161914442911, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -421,7 +425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 052075a2b13cdf94e97a589e2d3de0a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e67de7e7fb29673499d15a568fa6b1be, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

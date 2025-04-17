@@ -15,7 +15,7 @@ public class SaveData : ScriptableObject
     public int Energy = 0;
     public int MaxHealth = 40;
     public int Health = 40;
-    [Range(0,30)]public int ExtraHealth = 0;  // 20 from ult + 10 from HP Buff
+    [Range(0,45)]public int ExtraHealth = 0;  // 20 from ult + 25 from shield Buff
     public float WalkSpeed = 15f;
     public float RunSpeed = 20f;
 
@@ -51,7 +51,6 @@ public class SaveData : ScriptableObject
     public float PistolFireRateMod = 1;
     public float ShotgunFireRateMod = 1;
     public float BoltLauncherFireRateMod = 1;
-    public float BeamFireRateMod = 1;
     public int HowManyPierce = 0;
     public float ShotgunReloadTime = 2;
     public float ShotGunAmmo = 2;
@@ -142,26 +141,10 @@ public class SaveData : ScriptableObject
    ShotgunFireRateMod = 1;
         ShotgunReloadTime = 2;
    BoltLauncherFireRateMod = 1;
-  BeamFireRateMod = 1;
   HowManyPierce = 0;
         boltIncreaseDamage = 0;
         boltSpeedIncrease = 0;
         beamCharge = .01f;
         beamDamage = 5;
     }
-
-    public IEnumerator StatBoost()
-    {
-        Health += 20;
-        yield return new WaitForSeconds(10);
-        ForceUltReset();
-        
-    }
-
-    public IEnumerator ForceUltReset()
-    {
-        Health -= 20;
-        yield return new WaitForSeconds(0.5f);
-    }
-
 }

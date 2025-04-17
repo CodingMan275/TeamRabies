@@ -51,7 +51,7 @@ public class Beam_Logic : MonoBehaviour
     public void Charge()
     {
         //set charge time
-        curCharge += .01f;
+        curCharge += stats.UD.DoubleDamage ? stats.UD.BeamRate : stats.beamCharge;
         if (curCharge >= 2f)
         {
             curCharge = 2f;

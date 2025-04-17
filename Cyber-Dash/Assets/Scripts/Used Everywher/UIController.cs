@@ -16,7 +16,6 @@ public class UIController : MonoBehaviour
     public GameObject AudioUI;
     private InputAction Pause;
 
-    public Scrollbar Instruct;
     private GameObject ExitButotn;
 
     public event Action <bool>OnPausePressed;
@@ -38,9 +37,8 @@ public class UIController : MonoBehaviour
 
     private void Awake()
     {
-        AudioUI.GetComponent<VolumeSettings>().SetVolume();
+        AudioUI.GetComponent<VolumeController>().SetVolume();
         pc = new PlayerControl();
-        Instruct.onValueChanged.AddListener(ExitInstruct);
     }
 
     // Update is called once per frame
@@ -53,7 +51,7 @@ public class UIController : MonoBehaviour
     public void OnPause()
     {
             OnPausePressed?.Invoke(!Paused);
-            AudioUI.GetComponent<VolumeSettings>().Mute(PauseUI.active);
+            AudioUI.GetComponent<VolumeController>().Mute(PauseUI.active);
         if(PauseUI.active && !AudioUI.active)
         {
             PauseButton();
@@ -122,9 +120,10 @@ public class UIController : MonoBehaviour
         ExitButotn = g;
     }
 
-    public void ExitInstruct(float f)
+    public void ExitInstruct(Scrollbar S)
     {
-        ExitButotn.SetActive(f < .05f ? true : false);
+        print(S.value);
+        ExitButotn.SetActive(S.value < .05f ? true : false);
     }
 
 }

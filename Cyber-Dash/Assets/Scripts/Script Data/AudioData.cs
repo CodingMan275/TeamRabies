@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SaveData/Audio")]
 public class AudioData : ScriptableObject
 {
-    public float Master = .8f;
-    public float Vocal = .8f;
-    public float SFX = .8f;
-    public float Music = .8f;
+    [Range(0.0001f , 1f)]public float Master = .8f;
+    [Range(0.0001f, 1f)] public float Vocal = .8f;
+    [Range(0.0001f, 1f)] public float SFX = .8f;
+    [Range(0.0001f, 1f)] public float Music = .8f;
 
     public void Reset()
     {
