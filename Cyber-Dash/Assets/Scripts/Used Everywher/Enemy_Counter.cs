@@ -72,12 +72,8 @@ public class Enemy_Counter : MonoBehaviour
         Victory.Play();
         yield return new WaitForSeconds(VictorySound[voice].length);
         yield return new WaitForSeconds(WaitTime - VictorySound[voice].length);
-        //Delete me when Scrappy is played
-        if(SD.Round == 3)
-        {
-            SC.ChangeScene("Victory");
-        }
-        if (SD.Round != 3)
+
+        if (SD.Round != 5)
         {
             SC.ChangeScene("Shop");
         }
