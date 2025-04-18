@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 7813446601140375175}
   - component: {fileID: 7813446601140375192}
   - component: {fileID: 7813446601140375193}
+  - component: {fileID: 8039132181983801391}
   m_Layer: 0
   m_Name: Scrappy
   m_TagString: Enemy
@@ -625,11 +626,32 @@ MonoBehaviour:
   meleeDelay: 1
   rangedDmg: 5
   missileDmg: 4
+  explosionDmg: 8
   MeleeAttack: {fileID: 6399027038020449318, guid: 37cb1533825407647af0033edf670e62, type: 3}
   RangedAttack: {fileID: 8073435313007495032, guid: 569c1d3c497678647a4b04a81b77dd0d, type: 3}
   MissileAttack: {fileID: 3074054533227051399, guid: 6f9df10095e303347be505202723889b, type: 3}
   ExplosionAttack: {fileID: 8075606723099577094, guid: d2fe182bbefca864dbdbac7fce6e0fc8, type: 3}
   player: {fileID: 0}
+--- !u!95 &8039132181983801391
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7813446601140375197}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e1cf870333a58442bd7436a37001af6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7813446601226157736
 GameObject:
   m_ObjectHideFlags: 0
