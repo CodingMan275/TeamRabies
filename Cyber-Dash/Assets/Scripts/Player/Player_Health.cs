@@ -96,8 +96,8 @@ public class Player_Health : MonoBehaviour
         {
             stats.lastStand = false;
             stats.Health = stats.MaxHealth + stats.healthBuff;
-            HealthBar.value = stats.MaxHealth;
-            stats.ExtraHealth = stats.healthBuff;
+            HealthBar.value = stats.MaxHealth + stats.healthBuff;
+           // stats.ExtraHealth = stats.healthBuff;
             if (stats.Round == 2)
             {
                 SC.ChangeScene("Arena 1-2");

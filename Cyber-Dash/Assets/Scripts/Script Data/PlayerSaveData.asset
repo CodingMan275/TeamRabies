@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UD: {fileID: 11400000, guid: a7d51a8e37edbe24fac05aff965da1e8, type: 2}
   Round: 3
-  killCount: 34
-  Scrap: 18
-  Energy: 5
+  killCount: 53
+  Scrap: 63
+  Energy: 23
   MaxHealth: 40
-  Health: 40
+  Health: 1
   ExtraHealth: 0
   WalkSpeed: 15
   RunSpeed: 20
@@ -31,7 +31,7 @@ MonoBehaviour:
   healthBuff: 0
   energyDeflector: 0
   adaptiveArmor: 0
-  lastStand: 0
+  lastStand: 1
   Turret: 1
   repairPack: 0
   overchargeBattery: 0
@@ -143,28 +143,28 @@ MonoBehaviour:
   StaticEnergyPoolRound1:
   - Name: Rapid Fire Circuit
     Cost: 10
-    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Sprite: {fileID: 21300000, guid: b24efc6ac953ced41a2356a13ffd4df3, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: increase fire rate by 15% cost 10
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Dodge Booster
     Cost: 25
-    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Sprite: {fileID: 21300000, guid: 246bb2a5a981bde4caffe6a059eb5cff, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: decrease dodge cooldown by 50% cost 25
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Explosive Rounds
     Cost: 20
-    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Sprite: {fileID: 21300000, guid: 3b0ab04ad2232c042a03618a3a0e54a9, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: create a small explosion when the bullet is destroyed cost 20
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Turret
     Cost: 25
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Sprite: {fileID: 21300000, guid: 3a4de797f40f7c94389254e12f01b557, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: replace secondary ability to create a turret that shoots at nearby enemies
       cost 25
@@ -172,28 +172,28 @@ MonoBehaviour:
     Purchased: 0
   - Name: Critical Strike
     Cost: 15
-    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Sprite: {fileID: 21300000, guid: d4bdb9f909b88ba41aa50ab45bb0e0bd, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: get a 10% chance to deal double damage cost 15
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Scrap Recycle
     Cost: 20
-    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Sprite: {fileID: 21300000, guid: 38cbdf581c7da9146a86f186c7fde718, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: increase scrp drops by 20% cost 20
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Reinforced Chassis
     Cost: 10
-    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Sprite: {fileID: 21300000, guid: 3feb69ba3f1de714298a2650a47172c8, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: increase max health by 10hp cost 10
     itemRef: {fileID: 0}
     Purchased: 0
   - Name: Energy Deflector
     Cost: 15
-    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Sprite: {fileID: 21300000, guid: 243fdf2319c332542a06cd68244cb2f6, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: gain a 10% chance to not take damage from enemy bullets cost 15
     itemRef: {fileID: 0}
@@ -219,6 +219,13 @@ MonoBehaviour:
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: replace secondary abiltiy to move and shoot faster by 25% for 10 seconds
       cost 90
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Adaptive Armor
+    Cost: 20
+    Sprite: {fileID: 21300000, guid: 03436d75b2f3f8a4cb011bdb05011c68, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: decrease all taken damage by 3 points cost 20
     itemRef: {fileID: 0}
     Purchased: 0
   StaticEnergyPoolRound2: []

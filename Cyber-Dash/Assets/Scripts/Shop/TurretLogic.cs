@@ -36,7 +36,7 @@ public class TurretLogic : MonoBehaviour
     void Update()
     {
 
-       timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
+       
        DeployTime -= Time.deltaTime;
         if (DeployTime <= 0)
         {
@@ -47,6 +47,7 @@ public class TurretLogic : MonoBehaviour
 
     private void FixedUpdate()
     {
+        timeSinceLastFiredBullet = Time.time - LastTimeBulletFired;
          if (closestObject == null && (EnemyList.Count != 0))
         {
             GetClosestObject();
@@ -57,7 +58,8 @@ public class TurretLogic : MonoBehaviour
            {
                 Vector3 dir = closestObject.transform.position - transform.position;
                 Direction = new Vector3(closestObject.transform.position.x - transform.position.x, closestObject.transform.position.y - transform.position.y);
-                transform.up = Direction;
+                //  transform.up = Direction;
+                Offset.transform.right = Direction;
                 Fire();
             }
         }
@@ -85,9 +87,10 @@ public class TurretLogic : MonoBehaviour
     if ((timeSinceLastFiredBullet > BulletDelay))
         {
             print("FIRE");
-            GameObject Bullet = Instantiate(BulletPrefab, Offset.transform.position, transform.rotation);
-            Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BulletSpeed, ForceMode2D.Impulse);
-            Bullet.GetComponent<Bullet>().Damage = bulletDmg;
+            GameObject Bullet = Instantiate(BulletPrefab, Offset.transform.position, Offset.transform.rotation);
+          //  Bullet.GetComponent<Rigidbody2D>().AddForce(transform.up * BulletSpeed, ForceMode2D.Impulse);
+          Bullet.GetComponent<Bullet>().BulletSpeed = 10;
+                Bullet.GetComponent<Bullet>().Damage = bulletDmg;
             LastTimeBulletFired = Time.time;
         }
     }

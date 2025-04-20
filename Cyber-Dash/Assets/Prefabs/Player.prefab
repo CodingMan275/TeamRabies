@@ -8821,7 +8821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TurretPrefab: {fileID: 5907449524519530469, guid: 9242b1ac046a1fe4698cfb7c9cc04317, type: 3}
   abiltiyCountdown: {fileID: 4595167440081321310}
-  icon: {fileID: 21300000, guid: 869615bf31bec1241aac26ec3d6c174f, type: 3}
+  icon: {fileID: 21300000, guid: 3a4de797f40f7c94389254e12f01b557, type: 3}
 --- !u!114 &3900128918851534476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8836,7 +8836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abiltiyCountdown: {fileID: 4595167440081321310}
   cooldown: 15
-  icon: {fileID: 21300000, guid: 395f6b9556f14704790df6035be6ee3a, type: 3}
+  icon: {fileID: 21300000, guid: 588ae5b7e6dece344b04e0b2c99623e7, type: 3}
 --- !u!114 &4766374308080617260
 MonoBehaviour:
   m_ObjectHideFlags: 0
