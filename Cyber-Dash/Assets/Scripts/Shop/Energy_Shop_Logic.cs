@@ -99,7 +99,14 @@ public class Energy_Shop_Logic : MonoBehaviour
             scrapDisplay.GetComponent<TMPro.TextMeshProUGUI>().text = "Energy " + player.Energy;
 
             //These are for 1 time purchases
-            FindPool(player.Round)[randnum].Purchased = true;
+            for (int i = 0; i < FindPool(player.Round).Count; i++)
+            {
+                if (FindPool(player.Round)[i].Name == upgrade.Name)
+                {
+                    FindPool(player.Round)[i].Purchased = true;
+                }
+            }
+           // FindPool(player.Round)[randnum].Purchased = true;
             upgrade.itemRef.SetActive(false);
 
             print("Energy shop bought item: " + upgrade.Name);
