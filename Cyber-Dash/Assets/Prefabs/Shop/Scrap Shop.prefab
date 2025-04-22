@@ -929,6 +929,7 @@ MonoBehaviour:
   HowManyItemsInShop: 4
   scrapDisplay: {fileID: 4624597290223048275}
   player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+  Shop: {fileID: 11400000, guid: 89b19bff43737914293d335176b74f49, type: 2}
   shopUiTransform: {fileID: 4624597291017849429}
   UpgradePrefab: {fileID: 6965850824913105004, guid: 9bb64b870671f2047bd5a6b599725f5c, type: 3}
   WPC: {fileID: 0}

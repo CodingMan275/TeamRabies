@@ -1,0 +1,200 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df75475f4f7ed7a44899eb63bc16d7ea, type: 3}
+  m_Name: Energy
+  m_EditorClassIdentifier: 
+  PoolRound1:
+  - Name: Rapid Fire Circuit
+    Cost: 10
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase fire rate by 15% cost 10
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 25
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: decrease dodge cooldown by 50% cost 25
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 20
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: create a small explosion when the bullet is destroyed cost 20
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Turret
+    Cost: 25
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to create a turret that shoots at nearby enemies
+      cost 25
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Critical Strike
+    Cost: 15
+    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: get a 10% chance to deal double damage cost 15
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Scrap Recycle
+    Cost: 20
+    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase scrp drops by 20% cost 20
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Reinforced Chassis
+    Cost: 10
+    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase max health by 10hp cost 10
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Energy Deflector
+    Cost: 15
+    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: gain a 10% chance to not take damage from enemy bullets cost 15
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Overcharge
+    Cost: 60
+    Sprite: {fileID: 21300000, guid: 3322373ddb31cad4e89aca20494e8080, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to gain 25% ult charge on a 30 second cooldown
+      cost 60
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Repair Kit
+    Cost: 40
+    Sprite: {fileID: 21300000, guid: 588ae5b7e6dece344b04e0b2c99623e7, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to reapair 25hp every 15 seconds cost 40
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Adrenaline Injector
+    Cost: 90
+    Sprite: {fileID: 21300000, guid: ffcc3748a56ae014eaca4d114da8f007, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary abiltiy to move and shoot faster by 25% for 10 seconds
+      cost 90
+    itemRef: {fileID: 0}
+    Purchased: 0
+  PoolRound2: []
+  PoolRound3:
+  - Name: Last Stand
+    Cost: 20
+    Sprite: {fileID: 21300000, guid: 7df4d99327d30194db0580e7353da3e2, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: for a one time use when you would die instead restart the level at full
+      health
+    itemRef: {fileID: 0}
+    Purchased: 0
+  PoolRound4: []
+  PoolRound5: []
+  StaticPoolRound1:
+  - Name: Rapid Fire Circuit
+    Cost: 10
+    Sprite: {fileID: 21300000, guid: 7835bec40f86c2c4fb3f91a6eb3b7034, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase fire rate by 15% cost 10
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Dodge Booster
+    Cost: 25
+    Sprite: {fileID: -472352916, guid: f4db128235daaba448cb05f00fa6ab6c, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: decrease dodge cooldown by 50% cost 25
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Explosive Rounds
+    Cost: 20
+    Sprite: {fileID: 21300000, guid: 0b0f60aa75b9d024480f9aaad450723b, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: create a small explosion when the bullet is destroyed cost 20
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Turret
+    Cost: 25
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to create a turret that shoots at nearby enemies
+      cost 25
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Critical Strike
+    Cost: 15
+    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: get a 10% chance to deal double damage cost 15
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Scrap Recycle
+    Cost: 20
+    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase scrp drops by 20% cost 20
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Reinforced Chassis
+    Cost: 10
+    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: increase max health by 10hp cost 10
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Energy Deflector
+    Cost: 15
+    Sprite: {fileID: 21300000, guid: ea292d445b1c4cb48897511cd9453f1c, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: gain a 10% chance to not take damage from enemy bullets cost 15
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Overcharge
+    Cost: 60
+    Sprite: {fileID: 21300000, guid: 3322373ddb31cad4e89aca20494e8080, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to gain 25% ult charge on a 30 second cooldown
+      cost 60
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Repair Kit
+    Cost: 40
+    Sprite: {fileID: 21300000, guid: 588ae5b7e6dece344b04e0b2c99623e7, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary ability to reapair 25hp every 15 seconds cost 40
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Adrenaline Injector
+    Cost: 90
+    Sprite: {fileID: 21300000, guid: ffcc3748a56ae014eaca4d114da8f007, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: replace secondary abiltiy to move and shoot faster by 25% for 10 seconds
+      cost 90
+    itemRef: {fileID: 0}
+    Purchased: 0
+  StaticPoolRound2: []
+  StaticPoolRound3:
+  - Name: Last Stand
+    Cost: 20
+    Sprite: {fileID: 21300000, guid: 7df4d99327d30194db0580e7353da3e2, type: 3}
+    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
+    text: for a one time use when you would die instead restart the level at full
+      health
+    itemRef: {fileID: 0}
+    Purchased: 0
+  StaticPoolRound4: []
+  StaticPoolRound5: []

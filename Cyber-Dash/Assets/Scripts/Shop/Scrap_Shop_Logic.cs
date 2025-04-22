@@ -12,6 +12,7 @@ public class Scrap_Shop_Logic : MonoBehaviour
 
     public GameObject scrapDisplay;
     public SaveData player;
+    public ShopData Shop;
     public Transform shopUiTransform;
     public GameObject UpgradePrefab;
     public Weapon_Controller WPC;
@@ -39,11 +40,11 @@ public class Scrap_Shop_Logic : MonoBehaviour
             //Upon another being purchased
             player.curWep = new Upgrade("Pistol", 0, gunSprite, descriptions[0],"", false);
             player.PastWeapons.Clear();
-            player.ScrapPoolRound1 = new List<Upgrade>(player.StaticScrapPoolRound1);
-            player.ScrapPoolRound2 = new List<Upgrade>(player.StaticScrapPoolRound2);
-            player.ScrapPoolRound3 = new List<Upgrade>(player.StaticScrapPoolRound3);
-            player.ScrapPoolRound4 = new List<Upgrade>(player.StaticScrapPoolRound4);
-            player.ScrapPoolRound5 = new List<Upgrade>(player.StaticScrapPoolRound5);
+            Shop.PoolRound1 = new List<Upgrade>(Shop.StaticPoolRound1);
+            Shop.PoolRound2 = new List<Upgrade>(Shop.StaticPoolRound2);
+            Shop.PoolRound3 = new List<Upgrade>(Shop.StaticPoolRound3);
+            Shop.PoolRound4 = new List<Upgrade>(Shop.StaticPoolRound4);
+            Shop.PoolRound5 = new List<Upgrade>(Shop.StaticPoolRound5);
         }
 
         for(int i = 0; i < HowManyItemsInShop ;i++)
@@ -345,15 +346,15 @@ public class Scrap_Shop_Logic : MonoBehaviour
         switch (round)
         {
             case 1:
-                return player.ScrapPoolRound1;
+                return Shop.PoolRound1;
             case 2:
-                return player.ScrapPoolRound2;
+                return Shop.PoolRound2;
             case 3:
-                return player.ScrapPoolRound3;
+                return Shop.PoolRound3;
             case 4:
-                return player.ScrapPoolRound4;
+                return Shop.PoolRound4;
             case 5:
-                return player.ScrapPoolRound5;
+                return Shop.PoolRound5;
 
         }
         return UpgradesList;

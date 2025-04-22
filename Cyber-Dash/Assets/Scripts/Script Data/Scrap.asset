@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df75475f4f7ed7a44899eb63bc16d7ea, type: 3}
+  m_Name: Scrap
+  m_EditorClassIdentifier: 
+  EnergyPoolRound1: []
+  EnergyPoolRound2: []
+  EnergyPoolRound3: []
+  EnergyPoolRound4: []
+  EnergyPoolRound5: []
+  StaticEnergyPoolRound1: []
+  StaticEnergyPoolRound2: []
+  StaticEnergyPoolRound3: []
+  StaticEnergyPoolRound4: []
+  StaticEnergyPoolRound5: []
+  ScrapPoolRound1: []
+  ScrapPoolRound2: []
+  ScrapPoolRound3: []
+  ScrapPoolRound4: []
+  ScrapPoolRound5: []
+  StaticScrapPoolRound1: []
+  StaticScrapPoolRound2: []
+  StaticScrapPoolRound3: []
+  StaticScrapPoolRound4: []
+  StaticScrapPoolRound5: []
+  PoolRound1:
+  - Name: Bolt Launcher
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
+    Description: {fileID: 21300000, guid: a421958ff3e4d2a44b730977be3af0e8, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: 'Pistol: Tier 2'
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: 8e533d592f899ac4b84eb9401c3ea565, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 1
+  - Name: Shotgun
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
+    Description: {fileID: 21300000, guid: fd4128bd0ea162b42956dea5a8fbeea1, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 1
+  - Name: Plasma Cutter
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: 14c20889bf89d6e4ba42fbea01e5c511, type: 3}
+    Description: {fileID: 21300000, guid: ab0d73379aeb458459be8ddeb559ff0a, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  PoolRound2:
+  - Name: 'Shotgun: Tier 2'
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
+    Description: {fileID: 21300000, guid: c4f02c8a32954aa478a2104117bb7316, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: 'Pistol: Tier 3'
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: 2c1ba851f077ac04281d708bfff99926, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  PoolRound3:
+  - Name: 'Shotgun: Tier 2'
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
+    Description: {fileID: 21300000, guid: c4f02c8a32954aa478a2104117bb7316, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: 'Pistol: Tier 3'
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: 2c1ba851f077ac04281d708bfff99926, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: 'Shotgun: Tier 2'
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
+    Description: {fileID: 21300000, guid: c4f02c8a32954aa478a2104117bb7316, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: 'Pistol: Tier 3'
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: 2c1ba851f077ac04281d708bfff99926, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  PoolRound4: []
+  PoolRound5: []
+  StaticPoolRound1:
+  - Name: Bolt Launcher
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
+    Description: {fileID: 21300000, guid: a421958ff3e4d2a44b730977be3af0e8, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: 'Pistol: Tier 2'
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: 8e533d592f899ac4b84eb9401c3ea565, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 1
+  - Name: Shotgun
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
+    Description: {fileID: 21300000, guid: fd4128bd0ea162b42956dea5a8fbeea1, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 1
+  - Name: Plasma Cutter
+    Cost: 100
+    Sprite: {fileID: 21300000, guid: 14c20889bf89d6e4ba42fbea01e5c511, type: 3}
+    Description: {fileID: 21300000, guid: ab0d73379aeb458459be8ddeb559ff0a, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  StaticPoolRound2: []
+  StaticPoolRound3: []
+  StaticPoolRound4: []
+  StaticPoolRound5: []

@@ -60,36 +60,6 @@ public class SaveData : ScriptableObject
     public int beamDamage = 5;
 
 
-
-    [Header("Smelly Stinky List")]
-    //List of energy upgrades that change and move from rounds
-    public List<Upgrade> EnergyPoolRound1;
-    public List<Upgrade> EnergyPoolRound2;
-    public List<Upgrade> EnergyPoolRound3;
-    public List<Upgrade> EnergyPoolRound4;
-    public List<Upgrade> EnergyPoolRound5;
-    
-    //Base energy upgrades of each round
-    public List<Upgrade> StaticEnergyPoolRound1;
-    public List<Upgrade> StaticEnergyPoolRound2;
-    public List<Upgrade> StaticEnergyPoolRound3;
-    public List<Upgrade> StaticEnergyPoolRound4;
-    public List<Upgrade> StaticEnergyPoolRound5;
-
-    //List of energy upgrades that change and move from rounds
-    public List<Upgrade> ScrapPoolRound1;
-    public List<Upgrade> ScrapPoolRound2;
-    public List<Upgrade> ScrapPoolRound3;
-    public List<Upgrade> ScrapPoolRound4;
-    public List<Upgrade> ScrapPoolRound5;
-
-    //Base energy upgrades of each round
-    public List<Upgrade> StaticScrapPoolRound1;
-    public List<Upgrade> StaticScrapPoolRound2;
-    public List<Upgrade> StaticScrapPoolRound3;
-    public List<Upgrade> StaticScrapPoolRound4;
-    public List<Upgrade> StaticScrapPoolRound5;
-
     public Sprite gun;
     public Upgrade curWep;
     public List<Upgrade> PastWeapons;
@@ -108,11 +78,11 @@ public class SaveData : ScriptableObject
         WalkSpeed = 15f;
         RunSpeed = 20;
         UD.Reset();
-    //Player stats to be modified
-    FireRateMod = 1;
-    DodgeCooldownMod = 0;
-    ScrapDropMod = 1;
-   explodingBullets = false;
+        //Player stats to be modified
+        FireRateMod = 1;
+        DodgeCooldownMod = 0;
+        ScrapDropMod = 1;
+        explodingBullets = false;
         criticalStrike = false;
         scrapRecycle = false;
         healthBuff = 0;

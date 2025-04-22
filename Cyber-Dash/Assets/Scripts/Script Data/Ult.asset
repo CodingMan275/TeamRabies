@@ -19,14 +19,14 @@ MonoBehaviour:
   WalkRateMod: 2
   RunRateMod: 2
   BeamRate: 0.005
-  PistolRate: 0.5
+  PistolRate: 0.4
   BoltRate: 0.5
   ShotGunRate: 1
   WalkFast: 30
   RunFast: 40
-  UltPerc: 99
+  UltPerc: 96
   DoubleDamage: 0
-  inShop: 0
+  inShop: 1
   UltDur: 0
   UltCoolDown: 0
   HealBuff: 20

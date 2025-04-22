@@ -15,6 +15,7 @@ public class Energy_Shop_Logic : MonoBehaviour
 
     public GameObject scrapDisplay;
     public SaveData player;
+    public ShopData Shop;
     public Transform shopUiTransform;
     public GameObject UpgradePrefab;
     public Weapon_Controller WPC;
@@ -31,11 +32,11 @@ public class Energy_Shop_Logic : MonoBehaviour
         //Reset perk pool
         if(player.Round == 1)
         {
-            player.EnergyPoolRound1 = new List<Upgrade>(player.StaticEnergyPoolRound1);
-            player.EnergyPoolRound2 = new List<Upgrade>(player.StaticEnergyPoolRound2);
-            player.EnergyPoolRound3 = new List<Upgrade>(player.StaticEnergyPoolRound3);
-            player.EnergyPoolRound4 = new List<Upgrade>(player.StaticEnergyPoolRound4);
-            player.EnergyPoolRound5 = new List<Upgrade>(player.StaticEnergyPoolRound5);
+            Shop.PoolRound1 = new List<Upgrade>(Shop.StaticPoolRound1);
+            Shop.PoolRound2 = new List<Upgrade>(Shop.StaticPoolRound2);
+            Shop.PoolRound3 = new List<Upgrade>(Shop.StaticPoolRound3);
+            Shop.PoolRound4 = new List<Upgrade>(Shop.StaticPoolRound4);
+            Shop.PoolRound5 = new List<Upgrade>(Shop.StaticPoolRound5);
         }
 
         //The list of which items are currently in the pool
@@ -137,17 +138,7 @@ public class Energy_Shop_Logic : MonoBehaviour
                 player.scrapRecycle = true;
                 break;
             case "Reinforced Chassis":
-                player.healthBuff = 10;
-                if(player.Health <=30)
-                player.Health += 10;
-                else if(player.Health == player.MaxHealth)
-                    player.ExtraHealth += 10;
-                else
-                {
-                    int remainingHP = player.MaxHealth - player.Health;
-                    player.Health = player.MaxHealth;
-                    player.ExtraHealth += remainingHP;
-                }
+                player.healthBuff = (int)(player.MaxHealth * .2f);
                 break;
             case "Energy Deflector":
                 player.energyDeflector = true;
@@ -213,15 +204,15 @@ public class Energy_Shop_Logic : MonoBehaviour
         switch (round)
         {
             case 1:
-                return player.EnergyPoolRound1;
+                return Shop.PoolRound1;
             case 2:
-                return player.EnergyPoolRound2;
+                return Shop.PoolRound2; 
             case 3:
-                return player.EnergyPoolRound3;
+                return Shop.PoolRound3;
             case 4:
-                return player.EnergyPoolRound4;
+                return Shop.PoolRound4;
             case 5:
-                return player.EnergyPoolRound5;
+                return Shop.PoolRound5;
 
         }
         return UpgradesList;

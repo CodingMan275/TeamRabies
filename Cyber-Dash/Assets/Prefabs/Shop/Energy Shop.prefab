@@ -972,6 +972,7 @@ MonoBehaviour:
   playerInScene: {fileID: 0}
   scrapDisplay: {fileID: 9203750604801427534}
   player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+  Shop: {fileID: 11400000, guid: ed12255596bf0784480397a2c48e32ae, type: 2}
   shopUiTransform: {fileID: 9203750604469100008}
   UpgradePrefab: {fileID: 6965850824913105004, guid: 9bb64b870671f2047bd5a6b599725f5c, type: 3}
   WPC: {fileID: 0}

@@ -15,6 +15,7 @@ public class InputController : MonoBehaviour
     bool flop = false;
 
     public GameObject ControllerMenu;
+    public SaveData SD;
 
     public Vector2 LInput { get; private set; }
     public float AimAngle { get; private set; }
@@ -134,7 +135,7 @@ public class InputController : MonoBehaviour
             flop = false;
         }
 
-        if (Ability.triggered)
+        if (Ability.triggered && !SD.UD.inShop)
         {
             OnAbilityPressed?.Invoke();
         }
