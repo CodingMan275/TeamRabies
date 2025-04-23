@@ -12,8 +12,8 @@ public class Player_Health : MonoBehaviour
     public Slider HealthBar;
     public Slider ExtraHealthBar;
     public SaveData stats;
+    public SceneController SC;
     SpriteRenderer render;
-    SceneController SC;
 
 
     [Tooltip("Alfe has a 1/x chance to scream")][Range(1,5)]public int ALFEVocal = 1;
@@ -22,7 +22,6 @@ public class Player_Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SC = transform.GetChild(0).GetComponent<SceneController>();
         HealthBar.maxValue = stats.MaxHealth + stats.healthBuff;
         HealthBar.value = stats.Health;
         ExtraHealthBar.value = stats.ExtraHealth;

@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "SaveData/UltStuff")]
 public class UltamiteData : ScriptableObject
 {
+    public UltamiteData Saved;
+
     [Header("Weapon Modifers")]
     public float BeamRateMod = 2;
     public float PistolRateMod = 2;
@@ -57,6 +60,22 @@ public class UltamiteData : ScriptableObject
         ShotGunRate = SD.ShotgunReloadTime - ShotgunTimerMod;
         WalkFast = SD.WalkSpeed * WalkRateMod;
         RunFast = SD.RunSpeed * RunRateMod;
+
+    }
+
+    public void CopyValues(bool t)
+    {
+        UltamiteData source = t ? this : Saved;
+        UltamiteData target = !t ? this : Saved;
+
+        FieldInfo[] fields = typeof(UltamiteData).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+        foreach (FieldInfo field in fields)
+        {
+            field.SetValue(target, field.GetValue(source)); // Copy value
+        }
+
+        Debug.Log("Copied values from ObjectA to ObjectB!");
 
     }
 }

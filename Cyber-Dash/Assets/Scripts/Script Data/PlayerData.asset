@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d06dd458699adf4f80fd5ae7e2f1c88, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  UD: {fileID: 11400000, guid: a7d51a8e37edbe24fac05aff965da1e8, type: 2}
+  SavePlayer: {fileID: 11400000, guid: 67f195d8dea24cd409b9e7b30fb20202, type: 2}
+  Round: 2
+  killCount: 5
+  Scrap: 11
+  Energy: 10
+  MaxHealth: 40
+  Health: 40
+  ExtraHealth: 0
+  WalkSpeed: 15
+  RunSpeed: 20
+  FireRateMod: 1
+  DodgeCooldownMod: 0
+  ScrapDropMod: 1
+  explodingBullets: 0
+  criticalStrike: 0
+  scrapRecycle: 0
+  healthBuff: 0
+  energyDeflector: 0
+  adaptiveArmor: 0
+  lastStand: 0
+  Turret: 0
+  repairPack: 0
+  overchargeBattery: 0
+  injector: 0
+  Pistol: 1
+  Bolt_Launcher: 0
+  Shotgun: 0
+  PlasmaCutter: 0
+  PistolFireRateMod: 1
+  ShotgunFireRateMod: 1
+  BoltLauncherFireRateMod: 1
+  HowManyPierce: 0
+  ShotgunReloadTime: 2
+  ShotGunAmmo: 2
+  boltIncreaseDamage: 0
+  boltSpeedIncrease: 0
+  beamCharge: 0.01
+  beamDamage: 5
+  gun: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+  curWep:
+    Name: Pistol
+    Cost: 0
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  PastWeapons: []

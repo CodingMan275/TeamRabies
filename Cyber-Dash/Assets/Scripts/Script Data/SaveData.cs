@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 [CreateAssetMenu(menuName ="SaveData/PlayerSave")]
 public class SaveData : ScriptableObject
 {
     public UltamiteData UD;
+    public SaveData SavePlayer;
 
     [Header("Player Stats")]
     public int Round = 1;
@@ -117,4 +121,28 @@ public class SaveData : ScriptableObject
         beamCharge = .01f;
         beamDamage = 5;
     }
+
+    // This copies the junk
+    public void CopyValues(bool t)
+    {
+            UD.CopyValues(t);
+            SaveData source = t ? this : SavePlayer;
+            SaveData target = !t ? this : SavePlayer;
+
+        FieldInfo[] fields = typeof(SaveData).GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+            foreach (FieldInfo field in fields)
+            {
+                field.SetValue(target, field.GetValue(source)); // Copy value
+            }
+
+            Debug.Log("Copied values from ObjectA to ObjectB!");
+        
+    }
+
+
+
+
+
+
 }

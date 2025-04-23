@@ -964,7 +964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2370367147342411106
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1077,7 +1077,19 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4792301161914442911}
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: PauseGame
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1404763257463853135
 GameObject:
@@ -1842,7 +1854,6 @@ GameObject:
   - component: {fileID: 6046308872705113135}
   - component: {fileID: 6534416113392736897}
   - component: {fileID: 22115669303268919}
-  - component: {fileID: 2994663109680197977}
   m_Layer: 5
   m_Name: Player UI
   m_TagString: Untagged
@@ -1939,19 +1950,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2994663109680197977
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1984343306899263054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de2fc3786f0fd3a4c9616ab46575a678, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SD: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
 --- !u!1 &2039061586030350361
 GameObject:
   m_ObjectHideFlags: 0
@@ -3419,6 +3417,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 9211747417202413723}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2246689291499811450}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &3171881793673045749
 GameObject:
@@ -7801,6 +7811,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 9211747417202413723}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2851020087836960964}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &8056955563487024752
 GameObject:
   m_ObjectHideFlags: 0
@@ -8012,6 +8034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 843936082987813954, guid: 3719308b35c94d84eabe3ddc0a9d81be, type: 3}
   KnockbackPrefab: {fileID: 912157597495188468, guid: ff5e18a885f17f64696ff6639dc22336, type: 3}
+  IC: {fileID: 8056955563528944120}
   DamagePerBullet: 1
   ReloadTime: 2
   BulletSpeed: 20
@@ -8426,6 +8449,7 @@ MonoBehaviour:
   EV: {fileID: 0}
   Controller: 0
   ControllerMenu: {fileID: 8172894402768665702}
+  SD: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
   RotateSpeed: 800
   AngleSnap: 10
 --- !u!114 &4792301161914442911
@@ -8575,7 +8599,8 @@ MonoBehaviour:
   HealthBar: {fileID: 3251567427882774435}
   ExtraHealthBar: {fileID: 7664638656653219133}
   stats: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
-  ALFEVocal: 1
+  SC: {fileID: 8311743821360537599}
+  ALFEVocal: 3
   Hurt:
   - {fileID: 6020989731736759879}
   - {fileID: 7500880652491570909}
@@ -9096,7 +9121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2fc3786f0fd3a4c9616ab46575a678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Res: {fileID: 0}
   SD: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+  EShop: {fileID: 11400000, guid: ed12255596bf0784480397a2c48e32ae, type: 2}
+  SShop: {fileID: 11400000, guid: 89b19bff43737914293d335176b74f49, type: 2}
 --- !u!82 &4118085362554535804
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9360,7 +9388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2491f5311169c44914cf3dc1bd96e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IC: {fileID: 0}
+  SC: {fileID: 8311743821360537599}
+  IC: {fileID: 8056955563528944120}
   Remaining: 0
   Spawner: []
   E: []

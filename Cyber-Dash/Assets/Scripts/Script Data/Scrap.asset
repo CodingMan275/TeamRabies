@@ -12,26 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df75475f4f7ed7a44899eb63bc16d7ea, type: 3}
   m_Name: Scrap
   m_EditorClassIdentifier: 
-  EnergyPoolRound1: []
-  EnergyPoolRound2: []
-  EnergyPoolRound3: []
-  EnergyPoolRound4: []
-  EnergyPoolRound5: []
-  StaticEnergyPoolRound1: []
-  StaticEnergyPoolRound2: []
-  StaticEnergyPoolRound3: []
-  StaticEnergyPoolRound4: []
-  StaticEnergyPoolRound5: []
-  ScrapPoolRound1: []
-  ScrapPoolRound2: []
-  ScrapPoolRound3: []
-  ScrapPoolRound4: []
-  ScrapPoolRound5: []
-  StaticScrapPoolRound1: []
-  StaticScrapPoolRound2: []
-  StaticScrapPoolRound3: []
-  StaticScrapPoolRound4: []
-  StaticScrapPoolRound5: []
+  SaveShop: {fileID: 11400000, guid: 0a1c331dca9a59a4a8ec7bc365de2858, type: 2}
   PoolRound1:
   - Name: Bolt Launcher
     Cost: 100

@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class Enemy_Counter : MonoBehaviour
 {
-    SceneController SC;
-    TextMeshProUGUI Text;
+    public SceneController SC;
     public InputController IC;
+    TextMeshProUGUI Text;
     private int Enemies;
     [SerializeField] private int Remaining = 100;
     public EnemySpawner[] Spawner;
@@ -29,8 +29,6 @@ public class Enemy_Counter : MonoBehaviour
     {
         Spawner = FindObjectsOfType<EnemySpawner>();
         E = GameObject.FindGameObjectsWithTag("Enemy"); 
-        SC = transform.parent.GetComponent<SceneController>();
-        IC = transform.parent.transform.parent.GetComponent<InputController>();
         Text = GetComponent<TextMeshProUGUI>();
         StartCoroutine(GetRemaining());
     }
@@ -72,7 +70,6 @@ public class Enemy_Counter : MonoBehaviour
         Victory.Play();
         yield return new WaitForSeconds(VictorySound[voice].length);
         yield return new WaitForSeconds(WaitTime - VictorySound[voice].length);
-
         if (SD.Round != 5)
         {
             SC.ChangeScene("Shop");

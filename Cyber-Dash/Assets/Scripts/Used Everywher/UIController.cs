@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
@@ -41,6 +42,7 @@ public class UIController : MonoBehaviour
         pc = new PlayerControl();
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -58,24 +60,22 @@ public class UIController : MonoBehaviour
         }
     }
 
-    void PauseGame(bool p)
+    public void PauseGame(bool p)
     {
         Paused = p;
         PauseUI.SetActive(p);
         PlayerUI.SetActive(!p);
-        if (!PauseUI.active)
-            AudioUI.SetActive(false);
+        if (p)
+            GetNewButton(PauseUI.transform.GetChild(1).transform.GetChild(0).gameObject);
+        else
+        {
+            // Force hides the UI and Forces the buttons to be visible
+            PauseUI.transform.GetChild(1).gameObject.SetActive(true);
+            PauseUI.transform.GetChild(2).gameObject.SetActive(false);
+            PauseUI.transform.GetChild(3).gameObject.SetActive(false);
+        }
         IC.enabled = !p;
         Time.timeScale = Paused? 0 : 1;
-    }
-
-    public void AudioSlider()
-    {
-        if(IC.Controller)
-        {
-            IC.EV.firstSelectedGameObject = transform.GetChild(1).transform.GetChild(2).transform.GetChild(3).gameObject;
-            IC.EV.firstSelectedGameObject.GetComponent<Slider>().Select();
-        }
     }
 
     public void GetNewButton(GameObject G)
@@ -122,7 +122,6 @@ public class UIController : MonoBehaviour
 
     public void ExitInstruct(Scrollbar S)
     {
-        print(S.value);
         ExitButotn.SetActive(S.value < .05f ? true : false);
     }
 

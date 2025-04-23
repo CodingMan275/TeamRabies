@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df75475f4f7ed7a44899eb63bc16d7ea, type: 3}
   m_Name: Energy
   m_EditorClassIdentifier: 
+  SaveShop: {fileID: 11400000, guid: 11b53da726e6ced429d4eb3f3ab9c4dc, type: 2}
   PoolRound1:
   - Name: Rapid Fire Circuit
     Cost: 10

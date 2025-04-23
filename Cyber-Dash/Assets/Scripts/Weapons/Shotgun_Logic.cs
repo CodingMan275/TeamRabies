@@ -7,6 +7,7 @@ public class Shotgun_Logic : MonoBehaviour
 
     public GameObject BulletPrefab;
     public GameObject KnockbackPrefab;
+    public InputController IC;
 
     public int DamagePerBullet;
 
@@ -18,7 +19,6 @@ public class Shotgun_Logic : MonoBehaviour
     float LastTimeBulletFired;
     float timeSinceLastFiredBullet;
     public Weapon_Controller WPC;
-    InputController IC;
 
     [Range(1, 5)] public int ALFEVocal = 1;
     public AudioSource Shoot;
@@ -34,7 +34,6 @@ public class Shotgun_Logic : MonoBehaviour
     void Start()
     {
         holdDelay = BulletDelay;
-        IC = transform.parent.GetComponent<InputController>();
         WPC = GetComponent<Weapon_Controller>();
         IC.OnShootPressed += Fire;
         ReloadTime = stats.ShotgunReloadTime;
