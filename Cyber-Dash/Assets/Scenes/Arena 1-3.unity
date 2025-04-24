@@ -486,7 +486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: SummonCounter
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: Enemies.Array.size
@@ -656,7 +656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: SummonCounter
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8460512089410643757, guid: 3bb30a632e98e6141aa73e994c9df4a3, type: 3}
       propertyPath: Enemies.Array.size
