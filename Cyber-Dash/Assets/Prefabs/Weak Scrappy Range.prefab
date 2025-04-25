@@ -346,7 +346,7 @@ MonoBehaviour:
   DropEnergy: {fileID: 2143827383965784735, guid: b3a9e5a3933da7246b0f256b74bd8120, type: 3}
   MaxHealth: 1
   Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
-  speed: 3.5
+  speed: 5.5
   ShootRange: 16
   RunRange: 13
   CanShoot: 0

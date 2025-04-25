@@ -84,7 +84,7 @@ public class Scrappy_Health : MonoBehaviour
         Health -= dmg;    //Replace 1 with bull damage
         HealthBar.value = Health;
 
-        if ((Health <= FirstWaveHP) && !phase2 && !phase1spawn)
+        if ((Health <= FirstWaveHP) && !phase1spawn)
         {
             //For michael, not sure how you want to do this
             GetComponent<Scrappy_Phase1>().Spawn();
@@ -102,6 +102,7 @@ public class Scrappy_Health : MonoBehaviour
         else if ((Health <= phase2hp) && !phase3)
         {
             phase3 = true;
+            print("phase 3 is here");
             GetComponent<Scrappy_Phase2>().enabled = false;
             GetComponent<Scrappy_Phase3>().enabled = true;
             GetComponent<Scrappy_Phase3>().Spawn();

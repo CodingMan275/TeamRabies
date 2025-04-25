@@ -610,6 +610,78 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 652855169054027701, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 652855169054027701, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: SpawnTimer
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 652855169054027701, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: StartSummon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 652855169054027701, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: SummonTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 652855169054027701, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: SummonCounter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 652855169054027702, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139607579710597064, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139607579710597064, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: SpawnTimer
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139607579710597064, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: SpawnRadius
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139607579710597064, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: StartSummon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139607579710597064, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: SummonTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139607579710597064, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: SummonCounter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2139607579710597067, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910634485822288965, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910634485822288966, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910634485822288966, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: SpawnRadius
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910634485822288966, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: StartSummon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910634485822288966, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: SummonCounter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7813446600585141695, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -660,6 +732,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7813446601140375194, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813446601140375195, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7813446601140375197, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}

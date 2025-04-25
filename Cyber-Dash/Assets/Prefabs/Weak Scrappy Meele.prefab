@@ -143,7 +143,7 @@ MonoBehaviour:
   DropEnergy: {fileID: 2143827383965784735, guid: 6f2e931c0f5a8954eaa857b58cd79f37, type: 3}
   Health: 0
   MaxHealth: 1
-  speed: 8
+  speed: 10
   Die: 0
   Player: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
   KnockBackStun: 0

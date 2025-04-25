@@ -28,7 +28,7 @@ public class Scrappy_Phase2 : MonoBehaviour
 
     public GameObject player;
 
-    bool isRight = true;
+    bool isRight = false;
     SpriteRenderer sr;
     public GameObject Spawner;
 
@@ -92,6 +92,7 @@ public class Scrappy_Phase2 : MonoBehaviour
         {
             //Misslles
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            yield return new WaitForSeconds(1f);
             GameObject attack = Instantiate(MissileAttack, target.transform.position, transform.rotation);
             attack.GetComponent<Scrappy_MIssile_Logic>().dmg = missileDmg;
 
@@ -120,13 +121,14 @@ public class Scrappy_Phase2 : MonoBehaviour
         else
         {
             //Ranged attack
+            anim.Play("Scrappy Range");
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0)[0].clip.length / 2);
             Vector3 dir = GetComponentInChildren<Scrappy_Aim>().Direction;
             GameObject attack = Instantiate(RangedAttack, transform.position, transform.rotation);
             attack.transform.right = dir;
             attack.GetComponent<Scrappy_Ranged_Attack>().dmg = rangedDmg;
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            anim.Play("Scrappy Range");
-            yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+            yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0)[0].clip.length / 2);
             rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
         AttackTimer = AttackDelay;
@@ -140,9 +142,9 @@ public class Scrappy_Phase2 : MonoBehaviour
 
     private void TurnCheck(float moveX)
     {
-        if (isRight && moveX < 0)
+        if (isRight && moveX > 0)
             Turn(false);
-        if (!isRight && moveX > 0)
+        if (!isRight && moveX < 0)
             Turn(true);
     }
 
