@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8460512089410643758}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.14779866, b: 0.14779866, a: 0.16078432}
+  m_Color: {r: 1, g: 0.14779866, b: 0.14779866, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,13 +98,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4752e0ba7c28f4948bcd0f918fb84405, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemies: []
-  EnemyCounter: 
+  Enemies:
+  - {fileID: 7360717835239363194, guid: 73ec8495550c720418469ba6949c6f2e, type: 3}
+  EnemyCounter: 05000000
   StartSummon: 0
-  SpawnTimer: 0
-  SummonTimer: 0
-  SummonCounter: 0
-  SpawnRadius: 0
+  SpawnTimer: 10
+  SummonTimer: 1.3
+  SummonCounter: 6
+  SpawnRadius: 10
   TotalEnemy: 0
 --- !u!1 &8460512089628455615
 GameObject:
@@ -180,7 +181,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
