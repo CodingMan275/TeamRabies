@@ -5,13 +5,15 @@ using UnityEngine;
 public class Scrappy_Phase1 : MonoBehaviour
 {
     public float speed = 8f;
+    Animator anim;
+    Transform target;
+    Rigidbody2D rb;
+    Vector3 dir;
+
     public int meleeDmg = 4;
     public float meleeDelay;
     public int rangedDmg = 5;
 
-    Transform target;
-    Rigidbody2D rb;
-    Vector3 dir;
     bool playerInRange = false;
 
     public GameObject MeleeAttack;
@@ -20,12 +22,19 @@ public class Scrappy_Phase1 : MonoBehaviour
     float AttackDelay = 5.0f;
     float AttackTimer = 5.0f;
 
+    bool isRight = true;
+    SpriteRenderer sr;
+
+    public GameObject Spawner;
+
     public GameObject player = null;
     // Start is called before the first frame update
     void Start()
     {
         target = GameObject.Find("Player").GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -57,7 +66,9 @@ public class Scrappy_Phase1 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!playerInRange)
+        anim.SetBool("Walk", (rb.velocity.magnitude > .1f || rb.velocity.magnitude < -.1f));
+        TurnCheck(rb.velocity.x);
+        if (!playerInRange)
             rb.velocity = new Vector2(dir.x, dir.y) * speed;
         if (AttackTimer <= 0)
         {
@@ -76,12 +87,13 @@ public class Scrappy_Phase1 : MonoBehaviour
             {
                 //Attackanimation
                 //Becuase the player can move out range and i want to limit errors
+                anim.Play("Scrappy Melee");
                 if (player != null)
                 {
                     GameObject attack = Instantiate(MeleeAttack, player.transform.position, transform.rotation);
                     attack.GetComponent<Scrappy_Melee_Logic>().dmg = meleeDmg;
                 }
-            yield return new WaitForSeconds(meleeDelay);
+                yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0)[0].clip.length);
             }
         }
         else
@@ -92,14 +104,29 @@ public class Scrappy_Phase1 : MonoBehaviour
             attack.transform.right = dir;
             attack.GetComponent<Scrappy_Ranged_Attack>().dmg = rangedDmg;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
-            yield return new WaitForSeconds(.4f);
+            anim.Play("Scrappy Range");
+            yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0)[0].clip.length);
             rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
     }
 
     //FOr michael
     public void Spawn()
-    { 
-    
+    {
+        Spawner.SetActive(true);
+    }
+
+    private void TurnCheck(float moveX)
+    {
+        if (isRight && moveX < 0)
+            Turn(false);
+        if (!isRight && moveX > 0)
+            Turn(true);
+    }
+
+    public void Turn(bool turn)
+    {
+        isRight = turn;
+        sr.flipX = !isRight;
     }
 }

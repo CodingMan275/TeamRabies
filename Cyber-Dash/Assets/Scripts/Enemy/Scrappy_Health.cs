@@ -97,12 +97,14 @@ public class Scrappy_Health : MonoBehaviour
             phase2 = true;
             GetComponent<Scrappy_Phase1>().enabled = false;
             GetComponent<Scrappy_Phase2>().enabled = true;
+            GetComponent<Scrappy_Phase2>().Spawn();
         }
         else if ((Health <= phase2hp) && !phase3)
         {
             phase3 = true;
             GetComponent<Scrappy_Phase2>().enabled = false;
             GetComponent<Scrappy_Phase3>().enabled = true;
+            GetComponent<Scrappy_Phase3>().Spawn();
         }
         else if ((Health <= FinalExplosion) && !explosion)
         {

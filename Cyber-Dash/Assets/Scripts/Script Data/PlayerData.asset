@@ -15,30 +15,30 @@ MonoBehaviour:
   UD: {fileID: 11400000, guid: a7d51a8e37edbe24fac05aff965da1e8, type: 2}
   SavePlayer: {fileID: 11400000, guid: 67f195d8dea24cd409b9e7b30fb20202, type: 2}
   Round: 2
-  killCount: 5
+  killCount: 25
   Scrap: 11
   Energy: 10
-  MaxHealth: 40
-  Health: 40
+  MaxHealth: 999999
+  Health: 999714
   ExtraHealth: 0
   WalkSpeed: 15
   RunSpeed: 20
-  FireRateMod: 1
-  DodgeCooldownMod: 0
+  FireRateMod: 0.33
+  DodgeCooldownMod: 1
   ScrapDropMod: 1
-  explodingBullets: 0
+  explodingBullets: 1
   criticalStrike: 0
-  scrapRecycle: 0
-  healthBuff: 0
+  scrapRecycle: 1
+  healthBuff: 10
   energyDeflector: 0
   adaptiveArmor: 0
   lastStand: 0
   Turret: 0
-  repairPack: 0
+  repairPack: 1
   overchargeBattery: 0
   injector: 0
-  Pistol: 1
-  Bolt_Launcher: 0
+  Pistol: 0
+  Bolt_Launcher: 1
   Shotgun: 0
   PlasmaCutter: 0
   PistolFireRateMod: 1
