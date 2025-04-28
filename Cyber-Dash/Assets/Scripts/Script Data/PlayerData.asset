@@ -14,27 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UD: {fileID: 11400000, guid: a7d51a8e37edbe24fac05aff965da1e8, type: 2}
   SavePlayer: {fileID: 11400000, guid: 67f195d8dea24cd409b9e7b30fb20202, type: 2}
-  Round: 2
-  killCount: 25
-  Scrap: 11
-  Energy: 10
-  MaxHealth: 999999
-  Health: 999714
+  Round: 5
+  killCount: 299
+  Scrap: 881
+  Energy: 366
+  MaxHealth: 50
+  Health: 11
   ExtraHealth: 0
   WalkSpeed: 15
   RunSpeed: 20
-  FireRateMod: 0.33
+  FireRateMod: 1
   DodgeCooldownMod: 1
   ScrapDropMod: 1
   explodingBullets: 1
   criticalStrike: 0
-  scrapRecycle: 1
+  scrapRecycle: 0
   healthBuff: 10
-  energyDeflector: 0
+  energyDeflector: 1
   adaptiveArmor: 0
-  lastStand: 0
-  Turret: 0
-  repairPack: 1
+  lastStand: 1
+  Turret: 1
+  repairPack: 0
   overchargeBattery: 0
   injector: 0
   Pistol: 0
@@ -47,17 +47,31 @@ MonoBehaviour:
   HowManyPierce: 0
   ShotgunReloadTime: 2
   ShotGunAmmo: 2
-  boltIncreaseDamage: 0
-  boltSpeedIncrease: 0
+  boltIncreaseDamage: 1
+  boltSpeedIncrease: 7
   beamCharge: 0.01
   beamDamage: 5
   gun: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
   curWep:
-    Name: Pistol
+    Name: 'Bolt Launcher: Tier 2'
     Cost: 0
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
+    Description: {fileID: 21300000, guid: 187f7b5af764ac149a788c5610b22d6f, type: 3}
     text: 
     itemRef: {fileID: 0}
     Purchased: 0
-  PastWeapons: []
+  PastWeapons:
+  - Name: Pistol
+    Cost: 0
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: a52b4cd1a0741e8429e74d26d150540e, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: 'Bolt Launcher: Tier 2'
+    Cost: 0
+    Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
+    Description: {fileID: 21300000, guid: 187f7b5af764ac149a788c5610b22d6f, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0

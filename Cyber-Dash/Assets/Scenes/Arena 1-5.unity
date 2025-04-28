@@ -690,6 +690,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7813446601140375174, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: phase1hp
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813446601140375174, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: phase2hp
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813446601140375174, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: MaxHealth
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 7813446601140375194, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
       propertyPath: m_RootOrder
       value: 1
