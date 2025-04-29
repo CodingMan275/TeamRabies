@@ -40,6 +40,13 @@ public class Player_Controller : MonoBehaviour
         GetComponent<Ability_Dash>().enabled = true;
         if(SD.Turret)
             GetComponent<Ability_Turret>().enabled = true;
+        if (SD.injector)
+            GetComponent<Ability_Injector>().enabled = true;
+        if (SD.overchargeBattery)
+            GetComponent<Ability_Overcharge>().enabled = true;
+        if (SD.repairPack)
+            GetComponent<Ability_RepairPack>().enabled = true;
+
     }
 
     // Update is called once per frame
