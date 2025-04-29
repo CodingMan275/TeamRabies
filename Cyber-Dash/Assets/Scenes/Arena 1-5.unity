@@ -674,14 +674,26 @@ PrefabInstance:
       propertyPath: rangedDmg
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7813446601140375175, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: RangedAttack
+      value: 
+      objectReference: {fileID: 4978211935165497182, guid: 06ecfca7349f0c546b56adb541732a72, type: 3}
     - target: {fileID: 7813446601140375192, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
       propertyPath: rangedDmg
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7813446601140375192, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: RangedAttack
+      value: 
+      objectReference: {fileID: 4978211935165497182, guid: 06ecfca7349f0c546b56adb541732a72, type: 3}
     - target: {fileID: 7813446601140375193, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
       propertyPath: rangedDmg
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7813446601140375193, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
+      propertyPath: RangedAttack
+      value: 
+      objectReference: {fileID: 4978211935165497182, guid: 06ecfca7349f0c546b56adb541732a72, type: 3}
     - target: {fileID: 7813446601140375194, guid: e5449c4c4e5853f46b2e39eecb594ee3, type: 3}
       propertyPath: m_RootOrder
       value: 1

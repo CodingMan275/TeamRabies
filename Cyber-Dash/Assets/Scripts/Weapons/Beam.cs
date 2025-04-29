@@ -18,10 +18,15 @@ public class Beam : MonoBehaviour
         if (bulletEffects.criticalStrike)
         {
             //if 10% chance
-            float temp = Random.Range(1f, 10f);
-            if (temp <= 1f)
+            float temp = Random.Range(0f, 1f);
+            if (temp <= .1f)
             {
                 Damage = dmg * 2;
+            }
+            else
+            {
+
+                Damage = dmg;
             }
 
         }
