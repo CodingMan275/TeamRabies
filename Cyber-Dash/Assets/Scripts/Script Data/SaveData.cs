@@ -17,9 +17,9 @@ public class SaveData : ScriptableObject
     public int killCount = 0;
     public int Scrap = 0;
     public int Energy = 0;
-    public int MaxHealth = 40;
-    public int Health = 40;
-    [Range(0,45)]public int ExtraHealth = 0;  // 20 from ult + 25 from shield Buff
+    public float MaxHealth = 40;
+    public float Health = 40;
+    [Range(0,45)]public float ExtraHealth = 0;  // 20 from ult + 25 from shield Buff
     public float WalkSpeed = 15f;
     public float RunSpeed = 20f;
 

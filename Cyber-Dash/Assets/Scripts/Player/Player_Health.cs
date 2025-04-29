@@ -48,12 +48,12 @@ public class Player_Health : MonoBehaviour
             dmg -= 3;
         }
         if (ExtraHealthBar.value > 0 && dmg < ExtraHealthBar.value)
-            stats.ExtraHealth -= (int)dmg;
+            stats.ExtraHealth -= dmg;
         else if(ExtraHealthBar.value == 0) 
-        stats.Health -= stats.Health - dmg <= 0 ? Death() : (int)dmg;
+        stats.Health -= stats.Health - dmg <= .05f ? Death() : dmg;
         else
         {
-            int remainingDmg = (int)(dmg - ExtraHealthBar.value);
+            float remainingDmg = (dmg - ExtraHealthBar.value);
             stats.ExtraHealth = 0;
             stats.Health -= stats.Health - remainingDmg <= 0 ? Death() : remainingDmg;
         }

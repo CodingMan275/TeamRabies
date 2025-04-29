@@ -248,8 +248,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -692.66046, y: -426.2445}
-  m_SizeDelta: {x: 387.0789, y: 32.1321}
+  m_AnchoredPosition: {x: -709.082, y: -416.61407}
+  m_SizeDelta: {x: 344.0591, y: 49.2047}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2369160222387777791
 CanvasRenderer:
@@ -305,7 +305,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 30
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 30
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1908,7 +1908,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &6534416113392736897
 MonoBehaviour:
@@ -3513,8 +3513,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -800, y: -450}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchoredPosition: {x: -733.9785, y: -440.3}
+  m_SizeDelta: {x: 336.5819, y: 64.823}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &948553491066649886
 CanvasRenderer:
@@ -3570,7 +3570,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 40
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 40
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5281,8 +5281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 107.17444, y: 23.298183}
-  m_SizeDelta: {x: 137.6351, y: -22.9861}
+  m_AnchoredPosition: {x: 20.7, y: 23.1}
+  m_SizeDelta: {x: -0.0173, y: -22.9861}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &888426474412829645
 CanvasRenderer:
@@ -6153,8 +6153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 87.49, y: -2.6398}
-  m_SizeDelta: {x: -7.3976, y: 2.9995}
+  m_AnchoredPosition: {x: 0, y: 7.7917995}
+  m_SizeDelta: {x: -107.96, y: -8.854}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &244231800967706331
 CanvasRenderer:
@@ -6870,8 +6870,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -719.416, y: -456.9}
-  m_SizeDelta: {x: 333.5681, y: 20}
+  m_AnchoredPosition: {x: -740.91724, y: -460.6}
+  m_SizeDelta: {x: 299.1336, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5715764007877498127
 CanvasRenderer:
@@ -6967,7 +6967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.24150085, y: -0.49920082}
+  m_AnchoredPosition: {x: -0.24151611, y: -0.49920082}
   m_SizeDelta: {x: 0.4831, y: -0.9984}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8736071104500054533
@@ -7857,7 +7857,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8056955563487024752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.127, y: 0.039, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8392,7 +8392,7 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!58 &8056955563528944123
@@ -8624,7 +8624,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.54169846
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -8720,7 +8720,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 6.8636436
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -8912,7 +8912,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 57.636414
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

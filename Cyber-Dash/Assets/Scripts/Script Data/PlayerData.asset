@@ -14,31 +14,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UD: {fileID: 11400000, guid: a7d51a8e37edbe24fac05aff965da1e8, type: 2}
   SavePlayer: {fileID: 11400000, guid: 67f195d8dea24cd409b9e7b30fb20202, type: 2}
-  Round: 5
-  killCount: 299
-  Scrap: 881
-  Energy: 366
+  Round: 1
+  killCount: 0
+  Scrap: 0
+  Energy: 0
   MaxHealth: 50
-  Health: 11
+  Health: 0.4000139
   ExtraHealth: 0
   WalkSpeed: 15
   RunSpeed: 20
   FireRateMod: 1
-  DodgeCooldownMod: 1
+  DodgeCooldownMod: 0
   ScrapDropMod: 1
-  explodingBullets: 1
+  explodingBullets: 0
   criticalStrike: 0
   scrapRecycle: 0
-  healthBuff: 10
-  energyDeflector: 1
+  healthBuff: 0
+  energyDeflector: 0
   adaptiveArmor: 0
-  lastStand: 1
-  Turret: 1
+  lastStand: 0
+  Turret: 0
   repairPack: 0
   overchargeBattery: 0
   injector: 0
-  Pistol: 0
-  Bolt_Launcher: 1
+  Pistol: 1
+  Bolt_Launcher: 0
   Shotgun: 0
   PlasmaCutter: 0
   PistolFireRateMod: 1
@@ -47,16 +47,16 @@ MonoBehaviour:
   HowManyPierce: 0
   ShotgunReloadTime: 2
   ShotGunAmmo: 2
-  boltIncreaseDamage: 1
-  boltSpeedIncrease: 7
+  boltIncreaseDamage: 0
+  boltSpeedIncrease: 0
   beamCharge: 0.01
   beamDamage: 5
   gun: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
   curWep:
-    Name: 'Bolt Launcher: Tier 2'
+    Name: Pistol
     Cost: 0
-    Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
-    Description: {fileID: 21300000, guid: 187f7b5af764ac149a788c5610b22d6f, type: 3}
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
     text: 
     itemRef: {fileID: 0}
     Purchased: 0

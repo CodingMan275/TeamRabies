@@ -106,7 +106,8 @@ public class Scrappy_Phase1 : MonoBehaviour
             GameObject attack = Instantiate(RangedAttack, transform.position, transform.rotation);
             attack.transform.right = dir;
             attack.GetComponent<Scrappy_Ranged_Attack>().dmg = rangedDmg;
-            yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0)[0].clip.length / 2);
+            // yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0)[0].clip.length / 2);
+            yield return new WaitForSeconds(3.4f);
             rb.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
     }
