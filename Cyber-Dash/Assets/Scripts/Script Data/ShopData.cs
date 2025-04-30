@@ -33,10 +33,20 @@ public class ShopData : ScriptableObject
 
         foreach (FieldInfo field in fields)
         {
-            field.SetValue(target, field.GetValue(source)); // Copy value
+            if (field.FieldType == typeof(List<Upgrade>))
+                field.SetValue(target, new List<Upgrade>((IEnumerable<Upgrade>)field.GetValue(source)));
+            else
+                field.SetValue(target, field.GetValue(source)); // Copy value
         }
 
-        Debug.Log("Copied values from ObjectA to ObjectB!");
+    }
 
+    public void Reset()
+    {
+        PoolRound1 = StaticPoolRound1;
+        PoolRound2 = StaticPoolRound2;
+        PoolRound3 = StaticPoolRound3;
+        PoolRound4 = StaticPoolRound4;
+        PoolRound5 = StaticPoolRound5;
     }
 }

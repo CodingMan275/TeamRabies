@@ -32,7 +32,7 @@ public class Ranged_Aim : MonoBehaviour
         }
         Vector3 Direction = new Vector3(target.position.x - transform.position.x, target.position.y - transform.position.y);
         transform.up = Direction;
-        if (parent.CanShoot && (timeSinceLastFiredBullet > BulletDelay))
+        if (parent.CanShoot && (timeSinceLastFiredBullet > BulletDelay) && !anim.GetBool("Death"))
         {
             anim.Play("Attack");
             Fire();

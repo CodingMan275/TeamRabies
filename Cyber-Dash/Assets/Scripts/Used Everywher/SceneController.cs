@@ -15,11 +15,12 @@ public class SceneController : MonoBehaviour
     private void Start()
     {
         if(SceneManager.GetActiveScene().name.CompareTo("MainMenu") == 0)
-            if(SD.Round > 1 && Res != null)
+            if(SD.Round > 1 && Res != null && !SD.Dead)
                 Res.SetActive(true);
-        
 
-        
+
+        if (SceneManager.GetActiveScene().name.CompareTo("Defeat") == 0 && SD.lastStand)
+                Res.SetActive(true);
 
     }
 
@@ -44,6 +45,12 @@ public class SceneController : MonoBehaviour
         SceneManager.LoadScene("Shop");
     }
 
+    public void Revive()
+    {
+        SD.Revive();
+        Resume();
+    }
+
     public void MainMenu()
     {
         SD.UD.inShop = true;
@@ -53,7 +60,13 @@ public class SceneController : MonoBehaviour
     public void Arena1()
     {
         SD.Reset();
-        SceneManager.LoadScene("Arena 1-1");
+        EShop.Reset();
+        SShop.Reset();
+        SD.CopyValues(true);
+        EShop.CopyValues(true);
+        SShop.CopyValues(true);
+
+        SceneManager.LoadSceneAsync("Arena 1-1");
     }
 
     public void Exit()

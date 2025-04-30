@@ -44,7 +44,8 @@ public class Robot_Attack : MonoBehaviour
         if(CoolDownTimer <= 0 && inRange)
         {
             Timer = false;
-            StartCoroutine(Attack());
+            if (!anim.GetBool("Death"))
+                StartCoroutine(Attack());
             CoolDownTimer = AttackCoolDown;
         }
 

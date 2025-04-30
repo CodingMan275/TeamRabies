@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: Ult
   m_EditorClassIdentifier: 
   Saved: {fileID: 11400000, guid: 344a9c7cea87d134f81e4bbc46c26874, type: 2}
-  BeamRateMod: 0.5
-  PistolRateMod: 0.5
-  BoltRateMod: 0.5
+  BeamRateMod: 2
+  PistolRateMod: 2
+  BoltRateMod: 2
   ShotgunTimerMod: 1
   WalkRateMod: 2
   RunRateMod: 2
-  BeamRate: 0.005
-  PistolRate: 0.5
-  BoltRate: 0.5
+  BeamRate: 0.02
+  PistolRate: 2
+  BoltRate: 2
   ShotGunRate: 1
   WalkFast: 30
   RunFast: 40
-  UltPerc: 57
+  UltPerc: 0
   DoubleDamage: 0
-  inShop: 1
+  inShop: 0
   UltDur: 0
   UltCoolDown: 0
-  HealBuff: 20
+  HealBuff: 0
   UltTimer: 10
   UltUseage: 30

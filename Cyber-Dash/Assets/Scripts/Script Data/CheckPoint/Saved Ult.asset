@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c32c17891d44e4c85c6f040971e0ba, type: 3}
   m_Name: Saved Ult
   m_EditorClassIdentifier: 
+  Saved: {fileID: 11400000}
   BeamRateMod: 2
   PistolRateMod: 2
   BoltRateMod: 2

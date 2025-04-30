@@ -75,7 +75,5 @@ public class UltamiteData : ScriptableObject
             field.SetValue(target, field.GetValue(source)); // Copy value
         }
 
-        Debug.Log("Copied values from ObjectA to ObjectB!");
-
     }
 }

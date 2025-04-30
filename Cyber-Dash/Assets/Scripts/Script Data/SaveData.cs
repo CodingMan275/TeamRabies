@@ -22,6 +22,7 @@ public class SaveData : ScriptableObject
     [Range(0,45)]public float ExtraHealth = 0;  // 20 from ult + 25 from shield Buff
     public float WalkSpeed = 15f;
     public float RunSpeed = 20f;
+    public bool Dead = false;
 
     [Header("Mod Player")]
     //Player stats to be modified
@@ -70,18 +71,18 @@ public class SaveData : ScriptableObject
 
     public void Reset()
     {
+        UD.Reset();
 
        curWep = new Upgrade("Pistol", 0, gun, gun,"", false);
-
         Round = 1;
-         killCount = 0;
+        killCount = 0;
         Scrap = 0;
         Energy = 0;
-        Health = MaxHealth;
+        Health = MaxHealth = 40;
         ExtraHealth = 0;
         WalkSpeed = 15f;
         RunSpeed = 20;
-        UD.Reset();
+        Dead = false;
         //Player stats to be modified
         FireRateMod = 1;
         DodgeCooldownMod = 0;
@@ -106,20 +107,30 @@ public class SaveData : ScriptableObject
 
         //Weapons
         Pistol = true;
-    Bolt_Launcher = false;
-    Shotgun = false;
-    PlasmaCutter= false;
-
-
-   PistolFireRateMod = 1;
-   ShotgunFireRateMod = 1;
+        Bolt_Launcher = false;
+        Shotgun = false;
+        PlasmaCutter= false;
+        PistolFireRateMod = 1;
+        ShotgunFireRateMod = 1;
         ShotgunReloadTime = 2;
-   BoltLauncherFireRateMod = 1;
-  HowManyPierce = 0;
+         BoltLauncherFireRateMod = 1;
+         HowManyPierce = 0;
         boltIncreaseDamage = 0;
         boltSpeedIncrease = 0;
         beamCharge = .01f;
         beamDamage = 5;
+
+        PastWeapons.Clear();
+    }
+
+
+
+    public void Revive()
+    {
+        SavePlayer.lastStand = false;
+        SavePlayer.Dead = false;
+        Dead = false;
+        SavePlayer.Health = SavePlayer.MaxHealth * 0.5f;
     }
 
     // This copies the junk
@@ -133,11 +144,11 @@ public class SaveData : ScriptableObject
 
             foreach (FieldInfo field in fields)
             {
+                if(field.FieldType ==typeof(List<Upgrade>))
+                field.SetValue(target, new List<Upgrade>((IEnumerable<Upgrade>)field.GetValue(source)));
+                else
                 field.SetValue(target, field.GetValue(source)); // Copy value
             }
-
-            Debug.Log("Copied values from ObjectA to ObjectB!");
-        
     }
 
 

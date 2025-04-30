@@ -88,36 +88,18 @@ public class Player_Health : MonoBehaviour
         WasHurt = false;
     }
 
+    public void LastStand()
+    {
+        stats.lastStand = false;
+        stats.Health = (stats.MaxHealth + stats.healthBuff) * 0.5f;
+        HealthBar.value = stats.Health;
+    }
+
 
     private int Death()
     {
-        if (stats.lastStand)
-        {
-            stats.lastStand = false;
-            stats.Health = stats.MaxHealth + stats.healthBuff;
-            HealthBar.value = stats.MaxHealth + stats.healthBuff;
-           // stats.ExtraHealth = stats.healthBuff;
-            if (stats.Round == 2)
-            {
-                SC.ChangeScene("Arena 1-2");
-            }
-            else if (stats.Round == 3)
-            {
-                SC.ChangeScene("Arena 1-3");
-            }
-            else if (stats.Round == 4)
-            {
-                SC.ChangeScene("Arena 1-4");
-            }
-            else if (stats.Round == 5)
-            {
-                SC.ChangeScene("Arena 1-5");
-            }
-        }
-        else
-        {
-            SC.ChangeScene("Defeat");
-        }
+        stats.Dead = true;
+        SC.ChangeScene("Defeat");
         return 0;
     }
 }

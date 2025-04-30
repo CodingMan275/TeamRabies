@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df75475f4f7ed7a44899eb63bc16d7ea, type: 3}
   m_Name: Saved E Shop
   m_EditorClassIdentifier: 
+  SaveShop: {fileID: 11400000}
   PoolRound1: []
   PoolRound2: []
   PoolRound3: []
