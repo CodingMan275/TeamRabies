@@ -8,4 +8,12 @@ AnimatorOverrideController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Scrappy Meele
   m_Controller: {fileID: 9100000, guid: cd2a97893c78c284696e4e26c5239565, type: 2}
-  m_Clips: []
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: fe916d15c7eee87468052654b0a88c6f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a1a424ec8a1f5ea45a658c4a7acc27cf, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1c71ed6547be1c8458ab7f8d57280bfd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a78fcde8b949ddb4fbfd238727e18e2a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: db023dfdcb00628448ee104bd88b204b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: db023dfdcb00628448ee104bd88b204b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2dfd91cdacf5ac14183c64a834750b62, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a0b1ebd987b583640b2b8072e9ade207, type: 2}
