@@ -14,50 +14,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UD: {fileID: 11400000, guid: a7d51a8e37edbe24fac05aff965da1e8, type: 2}
   SavePlayer: {fileID: 11400000}
-  Round: 1
-  killCount: 0
-  Scrap: 0
-  Energy: 0
+  Round: 3
+  killCount: 180
+  Scrap: 405
+  Energy: 161
   MaxHealth: 40
   Health: 20
   ExtraHealth: 0
   WalkSpeed: 15
   RunSpeed: 20
-  FireRateMod: 0
+  Dead: 0
+  FireRateMod: 0.85
   DodgeCooldownMod: 0
   ScrapDropMod: 1
-  explodingBullets: 0
-  criticalStrike: 0
+  explodingBullets: 1
+  criticalStrike: 1
   scrapRecycle: 0
   healthBuff: 0
   energyDeflector: 0
   adaptiveArmor: 0
-  lastStand: 1
+  lastStand: 0
   Turret: 0
   repairPack: 0
-  overchargeBattery: 0
-  injector: 1
-  Pistol: 1
-  Bolt_Launcher: 0
+  overchargeBattery: 1
+  injector: 0
+  Pistol: 0
+  Bolt_Launcher: 1
   Shotgun: 0
   PlasmaCutter: 0
-  PistolFireRateMod: 1
+  PistolFireRateMod: 0.8
   ShotgunFireRateMod: 1
   BoltLauncherFireRateMod: 1
   HowManyPierce: 0
   ShotgunReloadTime: 2
-  ShotGunAmmo: 2
-  boltIncreaseDamage: 0
-  boltSpeedIncrease: 0
+  ShotGunAmmo: 4
+  boltIncreaseDamage: 1
+  boltSpeedIncrease: 7
   beamCharge: 0.01
   beamDamage: 5
   gun: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
   curWep:
-    Name: Pistol
+    Name: 'Bolt Launcher: Tier 2'
     Cost: 0
-    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: {fileID: 21300000, guid: a52b4cd1a0741e8429e74d26d150540e, type: 3}
+    Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
+    Description: {fileID: 21300000, guid: 187f7b5af764ac149a788c5610b22d6f, type: 3}
     text: 
     itemRef: {fileID: 0}
-    Purchased: 1
-  PastWeapons: []
+    Purchased: 0
+  PastWeapons:
+  - Name: 'Pistol: Tier 2'
+    Cost: 0
+    Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: 8e533d592f899ac4b84eb9401c3ea565, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: 'Bolt Launcher: Tier 2'
+    Cost: 0
+    Sprite: {fileID: 21300000, guid: 77f66dca9336e1d49b372d1f80e7ce6a, type: 3}
+    Description: {fileID: 21300000, guid: 187f7b5af764ac149a788c5610b22d6f, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
+  - Name: Shotgun
+    Cost: 0
+    Sprite: {fileID: 21300000, guid: bc177a533b764ff40a6889d1b30ccad2, type: 3}
+    Description: {fileID: 21300000, guid: fd4128bd0ea162b42956dea5a8fbeea1, type: 3}
+    text: 
+    itemRef: {fileID: 0}
+    Purchased: 0
