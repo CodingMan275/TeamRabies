@@ -16,6 +16,7 @@ public class Ranged_Robot : MonoBehaviour
     private bool WasHurt = false;
 
     public SaveData Player;
+    public AudioSource Hurt;
 
     public float speed;
     public int ShootRange = 16;
@@ -79,6 +80,9 @@ public class Ranged_Robot : MonoBehaviour
         {
             Die = true;
         }
+
+        if (WasHurt && !Hurt.isPlaying)
+            Hurt.Play();
 
 
 

@@ -18,6 +18,10 @@ public class Robot_Attack : MonoBehaviour
     private Transform pt;
 
     Animator anim;
+
+    [Tooltip("Alfe has a 1/x chance to scream")][Range(1, 5)] public int ALFEVocal = 1;
+    public AudioSource[] Hurt;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +48,7 @@ public class Robot_Attack : MonoBehaviour
         if(CoolDownTimer <= 0 && inRange)
         {
             Timer = false;
-            if (!anim.GetBool("Death"))
+            if (!anim.GetBool("Death") && !anim.GetBool("Attack"))
                 StartCoroutine(Attack());
             CoolDownTimer = AttackCoolDown;
         }
@@ -69,12 +73,22 @@ public class Robot_Attack : MonoBehaviour
         Timer = CanAttack = false;
     }
 
+    int var = 0;
     IEnumerator Attack()
     {
         anim.Play("Attack");
         pt.GetComponent<Player_Health>().TakeDamage(AttackDmg);
+        if (Random.Range(0, ALFEVocal) == 0 && !Hurt[var].isPlaying)
+        {
+            var = (int)Random.Range(0, Hurt.Length);
+            Hurt[var].Play();
+            yield return new WaitForSeconds(Hurt[var].clip.length);
+        }
+        else
        yield return new WaitForSeconds(.15f);
         Timer = true;
 
     }
+
+
 }

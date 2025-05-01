@@ -20,6 +20,7 @@ public class Basic_Robot : MonoBehaviour
     public bool Die = false;
 
     public SaveData Player;
+    public AudioSource Hurt;
 
    // public bool playerInRange;
 
@@ -77,8 +78,9 @@ public class Basic_Robot : MonoBehaviour
         anim.SetBool("Move" , (rb.velocity.magnitude > .1f || rb.velocity.magnitude < -.1f) && !Die);
         anim.SetBool("Death", Die);
 
+        if (WasHurt && !Hurt.isPlaying)
+            Hurt.Play();
 
-        
         rb.velocity = (!StartDelay && !Die) ? new Vector2(dir.x, dir.y) * speed : Vector2.zero;
 
 

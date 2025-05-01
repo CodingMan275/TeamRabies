@@ -27,17 +27,11 @@ public class Beam_Logic : MonoBehaviour
     float minCharge = 0f;
     float curCharge = 0f;
     
-    // Start is called before the first frame update
-    void Start()
+
+    private void OnEnable()
     {
         IC = transform.parent.GetComponent<InputController>();
         WPC = GetComponent<Weapon_Controller>();
-        IC.OnShootPressed += Charge;
-        IC.onShootReleased += Fire;
-        visibleCharge.SetActive(true);
-    }
-    private void OnEnable()
-    {
         IC.OnShootPressed +=Charge;
         IC.onShootReleased += Fire;
         visibleCharge.SetActive(true);
@@ -63,6 +57,7 @@ public class Beam_Logic : MonoBehaviour
 
     public void Fire()
     {
+        StartCoroutine(Bang());
         print("Released");
         curCharge = 0;
         visibleCharge.GetComponent<SpriteRenderer>().size = new Vector2(minCharge, .36f);

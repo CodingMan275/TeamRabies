@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Reflection;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 [CreateAssetMenu(menuName ="SaveData/PlayerSave")]
 public class SaveData : ScriptableObject

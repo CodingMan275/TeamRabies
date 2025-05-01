@@ -20,21 +20,21 @@ MonoBehaviour:
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Rapid Fire Circuit (10): Increase fire rate by 15%'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Dodge Booster
     Cost: 25
     Sprite: {fileID: 21300000, guid: 246bb2a5a981bde4caffe6a059eb5cff, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Dodge Booster (25): Decrease dodge cooldown by 50%'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Explosive Rounds
     Cost: 20
     Sprite: {fileID: 21300000, guid: 3b0ab04ad2232c042a03618a3a0e54a9, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Explosive Rounds (20): Create a small explosion when the bullet is destroyed'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Turret
     Cost: 25
     Sprite: {fileID: 21300000, guid: 3a4de797f40f7c94389254e12f01b557, type: 3}
@@ -42,21 +42,21 @@ MonoBehaviour:
     text: 'Turrect (25): Replace secondary ability to create a turret that shoots
       at nearby enemies'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Critical Strike
     Cost: 15
     Sprite: {fileID: 21300000, guid: d4bdb9f909b88ba41aa50ab45bb0e0bd, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Critical Strike (15): Get a 10% chance to deal double damage'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Scrap Recycle
     Cost: 20
     Sprite: {fileID: 21300000, guid: 38cbdf581c7da9146a86f186c7fde718, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Scrap Recycle (20): Increase scrp drops by 20%'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Reinforced Chassis
     Cost: 10
     Sprite: {fileID: 21300000, guid: 3feb69ba3f1de714298a2650a47172c8, type: 3}
@@ -71,7 +71,7 @@ MonoBehaviour:
     text: 'Energy Deflector (15): Gain a 10% chance to not take damage from enemy
       bullets '
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Overcharge
     Cost: 60
     Sprite: {fileID: 21300000, guid: 3322373ddb31cad4e89aca20494e8080, type: 3}
@@ -79,14 +79,14 @@ MonoBehaviour:
     text: 'Overcharge (60): Replace secondary ability to gain 25% ult charge on a
       30 second cooldown'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Repair Kit
     Cost: 40
     Sprite: {fileID: 21300000, guid: 588ae5b7e6dece344b04e0b2c99623e7, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Repair Kit (40): Replace secondary ability to reapair 25hp every 15 seconds'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Adrenaline Injector
     Cost: 90
     Sprite: {fileID: 21300000, guid: ffcc3748a56ae014eaca4d114da8f007, type: 3}
@@ -95,67 +95,7 @@ MonoBehaviour:
       faster by 25% for 10 seconds'
     itemRef: {fileID: 0}
     Purchased: 0
-  PoolRound2:
-  - Name: Rapid Fire Circuit
-    Cost: 10
-    Sprite: {fileID: 21300000, guid: b24efc6ac953ced41a2356a13ffd4df3, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Rapid Fire Circuit (10): Increase fire rate by 15%'
-    itemRef: {fileID: 0}
-    Purchased: 1
-  - Name: Dodge Booster
-    Cost: 25
-    Sprite: {fileID: 21300000, guid: 246bb2a5a981bde4caffe6a059eb5cff, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Dodge Booster (25): Decrease dodge cooldown by 50%'
-    itemRef: {fileID: 0}
-    Purchased: 1
-  - Name: Turret
-    Cost: 25
-    Sprite: {fileID: 21300000, guid: 3a4de797f40f7c94389254e12f01b557, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Turrect (25): Replace secondary ability to create a turret that shoots
-      at nearby enemies'
-    itemRef: {fileID: 0}
-    Purchased: 1
-  - Name: Scrap Recycle
-    Cost: 20
-    Sprite: {fileID: 21300000, guid: 38cbdf581c7da9146a86f186c7fde718, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Scrap Recycle (20): Increase scrp drops by 20%'
-    itemRef: {fileID: 0}
-    Purchased: 1
-  - Name: Reinforced Chassis
-    Cost: 10
-    Sprite: {fileID: 21300000, guid: 3feb69ba3f1de714298a2650a47172c8, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Reinforced Chassis (10): Increase max health by 10hp'
-    itemRef: {fileID: 0}
-    Purchased: 0
-  - Name: Energy Deflector
-    Cost: 15
-    Sprite: {fileID: 21300000, guid: 243fdf2319c332542a06cd68244cb2f6, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Energy Deflector (15): Gain a 10% chance to not take damage from enemy
-      bullets '
-    itemRef: {fileID: 0}
-    Purchased: 1
-  - Name: Overcharge
-    Cost: 60
-    Sprite: {fileID: 21300000, guid: 3322373ddb31cad4e89aca20494e8080, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Overcharge (60): Replace secondary ability to gain 25% ult charge on a
-      30 second cooldown'
-    itemRef: {fileID: 0}
-    Purchased: 1
-  - Name: Adrenaline Injector
-    Cost: 90
-    Sprite: {fileID: 21300000, guid: ffcc3748a56ae014eaca4d114da8f007, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Adrenaline Injector (90): Replace secondary abiltiy to move and shoot
-      faster by 25% for 10 seconds'
-    itemRef: {fileID: 0}
-    Purchased: 0
+  PoolRound2: []
   PoolRound3:
   - Name: Last Stand
     Cost: 20
@@ -165,45 +105,7 @@ MonoBehaviour:
       level at 50% health'
     itemRef: {fileID: 0}
     Purchased: 0
-  - Name: Reinforced Chassis
-    Cost: 10
-    Sprite: {fileID: 21300000, guid: 3feb69ba3f1de714298a2650a47172c8, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Reinforced Chassis (10): Increase max health by 10hp'
-    itemRef: {fileID: 0}
-    Purchased: 0
-  - Name: Adrenaline Injector
-    Cost: 90
-    Sprite: {fileID: 21300000, guid: ffcc3748a56ae014eaca4d114da8f007, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Adrenaline Injector (90): Replace secondary abiltiy to move and shoot
-      faster by 25% for 10 seconds'
-    itemRef: {fileID: 0}
-    Purchased: 0
-  PoolRound4:
-  - Name: Last Stand
-    Cost: 20
-    Sprite: {fileID: 21300000, guid: 7df4d99327d30194db0580e7353da3e2, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Last Stand (20):  A one time use when you would die instead restart the
-      level at 50% health'
-    itemRef: {fileID: 0}
-    Purchased: 0
-  - Name: Reinforced Chassis
-    Cost: 10
-    Sprite: {fileID: 21300000, guid: 3feb69ba3f1de714298a2650a47172c8, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Reinforced Chassis (10): Increase max health by 10hp'
-    itemRef: {fileID: 0}
-    Purchased: 0
-  - Name: Adrenaline Injector
-    Cost: 90
-    Sprite: {fileID: 21300000, guid: ffcc3748a56ae014eaca4d114da8f007, type: 3}
-    Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
-    text: 'Adrenaline Injector (90): Replace secondary abiltiy to move and shoot
-      faster by 25% for 10 seconds'
-    itemRef: {fileID: 0}
-    Purchased: 0
+  PoolRound4: []
   PoolRound5: []
   StaticPoolRound1:
   - Name: Rapid Fire Circuit
@@ -212,21 +114,21 @@ MonoBehaviour:
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Rapid Fire Circuit (10): Increase fire rate by 15%'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Dodge Booster
     Cost: 25
     Sprite: {fileID: 21300000, guid: 246bb2a5a981bde4caffe6a059eb5cff, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Dodge Booster (25): Decrease dodge cooldown by 50%'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Explosive Rounds
     Cost: 20
     Sprite: {fileID: 21300000, guid: 3b0ab04ad2232c042a03618a3a0e54a9, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Explosive Rounds (20): Create a small explosion when the bullet is destroyed'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Turret
     Cost: 25
     Sprite: {fileID: 21300000, guid: 3a4de797f40f7c94389254e12f01b557, type: 3}
@@ -234,21 +136,21 @@ MonoBehaviour:
     text: 'Turrect (25): Replace secondary ability to create a turret that shoots
       at nearby enemies'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Critical Strike
     Cost: 15
     Sprite: {fileID: 21300000, guid: d4bdb9f909b88ba41aa50ab45bb0e0bd, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Critical Strike (15): Get a 10% chance to deal double damage'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Scrap Recycle
     Cost: 20
     Sprite: {fileID: 21300000, guid: 38cbdf581c7da9146a86f186c7fde718, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Scrap Recycle (20): Increase scrp drops by 20%'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Reinforced Chassis
     Cost: 10
     Sprite: {fileID: 21300000, guid: 3feb69ba3f1de714298a2650a47172c8, type: 3}
@@ -263,7 +165,7 @@ MonoBehaviour:
     text: 'Energy Deflector (15): Gain a 10% chance to not take damage from enemy
       bullets '
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Overcharge
     Cost: 60
     Sprite: {fileID: 21300000, guid: 3322373ddb31cad4e89aca20494e8080, type: 3}
@@ -271,14 +173,14 @@ MonoBehaviour:
     text: 'Overcharge (60): Replace secondary ability to gain 25% ult charge on a
       30 second cooldown'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Repair Kit
     Cost: 40
     Sprite: {fileID: 21300000, guid: 588ae5b7e6dece344b04e0b2c99623e7, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Repair Kit (40): Replace secondary ability to reapair 25hp every 15 seconds'
     itemRef: {fileID: 0}
-    Purchased: 1
+    Purchased: 0
   - Name: Adrenaline Injector
     Cost: 90
     Sprite: {fileID: 21300000, guid: ffcc3748a56ae014eaca4d114da8f007, type: 3}
