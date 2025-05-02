@@ -634,11 +634,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -654,8 +654,8 @@ Canvas:
   m_GameObject: {fileID: 1043769010}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1314243538}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1073,6 +1073,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010ca7a463abe254894a9969607ff5c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &1314243538 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8056955564506772673, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+  m_PrefabInstance: {fileID: 1944432828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1329925252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1508,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2363712351608359396, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1314243538}
+    - target: {fileID: 2363712351608359396, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363712351608359396, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2363712351608359396, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_OverridePixelPerfect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3295321120085301765, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 2
@@ -1627,8 +1648,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8056955563528944125, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8056955563528944126, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056955564506772673, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+      propertyPath: m_AllowDynamicResolution
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8311743821360537599, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
