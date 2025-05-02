@@ -15,11 +15,11 @@ MonoBehaviour:
   UD: {fileID: 11400000, guid: a7d51a8e37edbe24fac05aff965da1e8, type: 2}
   SavePlayer: {fileID: 11400000, guid: 67f195d8dea24cd409b9e7b30fb20202, type: 2}
   Round: 1
-  killCount: 40
-  Scrap: 193
-  Energy: 34
+  killCount: 3
+  Scrap: 1240
+  Energy: 2937
   MaxHealth: 40
-  Health: 14
+  Health: 40
   ExtraHealth: 0
   WalkSpeed: 15
   RunSpeed: 20

@@ -52,3 +52,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI
+    uniqueID: 493914485
+    locked: 0
+  - name: Shop
+    uniqueID: 1580931251
+    locked: 0
+  - name: Pause
+    uniqueID: 468913269
+    locked: 0
