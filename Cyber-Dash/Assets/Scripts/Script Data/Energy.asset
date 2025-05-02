@@ -80,13 +80,13 @@ MonoBehaviour:
       30 second cooldown'
     itemRef: {fileID: 0}
     Purchased: 0
-  - Name: Repair Kit
+  - Name: Repair Pack
     Cost: 40
     Sprite: {fileID: 21300000, guid: 588ae5b7e6dece344b04e0b2c99623e7, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Repair Kit (40): Replace secondary ability to reapair 25hp every 15 seconds'
     itemRef: {fileID: 0}
-    Purchased: 0
+    Purchased: 1
   - Name: Adrenaline Injector
     Cost: 90
     Sprite: {fileID: 21300000, guid: ffcc3748a56ae014eaca4d114da8f007, type: 3}
@@ -174,13 +174,13 @@ MonoBehaviour:
       30 second cooldown'
     itemRef: {fileID: 0}
     Purchased: 0
-  - Name: Repair Kit
+  - Name: Repair Pack
     Cost: 40
     Sprite: {fileID: 21300000, guid: 588ae5b7e6dece344b04e0b2c99623e7, type: 3}
     Description: {fileID: 21300000, guid: d8dc09957cb669745a778ce794ff91df, type: 3}
     text: 'Repair Kit (40): Replace secondary ability to reapair 25hp every 15 seconds'
     itemRef: {fileID: 0}
-    Purchased: 0
+    Purchased: 1
   - Name: Adrenaline Injector
     Cost: 90
     Sprite: {fileID: 21300000, guid: ffcc3748a56ae014eaca4d114da8f007, type: 3}

@@ -15,11 +15,11 @@ MonoBehaviour:
   UD: {fileID: 11400000, guid: a7d51a8e37edbe24fac05aff965da1e8, type: 2}
   SavePlayer: {fileID: 11400000, guid: 67f195d8dea24cd409b9e7b30fb20202, type: 2}
   Round: 1
-  killCount: 19
-  Scrap: 69
+  killCount: 40
+  Scrap: 193
   Energy: 34
   MaxHealth: 40
-  Health: 30
+  Health: 14
   ExtraHealth: 0
   WalkSpeed: 15
   RunSpeed: 20
@@ -57,7 +57,7 @@ MonoBehaviour:
     Name: Pistol
     Cost: 0
     Sprite: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
-    Description: {fileID: 21300000, guid: 547d1559bfbfe16408758a454a60b4d1, type: 3}
+    Description: {fileID: 21300000, guid: a52b4cd1a0741e8429e74d26d150540e, type: 3}
     text: 
     itemRef: {fileID: 0}
     Purchased: 0

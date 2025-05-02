@@ -24,6 +24,8 @@ public class Enemy_Counter : MonoBehaviour
 
     public SaveData SD;
 
+    public GameObject Doomba;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,10 @@ public class Enemy_Counter : MonoBehaviour
         if(Activate)
         {
         Text.text= "Remaining: "+Remaining+" / "+Enemies; 
+
+        if(Doomba != null && Remaining < 2)
+                Doomba.SetActive(true);
+
         if(Remaining == 0 && playaudio)
             {
                 playaudio = false;
@@ -58,6 +64,8 @@ public class Enemy_Counter : MonoBehaviour
         foreach(EnemySpawner e in Spawner)
             Remaining += e.TotalEnemy;
         Remaining += E.Length;
+        if (Doomba != null)
+            Remaining++;
         Enemies = Remaining;
         Activate = true;
     }
