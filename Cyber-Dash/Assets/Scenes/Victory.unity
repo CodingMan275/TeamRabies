@@ -220,6 +220,11 @@ PrefabInstance:
       objectReference: {fileID: 1091292985}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+--- !u!20 &154623651 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8056955564506772673, guid: 3970e193d85062d47bf93c7fd1c1fae8, type: 3}
+  m_PrefabInstance: {fileID: 154623650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1091292985
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +257,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2fc3786f0fd3a4c9616ab46575a678, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Res: {fileID: 0}
   SD: {fileID: 11400000, guid: 678ddb9367c1e5f4d8df6e9d8b78a3fc, type: 2}
+  EShop: {fileID: 0}
+  SShop: {fileID: 0}
 --- !u!114 &1091292987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,11 +521,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -533,8 +541,8 @@ Canvas:
   m_GameObject: {fileID: 2037861546}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 154623651}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -542,6 +550,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 493914485
   m_SortingOrder: 0
   m_TargetDisplay: 0

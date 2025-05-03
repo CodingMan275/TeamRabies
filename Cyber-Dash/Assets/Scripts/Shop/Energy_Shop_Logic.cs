@@ -157,6 +157,7 @@ public class Energy_Shop_Logic : MonoBehaviour
                 player.Turret = false;
                 player.repairPack = true;
                 player.overchargeBattery = false;
+                player.injector = false;
                 playerInScene.GetComponent<Ability_Turret>().enabled = false;
                 playerInScene.GetComponent<Ability_RepairPack>().enabled = true;
                 playerInScene.GetComponent<Ability_Overcharge>().enabled = false;
